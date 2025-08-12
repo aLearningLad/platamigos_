@@ -1,0 +1,17 @@
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp"; -- allows me to use that uuid generating function
+
+CREATE TYPE tr_type AS ENUM('signup', 'login', 'loan_request_created', 'offer', 'instalment_paid', 'settlement', 'default_on_loan', 'denied_offer', 'loan_funded', 'profile_updated', 'other', 'blacklisted');
+
+CREATE TABLE transactions_log (
+  tr_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  debtor_id UUID REFERENCES all_users(user_id) ON DELETE CASCADE DEFAULT NULL,
+  creditor_id UUID REFERENCES all_users(user_id) ON DELETE CASCADE DEFAULT NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT NOW(),
+  amount NUMERIC(12,2) DEFAULT NULL,
+  details TEXT NOT NULL,
+  action_type tr_type NOT NULL
+);
+
+-- Indexes for performance
+CREATE INDEX idx_transactions_created_at ON transactions_log(created_at);
+CREATE INDEX idx_transactions_action ON transactions_log(action_type);

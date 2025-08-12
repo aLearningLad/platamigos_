@@ -1,0 +1,26 @@
+################---> loans table
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp"; -- allows me to use that uuid generating function
+
+CREATE TYPE loan_type AS ENUM('request', 'offer');
+
+CREATE TYPE statuses AS ENUM('pending', 'funded', 'repaid', 'defaulted');
+
+CREATE TABLE loans (
+  loan_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(), 
+  user_id UUID REFERENCES all_users(user_id) ON DELETE CASCADE,
+  type loan_type NOT NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT NOW(),
+  pcp INTEGER NOT NULL, --principle amount
+  due NUMERIC(12,2) NOT NULL, --repayable. This will be adjusted with each repayment, or added to w/ interest if so agreed
+  term INTEGER NOT NULL, --how many months given to repay
+  due_from DATE NOT NULL, 
+  due_by DATE NOT NULL,
+  updated_at TIMESTAMP NOT NULL DEFAULT NOW(),
+  rate NUMERIC(5,2) NOT NULL,
+  description TEXT NOT NULL,
+  status statuses NOT NULL DEFAULT 'pending'
+);
+
+-- Indexes for performance
+CREATE INDEX idx_loans_user_id ON loans(user_id);
+CREATE INDEX idx_loans_status ON loans(status);
