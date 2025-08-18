@@ -3,8 +3,6 @@ import { createClient } from "@/utils/supabase/client";
 import { useRouter } from "next/navigation";
 import { FormEvent } from "react";
 
-type NextRouter = ReturnType<typeof useRouter>;
-
 export const signInSubmit = async (
   e: FormEvent,
   email: string,
