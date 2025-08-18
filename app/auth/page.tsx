@@ -19,7 +19,7 @@ const AuthPage = () => {
     <div className=" w-full min-h-screen bg-black flex flex-col items-center text-white justify-center">
       <h1>Auth</h1>
       <form
-        onSubmit={(e: FormEvent) => signInSubmit(e, email, password)}
+        onSubmit={(e: FormEvent) => signInSubmit(e, email, password, router)}
         className=" flex flex-col space-y-5 "
       >
         <input
