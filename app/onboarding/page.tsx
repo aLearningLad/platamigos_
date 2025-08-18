@@ -14,6 +14,7 @@ const handleOnboarding = async (
     const supabase = createClient();
     const user_id = (await supabase.auth.getUser()).data.user?.id;
     const email = (await supabase.auth.getUser()).data.user?.email;
+    const last_login_at = showTime();
 
     // write user to all_users
     const { error: onboarding_error } = await supabase
@@ -32,14 +33,43 @@ const handleOnboarding = async (
     if (onboarding_error) throw new Error(onboarding_error.details);
 
     // write to credit_scores table
-
+    const { error: credit_score_error } = await supabase
+      .from("credit_scores")
+      .insert({
+        user_id: user_id,
+        score: 0,
+        balance: 2000,
+        loans_funded: 0,
+        debts_settled: 0,
+        total_creditors: 0,
+        total_debtors: 0,
+      });
     // catch error
+    if (credit_score_error) throw new Error(credit_score_error.details);
 
     // write to transaction_log
-
+    const { error: transaction_log_error } = await supabase
+      .from("transaction_log")
+      .insert({
+        debtor_id: user_id,
+        creditor_id: user_id,
+        details: `User with ID-${user_id} has been onboarded`,
+        action_type: "signup",
+      });
     // catch error
-  } catch (e) {}
+    if (transaction_log_error) throw new Error(transaction_log_error.details);
+  } catch (e) {
+    alert("Onboarding failed. Please try again");
+    console.log("Onboarding has failed. Here's why: ", e);
+    return;
+  }
 };
+
+function showTime() {
+  const date = new Date();
+  const time = date.toTimeString();
+  return time;
+}
 
 const OnboardingPage = () => {
   const [first_name, set_first_name] = useState<string>("");
@@ -88,6 +118,7 @@ const OnboardingPage = () => {
             ? " bg-gray-400 brightness-[40%]"
             : "bg-green-400 brightness-100"
         }`}
+        onClick={showTime}
       >
         Complete!
       </button>
