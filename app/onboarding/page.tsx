@@ -2,7 +2,44 @@
 
 "use client";
 
-import { useState } from "react";
+import { createClient } from "@/utils/supabase/client";
+import { ChangeEvent, useState } from "react";
+
+const handleOnboarding = async (
+  first_name: string,
+  surname: string,
+  alias: string
+) => {
+  try {
+    const supabase = createClient();
+    const user_id = (await supabase.auth.getUser()).data.user?.id;
+    const email = (await supabase.auth.getUser()).data.user?.email;
+
+    // write user to all_users
+    const { error: onboarding_error } = await supabase
+      .from("all_users")
+      .insert({
+        user_id: user_id,
+        name: first_name,
+        surname: surname,
+        email: email,
+        is_active: true,
+        role: "borrower/lender",
+        alias: alias,
+      });
+
+    // catch error
+    if (onboarding_error) throw new Error(onboarding_error.details);
+
+    // write to credit_scores table
+
+    // catch error
+
+    // write to transaction_log
+
+    // catch error
+  } catch (e) {}
+};
 
 const OnboardingPage = () => {
   const [first_name, set_first_name] = useState<string>("");
@@ -17,6 +54,9 @@ const OnboardingPage = () => {
         name="first_name"
         id="first_name"
         placeholder="first name"
+        onChange={(e: ChangeEvent<HTMLInputElement>) =>
+          set_first_name(e.target.value)
+        }
       />
       <input
         className=" bg-black w-56 h-8 text-white"
@@ -24,6 +64,9 @@ const OnboardingPage = () => {
         name="surname"
         id="surname"
         placeholder="surname"
+        onChange={(e: ChangeEvent<HTMLInputElement>) =>
+          set_surname(e.target.value)
+        }
       />
       <input
         className=" bg-black w-56 h-8 text-white"
@@ -31,9 +74,21 @@ const OnboardingPage = () => {
         name="alias"
         id="alias"
         placeholder="alias"
+        onChange={(e: ChangeEvent<HTMLInputElement>) =>
+          set_alias(e.target.value)
+        }
       />
 
-      <button className=" h-fit py-2 w-fit px-8 bg-black text-white">
+      <button
+        disabled={
+          first_name.length < 5 || surname.length < 1 || alias.length < 3
+        }
+        className={`  text-white px-7 h-8 ${
+          first_name.length < 5 || surname.length < 1 || alias.length < 3
+            ? " bg-gray-400 brightness-[40%]"
+            : "bg-green-400 brightness-100"
+        }`}
+      >
         Complete!
       </button>
     </div>
