@@ -14,3 +14,8 @@ CREATE TABLE all_users (
   role possible_roles NOT NULL
 );
 ##########################################################
+
+
+############## ADDING ALIAS COLUMN
+ALTER TABLE all_users 
+ADD COLUMN alias TEXT NOT NULL;

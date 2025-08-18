@@ -20,4 +20,6 @@ export const signInSubmit = async (
   if (res.error === "AUTH_ERROR") {
     console.log("wrong credentials, bud!");
   }
+
+  // wait to sign in, then check if all_users.onboarder == true: push to dash, else push to onboarding
 };

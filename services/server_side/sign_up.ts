@@ -17,25 +17,25 @@ export const handleSignUp = async (email: string, password: string) => {
     //   if sign in error occurs
     if (signUpError) throw signUpError;
 
-    return {
-      success: true,
-      status: 200,
-      message: "Successfully signed up",
-    };
+    //succesfully signed up
+    return "Successfully signed up";
   } catch (e) {
     if (e instanceof AuthApiError) {
-      console.error(e);
+      console.error(
+        "handleSignUp has failed. Here is a possible cause: ",
+        e.cause
+      );
+      console.error("Here is the error message: ", e.message);
+
+      if (e.message == "User already registered") {
+        return "User already registered";
+      }
 
       return {
         e,
       };
     }
-  }
 
-  return {
-    success: false,
-    error: "UNKNOWN_ERROR",
-    status: 500,
-    message: "An unexpected error occured. Please try again",
-  };
+    console.log("Unable to sign up because of this: ", e);
+  }
 };
