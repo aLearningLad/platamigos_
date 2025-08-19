@@ -1,24 +1,24 @@
 "use client";
 
-import { loan_statuses, loan_types } from "@/enums";
-import { ChangeEvent, useState } from "react";
+import { loan_types } from "@/enums";
+import {
+  ChangeEvent,
+  ChangeEventHandler,
+  TextareaHTMLAttributes,
+  useState,
+} from "react";
 
-const RequestLoanPage = () => {
+const RequestALoanPage = () => {
+  const [pcp, set_pcp] = useState<number>(0);
   const [loan_type, set_loan_type] = useState<string>(loan_types.RQT);
-  const [pcp, set_pcp] = useState<number>(1500); // priciple amount
-  const [due, set_due] = useState<number>(0); // total owed
-  const [term, set_term] = useState<number>(0);
-  const [due_from, set_due_from] = useState<Date>();
-  const [due_by, set_due_by] = useState<Date>();
-  const [rate, set_rate] = useState<number>();
-  const [description, set_description] = useState<string>();
-  const [status, set_status] = useState<string>(loan_statuses.PND);
+  const [description, set_description] = useState<string>("");
+  const [title, set_title] = useState<string>();
 
   return (
     <div className=" w-full min-h-screen flex flex-col items-center justify-center space-y-5">
       {/* pcp */}
       <div className=" flex flex-col gap-2 items-center">
-        <label htmlFor="pcp">Principle</label>
+        <label htmlFor="pcp">{"I'm"} asking for</label>
         <input
           name="pcp"
           className=" border-2 border-black"
@@ -34,20 +34,31 @@ const RequestLoanPage = () => {
         />
       </div>
 
-      {/* rate */}
-      <div className=" flex flex-col gap-2 items-center">
-        <label htmlFor="rate">Interest {"%"}</label>
+      {/* title */}
+      <div className=" flex flex-col items-center justify-center">
+        <label htmlFor="title">Title</label>
         <input
-          name="rate"
-          className=" border-2 border-black"
-          type="number"
-          min={0}
-          max={30}
-          step={2}
-          defaultValue={12}
-          value={rate}
+          type="text"
+          name="title"
+          placeholder="Eg. Need deposit for Porsche"
+          className=" bg-gray-400/50 text-sm w-60 px-3 py-2"
+          value={title}
           onChange={(e: ChangeEvent<HTMLInputElement>) =>
-            set_rate(e.target.valueAsNumber)
+            set_title(e.target.value)
+          }
+        />
+      </div>
+
+      {/* description */}
+      <div className=" flex flex-col items-center justify-center">
+        <label htmlFor="description">Description</label>
+        <textarea
+          className=" min-h-[25vh] max-h-[40vh] overflow-auto p-4 bg-gray-500/40 "
+          name="description"
+          id="description"
+          value={description}
+          onChange={(e: ChangeEvent<HTMLTextAreaElement>) =>
+            set_description(e.target.value)
           }
         />
       </div>
@@ -55,4 +66,4 @@ const RequestLoanPage = () => {
   );
 };
 
-export default RequestLoanPage;
+export default RequestALoanPage;
