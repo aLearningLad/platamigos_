@@ -1,5 +1,6 @@
 "use client";
 
+import { loan_statuses, loan_types } from "@/enums";
 import { createClient } from "@/utils/supabase/client";
 import { useParams, useRouter } from "next/navigation";
 import { ChangeEvent, useEffect, useState } from "react";
@@ -9,8 +10,8 @@ const FundSpecificPage = () => {
   const [this_loan, set_this_loan] = useState<Tcommunity_requests>();
   const [is_funding, set_is_funding] = useState<boolean>(false);
   const [term, set_term] = useState<number>(5);
-  const [due_from, set_due_from] = useState<Date>();
-  const [due_by, set_due_by] = useState<Date>();
+  const [due_from, set_due_from] = useState<string>();
+  const [due_by, set_due_by] = useState<string>();
   const [rate, set_rate] = useState<number>(4);
   const [due, set_due] = useState<number>(0); // total owed
   const [description, set_description] = useState<string>();
@@ -56,9 +57,22 @@ const FundSpecificPage = () => {
   const handleOfferToFund = async () => {
     try {
       const supabase = createClient();
+      const user_id = (await supabase.auth.getUser()).data.user?.id;
 
       // add to loans table
-      // const {error:funding_offer_error} = await supabase.from("loan").insert({})
+      const { error: funding_offer_error } = await supabase
+        .from("loan")
+        .insert({
+          user_id,
+          type: loan_types.OFR,
+          pcp: this_loan?.pcp,
+          due: due_by,
+          term,
+          due_from,
+          rate,
+          description,
+          status: loan_statuses.PND,
+        });
 
       // catch error
 
@@ -122,6 +136,20 @@ const FundSpecificPage = () => {
           <label htmlFor="term">
             You would recieve <b>R{instalment}</b> per month, for {term} months
           </label>
+        </div>
+
+        {/* start paying from */}
+        <div className=" w-full flex flex-col items-center justify-center ">
+          <label htmlFor="due_from">Due from</label>
+          <input
+            type="date"
+            value={due_from}
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+              set_due_from(e.target.value)
+            }
+            name="due_from"
+            id="due_from"
+          />
         </div>
       </div>
     ) : (
