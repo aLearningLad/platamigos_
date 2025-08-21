@@ -1,20 +1,22 @@
 "use client";
 
 import { createClient } from "@/utils/supabase/client";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { ChangeEvent, useEffect, useState } from "react";
 
 const FundSpecificPage = () => {
   const { id } = useParams();
   const [this_loan, set_this_loan] = useState<Tcommunity_requests>();
   const [is_funding, set_is_funding] = useState<boolean>(false);
-  const [term, set_term] = useState<number>(0);
+  const [term, set_term] = useState<number>(5);
   const [due_from, set_due_from] = useState<Date>();
   const [due_by, set_due_by] = useState<Date>();
   const [rate, set_rate] = useState<number>(4);
   const [due, set_due] = useState<number>(0); // total owed
   const [description, set_description] = useState<string>();
   const [instalment, set_instalment] = useState<number>(0);
+
+  const router = useRouter();
 
   useEffect(() => {
     const fetchSingleLoan = async () => {
@@ -49,6 +51,25 @@ const FundSpecificPage = () => {
 
   const handleIsFunding = () => {
     set_is_funding((prev) => !prev);
+  };
+
+  const handleOfferToFund = async () => {
+    try {
+      const supabase = createClient();
+
+      // add to loans table
+      // const {error:funding_offer_error} = await supabase.from("loan").insert({})
+
+      // catch error
+
+      // record in transactions_log
+
+      // catch error
+
+      router.push("/dash");
+    } catch (error) {
+      console.log("Unable to submit funding offer: ", error);
+    }
   };
 
   {
