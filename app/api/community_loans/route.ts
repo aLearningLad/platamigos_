@@ -19,11 +19,36 @@ export async function GET() {
       return NextResponse.json({ loans: cached_loans });
     }
 
-    // get data from db
+    // get community loan data from db
     const { data: loan_data, error: loan_data_error } = await supabase
       .from("loans")
       .select("*")
+      .neq("type", "offer") // do not show me offers
       .neq("user_id", user_id);
+
+    // get offer data for this user
+    const { data: offers_data, error: offers_data_error } = await supabase
+      .from("loans")
+      .select(
+        `
+        user_id,
+        pcp,
+        due,
+        term,
+        rate,
+        due_from,
+        due_by,
+        description,
+        title,
+        transactions_log(debtor_id,
+        creditor_id)
+        `
+      )
+      .eq("type", "offer") // show me only offers for this user
+      .neq("user_id", user_id);
+
+    // show it to me
+    console.log("Offer data from database: ", offers_data);
 
     // handle error
     if (loan_data_error) throw new Error(loan_data_error.message);
