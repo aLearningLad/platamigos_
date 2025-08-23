@@ -14,10 +14,10 @@ export async function GET() {
     //  check cache first
     const cached_loans = await redis.get(cache_key);
 
-    if (cached_loans) {
-      console.log("This is from the cache, bruv: ", cached_loans);
-      return NextResponse.json({ loans: cached_loans });
-    }
+    // if (cached_loans) {
+    //   // console.log("This is from the cache, bruv: ", cached_loans);
+    //   return NextResponse.json({ loans: cached_loans });
+    // }
 
     // get community loan data from db
     const { data: loan_data, error: loan_data_error } = await supabase
@@ -25,30 +25,6 @@ export async function GET() {
       .select("*")
       .neq("type", "offer") // do not show me offers
       .neq("user_id", user_id);
-
-    // get offer data for this user
-    const { data: offers_data, error: offers_data_error } = await supabase
-      .from("loans")
-      .select(
-        `
-        user_id,
-        pcp,
-        due,
-        term,
-        rate,
-        due_from,
-        due_by,
-        description,
-        title,
-        transactions_log(debtor_id,
-        creditor_id)
-        `
-      )
-      .eq("type", "offer") // show me only offers for this user
-      .neq("user_id", user_id);
-
-    // show it to me
-    console.log("Offer data from database: ", offers_data);
 
     // handle error
     if (loan_data_error) throw new Error(loan_data_error.message);

@@ -8,3 +8,16 @@ declare type Tcommunity_requests = {
   description: string;
   title: string;
 };
+
+declare type Toffers = {
+  created_at: Date;
+  pcp: number;
+  due: number;
+  term: number;
+  due_from: Date;
+  due_by: Date;
+  debtor_id?: string;
+  creditor_id?: string;
+  description: string;
+  title: string;
+};
