@@ -28,8 +28,18 @@ const Dash = () => {
       ) : (
         <div className=" w-full h-full flex flex-col items-center justify-center space-y-6 ">
           {comm_loans.map((loan: Tcommunity_requests) => (
-            <Link key={loan.loan_id} href={`/fund_specific/${loan.loan_id}`}>
-              {loan.loan_id}
+            <Link
+              className=" flex flex-col items-center justify-center space-y-2 bg-neutral-200 rounded-lg p-4 "
+              key={loan.loan_id}
+              href={`/fund_specific/${loan.loan_id}`}
+            >
+              <p>By: {loan.loan_id}</p>
+              <p>{loan.title}</p>
+              <p>{loan.description}</p>
+              <span className=" w-full flex gap-1 justify-center ">
+                <p>Asking for</p>
+                <p>R{loan.pcp}</p>
+              </span>
             </Link>
           ))}
 
