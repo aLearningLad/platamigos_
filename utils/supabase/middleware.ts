@@ -43,6 +43,10 @@ export async function updateSession(request: NextRequest) {
     (!user && request.nextUrl.pathname.startsWith("/dash")) ||
     (!user && request.nextUrl.pathname.startsWith("/request")) ||
     (!user && request.nextUrl.pathname.startsWith("/onboarding")) ||
+    (!user && request.nextUrl.pathname.startsWith("/fund_specific")) ||
+    (!user && request.nextUrl.pathname.startsWith("/repayments")) ||
+    (!user && request.nextUrl.pathname.startsWith("/request")) ||
+    (!user && request.nextUrl.pathname.startsWith("/offers")) ||
     (!user && request.nextUrl.pathname.startsWith("/fund"))
   ) {
     // no user, potentially respond by redirecting the user to the login page

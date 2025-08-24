@@ -4,14 +4,16 @@
 
 import { createClient } from "@/utils/supabase/client";
 import { useRouter } from "next/navigation";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, SetStateAction, useState } from "react";
 
 const handleOnboarding = async (
   first_name: string,
   surname: string,
   alias: string,
-  router: NextRouter
+  router: NextRouter,
+  set_is_loading: React.Dispatch<SetStateAction<boolean>>
 ) => {
+  set_is_loading(true);
   try {
     const supabase = createClient();
     const user_id = (await supabase.auth.getUser()).data.user?.id;
@@ -64,6 +66,7 @@ const handleOnboarding = async (
 
     router.push("/dash");
   } catch (e) {
+    set_is_loading(false);
     alert("Onboarding failed. Please try again");
     console.log("Onboarding has failed. Here's why: ", e);
     return;
@@ -81,55 +84,64 @@ const OnboardingPage = () => {
   const [surname, set_surname] = useState<string>("");
   const [alias, set_alias] = useState<string>("");
   const router = useRouter();
+  const [is_loading, set_is_loading] = useState<boolean>(false);
 
-  return (
-    <div className="w-full min-h-screen flex justify-center items-center space-y-3 flex-col">
-      <input
-        className=" bg-black w-56 h-8 text-white"
-        type="text"
-        name="first_name"
-        id="first_name"
-        placeholder="first name"
-        onChange={(e: ChangeEvent<HTMLInputElement>) =>
-          set_first_name(e.target.value)
-        }
-      />
-      <input
-        className=" bg-black w-56 h-8 text-white"
-        type="text"
-        name="surname"
-        id="surname"
-        placeholder="surname"
-        onChange={(e: ChangeEvent<HTMLInputElement>) =>
-          set_surname(e.target.value)
-        }
-      />
-      <input
-        className=" bg-black w-56 h-8 text-white"
-        type="text"
-        name="alias"
-        id="alias"
-        placeholder="alias"
-        onChange={(e: ChangeEvent<HTMLInputElement>) =>
-          set_alias(e.target.value)
-        }
-      />
+  {
+    return is_loading ? (
+      <div className=" w-full min-h-screen flex justify-center items-center ">
+        Setting your profile up...
+      </div>
+    ) : (
+      <div className="w-full min-h-screen flex justify-center items-center space-y-3 flex-col">
+        <input
+          className=" bg-black w-56 h-8 text-white"
+          type="text"
+          name="first_name"
+          id="first_name"
+          placeholder="first name"
+          onChange={(e: ChangeEvent<HTMLInputElement>) =>
+            set_first_name(e.target.value)
+          }
+        />
+        <input
+          className=" bg-black w-56 h-8 text-white"
+          type="text"
+          name="surname"
+          id="surname"
+          placeholder="surname"
+          onChange={(e: ChangeEvent<HTMLInputElement>) =>
+            set_surname(e.target.value)
+          }
+        />
+        <input
+          className=" bg-black w-56 h-8 text-white"
+          type="text"
+          name="alias"
+          id="alias"
+          placeholder="alias"
+          onChange={(e: ChangeEvent<HTMLInputElement>) =>
+            set_alias(e.target.value)
+          }
+        />
 
-      <button
-        disabled={
-          first_name.length < 5 || surname.length < 1 || alias.length < 3
-        }
-        className={`  text-white px-7 h-8 ${
-          first_name.length < 5 || surname.length < 1 || alias.length < 3
-            ? " bg-gray-400 brightness-[40%]"
-            : "bg-green-400 brightness-100"
-        }`}
-        onClick={() => handleOnboarding(first_name, surname, alias, router)}
-      >
-        Complete!
-      </button>
-    </div>
-  );
+        <button
+          disabled={
+            first_name.length < 5 || surname.length < 1 || alias.length < 3
+          }
+          className={`  text-white px-7 h-8 ${
+            first_name.length < 5 || surname.length < 1 || alias.length < 3
+              ? " bg-gray-400 brightness-[40%]"
+              : "bg-green-400 brightness-100"
+          }`}
+          onClick={() =>
+            handleOnboarding(first_name, surname, alias, router, set_is_loading)
+          }
+        >
+          Complete!
+        </button>
+      </div>
+    );
+  }
 };
 
 export default OnboardingPage;

@@ -15,11 +15,12 @@ const RepaymentsPage = () => {
         .from("loans")
         .select("*")
         .eq("user_id", user_id)
-        .eq("status", loan_statuses.PND)
+        .eq("status", loan_statuses.FND)
         .eq("type", loan_types.OFR);
 
       if (debts_data_error) throw new Error(debts_data_error.message);
       set_debts(debts_data);
+      console.log("debt data for this user: ", debts_data);
     } catch (error) {
       console.log("Unable to fetch debt data: ", error);
     }

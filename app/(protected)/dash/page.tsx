@@ -33,7 +33,7 @@ const Dash = () => {
               key={loan.loan_id}
               href={`/fund_specific/${loan.loan_id}`}
             >
-              <p>By: {loan.loan_id}</p>
+              <p>By: {loan.alias}</p>
               <p>{loan.title}</p>
               <p>{loan.description}</p>
               <span className=" w-full flex gap-1 justify-center ">

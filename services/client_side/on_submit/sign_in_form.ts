@@ -29,7 +29,7 @@ export const signInSubmit = async (
   if (!res.error) {
     const user_id = (await supabase.auth.getUser()).data.user?.id;
 
-    // check if in all_users.onboarder
+    // check if in all_users.onboarded
     const { data, error: is_onboarded_error } = await supabase
       .from("all_users")
       .select("is_onboarded")

@@ -1,6 +1,7 @@
 declare type NextRouter = ReturnType<typeof useRouter>;
 
 declare type Tcommunity_requests = {
+  alias: string;
   user_id: string;
   loan_id: string;
   created_at: Date;

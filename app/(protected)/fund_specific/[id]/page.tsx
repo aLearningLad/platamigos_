@@ -17,6 +17,7 @@ const FundSpecificPage = () => {
   const [description, set_description] = useState<string>();
   const [instalment, set_instalment] = useState<number>(0);
   const [is_loading, set_is_loading] = useState<boolean>(false);
+  const [alias, set_alias] = useState<string>("");
 
   const router = useRouter();
 
@@ -76,6 +77,7 @@ const FundSpecificPage = () => {
           rate,
           description,
           status: loan_statuses.PND,
+          alias: alias,
         });
 
       // catch error

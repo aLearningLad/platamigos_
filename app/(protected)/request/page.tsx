@@ -2,20 +2,44 @@
 
 import { loan_types } from "@/enums";
 import { handleRequestLoan } from "@/pm_functions/request_loan";
+import { createClient } from "@/utils/supabase/client";
 import { useRouter } from "next/navigation";
 import {
   ChangeEvent,
   ChangeEventHandler,
   TextareaHTMLAttributes,
+  useEffect,
   useState,
 } from "react";
 
 const RequestALoanPage = () => {
-  const [pcp, set_pcp] = useState<number>(0);
+  const [pcp, set_pcp] = useState<number>(1500);
   const [loan_type, set_loan_type] = useState<string>(loan_types.RQT);
   const [description, set_description] = useState<string>("");
   const [title, set_title] = useState<string>("");
   const [is_loading, set_is_loading] = useState(false);
+  const [alias, set_alias] = useState<string>("");
+
+  useEffect(() => {
+    const fetchAlias = async () => {
+      try {
+        const supabase = createClient();
+        const user_id = (await supabase.auth.getUser()).data.user?.id;
+        const { data: alias_data, error: alias_data_error } = await supabase
+          .from("all_users")
+          .select("alias")
+          .eq("user_id", user_id);
+
+        if (alias_data_error) throw new Error(alias_data_error.message);
+        set_alias(alias_data[0].alias);
+      } catch (error) {
+        alert("Unable to fetch your alias");
+        console.log("Unable to fetch user's alias");
+      }
+    };
+
+    fetchAlias();
+  }, []);
 
   const router = useRouter();
 
@@ -38,7 +62,7 @@ const RequestALoanPage = () => {
             min={0}
             max={50000}
             step={1500}
-            defaultValue={1500}
+            // defaultValue={1500}
             value={pcp}
             onChange={(e: ChangeEvent<HTMLInputElement>) =>
               set_pcp(e.target.valueAsNumber)
@@ -84,7 +108,8 @@ const RequestALoanPage = () => {
               pcp,
               loan_type,
               router,
-              set_is_loading
+              set_is_loading,
+              alias
             )
           }
           className={`${

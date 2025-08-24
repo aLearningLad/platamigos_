@@ -14,6 +14,7 @@ const FundALoan = () => {
   const [description, set_description] = useState<string>();
   const [status, set_status] = useState<string>(loan_statuses.PND);
   const [instalment, set_instalment] = useState<number>(0);
+  const [alias, set_alias] = useState<string>("");
 
   // adjust total debt in real time
   useEffect(() => {

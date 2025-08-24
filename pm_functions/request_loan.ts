@@ -13,7 +13,8 @@ export const handleRequestLoan = async (
   pcp: number,
   loan_type: string,
   router: NextRouter,
-  set_is_loading: React.Dispatch<SetStateAction<boolean>>
+  set_is_loading: React.Dispatch<SetStateAction<boolean>>,
+  alias: string
 ) => {
   if (!title || !description || !pcp) {
     alert("Values are missing!");
@@ -30,6 +31,7 @@ export const handleRequestLoan = async (
       description: description,
       title: title,
       status: loan_statuses.PND,
+      alias: alias,
     });
 
     if (loan_request_error) throw new Error(loan_request_error.message);
