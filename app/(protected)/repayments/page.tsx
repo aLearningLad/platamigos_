@@ -105,6 +105,17 @@ const RepaymentsPage = () => {
                       </DialogDescription>
                     </DialogHeader>
                     {/* <button onClick={(e) => set_is_modal(false)}>Close</button> */}
+                    <div className=" w-full flex flex-col space-y-3 justify-center items-center ">
+                      <button
+                        onClick={handleRepayment}
+                        className=" w-1/2 h-8 bg-green-500 text-white rounded-lg text-[12px]"
+                      >
+                        Make Instalment of R{debt.due / debt.term}
+                      </button>
+                      <button className=" w-6/12 h-8 bg-black text-white rounded-lg text-[12px]">
+                        Borrow More
+                      </button>
+                    </div>
                   </DialogContent>
                 </Dialog>
               </div>
