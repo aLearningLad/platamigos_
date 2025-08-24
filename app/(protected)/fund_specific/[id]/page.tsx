@@ -33,6 +33,24 @@ const FundSpecificPage = () => {
       }
     };
 
+    const fetchAlias = async () => {
+      try {
+        const supabase = createClient();
+        const user_id = (await supabase.auth.getUser()).data.user?.id;
+        const { data: alias_data, error: alias_data_error } = await supabase
+          .from("all_users")
+          .select("alias")
+          .eq("user_id", user_id);
+
+        if (alias_data_error) throw new Error(alias_data_error.message);
+        set_alias(alias_data[0].alias);
+      } catch (error) {
+        alert("Unable to fetch alias");
+        console.log("Unable to fetch alias: ", error);
+      }
+    };
+
+    fetchAlias();
     fetchSingleLoan();
   }, []);
 
@@ -75,9 +93,11 @@ const FundSpecificPage = () => {
           due_by,
           due_from: due_from,
           rate,
-          description,
+          description: this_loan?.description,
+          title: this_loan?.title,
           status: loan_statuses.PND,
           alias: alias,
+          creditor_id: user_id,
         });
 
       // catch error

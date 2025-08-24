@@ -21,4 +21,5 @@ declare type Toffers = {
   creditor_id: string;
   description: string;
   title: string;
+  alias: string;
 };
