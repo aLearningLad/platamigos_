@@ -30,7 +30,11 @@ const RepaymentsPage = () => {
     fetchDebts();
   }, []);
 
-  return <div className=" w-full min-h-screen ">RepaymentsPage</div>;
+  return (
+    <div className=" w-full min-h-screen flex flex-col items-center justify-center">
+      show debts here
+    </div>
+  );
 };
 
 export default RepaymentsPage;

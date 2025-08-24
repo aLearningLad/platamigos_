@@ -98,6 +98,7 @@ const OffersPage = () => {
 
       if (credit_scores_error) throw new Error(credit_scores_error.message);
 
+      await fetchOffers();
       set_is_loading(false);
       router.refresh();
     } catch (error) {
@@ -144,9 +145,9 @@ const OffersPage = () => {
       // throw error
       if (transactions_log_error) throw new Error(transactions_log_error);
 
+      await fetchOffers();
       set_is_loading(false);
       router.refresh();
-      await fetchOffers();
     } catch (error) {
       console.log("Something went wrong: ", error);
       set_is_loading(false);
