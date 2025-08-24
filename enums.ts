@@ -8,6 +8,7 @@ export enum loan_statuses {
   FND = "funded",
   RPD = "repaid",
   DFT = "defaulted",
+  DEN = "funding offer denied",
 }
 
 export enum action_types {
