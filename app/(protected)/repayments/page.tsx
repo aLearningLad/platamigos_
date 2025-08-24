@@ -61,8 +61,34 @@ const RepaymentsPage = () => {
     fetchUserDetails();
   }, []);
 
-  const handleRepayment = async () => {
+  const handleRepayment = async (due: number, term: number) => {
+    const instalment = Math.floor(due / term);
     try {
+      // balance is less than instalment amount
+      if (user_info!.balance < instalment) {
+        alert("You don't have enough funds to. Try borrowing more?");
+        return;
+      }
+
+      const new_balance = user_info!.balance - instalment;
+      const supabase = createClient();
+      const user_id = (await supabase.auth.getUser()).data.user?.id;
+
+      // debt balance in credit scores
+      const { error: balance_update_error } = await supabase
+        .from("credit_scores")
+        .update({
+          balance: new_balance,
+        })
+        .eq("user_id", user_id);
+
+      if (balance_update_error) throw new Error(balance_update_error.message);
+
+      // main balance in loans
+
+      alert(`R${instalment} paid to service debt`);
+      set_is_modal(false);
+      await fetchDebts();
     } catch (error) {
       console.log("Unable to make repayment: ", error);
     }
@@ -107,7 +133,7 @@ const RepaymentsPage = () => {
                     {/* <button onClick={(e) => set_is_modal(false)}>Close</button> */}
                     <div className=" w-full flex flex-col space-y-3 justify-center items-center ">
                       <button
-                        onClick={handleRepayment}
+                        onClick={() => handleRepayment(debt.due, debt.term)}
                         className=" w-1/2 h-8 bg-green-500 text-white rounded-lg text-[12px]"
                       >
                         Make Instalment of R{debt.due / debt.term}
