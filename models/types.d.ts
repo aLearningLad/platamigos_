@@ -23,3 +23,13 @@ declare type Toffers = {
   title: string;
   alias: string;
 };
+
+declare type Tuser_info = {
+  user_id: string;
+  score: number;
+  balance: number;
+  loans_funded: number;
+  debts_settled: number;
+  total_creditors: number;
+  total_debtors: number;
+};
