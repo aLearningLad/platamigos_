@@ -61,7 +61,11 @@ const RepaymentsPage = () => {
     fetchUserDetails();
   }, []);
 
-  const handleRepayment = async (due: number, term: number) => {
+  const handleRepayment = async (
+    due: number,
+    term: number,
+    loan_id: string
+  ) => {
     const instalment = Math.floor(due / term);
     try {
       // balance is less than instalment amount
@@ -71,6 +75,7 @@ const RepaymentsPage = () => {
       }
 
       const new_balance = user_info!.balance - instalment;
+      const updated_creditors = user_info!.total_creditors - instalment;
       const supabase = createClient();
       const user_id = (await supabase.auth.getUser()).data.user?.id;
 
@@ -79,12 +84,19 @@ const RepaymentsPage = () => {
         .from("credit_scores")
         .update({
           balance: new_balance,
+          total_creditors: updated_creditors,
         })
         .eq("user_id", user_id);
 
       if (balance_update_error) throw new Error(balance_update_error.message);
 
       // main balance in loans
+      const { error: loan_update_error } = await supabase
+        .from("loans")
+        .update({
+          due: new_balance,
+        })
+        .eq("loan_id", loan_id);
 
       alert(`R${instalment} paid to service debt`);
       set_is_modal(false);
@@ -104,7 +116,10 @@ const RepaymentsPage = () => {
         {debts && debts.length > 0 ? (
           <div className=" w-full h-full flex flex-col items-center justify-center space-y-3">
             {debts.map((debt) => (
-              <div className=" flex flex-col space-y-2 items-center justify-center bg-neutral-300 p-5 rounded-lg">
+              <div
+                key={debt.loan_id}
+                className=" flex flex-col space-y-2 items-center justify-center bg-neutral-300 p-5 rounded-lg"
+              >
                 <p>Funded by {debt.alias}</p>
                 <p>{debt.title}</p>
                 <p>You currently owe R{debt.due}</p>
@@ -133,10 +148,12 @@ const RepaymentsPage = () => {
                     {/* <button onClick={(e) => set_is_modal(false)}>Close</button> */}
                     <div className=" w-full flex flex-col space-y-3 justify-center items-center ">
                       <button
-                        onClick={() => handleRepayment(debt.due, debt.term)}
+                        onClick={() =>
+                          handleRepayment(debt.due, debt.term, debt.loan_id)
+                        }
                         className=" w-1/2 h-8 bg-green-500 text-white rounded-lg text-[12px]"
                       >
-                        Make Instalment of R{debt.due / debt.term}
+                        Make Instalment of R{Math.floor(debt.due / debt.term)}
                       </button>
                       <button className=" w-6/12 h-8 bg-black text-white rounded-lg text-[12px]">
                         Borrow More
