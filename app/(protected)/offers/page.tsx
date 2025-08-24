@@ -16,6 +16,30 @@ const OffersPage = () => {
   const [prev_total_debt, set_prev_total_debt] = useState<number>(0);
   const [debts_settled, set_debts_settled] = useState<number>(0);
   const router = useRouter();
+  const [is_refetching, set_is_refetching] = useState<boolean>(false);
+
+  const fetchOffers = async () => {
+    try {
+      set_is_loading(true);
+      const supabase = createClient();
+      const user_id = (await supabase.auth.getUser()).data.user?.id;
+      const { data: offer_data, error: offer_data_error } = await supabase
+        .from("loans")
+        .select("*")
+        .eq("type", loan_types.OFR)
+        .eq("debtor_id", user_id)
+        .eq("status", loan_statuses.PND);
+
+      if (offer_data_error) throw new Error(offer_data_error.message);
+
+      set_offers(offer_data);
+      set_is_loading(false);
+      router.refresh();
+      console.log("loan offers for this user are here: ", offer_data);
+    } catch (error) {
+      console.log("Unable to fetch loan offers for this user: ", error);
+    }
+  };
 
   const handleAccept = async (
     loan_id: string,
@@ -122,6 +146,7 @@ const OffersPage = () => {
 
       set_is_loading(false);
       router.refresh();
+      await fetchOffers();
     } catch (error) {
       console.log("Something went wrong: ", error);
       set_is_loading(false);
@@ -131,29 +156,6 @@ const OffersPage = () => {
   };
 
   useEffect(() => {
-    const fetchOffers = async () => {
-      try {
-        set_is_loading(true);
-        const supabase = createClient();
-        const user_id = (await supabase.auth.getUser()).data.user?.id;
-        const { data: offer_data, error: offer_data_error } = await supabase
-          .from("loans")
-          .select("*")
-          .eq("type", loan_types.OFR)
-          .eq("debtor_id", user_id)
-          .eq("status", loan_statuses.PND);
-
-        if (offer_data_error) throw new Error(offer_data_error.message);
-
-        set_offers(offer_data);
-        set_is_loading(false);
-
-        console.log("loan offers for this user are here: ", offer_data);
-      } catch (error) {
-        console.log("Unable to fetch loan offers for this user: ", error);
-      }
-    };
-
     const fetchCredit = async () => {
       try {
         const supabase = createClient();
@@ -204,7 +206,10 @@ const OffersPage = () => {
         ) : (
           <div className=" w-full h-full flex flex-col items-center justify-center">
             {offers.map((offer) => (
-              <div className=" flex flex-col bg-neutral-400 rounded-lg items-center justify-center ">
+              <div
+                key={offer.loan_id}
+                className=" flex flex-col bg-neutral-400 rounded-lg items-center justify-center "
+              >
                 <p>{offer.title}</p>
                 <p>{offer.description}</p>
                 <p>{offer.pcp}</p>

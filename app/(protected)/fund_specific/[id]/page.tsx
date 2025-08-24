@@ -68,6 +68,7 @@ const FundSpecificPage = () => {
           user_id,
           type: loan_types.OFR,
           pcp: this_loan?.pcp,
+          debtor_id: this_loan?.user_id,
           due,
           term,
           due_by,
@@ -95,6 +96,7 @@ const FundSpecificPage = () => {
       if (transactions_log_error)
         throw new Error(transactions_log_error.message);
 
+      alert("Funding offer submitted");
       router.push("/dash");
     } catch (error) {
       console.log("Unable to submit funding offer: ", error);
@@ -111,6 +113,13 @@ const FundSpecificPage = () => {
         </div>
       ) : (
         <div className=" w-full min-h-screen flex justify-center items-center flex-col gap-5 ">
+          {/* pcp */}
+          <div className=" w-full flex justify-center items-center flex-col ">
+            <h3>
+              {"You'd"} invest R{this_loan?.pcp}
+            </h3>
+          </div>
+
           {/* rate */}
           <div className=" flex flex-col gap-2 items-center">
             <label htmlFor="rate">Interest {"%"}</label>
@@ -157,13 +166,13 @@ const FundSpecificPage = () => {
           <div className=" flex flex-col gap-2 items-center">
             <label htmlFor="term">
               You would recieve <b>R{instalment}</b> per month, for {term}{" "}
-              months
+              {term >= 2 ? "months" : "month"}
             </label>
           </div>
 
-          {/* start paying from */}
+          {/* offer valid from */}
           <div className=" w-full flex flex-col items-center justify-center ">
-            <label htmlFor="due_from">Due from</label>
+            <label htmlFor="due_from">Offer valid from</label>
             <input
               type="date"
               value={due_from}
@@ -175,9 +184,9 @@ const FundSpecificPage = () => {
             />
           </div>
 
-          {/* start paying from */}
+          {/* offer valid until */}
           <div className=" w-full flex flex-col items-center justify-center ">
-            <label htmlFor="due_from">Due by</label>
+            <label htmlFor="due_by">Offer valid until</label>
             <input
               type="date"
               value={due_by}
