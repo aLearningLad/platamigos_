@@ -5,7 +5,7 @@ import RightSide from "./right_side";
 const SectionOne = () => {
   return (
     <section className=" w-full lg:h-[calc(100vh-3.5rem)] pt-9 lg:pt-14 flex flex-col">
-      <div className=" w-full h-fit flex flex-col lg:flex-row border-4 border-black">
+      <div className=" w-full h-fit flex flex-col lg:flex-row ">
         {/* Left Side */}
         <LeftSide />
         {/* Left Side */}

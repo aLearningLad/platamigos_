@@ -8,7 +8,7 @@ const LandingNav = () => {
   return (
     <nav className=" w-full h-20 lg:h-14 justify-between items-center absolute bottom-0 lg:relative lg:flex ">
       {/* desktop */}
-      <div className=" w-full h-full hidden lg:flex border-4 border-black justify-center items-center ">
+      <div className=" w-full h-full hidden lg:flex justify-center items-center ">
         {/* logo */}
         <div className=" w-[10%] h-full flex justify-center items-center border-4 border-white gap-1 ">
           <Image
