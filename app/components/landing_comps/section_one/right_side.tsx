@@ -1,5 +1,7 @@
 import Image from "next/image";
-import React from "react";
+import { RiTwitterXLine } from "react-icons/ri";
+import { FaFacebookF } from "react-icons/fa";
+import { RiInstagramFill } from "react-icons/ri";
 
 const RightSide = () => {
   return (
@@ -19,7 +21,13 @@ const RightSide = () => {
             <h3 className=" text-[10px] font-bold ">Megan Khumalo</h3>
             <p className=" text-[8px] text-neutral-700 italic ">Lender</p>
             <div className=" w-full bg-neutral-600/30 my-1 h-[2px] rounded-full " />
-            <span>social icons here</span>
+            <span className=" w-full flex justify-around items-center">
+              <FaFacebookF size={8} />
+              <div className=" w-fit h-fit p-2 rounded-full bg-cyan-400/10 ">
+                <RiTwitterXLine size={8} className=" text-cyan-700" />
+              </div>
+              <RiInstagramFill size={8} />
+            </span>
           </div>
         </div>
         {/* inner block */}
