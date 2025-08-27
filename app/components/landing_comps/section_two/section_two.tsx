@@ -13,7 +13,7 @@ const SectionTwo = () => {
       </p>
 
       {/* tabs in grid section */}
-      <section className=" w-full h-[60vh] lg:h-[55%] flex flex-col border-4 border-white ">
+      <section className=" w-full h-[60vh] lg:h-[55%] flex flex-col">
         <S1TOP />
         <S1BOTTOM />
       </section>

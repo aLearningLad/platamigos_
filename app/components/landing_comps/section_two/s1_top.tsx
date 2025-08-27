@@ -32,14 +32,24 @@ const S1TOP = () => {
           style={{ width: 220, height: 220 }}
         />
 
-        <div className=" h-full w-[25%] border-2 border-black flex flex-row items-start justify-start ">
+        <div className=" h-full w-[25%] flex flex-row items-start justify-start ">
           <MdArrowUpward size={12} className=" text-teal-400 " />
           <p className=" text-[8px] text-teal-400 font-bold ">
             Increased liquidity
           </p>
         </div>
       </div>
-      <div className=" h-full flex-1/4 bg-white "></div>
+      <div className=" h-full flex-1/4 bg-white rounded-lg p-2 lg:p-3 justify-center flex-col items-center flex">
+        <p className=" text-[8px] font-bold ">Flexible terms</p>
+        <div className=" flex flex-col items-center justify-center ">
+          <p className=" text-[14px] font-bold ">24</p>
+          <p className=" text-[8px] text-neutral-600/70 ">Months to pay</p>
+        </div>
+        <p className=" text-[8px] text-teal-400 font-bold ">
+          {" "}
+          {">>>"} Or single sums{" "}
+        </p>
+      </div>
     </div>
   );
 };
