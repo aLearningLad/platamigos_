@@ -23,7 +23,7 @@ const SectionOne = () => {
               key={i}
               className="mx-4 p-4 bg-gray-200/30 rounded-lg overflow-hidden relative min-w-2/12 h-14 "
             >
-              <Image alt="logo" fill className=" object-contain " src={item} />
+              <Image alt="logo" fill className=" object-contain" src={item} />
             </div>
           ))}
         </div>
