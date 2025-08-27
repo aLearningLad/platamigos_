@@ -6,6 +6,7 @@ import { FaFacebookF } from "react-icons/fa";
 import { RiInstagramFill } from "react-icons/ri";
 import Lottie from "lottie-react";
 import moneyLottie from "@/public/assets/money.json";
+import emailLottie from "@/public/assets/emailLottie.json";
 import { PiWaveSineDuotone } from "react-icons/pi";
 
 const RightSide = () => {
@@ -75,8 +76,18 @@ const RightSide = () => {
             <div className=" h-2 w-full bg-neutral-200/60 rounded-[4px] " />
           </div>
         </div>
-        <div className=" h-20 w-full flex flex-row">
-          <div className=" bg-white h-full flex flex-col "></div>
+        <div className=" h-20 w-full flex flex-row relative px-7">
+          <div className=" h-full flex flex-col w-full gap-2 ">
+            <div className=" h-2 w-[75%] bg-neutral-400/30 rounded-[4px] " />
+            <div className=" h-2 w-[55%] bg-neutral-200/60 rounded-[4px] " />
+          </div>
+          <div className=" rounded-full p-2 bg-teal-600/10 w-14 h-14 flex justify-center items-center absolute right-4">
+            <Lottie
+              className=" w-12 h-12 "
+              animationData={emailLottie}
+              loop={true}
+            />
+          </div>
         </div>
       </div>
       {/* main block */}
@@ -91,7 +102,7 @@ const RightSide = () => {
         <p className=" text-[6px] font-bold ">Request Funding</p>
         <p className=" font-bold text-[14px] ">R75,000+</p>
         <p className=" text-[5px] text-neutral-600 ">w/ fixed interest</p>
-        <PiWaveSineDuotone className=" text-teal-500" />
+        <PiWaveSineDuotone size={24} className=" text-teal-500" />
       </div>
       {/* lower block jutting in */}
     </div>

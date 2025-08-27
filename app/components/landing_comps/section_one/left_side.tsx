@@ -3,7 +3,7 @@ import { FaPlayCircle } from "react-icons/fa";
 
 const LeftSide = () => {
   return (
-    <div className=" w-full h-[40vh] flex-col flex lg:w-7/12 lg:h-[65%] border-2 border-white lg:items-end lg:pr-12  ">
+    <div className=" w-full h-[40vh] flex-col flex lg:w-7/12 lg:h-[65%] lg:items-end lg:pr-12  ">
       <div className=" w-full lg:w-7/12 flex flex-col justify-start">
         <h1 className=" text-4xl font-bold">
           Send plata <br /> between amigos, <br /> quick & easy
