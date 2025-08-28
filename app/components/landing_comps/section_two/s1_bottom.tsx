@@ -7,11 +7,11 @@ import Lottie from "lottie-react";
 
 const S1BOTTOM = () => {
   return (
-    <div className=" w-full h-1/2 border-2 border-white gap-2 p-1 flex flex-row lg:p-3  ">
+    <div className=" w-full h-1/2 gap-2 p-1 flex flex-row lg:p-3  ">
       {/* left side */}
       <div className=" h-full flex-1/2 bg-white flex flex-row rounded-lg items-center p-2 lg:p-3 justify-center ">
         <Lottie className=" w-32 h-32 " animationData={dataViz} loop autoplay />
-        <div className=" w-[70%] h-full border-2 border-black flex flex-row ">
+        <div className=" w-[70%] h-full flex flex-row ">
           <div className=" w-1/2 flex h-full flex-col items-start justify-around ">
             <div className=" w-full h-1/2 p-1 ">
               <p className=" text-[14px] font-bold text-orange-600 ">83%</p>
