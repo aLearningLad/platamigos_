@@ -36,6 +36,13 @@ const AuthPage = () => {
         <p className=" text-[10px] ">
           We'll get you signed in, or setup your account if you're new
         </p>
+
+        <section className=" w-full h-[60vh] lg:h-[40%] border-2 border-black lg:w-4/12 p-2 md:p-3 lg:p-5 ">
+          <button className=" w-full lg:w-1/2 cursor-pointer h-1/2 lg:h-full border-4 border-neutral-300/20 rounded-lg "></button>
+        </section>
+        <button className=" w-full lg:w-3/12 lg:text-[12px] bg-cyan-500 text-white mt-5 rounded-[4px] h-20 lg:h-8 ">
+          Continue
+        </button>
       </div>
     );
 
