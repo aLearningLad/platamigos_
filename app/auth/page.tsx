@@ -33,7 +33,7 @@ const AuthPage = () => {
     return (
       <div>
         {is_new ? (
-          <SignUpForm />
+          <SignUpForm set_is_new={set_is_new} />
         ) : (
           <div className=" w-full min-h-screen bg-black flex flex-col items-center text-white justify-center">
             <h1>Login</h1>
