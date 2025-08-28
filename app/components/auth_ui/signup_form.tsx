@@ -26,7 +26,7 @@ const SignUpForm: React.FC<Isignupform> = ({ set_is_new }) => {
         height={120}
       />
       <p className=" text-[12px] text-neutral-700 ">
-        Let's get your account registered
+        {"Let's"} get your account registered
       </p>
       <form
         onSubmit={(e: FormEvent) =>

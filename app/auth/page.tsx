@@ -46,7 +46,7 @@ const AuthPage = () => {
           height={130}
         />
         <h1 className=" text-[14px] font-bold ">Welcome to Plata.Migos</h1>
-        <p className=" text-[10px] ">
+        <p className=" text-[12px] ">
           We'll get you signed in, or setup your account if you're new
         </p>
 
@@ -82,7 +82,7 @@ const AuthPage = () => {
         </section>
         <button
           onClick={(e) => set_is_auth(true)}
-          className=" w-full lg:w-3/12 lg:text-[12px] bg-cyan-500 text-white mt-5 rounded-[4px] h-20 lg:h-8 "
+          className=" w-full lg:w-3/12 cursor-pointer lg:text-[12px] bg-cyan-500 text-white mt-5 rounded-[4px] h-20 lg:h-8 "
         >
           Continue
         </button>
