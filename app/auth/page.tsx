@@ -9,6 +9,7 @@ import { useRouter } from "next/navigation";
 import { ChangeEvent, FormEvent, useState } from "react";
 import loginLottie from "@/public/assets/login.json";
 import signupLottie from "@/public/assets/signupLottie.json";
+import SignUpForm from "../components/auth_ui/signup_form";
 
 const AuthPage = () => {
   const [email, setEmail] = useState<string>("");
@@ -29,7 +30,46 @@ const AuthPage = () => {
   };
 
   if (is_auth) {
-    return <div>Auth functions here</div>;
+    return (
+      <div>
+        {is_new ? (
+          <SignUpForm />
+        ) : (
+          <div className=" w-full min-h-screen bg-black flex flex-col items-center text-white justify-center">
+            <h1>Login</h1>
+            <form
+              onSubmit={(e: FormEvent) =>
+                signInSubmit(e, email, password, router)
+              }
+              className=" flex flex-col space-y-5 "
+            >
+              <input
+                type="email"
+                name="email"
+                value={email}
+                onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                  setEmail(e.target.value)
+                }
+                className="bg-white text-black "
+              />
+              <input
+                className="bg-white text-black"
+                type="password"
+                name="password"
+                value={password}
+                onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                  setPassword(e.target.value)
+                }
+              />
+              <button formAction="submit" type="submit">
+                Submit
+              </button>
+            </form>
+            <button onClick={(e) => set_is_new(true)}>I'm new here</button>
+          </div>
+        )}
+      </div>
+    );
   }
 
   {
@@ -51,7 +91,7 @@ const AuthPage = () => {
           We'll get you signed in, or setup your account if you're new
         </p>
 
-        <section className=" w-full h-[60vh] lg:h-[40%] flex flex-col lg:flex-row border-2 border-black lg:w-4/12 p-2 md:p-3 lg:p-5 gap-5 ">
+        <section className=" w-full h-[60vh] lg:h-[40%] flex flex-col lg:flex-row lg:w-4/12 p-2 md:p-3 lg:p-5 gap-5 ">
           <button
             onClick={(e) => handleAuthType(false, 0)}
             className={` ${
