@@ -10,19 +10,13 @@ import { ChangeEvent, FormEvent, useState } from "react";
 import loginLottie from "@/public/assets/login.json";
 import signupLottie from "@/public/assets/signupLottie.json";
 import SignUpForm from "../components/auth_ui/signup_form";
+import SignInForm from "../components/auth_ui/signin_form";
 
 const AuthPage = () => {
-  const [email, setEmail] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
-  const router = useRouter();
   const [is_loading, set_is_loading] = useState<boolean>(false);
   const [is_new, set_is_new] = useState<boolean>(false);
   const [is_selected, set_is_selected] = useState<number>(0);
   const [is_auth, set_is_auth] = useState<boolean>(false);
-
-  const handlePwdChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setPassword(e.target.value);
-  };
 
   const handleAuthType = (is_new: boolean, is_selected: number) => {
     set_is_new(is_new);
@@ -32,42 +26,7 @@ const AuthPage = () => {
   if (is_auth) {
     return (
       <div>
-        {is_new ? (
-          <SignUpForm set_is_new={set_is_new} />
-        ) : (
-          <div className=" w-full min-h-screen bg-black flex flex-col items-center text-white justify-center">
-            <h1>Login</h1>
-            <form
-              onSubmit={(e: FormEvent) =>
-                signInSubmit(e, email, password, router)
-              }
-              className=" flex flex-col space-y-5 "
-            >
-              <input
-                type="email"
-                name="email"
-                value={email}
-                onChange={(e: ChangeEvent<HTMLInputElement>) =>
-                  setEmail(e.target.value)
-                }
-                className="bg-white text-black "
-              />
-              <input
-                className="bg-white text-black"
-                type="password"
-                name="password"
-                value={password}
-                onChange={(e: ChangeEvent<HTMLInputElement>) =>
-                  setPassword(e.target.value)
-                }
-              />
-              <button formAction="submit" type="submit">
-                Submit
-              </button>
-            </form>
-            <button onClick={(e) => set_is_new(true)}>I'm new here</button>
-          </div>
-        )}
+        {is_new ? <SignUpForm set_is_new={set_is_new} /> : <SignInForm />}
       </div>
     );
   }
