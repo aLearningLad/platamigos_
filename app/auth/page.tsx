@@ -3,9 +3,12 @@
 import { signInSubmit } from "@/services/client_side/on_submit/sign_in_form";
 import { signUpSubmit } from "@/services/client_side/on_submit/sign_up_form";
 import { handleSignIn } from "@/services/server_side/sign_in";
+import Lottie from "lottie-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { ChangeEvent, FormEvent, useState } from "react";
+import loginLottie from "@/public/assets/login.json";
+import signupLottie from "@/public/assets/signupLottie.json";
 
 const AuthPage = () => {
   const [email, setEmail] = useState<string>("");
@@ -13,10 +16,21 @@ const AuthPage = () => {
   const router = useRouter();
   const [is_loading, set_is_loading] = useState<boolean>(false);
   const [is_new, set_is_new] = useState<boolean>(false);
+  const [is_selected, set_is_selected] = useState<number>(0);
+  const [is_auth, set_is_auth] = useState<boolean>(false);
 
   const handlePwdChange = (e: ChangeEvent<HTMLInputElement>) => {
     setPassword(e.target.value);
   };
+
+  const handleAuthType = (is_new: boolean, is_selected: number) => {
+    set_is_new(is_new);
+    set_is_selected(is_selected);
+  };
+
+  if (is_auth) {
+    return <div>Auth functions here</div>;
+  }
 
   {
     return is_loading ? (
@@ -37,10 +51,40 @@ const AuthPage = () => {
           We'll get you signed in, or setup your account if you're new
         </p>
 
-        <section className=" w-full h-[60vh] lg:h-[40%] border-2 border-black lg:w-4/12 p-2 md:p-3 lg:p-5 ">
-          <button className=" w-full lg:w-1/2 cursor-pointer h-1/2 lg:h-full border-4 border-neutral-300/20 rounded-lg "></button>
+        <section className=" w-full h-[60vh] lg:h-[40%] flex flex-col lg:flex-row border-2 border-black lg:w-4/12 p-2 md:p-3 lg:p-5 gap-5 ">
+          <button
+            onClick={(e) => handleAuthType(false, 0)}
+            className={` ${
+              is_selected == 0
+                ? "bg-orange-500/10 border-orange-800/10"
+                : "border-neutral-300/20"
+            } w-full lg:w-1/2 cursor-pointer h-1/2 lg:h-full p-3 lg:p-7 border-4 flex flex-col justify-around items-center rounded-lg`}
+          >
+            <Lottie animationData={loginLottie} className=" w-20 h-20" />
+            <p className=" text-[14px] font-bold ">Login</p>
+            <p className=" text-[10px] text-neutral-400 font-semibold ">
+              You already have an account. Dive right in
+            </p>
+          </button>
+          <button
+            onClick={(e) => handleAuthType(true, 1)}
+            className={` ${
+              is_selected === 1
+                ? "bg-cyan-500/10 border-cyan-700/10"
+                : "border-neutral-300/20"
+            } w-full lg:w-1/2 cursor-pointer h-1/2 lg:h-full p-3 lg:p-7 border-4 flex flex-col justify-around items-center rounded-lg `}
+          >
+            <Lottie animationData={signupLottie} className=" w-20 h-20" />
+            <p className=" text-[14px] font-bold ">Signup</p>
+            <p className=" text-[10px] text-neutral-400 font-semibold ">
+              Create an account & start moving plata
+            </p>
+          </button>
         </section>
-        <button className=" w-full lg:w-3/12 lg:text-[12px] bg-cyan-500 text-white mt-5 rounded-[4px] h-20 lg:h-8 ">
+        <button
+          onClick={(e) => set_is_auth(true)}
+          className=" w-full lg:w-3/12 lg:text-[12px] bg-cyan-500 text-white mt-5 rounded-[4px] h-20 lg:h-8 "
+        >
           Continue
         </button>
       </div>
