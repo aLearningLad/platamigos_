@@ -42,10 +42,10 @@ const SignUpForm: React.FC<Isignupform> = ({ set_is_new }) => {
           onChange={(e: ChangeEvent<HTMLInputElement>) =>
             setEmail(e.target.value)
           }
-          className="bg-white border-2 py-1 border-neutral-500/20 px-3 text-[14px] focus:outline-none rounded-[6px] "
+          className="bg-white border-2 focus:bg-cyan-500/10 focus:scale-95 transition duration-300 ease-in focus:text-black py-1 border-neutral-500/20 px-3 text-[14px] focus:outline-none rounded-[6px] "
         />
         <input
-          className="bg-white border-2 border-neutral-500/20 px-3 text-[14px] focus:outline-none rounded-[6px] py-1"
+          className="bg-white border-2 focus:bg-cyan-500/10 focus:scale-95 transition duration-300 ease-in border-neutral-500/20 px-3 text-[14px] focus:outline-none rounded-[6px] py-1"
           type="password"
           name="password"
           placeholder="Password"

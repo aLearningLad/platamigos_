@@ -1,14 +1,14 @@
 "use client";
 
+import { Isigninform } from "@/models/interfaces";
 import { signInSubmit } from "@/services/client_side/on_submit/sign_in_form";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { ChangeEvent, FormEvent, useState } from "react";
 
-const SignInForm = () => {
+const SignInForm: React.FC<Isigninform> = ({ set_is_new }) => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  const [is_new, set_is_new] = useState<boolean>(false);
   const router = useRouter();
 
   return (
@@ -34,10 +34,10 @@ const SignInForm = () => {
           onChange={(e: ChangeEvent<HTMLInputElement>) =>
             setEmail(e.target.value)
           }
-          className=" bg-white border-2 py-1 border-neutral-500/20 px-3 text-[14px] focus:outline-none rounded-[6px]"
+          className=" bg-white border-2 focus:bg-orange-600/10 focus:scale-95 transition duration-300 ease-in py-1 border-neutral-500/20 px-3 text-[14px] focus:outline-none rounded-[6px]"
         />
         <input
-          className=" bg-white border-2 py-1 border-neutral-500/20 px-3 text-[14px] focus:outline-none rounded-[6px]"
+          className=" bg-white border-2 focus:bg-orange-500/10 focus:scale-95 transition duration-300 ease-in py-1 border-neutral-500/20 px-3 text-[14px] focus:outline-none rounded-[6px]"
           placeholder="Password"
           type="password"
           name="password"

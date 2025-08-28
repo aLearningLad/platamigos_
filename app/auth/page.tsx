@@ -26,7 +26,11 @@ const AuthPage = () => {
   if (is_auth) {
     return (
       <div>
-        {is_new ? <SignUpForm set_is_new={set_is_new} /> : <SignInForm />}
+        {is_new ? (
+          <SignUpForm set_is_new={set_is_new} />
+        ) : (
+          <SignInForm set_is_new={set_is_new} />
+        )}
       </div>
     );
   }
