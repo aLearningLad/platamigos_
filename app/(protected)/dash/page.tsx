@@ -1,5 +1,6 @@
 "use client";
 
+import SideBar from "@/app/components/dash_comps/sidebar/sidebar";
 import { handleSignOut } from "@/services/client_side/ubiquitous/logout";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -24,10 +25,13 @@ const Dash = () => {
   return (
     <div className=" w-full min-h-screen flex flex-col items-center justify-center">
       {is_loading ? (
-        <div>Just a second...</div>
+        <div className=" w-full min-h-screen flex justify-center items-center text-[12px] ">
+          Just a second...
+        </div>
       ) : (
-        <div className=" w-full h-full flex flex-col items-center justify-center space-y-6 ">
-          {comm_loans.map((loan: Tcommunity_requests) => (
+        <div className=" w-full h-full flex ">
+          dash screen here
+          {/* {comm_loans.map((loan: Tcommunity_requests) => (
             <Link
               className=" flex flex-col items-center justify-center space-y-2 bg-neutral-200 rounded-lg p-4 "
               key={loan.loan_id}
@@ -47,7 +51,7 @@ const Dash = () => {
             onClick={() => handleSignOut(router, is_loading, set_is_loading)}
           >
             Sign Out
-          </button>
+          </button> */}
         </div>
       )}
     </div>
