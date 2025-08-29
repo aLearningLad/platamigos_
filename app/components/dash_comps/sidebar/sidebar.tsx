@@ -4,7 +4,7 @@ import SidebarOptions from "./sidebaroptions";
 
 const SideBar = () => {
   return (
-    <nav className=" hidden min-h-screen lg:flex w-52 flex-col px-2 py-1">
+    <nav className=" hidden min-h-screen lg:flex w-48 flex-col px-2 py-1">
       <header className=" flex w-full h-12 border-2 border-black items-center justify-start">
         <Image
           src={"/assets/applogo.png"}

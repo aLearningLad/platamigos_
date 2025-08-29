@@ -2,20 +2,22 @@
 
 import Lottie from "lottie-react";
 import restingLottie from "@/public/assets/lottieresting.json";
-import { IoIosNotifications } from "react-icons/io";
+import { IoNotificationsOutline } from "react-icons/io5";
 
 const SidebarNav = () => {
   return (
     <div className=" w-full h-[50%] border-2 border-red-400 flex flex-col ">
-      <div className=" w-full h-[15%] bg-black flex justify-between ">
-        <Lottie
-          animationData={restingLottie}
-          className=" w-12 h-12 rounded-full"
-        />
+      <div className=" w-full h-[15%] flex justify-between items-center pr-3">
+        <div className=" flex items-center">
+          <Lottie
+            animationData={restingLottie}
+            className=" w-8 h-8 rounded-full "
+          />
 
-        <p>Thato</p>
+          <p className=" text-[10px] font-bold">Thato</p>
+        </div>
 
-        <IoIosNotifications size={12} className=" text-teal-500" />
+        <IoNotificationsOutline size={14} className=" text-neutral-400" />
       </div>
     </div>
   );

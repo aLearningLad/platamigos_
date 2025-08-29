@@ -1,3 +1,5 @@
+import { ReactElement } from "react";
+
 declare type NextRouter = ReturnType<typeof useRouter>;
 
 declare type Tcommunity_requests = {
@@ -32,4 +34,11 @@ declare type Tuser_info = {
   debts_settled: number;
   total_creditors: number;
   total_debtors: number;
+};
+
+declare type Tsidebar_info = {
+  id: number;
+  icon: ReactElement;
+  title: string;
+  href: string;
 };
