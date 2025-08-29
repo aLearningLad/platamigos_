@@ -19,6 +19,8 @@ const SidebarNav = () => {
 
         <IoNotificationsOutline size={14} className=" text-neutral-400" />
       </div>
+
+      {/* nav tabs */}
     </div>
   );
 };
