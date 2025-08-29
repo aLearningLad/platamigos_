@@ -8,31 +8,31 @@ import { VscGitPullRequestCreate } from "react-icons/vsc";
 export const sidebarinfo: Tsidebar_info[] = [
   {
     id: 37712,
-    icon: <IoHomeOutline />,
+    icon: <IoHomeOutline size={12} className=" text-neutral-500" />,
     title: "Dashboard",
     href: "/dash",
   },
   {
     id: 8676711,
-    icon: <GiMoneyStack />,
+    icon: <GiMoneyStack size={12} className=" text-neutral-500" />,
     title: "Fund",
     href: "/fund",
   },
   {
     id: 8305524172,
-    icon: <FaHandHoldingUsd />,
+    icon: <FaHandHoldingUsd size={12} className=" text-neutral-500" />,
     title: "Offers",
     href: "/offers",
   },
   {
     id: 24188271,
-    icon: <RiSecurePaymentLine />,
+    icon: <RiSecurePaymentLine size={12} className=" text-neutral-500" />,
     title: "Repayments",
     href: "/repayments",
   },
   {
     id: 66372615,
-    icon: <VscGitPullRequestCreate />,
+    icon: <VscGitPullRequestCreate size={12} className=" text-neutral-500" />,
     title: "Request",
     href: "/request",
   },
