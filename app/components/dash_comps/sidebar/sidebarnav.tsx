@@ -33,19 +33,21 @@ const SidebarNav = () => {
             href={href}
             key={id}
             className={`w-full flex ${
-              current === href.slice(1) && "bg-neutral-400/10"
-            } items-center justify-start px-2 py-1 gap-1 h-8 rounded-[3px]`}
+              current === href.slice(1)
+                ? "bg-neutral-400/10"
+                : "hover:translate-x-1 hover:font-bold transition duration-300 ease-in-out"
+            } items-center  justify-start px-2 py-1 gap-1 h-8 rounded-[3px]`}
           >
             {icon}
             <p className=" text-[10px] ">{title}</p>
           </Link>
         ))}
-        <button className="w-full flex items-center justify-start px-2 py-1 gap-1 h-8 rounded-lg">
+        <button className="w-full hover:translate-x-1 hover:font-bold transition duration-300 ease-in-out cursor-pointer flex items-center justify-start px-2 py-1 gap-1 h-8 rounded-lg">
           <IoSettingsOutline size={12} className="text-neutral-500" />
           <p className=" text-[10px] ">Settings</p>
         </button>
       </ul>
-      <button className=" w-full mt-3 hover:bg-black hover:text-white transition ease-in duration-300 h-6 font-bold bg-neutral-500/10 text-black rounded-[3px] text-[10px] ">
+      <button className=" w-full mt-3 cursor-pointer hover:bg-black hover:text-white transition ease-in duration-300 h-6 font-bold bg-neutral-500/10 text-black rounded-[3px] text-[10px] ">
         Export Data
       </button>
     </div>

@@ -42,3 +42,9 @@ declare type Tsidebar_info = {
   title: string;
   href: string;
 };
+
+declare type Toptions_info = {
+  id: number;
+  icon: ReactElement;
+  title: string;
+};
