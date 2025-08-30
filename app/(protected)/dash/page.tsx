@@ -2,9 +2,13 @@
 
 import SideBar from "@/app/components/dash_comps/sidebar/sidebar";
 import { handleSignOut } from "@/services/client_side/ubiquitous/logout";
+import Lottie from "lottie-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import restingLottie from "@/public/assets/lottieresting.json";
+import dashLottie from "@/public/assets/lottie1.json";
+import Dashtab from "@/app/components/dash_comps/dash_options/dashtab";
 
 const Dash = () => {
   const router = useRouter();
@@ -29,8 +33,31 @@ const Dash = () => {
           Just a second...
         </div>
       ) : (
-        <div className=" w-full h-full flex ">
-          dash screen here
+        <div className=" w-full h-full flex flex-col py-2 px-1 md:px-3 lg:px-20 xl:px-28 ">
+          <div className=" w-full h-full border-2 border-black flex flex-col items-center">
+            <section className=" w-full flex flex-col items-center py-4 lg:py-7 ">
+              <Lottie
+                animationData={restingLottie}
+                className=" w-16 h-16 rounded-full border-4 border-neutral-400/10 "
+              />
+              <p className=" text-[10px] text-neutral-500 font-semibold ">
+                Welcome, Thato
+              </p>
+              <p className=" text-[12px] font-bold text-center ">
+                To get started, try making a loan <br /> request. Or opt to fund
+                somebody {"else's"}.
+              </p>
+            </section>
+            <div className=" w-full lg:px-28 h-full flex flex-col ">
+              {/* top */}
+              <div className=" w-full h-[20vh] lg:h-1/2 flex gap-3 ">
+                <Dashtab />
+              </div>
+
+              {/* bottom  */}
+              <div className=" w-full h-[20vh] lg:h-1/2 flex gap-3 "></div>
+            </div>
+          </div>
           {/* {comm_loans.map((loan: Tcommunity_requests) => (
             <Link
               className=" flex flex-col items-center justify-center space-y-2 bg-neutral-200 rounded-lg p-4 "
