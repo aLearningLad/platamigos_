@@ -1,3 +1,4 @@
+import { LottieComponentProps } from "lottie-react";
 import { SetStateAction } from "react";
 
 export interface Isignupform {
@@ -8,4 +9,12 @@ export interface Isigninform {
 }
 export interface Ionboarding_screens {
   set_is_loading: React.Dispatch<SetStateAction<boolean>>;
+}
+
+export interface Idash_tab {
+  tab_id: number;
+  title: string;
+  blurb: string;
+  cta: string;
+  animation: any;
 }

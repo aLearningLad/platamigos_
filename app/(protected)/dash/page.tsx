@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import restingLottie from "@/public/assets/lottieresting.json";
 import dashLottie from "@/public/assets/lottie1.json";
 import Dashtab from "@/app/components/dash_comps/dash_options/dashtab";
+import { dash_tab_info } from "@/dev_data/dash_tab_info";
 
 const Dash = () => {
   const router = useRouter();
@@ -25,6 +26,9 @@ const Dash = () => {
 
     fetchLoans();
   }, []);
+
+  const toptabs = dash_tab_info.slice(2);
+  const bottomtabs = dash_tab_info.slice(3);
 
   return (
     <div className=" w-full min-h-screen flex flex-col items-center justify-center">
@@ -50,9 +54,7 @@ const Dash = () => {
             </section>
             <div className=" w-full lg:px-28 h-full flex flex-col ">
               {/* top */}
-              <div className=" w-full h-[20vh] lg:h-1/2 flex gap-3 ">
-                <Dashtab />
-              </div>
+              <div className=" w-full h-[20vh] lg:h-1/2 flex gap-3 "></div>
 
               {/* bottom  */}
               <div className=" w-full h-[20vh] lg:h-1/2 flex gap-3 "></div>
