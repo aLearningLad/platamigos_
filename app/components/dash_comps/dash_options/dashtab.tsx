@@ -9,11 +9,12 @@ const Dashtab: React.FC<Idash_tab> = ({
   cta,
   tab_id,
   title,
+  href,
 }) => {
   return (
     <Link
-      className=" w-full group hover:bg-orange-500/30 hover:border-none hover:scale-95 transition duration-150 ease-in lg:w-1/3 h-full rounded-lg border-2 border-neutral-400/20 p-3 flex flex-col items-start justify-around"
-      href={"/"}
+      className=" w-full space-y-1 group hover:bg-orange-500/30 hover:border-none hover:scale-95 transition duration-150 ease-in lg:w-1/3 h-full rounded-lg border-2 border-neutral-400/20 p-3 flex flex-col items-start justify-around"
+      href={href}
     >
       <Lottie animationData={animation} className=" w-20 h-20 rounded-full" />
       <p className=" text-[10px] font-bold ">{title}</p>

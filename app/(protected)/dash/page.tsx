@@ -10,6 +10,7 @@ import restingLottie from "@/public/assets/lottieresting.json";
 import dashLottie from "@/public/assets/lottie1.json";
 import Dashtab from "@/app/components/dash_comps/dash_options/dashtab";
 import { dash_tab_info } from "@/dev_data/dash_tab_info";
+import DashSettingsBtn from "@/app/components/dash_comps/dash_options/dashsettingsbtn";
 
 const Dash = () => {
   const router = useRouter();
@@ -37,8 +38,8 @@ const Dash = () => {
           Just a second...
         </div>
       ) : (
-        <div className=" w-full h-full flex flex-col py-2 px-1 md:px-3 lg:px-20 xl:px-28 ">
-          <div className=" w-full h-full pb-2 md:pb-5 lg:pb-7 flex flex-col items-center">
+        <div className=" w-full h-full flex flex-col px-1 md:px-3 lg:px-20 xl:px-28 ">
+          <div className=" w-full h-full pb-2 flex flex-col items-center">
             <section className=" w-full flex flex-col items-center py-4 lg:py-7 ">
               <Lottie
                 animationData={restingLottie}
@@ -55,36 +56,38 @@ const Dash = () => {
             <div className=" w-full lg:px-28 h-full flex flex-col gap-3 ">
               {/* top */}
               <div className=" w-full h-[20vh] lg:h-1/2 flex gap-3 ">
-                {toptabs.map(({ animation, blurb, cta, tab_id, title }) => (
-                  <Dashtab
-                    animation={animation}
-                    blurb={blurb}
-                    cta={cta}
-                    tab_id={tab_id}
-                    title={title}
-                  />
-                ))}
+                {toptabs.map(
+                  ({ animation, blurb, cta, tab_id, title, href }) => (
+                    <Dashtab
+                      href={href}
+                      key={tab_id}
+                      animation={animation}
+                      blurb={blurb}
+                      cta={cta}
+                      tab_id={tab_id}
+                      title={title}
+                    />
+                  )
+                )}
               </div>
 
               {/* bottom  */}
               <div className=" w-full h-[20vh] lg:h-1/2 flex gap-3 ">
-                {bottomtabs.map(({ animation, blurb, cta, tab_id, title }) => (
-                  <Dashtab
-                    animation={animation}
-                    blurb={blurb}
-                    cta={cta}
-                    tab_id={tab_id}
-                    title={title}
-                  />
-                ))}
-                <Dashtab
-                  tab_id={82871211}
-                  blurb="Explore settings"
-                  title="Settings"
-                  cta="Open"
-                  animation={dashLottie}
-                  key={27387811}
-                />
+                {bottomtabs.map(
+                  ({ animation, blurb, cta, tab_id, title, href }) => (
+                    <Dashtab
+                      href={href}
+                      key={tab_id}
+                      animation={animation}
+                      blurb={blurb}
+                      cta={cta}
+                      tab_id={tab_id}
+                      title={title}
+                    />
+                  )
+                )}
+
+                <DashSettingsBtn />
               </div>
             </div>
           </div>

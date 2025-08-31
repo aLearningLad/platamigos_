@@ -17,5 +17,5 @@ export interface Idash_tab {
   blurb: string;
   cta: string;
   animation: any;
-  href?: string;
+  href: string;
 }
