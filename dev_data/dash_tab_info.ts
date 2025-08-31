@@ -9,6 +9,7 @@ export const dash_tab_info: Idash_tab[] = [
       "Your home base. Plan out your next move. Secure funding or seed an amigo's dream",
     animation: dashLottie,
     cta: "Export Data",
+    href: "/dash",
   },
   {
     tab_id: 362792947,
@@ -16,6 +17,7 @@ export const dash_tab_info: Idash_tab[] = [
     blurb: "Offer to fund an amigo's loan. Set interest and repayment terms",
     animation: dashLottie,
     cta: "Export Data",
+    href: "/fund",
   },
   {
     tab_id: 2812792812,
@@ -23,14 +25,7 @@ export const dash_tab_info: Idash_tab[] = [
     blurb: "Compare, accept or decline loan offers from interested amigos",
     animation: dashLottie,
     cta: "Export Data",
-  },
-  {
-    tab_id: 9982638172,
-    title: "Repayments",
-    blurb:
-      "Track loan repayments, make additional payments and clear your debt",
-    animation: dashLottie,
-    cta: "Export Data",
+    href: "/offers",
   },
   {
     tab_id: 11364862328,
@@ -38,6 +33,7 @@ export const dash_tab_info: Idash_tab[] = [
     blurb: "Ask for a loan",
     animation: dashLottie,
     cta: "Export Data",
+    href: "/request",
   },
   {
     tab_id: 12872736281,
@@ -46,5 +42,6 @@ export const dash_tab_info: Idash_tab[] = [
       "Track loan repayments, make additional payments and clear your debt",
     animation: dashLottie,
     cta: "Export Data",
+    href: "/repayments",
   },
 ];

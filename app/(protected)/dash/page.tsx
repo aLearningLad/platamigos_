@@ -27,7 +27,7 @@ const Dash = () => {
     fetchLoans();
   }, []);
 
-  const toptabs = dash_tab_info.slice(2);
+  const toptabs = dash_tab_info.slice(0, 3);
   const bottomtabs = dash_tab_info.slice(3);
 
   return (
@@ -38,7 +38,7 @@ const Dash = () => {
         </div>
       ) : (
         <div className=" w-full h-full flex flex-col py-2 px-1 md:px-3 lg:px-20 xl:px-28 ">
-          <div className=" w-full h-full border-2 border-black flex flex-col items-center">
+          <div className=" w-full h-full pb-2 md:pb-5 lg:pb-7 flex flex-col items-center">
             <section className=" w-full flex flex-col items-center py-4 lg:py-7 ">
               <Lottie
                 animationData={restingLottie}
@@ -52,12 +52,40 @@ const Dash = () => {
                 somebody {"else's"}.
               </p>
             </section>
-            <div className=" w-full lg:px-28 h-full flex flex-col ">
+            <div className=" w-full lg:px-28 h-full flex flex-col gap-3 ">
               {/* top */}
-              <div className=" w-full h-[20vh] lg:h-1/2 flex gap-3 "></div>
+              <div className=" w-full h-[20vh] lg:h-1/2 flex gap-3 ">
+                {toptabs.map(({ animation, blurb, cta, tab_id, title }) => (
+                  <Dashtab
+                    animation={animation}
+                    blurb={blurb}
+                    cta={cta}
+                    tab_id={tab_id}
+                    title={title}
+                  />
+                ))}
+              </div>
 
               {/* bottom  */}
-              <div className=" w-full h-[20vh] lg:h-1/2 flex gap-3 "></div>
+              <div className=" w-full h-[20vh] lg:h-1/2 flex gap-3 ">
+                {bottomtabs.map(({ animation, blurb, cta, tab_id, title }) => (
+                  <Dashtab
+                    animation={animation}
+                    blurb={blurb}
+                    cta={cta}
+                    tab_id={tab_id}
+                    title={title}
+                  />
+                ))}
+                <Dashtab
+                  tab_id={82871211}
+                  blurb="Explore settings"
+                  title="Settings"
+                  cta="Open"
+                  animation={dashLottie}
+                  key={27387811}
+                />
+              </div>
             </div>
           </div>
           {/* {comm_loans.map((loan: Tcommunity_requests) => (
