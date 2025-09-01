@@ -26,6 +26,10 @@ const RequestALoanPage = () => {
   const [alias, set_alias] = useState<string>("");
   const [part, set_part] = useState<number>(0);
 
+  // checker states
+  const [pcp_done, set_pcp_done] = useState<boolean>(false);
+  const [title_done, set_title_done] = useState<boolean>(false);
+
   useEffect(() => {
     const fetchAlias = async () => {
       try {
@@ -77,19 +81,31 @@ const RequestALoanPage = () => {
         <header className=" w-full lg:flex justify-center items-center gap-3">
           <div className=" w-20 h-20 rounded-full bg-neutral-500/10 flex justify-center items-center flex-col">
             <p className=" text-[10px]">Principle</p>
-            <p className=" text-[6px]">Amount to borrow</p>
-            <div className="text-[4px]">x</div>
+            <p className={`text-[6px] ${pcp_done && "hidden"} `}>
+              Amount to borrow
+            </p>
+            <div className={`text-[4px] ${pcp_done && "hidden"}`}>x</div>
           </div>
         </header>
         {/* conditional rendering below */}
         <div className=" w-full px-2 md:px-5 lg:px-32 flex justify-center items-center h-[70vh] lg:h-[50%] border-black border-2 ">
           {/* pcp */}
           {part === 0 && (
-            <PCP pcp={pcp} set_pcp={set_pcp} set_part={set_part} />
+            <PCP
+              pcp={pcp}
+              set_pcp={set_pcp}
+              set_part={set_part}
+              set_pcp_done={() => set_pcp_done(true)}
+            />
           )}
           {/* title */}
           {part === 1 && (
-            <ReqTitle set_title={set_title} title={title} set_part={set_part} />
+            <ReqTitle
+              set_title={set_title}
+              title={title}
+              set_part={set_part}
+              set_title_done={set_title_done}
+            />
           )}
           {/* description */}
           {part === 2 && (

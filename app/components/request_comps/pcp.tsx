@@ -2,7 +2,7 @@ import { I_pcp } from "@/models/interfaces";
 import React, { ChangeEvent } from "react";
 import NextBtn from "./next_btn";
 
-const PCP: React.FC<I_pcp> = ({ pcp, set_pcp, set_part }) => {
+const PCP: React.FC<I_pcp> = ({ pcp, set_pcp, set_part, set_pcp_done }) => {
   return (
     <div className=" w-full sm:w-10/12 md:w-8/12 lg:w-6/12 xl:w-4/12 lg:px-20 flex flex-col gap-2 items-center">
       <label className=" text-[14px] font-semibold" htmlFor="pcp">
@@ -21,11 +21,11 @@ const PCP: React.FC<I_pcp> = ({ pcp, set_pcp, set_part }) => {
           set_pcp(e.target.valueAsNumber)
         }
       />
-      <p className=" text-[10px] text-neutral-500">
+      <p className=" text-[10px] text-neutral-500 mb-12">
         You can request up to R49,500
       </p>
 
-      <NextBtn btn_color="" set_part={set_part} />
+      <NextBtn btn_color="" set_part={set_part} set_which_done={set_pcp_done} />
     </div>
   );
 };
