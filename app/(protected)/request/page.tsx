@@ -74,47 +74,57 @@ const RequestALoanPage = () => {
       </div>
     ) : (
       <div className=" w-full min-h-screen flex flex-col items-center justify-center space-y-5">
-        <header>Make a loan request</header>
-        {/* conditional rendering below */}
-        {/* pcp */}
-        {part === 0 && <PCP pcp={pcp} set_pcp={set_pcp} />}
-        {/* title */}
-        {part === 1 && <ReqTitle set_title={set_title} title={title} />}
-        {/* description */}
-        {part === 2 && (
-          <ReqDesc
-            description={description}
-            set_description={set_description}
-          />
-        )}
-
-        {part === 3 && (
-          <div>
-            summary & submit
-            {/* submit request */}
-            <button
-              disabled={title.length < 5 || description.length < 5 || pcp === 0}
-              onClick={() =>
-                handleRequestLoan(
-                  title,
-                  description,
-                  pcp,
-                  loan_type,
-                  router,
-                  set_is_loading,
-                  alias
-                )
-              }
-              className={`${
-                title.length < 5 || description.length < 5 || pcp === 0
-                  ? "bg-gray-400/60 brightness-50 text-white/70 "
-                  : "bg-green-400"
-              }`}
-            >
-              Publish Request
-            </button>
+        <header className=" w-full lg:flex justify-center items-center gap-3">
+          <div className=" w-20 h-20 rounded-full bg-neutral-500/10 flex justify-center items-center flex-col">
+            <p className=" text-[10px]">Principle</p>
+            <p className=" text-[6px]">Amount to borrow</p>
+            <div className="text-[4px]">x</div>
           </div>
-        )}
+        </header>
+        {/* conditional rendering below */}
+        <div className=" w-full px-2 md:px-5 lg:px-32 flex justify-center items-center h-[70vh] lg:h-[50%] border-black border-2 ">
+          {/* pcp */}
+          {part === 0 && <PCP pcp={pcp} set_pcp={set_pcp} />}
+          {/* title */}
+          {part === 1 && <ReqTitle set_title={set_title} title={title} />}
+          {/* description */}
+          {part === 2 && (
+            <ReqDesc
+              description={description}
+              set_description={set_description}
+            />
+          )}
+
+          {part === 3 && (
+            <div>
+              summary & submit
+              {/* submit request */}
+              <button
+                disabled={
+                  title.length < 5 || description.length < 5 || pcp === 0
+                }
+                onClick={() =>
+                  handleRequestLoan(
+                    title,
+                    description,
+                    pcp,
+                    loan_type,
+                    router,
+                    set_is_loading,
+                    alias
+                  )
+                }
+                className={`${
+                  title.length < 5 || description.length < 5 || pcp === 0
+                    ? "bg-gray-400/60 brightness-50 text-white/70 "
+                    : "bg-green-400"
+                }`}
+              >
+                Publish Request
+              </button>
+            </div>
+          )}
+        </div>
 
         <button
           className={`${
@@ -132,7 +142,6 @@ const RequestALoanPage = () => {
         >
           Next
         </button>
-        <p>{part}</p>
       </div>
     );
   }
