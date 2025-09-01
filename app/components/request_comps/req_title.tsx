@@ -1,7 +1,8 @@
 import { I_req_title } from "@/models/interfaces";
 import React, { ChangeEvent } from "react";
+import PrevBtn from "./prev_btn";
 
-const ReqTitle: React.FC<I_req_title> = ({ set_title, title }) => {
+const ReqTitle: React.FC<I_req_title> = ({ set_title, title, set_part }) => {
   return (
     <div className=" flex flex-col items-center justify-center">
       <label htmlFor="title">Title</label>
@@ -15,6 +16,7 @@ const ReqTitle: React.FC<I_req_title> = ({ set_title, title }) => {
           set_title(e.target.value)
         }
       />
+      <PrevBtn btn_color="" set_part={set_part} />
     </div>
   );
 };

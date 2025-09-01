@@ -84,14 +84,19 @@ const RequestALoanPage = () => {
         {/* conditional rendering below */}
         <div className=" w-full px-2 md:px-5 lg:px-32 flex justify-center items-center h-[70vh] lg:h-[50%] border-black border-2 ">
           {/* pcp */}
-          {part === 0 && <PCP pcp={pcp} set_pcp={set_pcp} />}
+          {part === 0 && (
+            <PCP pcp={pcp} set_pcp={set_pcp} set_part={set_part} />
+          )}
           {/* title */}
-          {part === 1 && <ReqTitle set_title={set_title} title={title} />}
+          {part === 1 && (
+            <ReqTitle set_title={set_title} title={title} set_part={set_part} />
+          )}
           {/* description */}
           {part === 2 && (
             <ReqDesc
               description={description}
               set_description={set_description}
+              set_part={set_part}
             />
           )}
 
@@ -125,23 +130,6 @@ const RequestALoanPage = () => {
             </div>
           )}
         </div>
-
-        <button
-          className={`${
-            part === 0 && "brightness-[30%]"
-          } bg-cyan-600 text-white`}
-          onClick={handlePrev}
-        >
-          Return
-        </button>
-        <button
-          className={`${
-            part === 3 && "brightness-[30%]"
-          } bg-green-400 text-white`}
-          onClick={handleNext}
-        >
-          Next
-        </button>
       </div>
     );
   }
