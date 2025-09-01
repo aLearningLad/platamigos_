@@ -16,6 +16,8 @@ import loadingLottie from "@/public/assets/lottieloading.json";
 import PCP from "@/app/components/request_comps/pcp";
 import ReqTitle from "@/app/components/request_comps/req_title";
 import ReqDesc from "@/app/components/request_comps/req_desc";
+import { plataStore } from "@/app/(store)/store";
+import { Istore } from "@/models/interfaces";
 
 const RequestALoanPage = () => {
   const [pcp, set_pcp] = useState<number>(1500);
@@ -25,10 +27,6 @@ const RequestALoanPage = () => {
   const [is_loading, set_is_loading] = useState(false);
   const [alias, set_alias] = useState<string>("");
   const [part, set_part] = useState<number>(0);
-
-  // checker states
-  const [pcp_done, set_pcp_done] = useState<boolean>(false);
-  const [title_done, set_title_done] = useState<boolean>(false);
 
   useEffect(() => {
     const fetchAlias = async () => {
@@ -52,19 +50,9 @@ const RequestALoanPage = () => {
   }, []);
 
   const router = useRouter();
-
-  const handleNext = (): void => {
-    if (part < 3) {
-      set_part((prev: number) => prev + 1);
-    }
-    return;
-  };
-  const handlePrev = (): void => {
-    if (part < 1) {
-      return;
-    }
-    set_part((prev) => prev - 1);
-  };
+  const pcp_is_done = plataStore((store: Istore) => store.pcp_is_done);
+  const title_is_done = plataStore((store: Istore) => store.title_is_done);
+  const desc_is_done = plataStore((store: Istore) => store.desc_is_done);
 
   {
     return is_loading ? (
@@ -79,33 +67,42 @@ const RequestALoanPage = () => {
     ) : (
       <div className=" w-full min-h-screen flex flex-col items-center justify-center space-y-5">
         <header className=" w-full lg:flex justify-center items-center gap-3">
+          {/* pcp progress circle */}
           <div className=" w-20 h-20 rounded-full bg-neutral-500/10 flex justify-center items-center flex-col">
             <p className=" text-[10px]">Principle</p>
-            <p className={`text-[6px] ${pcp_done && "hidden"} `}>
+            <p className={`text-[6px] ${pcp_is_done && "hidden"} `}>
               Amount to borrow
             </p>
-            <div className={`text-[4px] ${pcp_done && "hidden"}`}>x</div>
+            <div className={`text-[4px] ${pcp_is_done && "hidden"}`}>x</div>
+          </div>
+
+          {/* title progress circle */}
+          <div className=" w-20 h-20 rounded-full bg-neutral-500/10 flex justify-center items-center flex-col">
+            <p className=" text-[10px]">Title</p>
+            <p className={`text-[6px] ${title_is_done && "hidden"} `}>
+              Loan details
+            </p>
+            <div className={`text-[4px] ${title_is_done && "hidden"}`}>x</div>
+          </div>
+
+          {/* desc progress circle */}
+          <div className=" w-20 h-20 rounded-full bg-neutral-500/10 flex justify-center items-center flex-col">
+            <p className=" text-[10px]">Description</p>
+            <p className={`text-[6px] ${desc_is_done && "hidden"} `}>
+              More information on request
+            </p>
+            <div className={`text-[4px] ${desc_is_done && "hidden"}`}>x</div>
           </div>
         </header>
         {/* conditional rendering below */}
         <div className=" w-full px-2 md:px-5 lg:px-32 flex justify-center items-center h-[70vh] lg:h-[50%] border-black border-2 ">
           {/* pcp */}
           {part === 0 && (
-            <PCP
-              pcp={pcp}
-              set_pcp={set_pcp}
-              set_part={set_part}
-              set_pcp_done={() => set_pcp_done(true)}
-            />
+            <PCP pcp={pcp} set_pcp={set_pcp} set_part={set_part} />
           )}
           {/* title */}
           {part === 1 && (
-            <ReqTitle
-              set_title={set_title}
-              title={title}
-              set_part={set_part}
-              set_title_done={set_title_done}
-            />
+            <ReqTitle set_title={set_title} title={title} set_part={set_part} />
           )}
           {/* description */}
           {part === 2 && (

@@ -24,14 +24,12 @@ export interface I_pcp {
   set_pcp: React.Dispatch<SetStateAction<number>>;
   pcp: number;
   set_part: React.Dispatch<SetStateAction<number>>;
-  set_pcp_done: React.Dispatch<SetStateAction<boolean>>;
 }
 
 export interface I_req_title {
   title: string;
   set_title: React.Dispatch<SetStateAction<string>>;
   set_part: React.Dispatch<SetStateAction<number>>;
-  set_title_done: React.Dispatch<SetStateAction<boolean>>;
 }
 
 export interface I_req_desc {
@@ -43,5 +41,14 @@ export interface I_req_desc {
 export interface I_nextbtn {
   btn_color: string;
   set_part: React.Dispatch<SetStateAction<number>>;
-  set_which_done: React.Dispatch<SetStateAction<boolean>>;
+  handleFxn: () => void;
+}
+
+export interface Istore {
+  pcp_is_done: boolean;
+  title_is_done: boolean;
+  desc_is_done: boolean;
+  set_pcp_is_done: () => void;
+  set_title_is_done: () => void;
+  set_desc_is_done: () => void;
 }

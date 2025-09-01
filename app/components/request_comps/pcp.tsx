@@ -1,8 +1,13 @@
-import { I_pcp } from "@/models/interfaces";
+"use client";
+
+import { I_pcp, Istore } from "@/models/interfaces";
 import React, { ChangeEvent } from "react";
 import NextBtn from "./next_btn";
+import { plataStore } from "@/app/(store)/store";
 
-const PCP: React.FC<I_pcp> = ({ pcp, set_pcp, set_part, set_pcp_done }) => {
+const PCP: React.FC<I_pcp> = ({ pcp, set_pcp, set_part }) => {
+  const set_pcp_done = plataStore((store) => store.set_pcp_is_done);
+
   return (
     <div className=" w-full sm:w-10/12 md:w-8/12 lg:w-6/12 xl:w-4/12 lg:px-20 flex flex-col gap-2 items-center">
       <label className=" text-[14px] font-semibold" htmlFor="pcp">
@@ -25,7 +30,7 @@ const PCP: React.FC<I_pcp> = ({ pcp, set_pcp, set_part, set_pcp_done }) => {
         You can request up to R49,500
       </p>
 
-      <NextBtn btn_color="" set_part={set_part} set_which_done={set_pcp_done} />
+      <NextBtn btn_color="" set_part={set_part} handleFxn={set_pcp_done} />
     </div>
   );
 };
