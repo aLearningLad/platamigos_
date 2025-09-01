@@ -47,6 +47,19 @@ const RequestALoanPage = () => {
 
   const router = useRouter();
 
+  const handleNext = (): void => {
+    if (part < 3) {
+      set_part((prev: number) => prev + 1);
+    }
+    return;
+  };
+  const handlePrev = (): void => {
+    if (part < 1) {
+      return;
+    }
+    set_part((prev) => prev - 1);
+  };
+
   {
     return is_loading ? (
       <div className=" w-full min-h-screen flex flex-col justify-center items-center">
@@ -60,62 +73,86 @@ const RequestALoanPage = () => {
     ) : (
       <div className=" w-full min-h-screen flex flex-col items-center justify-center space-y-5">
         <header>Make a loan request</header>
-
         {/* conditional rendering below */}
-
         {/* pcp */}
-        <PCP pcp={pcp} set_pcp={set_pcp} />
+        {part === 0 && <PCP pcp={pcp} set_pcp={set_pcp} />}
         {/* title */}
-        {/* <div className=" flex flex-col items-center justify-center">
-          <label htmlFor="title">Title</label>
-          <input
-            type="text"
-            name="title"
-            placeholder="Eg. Need deposit for Porsche"
-            className=" bg-gray-400/50 text-sm w-60 px-3 py-2"
-            value={title}
-            onChange={(e: ChangeEvent<HTMLInputElement>) =>
-              set_title(e.target.value)
-            }
-          />
-        </div> */}
-
+        {part === 1 && (
+          <div className=" flex flex-col items-center justify-center">
+            <label htmlFor="title">Title</label>
+            <input
+              type="text"
+              name="title"
+              placeholder="Eg. Need deposit for Porsche"
+              className=" bg-gray-400/50 text-sm w-60 px-3 py-2"
+              value={title}
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                set_title(e.target.value)
+              }
+            />
+          </div>
+        )}
         {/* description */}
-        {/* <div className=" flex flex-col items-center justify-center">
-          <label htmlFor="description">Description</label>
-          <textarea
-            className=" min-h-[25vh] max-h-[40vh] overflow-auto p-4 bg-gray-500/40 "
-            name="description"
-            id="description"
-            value={description}
-            onChange={(e: ChangeEvent<HTMLTextAreaElement>) =>
-              set_description(e.target.value)
-            }
-          />
-        </div> */}
+        {part === 2 && (
+          <div className=" flex flex-col items-center justify-center">
+            <label htmlFor="description">Description</label>
+            <textarea
+              className=" min-h-[25vh] max-h-[40vh] overflow-auto p-4 bg-gray-500/40 "
+              name="description"
+              id="description"
+              value={description}
+              onChange={(e: ChangeEvent<HTMLTextAreaElement>) =>
+                set_description(e.target.value)
+              }
+            />
+          </div>
+        )}
 
-        {/* submit request */}
-        {/* <button
-          disabled={title.length < 5 || description.length < 5 || pcp === 0}
-          onClick={() =>
-            handleRequestLoan(
-              title,
-              description,
-              pcp,
-              loan_type,
-              router,
-              set_is_loading,
-              alias
-            )
-          }
+        {part === 3 && (
+          <div>
+            summary & submit
+            {/* submit request */}
+            <button
+              disabled={title.length < 5 || description.length < 5 || pcp === 0}
+              onClick={() =>
+                handleRequestLoan(
+                  title,
+                  description,
+                  pcp,
+                  loan_type,
+                  router,
+                  set_is_loading,
+                  alias
+                )
+              }
+              className={`${
+                title.length < 5 || description.length < 5 || pcp === 0
+                  ? "bg-gray-400/60 brightness-50 text-white/70 "
+                  : "bg-green-400"
+              }`}
+            >
+              Publish Request
+            </button>
+          </div>
+        )}
+
+        <button
           className={`${
-            title.length < 5 || description.length < 5 || pcp === 0
-              ? "bg-gray-400/60 brightness-50 text-white/70 "
-              : "bg-green-400"
-          }`}
+            part === 0 && "brightness-[30%]"
+          } bg-cyan-600 text-white`}
+          onClick={handlePrev}
         >
-          Publish Request
-        </button> */}
+          Return
+        </button>
+        <button
+          className={`${
+            part === 3 && "brightness-[30%]"
+          } bg-green-400 text-white`}
+          onClick={handleNext}
+        >
+          Next
+        </button>
+        <p>{part}</p>
       </div>
     );
   }
