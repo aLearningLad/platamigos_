@@ -24,3 +24,13 @@ export interface I_pcp {
   set_pcp: React.Dispatch<SetStateAction<number>>;
   pcp: number;
 }
+
+export interface I_req_title {
+  title: string;
+  set_title: React.Dispatch<SetStateAction<string>>;
+}
+
+export interface I_req_desc {
+  description: string;
+  set_description: React.Dispatch<SetStateAction<string>>;
+}

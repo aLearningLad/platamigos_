@@ -14,6 +14,8 @@ import {
 } from "react";
 import loadingLottie from "@/public/assets/lottieloading.json";
 import PCP from "@/app/components/request_comps/pcp";
+import ReqTitle from "@/app/components/request_comps/req_title";
+import ReqDesc from "@/app/components/request_comps/req_desc";
 
 const RequestALoanPage = () => {
   const [pcp, set_pcp] = useState<number>(1500);
@@ -77,35 +79,13 @@ const RequestALoanPage = () => {
         {/* pcp */}
         {part === 0 && <PCP pcp={pcp} set_pcp={set_pcp} />}
         {/* title */}
-        {part === 1 && (
-          <div className=" flex flex-col items-center justify-center">
-            <label htmlFor="title">Title</label>
-            <input
-              type="text"
-              name="title"
-              placeholder="Eg. Need deposit for Porsche"
-              className=" bg-gray-400/50 text-sm w-60 px-3 py-2"
-              value={title}
-              onChange={(e: ChangeEvent<HTMLInputElement>) =>
-                set_title(e.target.value)
-              }
-            />
-          </div>
-        )}
+        {part === 1 && <ReqTitle set_title={set_title} title={title} />}
         {/* description */}
         {part === 2 && (
-          <div className=" flex flex-col items-center justify-center">
-            <label htmlFor="description">Description</label>
-            <textarea
-              className=" min-h-[25vh] max-h-[40vh] overflow-auto p-4 bg-gray-500/40 "
-              name="description"
-              id="description"
-              value={description}
-              onChange={(e: ChangeEvent<HTMLTextAreaElement>) =>
-                set_description(e.target.value)
-              }
-            />
-          </div>
+          <ReqDesc
+            description={description}
+            set_description={set_description}
+          />
         )}
 
         {part === 3 && (
