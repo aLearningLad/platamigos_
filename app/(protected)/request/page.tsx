@@ -3,6 +3,7 @@
 import { loan_types } from "@/enums";
 import { handleRequestLoan } from "@/pm_functions/request_loan";
 import { createClient } from "@/utils/supabase/client";
+import Lottie from "lottie-react";
 import { useRouter } from "next/navigation";
 import {
   ChangeEvent,
@@ -11,6 +12,7 @@ import {
   useEffect,
   useState,
 } from "react";
+import loadingLottie from "@/public/assets/lottieloading.json";
 
 const RequestALoanPage = () => {
   const [pcp, set_pcp] = useState<number>(1500);
@@ -45,10 +47,13 @@ const RequestALoanPage = () => {
 
   {
     return is_loading ? (
-      <div className=" w-full min-h-screen flex justify-center items-center">
-        <p>Just a minute...</p>
+      <div className=" w-full min-h-screen flex flex-col justify-center items-center">
+        <p className=" text-2xl lg:text-[14px]">Just a minute...</p>
 
-        <p>Submitting your loan request</p>
+        <p className=" text-xl lg:text-[12px] ">
+          {"We're"} submitting your loan request
+        </p>
+        <Lottie animationData={loadingLottie} className=" w-40 h-40 " />
       </div>
     ) : (
       <div className=" w-full min-h-screen flex flex-col items-center justify-center space-y-5">
