@@ -13,6 +13,7 @@ import {
   useState,
 } from "react";
 import loadingLottie from "@/public/assets/lottieloading.json";
+import PCP from "@/app/components/request_comps/pcp";
 
 const RequestALoanPage = () => {
   const [pcp, set_pcp] = useState<number>(1500);
@@ -21,6 +22,7 @@ const RequestALoanPage = () => {
   const [title, set_title] = useState<string>("");
   const [is_loading, set_is_loading] = useState(false);
   const [alias, set_alias] = useState<string>("");
+  const [part, set_part] = useState<number>(0);
 
   useEffect(() => {
     const fetchAlias = async () => {
@@ -57,26 +59,14 @@ const RequestALoanPage = () => {
       </div>
     ) : (
       <div className=" w-full min-h-screen flex flex-col items-center justify-center space-y-5">
-        {/* pcp */}
-        <div className=" flex flex-col gap-2 items-center">
-          <label htmlFor="pcp">{"I'm"} asking for</label>
-          <input
-            name="pcp"
-            className=" border-2 border-black"
-            type="number"
-            min={0}
-            max={50000}
-            step={1500}
-            // defaultValue={1500}
-            value={pcp}
-            onChange={(e: ChangeEvent<HTMLInputElement>) =>
-              set_pcp(e.target.valueAsNumber)
-            }
-          />
-        </div>
+        <header>Make a loan request</header>
 
+        {/* conditional rendering below */}
+
+        {/* pcp */}
+        <PCP pcp={pcp} set_pcp={set_pcp} />
         {/* title */}
-        <div className=" flex flex-col items-center justify-center">
+        {/* <div className=" flex flex-col items-center justify-center">
           <label htmlFor="title">Title</label>
           <input
             type="text"
@@ -88,10 +78,10 @@ const RequestALoanPage = () => {
               set_title(e.target.value)
             }
           />
-        </div>
+        </div> */}
 
         {/* description */}
-        <div className=" flex flex-col items-center justify-center">
+        {/* <div className=" flex flex-col items-center justify-center">
           <label htmlFor="description">Description</label>
           <textarea
             className=" min-h-[25vh] max-h-[40vh] overflow-auto p-4 bg-gray-500/40 "
@@ -102,9 +92,10 @@ const RequestALoanPage = () => {
               set_description(e.target.value)
             }
           />
-        </div>
+        </div> */}
 
-        <button
+        {/* submit request */}
+        {/* <button
           disabled={title.length < 5 || description.length < 5 || pcp === 0}
           onClick={() =>
             handleRequestLoan(
@@ -124,7 +115,7 @@ const RequestALoanPage = () => {
           }`}
         >
           Publish Request
-        </button>
+        </button> */}
       </div>
     );
   }

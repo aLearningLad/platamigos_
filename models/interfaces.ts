@@ -19,3 +19,8 @@ export interface Idash_tab {
   animation: any;
   href: string;
 }
+
+export interface I_pcp {
+  set_pcp: React.Dispatch<SetStateAction<number>>;
+  pcp: number;
+}
