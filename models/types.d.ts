@@ -48,3 +48,9 @@ declare type Toptions_info = {
   icon: ReactElement;
   title: string;
 };
+
+declare type T_req_trackers_info = {
+  title: string;
+  blurb: string;
+  pending_icon: React.ReactElement;
+};

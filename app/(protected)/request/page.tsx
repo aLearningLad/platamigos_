@@ -117,6 +117,7 @@ const RequestALoanPage = () => {
           {part === 3 && (
             // summary & submit
             <ReqSum
+              set_part={set_part}
               alias={alias}
               description={description}
               loan_type={loan_type}

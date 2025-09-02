@@ -1,6 +1,10 @@
+"use client";
+
 import { I_req_sum } from "@/models/interfaces";
 import { handleRequestLoan } from "@/pm_functions/request_loan";
 import React from "react";
+import PrevBtn from "./prev_btn";
+import { plataStore } from "@/app/(store)/store";
 
 const ReqSum: React.FC<I_req_sum> = ({
   alias,
@@ -10,10 +14,12 @@ const ReqSum: React.FC<I_req_sum> = ({
   router,
   set_is_loading,
   title,
+  set_part,
 }) => {
+  const set_desc_is_done = plataStore((store) => store.set_desc_is_done);
+
   return (
-    <div>
-      summary & submit
+    <div className=" w-full h-full flex flex-col items-center justify-center">
       {/* submit request */}
       <button
         disabled={title.length < 5 || description.length < 5 || pcp === 0}
@@ -36,6 +42,14 @@ const ReqSum: React.FC<I_req_sum> = ({
       >
         Publish Request
       </button>
+
+      <div className=" w-full flex justify-center items-center mt-12">
+        <PrevBtn
+          set_part={set_part}
+          btn_color=""
+          handleFxn={set_desc_is_done}
+        />
+      </div>
     </div>
   );
 };

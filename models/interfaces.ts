@@ -62,4 +62,5 @@ export interface I_req_sum {
   router: NextRouter;
   set_is_loading: React.Dispatch<SetStateAction<boolean>>;
   alias: string;
+  set_part: React.Dispatch<SetStateAction<number>>;
 }
