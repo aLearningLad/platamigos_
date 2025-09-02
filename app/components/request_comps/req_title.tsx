@@ -17,14 +17,20 @@ const ReqTitle: React.FC<I_req_title> = ({ set_title, title, set_part }) => {
         type="text"
         name="title"
         placeholder="Eg. Need deposit for Porsche"
-        className=" bg-gray-400/50 text-sm w-60 px-3 py-2"
+        className=" w-full h-12 lg:h-8 focus:border-none focus:scale-95 transition ease-in-out duration-300 bg-neutral-500/10 text-black text-[12px] rounded-[6px] px-2 py-1 "
         value={title}
         onChange={(e: ChangeEvent<HTMLInputElement>) =>
           set_title(e.target.value)
         }
       />
-      <NextBtn btn_color="" handleFxn={set_title_is_done} set_part={set_part} />
-      <PrevBtn btn_color="" set_part={set_part} handleFxn={set_pcp_is_done} />
+      <div className=" w-full md:w-8/12 lg:w-6/12 flex mt-5 lg:mt-7 flex-col lg:flex-row gap-2 lg:gap-4 justify-center items-center ">
+        <PrevBtn btn_color="" set_part={set_part} handleFxn={set_pcp_is_done} />
+        <NextBtn
+          btn_color=""
+          handleFxn={set_title_is_done}
+          set_part={set_part}
+        />
+      </div>
     </div>
   );
 };

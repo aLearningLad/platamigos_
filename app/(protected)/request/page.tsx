@@ -18,6 +18,7 @@ import ReqTitle from "@/app/components/request_comps/req_title";
 import ReqDesc from "@/app/components/request_comps/req_desc";
 import { plataStore } from "@/app/(store)/store";
 import { Istore } from "@/models/interfaces";
+import ReqSum from "@/app/components/request_comps/req_sum";
 
 const RequestALoanPage = () => {
   const [pcp, set_pcp] = useState<number>(1500);
@@ -114,33 +115,16 @@ const RequestALoanPage = () => {
           )}
 
           {part === 3 && (
-            <div>
-              summary & submit
-              {/* submit request */}
-              <button
-                disabled={
-                  title.length < 5 || description.length < 5 || pcp === 0
-                }
-                onClick={() =>
-                  handleRequestLoan(
-                    title,
-                    description,
-                    pcp,
-                    loan_type,
-                    router,
-                    set_is_loading,
-                    alias
-                  )
-                }
-                className={`${
-                  title.length < 5 || description.length < 5 || pcp === 0
-                    ? "bg-gray-400/60 brightness-50 text-white/70 "
-                    : "bg-green-400"
-                }`}
-              >
-                Publish Request
-              </button>
-            </div>
+            // summary & submit
+            <ReqSum
+              alias={alias}
+              description={description}
+              loan_type={loan_type}
+              pcp={pcp}
+              router={router}
+              set_is_loading={set_is_loading}
+              title={title}
+            />
           )}
         </div>
       </div>

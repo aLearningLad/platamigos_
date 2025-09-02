@@ -1,5 +1,6 @@
 import { LottieComponentProps } from "lottie-react";
 import { SetStateAction } from "react";
+import { NextRouter } from "./types";
 
 export interface Isignupform {
   set_is_new: React.Dispatch<SetStateAction<boolean>>;
@@ -51,4 +52,14 @@ export interface Istore {
   set_pcp_is_done: () => void;
   set_title_is_done: () => void;
   set_desc_is_done: () => void;
+}
+
+export interface I_req_sum {
+  title: string;
+  description: string;
+  pcp: number;
+  loan_type: string;
+  router: NextRouter;
+  set_is_loading: React.Dispatch<SetStateAction<boolean>>;
+  alias: string;
 }

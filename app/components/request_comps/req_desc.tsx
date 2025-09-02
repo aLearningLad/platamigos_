@@ -13,20 +13,30 @@ const ReqDesc: React.FC<I_req_desc> = ({
   const set_title_is_done = plataStore((store) => store.set_title_is_done);
 
   return (
-    <div className=" flex flex-col items-center justify-center">
+    <div className=" flex flex-col items-center justify-center w-full">
       <label htmlFor="description">Description</label>
       <textarea
-        className=" min-h-[25vh] max-h-[40vh] overflow-auto p-4 bg-gray-500/40 "
+        className=" w-full md:w-10/12 lg:w-6/12 min-h-[25vh] max-h-[40vh] overflow-auto p-4 lg:p-5 focus:border-none focus:scale-95 transition ease-in-out duration-300 bg-neutral-500/10 text-black text-[12px] rounded-[6px] px-2 py-1"
         name="description"
         id="description"
+        placeholder="Add details relevent to your loan request..."
         value={description}
         onChange={(e: ChangeEvent<HTMLTextAreaElement>) =>
           set_description(e.target.value)
         }
       />
-
-      <NextBtn btn_color="" handleFxn={set_desc_is_done} set_part={set_part} />
-      <PrevBtn btn_color="" handleFxn={set_title_is_done} set_part={set_part} />
+      <div className=" w-full md:w-8/12 lg:w-6/12 flex mt-5 lg:mt-7 flex-col lg:flex-row gap-2 lg:gap-4 justify-center items-center ">
+        <PrevBtn
+          btn_color=""
+          handleFxn={set_title_is_done}
+          set_part={set_part}
+        />
+        <NextBtn
+          btn_color=""
+          handleFxn={set_desc_is_done}
+          set_part={set_part}
+        />
+      </div>
     </div>
   );
 };
