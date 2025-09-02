@@ -19,6 +19,8 @@ import ReqDesc from "@/app/components/request_comps/req_desc";
 import { plataStore } from "@/app/(store)/store";
 import { Istore } from "@/models/interfaces";
 import ReqSum from "@/app/components/request_comps/req_sum";
+import { req_trackers_info } from "@/dev_data/req_trackers_info";
+import ProgressCircle from "@/app/components/request_comps/progress_circle";
 
 const RequestALoanPage = () => {
   const [pcp, set_pcp] = useState<number>(1500);
@@ -68,32 +70,18 @@ const RequestALoanPage = () => {
     ) : (
       <div className=" w-full min-h-screen flex flex-col items-center justify-center space-y-5">
         <header className=" w-full lg:flex justify-center items-center gap-3">
-          {/* pcp progress circle */}
-          <div className=" w-20 h-20 rounded-full bg-neutral-500/10 flex justify-center items-center flex-col">
-            <p className=" text-[10px]">Principle</p>
-            <p className={`text-[6px] ${pcp_is_done && "hidden"} `}>
-              Amount to borrow
-            </p>
-            <div className={`text-[4px] ${pcp_is_done && "hidden"}`}>x</div>
-          </div>
-
-          {/* title progress circle */}
-          <div className=" w-20 h-20 rounded-full bg-neutral-500/10 flex justify-center items-center flex-col">
-            <p className=" text-[10px]">Title</p>
-            <p className={`text-[6px] ${title_is_done && "hidden"} `}>
-              Loan details
-            </p>
-            <div className={`text-[4px] ${title_is_done && "hidden"}`}>x</div>
-          </div>
-
-          {/* desc progress circle */}
-          <div className=" w-20 h-20 rounded-full bg-neutral-500/10 flex justify-center items-center flex-col">
-            <p className=" text-[10px]">Description</p>
-            <p className={`text-[6px] ${desc_is_done && "hidden"} `}>
-              More information on request
-            </p>
-            <div className={`text-[4px] ${desc_is_done && "hidden"}`}>x</div>
-          </div>
+          {req_trackers_info.map(
+            ({ blurb, id, pending_icon, title, dependent_state }) => (
+              <ProgressCircle
+                blurb={blurb}
+                dependent_state={dependent_state}
+                id={id}
+                pending_icon={pending_icon}
+                title={title}
+                key={id}
+              />
+            )
+          )}
         </header>
         {/* conditional rendering below */}
         <div className=" w-full px-2 md:px-5 lg:px-32 flex justify-center items-center h-[70vh] lg:h-[50%] border-black border-2 ">

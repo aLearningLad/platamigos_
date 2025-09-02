@@ -64,3 +64,11 @@ export interface I_req_sum {
   alias: string;
   set_part: React.Dispatch<SetStateAction<number>>;
 }
+
+export interface I_progress_circle {
+  id: number;
+  dependent_state: boolean;
+  title: string;
+  blurb: string;
+  pending_icon: React.ReactElement;
+}

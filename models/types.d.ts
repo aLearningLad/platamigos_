@@ -50,7 +50,9 @@ declare type Toptions_info = {
 };
 
 declare type T_req_trackers_info = {
+  id: number;
   title: string;
   blurb: string;
   pending_icon: React.ReactElement;
+  dependent_state: boolean;
 };
