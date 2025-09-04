@@ -25,24 +25,28 @@ export interface I_pcp {
   set_pcp: React.Dispatch<SetStateAction<number>>;
   pcp: number;
   set_part: React.Dispatch<SetStateAction<number>>;
+  disabler: boolean;
 }
 
 export interface I_req_title {
   title: string;
   set_title: React.Dispatch<SetStateAction<string>>;
   set_part: React.Dispatch<SetStateAction<number>>;
+  disabler: boolean;
 }
 
 export interface I_req_desc {
   description: string;
   set_description: React.Dispatch<SetStateAction<string>>;
   set_part: React.Dispatch<SetStateAction<number>>;
+  disabler: boolean;
 }
 
 export interface I_nextbtn {
   btn_color: string;
   set_part: React.Dispatch<SetStateAction<number>>;
   handleFxn: () => void;
+  disabler: boolean;
 }
 
 export interface Istore {

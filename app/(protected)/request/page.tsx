@@ -21,6 +21,8 @@ import { Istore } from "@/models/interfaces";
 import ReqSum from "@/app/components/request_comps/req_sum";
 import { req_trackers_info } from "@/dev_data/req_trackers_info";
 import ProgressCircle from "@/app/components/request_comps/progress_circle";
+import { T_req_trackers_info } from "@/models/types";
+import { TiTick } from "react-icons/ti";
 
 const RequestALoanPage = () => {
   const [pcp, set_pcp] = useState<number>(1500);
@@ -50,12 +52,38 @@ const RequestALoanPage = () => {
     };
 
     fetchAlias();
+
+    // reset tracker states everytime page is visited, just in case???
   }, []);
 
   const router = useRouter();
   const pcp_is_done = plataStore((store: Istore) => store.pcp_is_done);
   const title_is_done = plataStore((store: Istore) => store.title_is_done);
   const desc_is_done = plataStore((store: Istore) => store.desc_is_done);
+
+  const req_trackers_info: T_req_trackers_info[] = [
+    {
+      id: 1,
+      title: "Principle",
+      blurb: "Amount to borrow",
+      pending_icon: <TiTick color="white" />,
+      dependent_state: pcp_is_done,
+    },
+    {
+      id: 2,
+      title: "Title",
+      blurb: "Loan details",
+      pending_icon: <TiTick color="white" />,
+      dependent_state: title_is_done,
+    },
+    {
+      id: 3,
+      title: "Description",
+      blurb: "More information on request",
+      pending_icon: <TiTick color="white" />,
+      dependent_state: desc_is_done,
+    },
+  ];
 
   {
     return is_loading ? (
@@ -84,14 +112,24 @@ const RequestALoanPage = () => {
           )}
         </header>
         {/* conditional rendering below */}
-        <div className=" w-full px-2 md:px-5 lg:px-32 flex justify-center items-center h-[70vh] lg:h-[50%] border-black border-2 ">
+        <div className=" w-full px-2 md:px-5 lg:px-32 flex justify-center items-center h-[70vh] lg:h-[50%]">
           {/* pcp */}
           {part === 0 && (
-            <PCP pcp={pcp} set_pcp={set_pcp} set_part={set_part} />
+            <PCP
+              pcp={pcp}
+              set_pcp={set_pcp}
+              set_part={set_part}
+              disabler={pcp < 0}
+            />
           )}
           {/* title */}
           {part === 1 && (
-            <ReqTitle set_title={set_title} title={title} set_part={set_part} />
+            <ReqTitle
+              set_title={set_title}
+              title={title}
+              set_part={set_part}
+              disabler={title.length < 2 || title.length == null}
+            />
           )}
           {/* description */}
           {part === 2 && (
@@ -99,6 +137,7 @@ const RequestALoanPage = () => {
               description={description}
               set_description={set_description}
               set_part={set_part}
+              disabler={description.length < 5 || description == null}
             />
           )}
 

@@ -1,6 +1,7 @@
 "use client";
 
 import { action_types, loan_statuses, loan_types } from "@/enums";
+import { Tcommunity_requests } from "@/models/types";
 import { createClient } from "@/utils/supabase/client";
 import { useParams, useRouter } from "next/navigation";
 import { ChangeEvent, useEffect, useState } from "react";

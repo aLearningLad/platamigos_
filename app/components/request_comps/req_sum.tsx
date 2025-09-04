@@ -17,13 +17,15 @@ const ReqSum: React.FC<I_req_sum> = ({
   set_part,
 }) => {
   const set_desc_is_done = plataStore((store) => store.set_desc_is_done);
+  const set_title_is_done = plataStore((store) => store.set_title_is_done);
+  const set_pcp_is_done = plataStore((store) => store.set_pcp_is_done);
 
   return (
     <div className=" w-full h-full flex flex-col items-center justify-center">
       {/* submit request */}
       <button
-        disabled={title.length < 5 || description.length < 5 || pcp === 0}
-        onClick={() =>
+        disabled={title.length < 2 || description.length < 5 || pcp === 0}
+        onClick={() => {
           handleRequestLoan(
             title,
             description,
@@ -32,22 +34,22 @@ const ReqSum: React.FC<I_req_sum> = ({
             router,
             set_is_loading,
             alias
-          )
-        }
-        className={`${
-          title.length < 5 || description.length < 5 || pcp === 0
-            ? "bg-gray-400/60 brightness-50 text-white/70 "
-            : "bg-green-400"
-        }`}
+          ),
+            set_desc_is_done();
+          set_title_is_done();
+          set_pcp_is_done();
+        }}
+        className=" text-white cursor-pointer bg-green-500 h-8 rounded-[6px] w-full md:w-8/12 lg:w-3/12 px-12 flex justify-center items-center py-2 text-[12px]"
       >
         Publish Request
       </button>
 
-      <div className=" w-full flex justify-center items-center mt-12">
+      <div className=" w-full flex justify-center items-center mt-3">
         <PrevBtn
           set_part={set_part}
           btn_color=""
           handleFxn={set_desc_is_done}
+          disabler
         />
       </div>
     </div>

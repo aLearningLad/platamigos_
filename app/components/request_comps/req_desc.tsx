@@ -8,6 +8,7 @@ const ReqDesc: React.FC<I_req_desc> = ({
   description,
   set_description,
   set_part,
+  disabler,
 }) => {
   const set_desc_is_done = plataStore((store) => store.set_desc_is_done);
   const set_title_is_done = plataStore((store) => store.set_title_is_done);
@@ -30,11 +31,13 @@ const ReqDesc: React.FC<I_req_desc> = ({
           btn_color=""
           handleFxn={set_title_is_done}
           set_part={set_part}
+          disabler
         />
         <NextBtn
           btn_color=""
           handleFxn={set_desc_is_done}
           set_part={set_part}
+          disabler={disabler}
         />
       </div>
     </div>

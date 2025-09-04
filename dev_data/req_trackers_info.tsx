@@ -8,7 +8,6 @@ import { TiTick } from "react-icons/ti";
 const pcp_is_done = plataStore((store: Istore) => store.pcp_is_done);
 const title_is_done = plataStore((store: Istore) => store.title_is_done);
 const desc_is_done = plataStore((store: Istore) => store.desc_is_done);
-
 export const req_trackers_info: T_req_trackers_info[] = [
   {
     id: 1,

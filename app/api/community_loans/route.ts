@@ -31,6 +31,7 @@ export async function GET() {
 
     // cache newly fetched data
     await redis.set(cache_key, JSON.stringify(loan_data));
+    console.log("loan data here: ", loan_data);
 
     return NextResponse.json({ loans: loan_data });
   } catch (error) {
