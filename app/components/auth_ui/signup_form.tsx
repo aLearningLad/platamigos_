@@ -2,10 +2,11 @@
 
 import { Isignupform } from "@/models/interfaces";
 import { signUpSubmit } from "@/services/client_side/on_submit/sign_up_form";
+import Lottie from "lottie-react";
 import Image from "next/image";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { ChangeEvent, FormEvent, useState } from "react";
+import loadingLottie from "@/public/assets/lottieloading.json";
 
 const SignUpForm: React.FC<Isignupform> = ({ set_is_new }) => {
   const [password, setPassword] = useState<string>("");
@@ -16,6 +17,15 @@ const SignUpForm: React.FC<Isignupform> = ({ set_is_new }) => {
   const handlePwdChange = (e: ChangeEvent<HTMLInputElement>) => {
     setPassword(e.target.value);
   };
+
+  if (is_loading) {
+    return (
+      <div className="w-full min-h-screen flex flex-col items-center justify-center ">
+        <p className="text-[12px] text-neutral-700">Just a moment...</p>
+        <Lottie animationData={loadingLottie} className=" w-20 h-20" />
+      </div>
+    );
+  }
 
   return (
     <div className=" w-full min-h-screen flex flex-col items-center justify-center">
@@ -59,7 +69,7 @@ const SignUpForm: React.FC<Isignupform> = ({ set_is_new }) => {
           className={`${
             password.length < 7 || email.length < 7 || !email.includes("@")
               ? " bg-gray-500 w-full lg:w-5/12 lg:text-[12px] text-white mt-5 rounded-[4px] h-20 lg:h-8 brightness-[40%]"
-              : "w-full lg:w-5/12 lg:text-[12px] bg-cyan-500 text-white mt-5 rounded-[4px] h-20 lg:h-8"
+              : "w-full lg:w-5/12 lg:text-[12px] bg-cyan-500 cursor-pointer text-white mt-5 rounded-[4px] h-20 lg:h-8"
           }`}
           formAction="submit"
           type="submit"

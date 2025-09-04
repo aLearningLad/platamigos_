@@ -50,7 +50,7 @@ const SignInForm: React.FC<Isigninform> = ({ set_is_new }) => {
           className={`${
             password.length < 7 || email.length < 7 || !email.includes("@")
               ? " bg-gray-500 w-full lg:w-5/12 lg:text-[12px] text-white mt-5 rounded-[4px] h-20 lg:h-8 brightness-[40%]"
-              : "w-full lg:w-5/12 lg:text-[12px] bg-cyan-500 text-white mt-5 rounded-[4px] h-20 lg:h-8"
+              : "w-full lg:w-5/12 lg:text-[12px] cursor-pointer bg-cyan-500 text-white mt-5 rounded-[4px] h-20 lg:h-8"
           }`}
           formAction="submit"
           type="submit"

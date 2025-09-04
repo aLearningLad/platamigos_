@@ -76,3 +76,14 @@ export interface I_progress_circle {
   blurb: string;
   pending_icon: React.ReactElement;
 }
+
+export interface I_fund_card {
+  alias: string;
+  user_id: string;
+  loan_id: string;
+  created_at: Date;
+  pcp: number;
+  description: string;
+  title: string;
+  index: number;
+}

@@ -1,6 +1,7 @@
 "use client";
 
 import { Ionboarding_screens } from "@/models/interfaces";
+import { NextRouter } from "@/models/types";
 import { createClient } from "@/utils/supabase/client";
 import { showTime } from "@/utils/utils";
 import { useRouter } from "next/navigation";
@@ -119,10 +120,10 @@ const OnboardingScreens: React.FC<Ionboarding_screens> = ({
 
       <button
         disabled={
-          first_name.length < 5 || surname.length < 1 || alias.length < 3
+          first_name.length < 3 || surname.length < 1 || alias.length < 3
         }
         className={`  text-white px-7 h-8 ${
-          first_name.length < 5 || surname.length < 1 || alias.length < 3
+          first_name.length < 3 || surname.length < 1 || alias.length < 3
             ? " bg-gray-500 w-full lg:w-3/12 lg:text-[12px] text-white mt-5 rounded-[4px] h-20 lg:h-8 brightness-[40%]"
             : "w-full cursor-pointer lg:w-3/12 lg:text-[12px] bg-cyan-500 text-white mt-5 rounded-[4px] h-20 lg:h-8"
         }`}
