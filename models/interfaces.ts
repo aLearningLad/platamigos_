@@ -103,3 +103,10 @@ export interface I_funding {
   handleOfferToFund: () => void;
   set_is_funding: React.Dispatch<SetStateAction<boolean>>;
 }
+
+export interface I_snapshot {
+  pcp: number;
+  title: string;
+  description: string;
+  handleIsFunding: () => void;
+}

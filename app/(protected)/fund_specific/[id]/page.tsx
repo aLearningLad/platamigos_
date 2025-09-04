@@ -3,10 +3,12 @@
 import Fetching from "@/app/components/fund_specific_ui/fetching";
 import Funding from "@/app/components/fund_specific_ui/funding";
 import FundingLoading from "@/app/components/fund_specific_ui/funding_loading";
+import Snapshot from "@/app/components/fund_specific_ui/snapshot";
 import { action_types, loan_statuses, loan_types } from "@/enums";
 import { Tcommunity_requests } from "@/models/types";
 import { createClient } from "@/utils/supabase/client";
 import { useParams, useRouter } from "next/navigation";
+import { title } from "process";
 import { useEffect, useState } from "react";
 
 const FundSpecificPage = () => {
@@ -18,7 +20,7 @@ const FundSpecificPage = () => {
   const [due_by, set_due_by] = useState<string>(String(new Date()));
   const [rate, set_rate] = useState<number>(4);
   const [due, set_due] = useState<number>(0); // total owed
-  const [description, set_description] = useState<string>();
+  const [description, set_description] = useState<string>("");
   const [instalment, set_instalment] = useState<number>(0);
   const [is_loading, set_is_loading] = useState<boolean>(false);
   const [alias, set_alias] = useState<string>("");
@@ -159,18 +161,13 @@ const FundSpecificPage = () => {
         />
       )
     ) : (
-      <div className=" w-full min-h-screen justify-center items-center flex flex-col">
-        <p>This debtor is asking for R{this_loan?.pcp} </p>
-        <div className=" w-full flex flex-col items-center justify-center space-y-5 "></div>
-        <p>{this_loan?.title}</p>
-        <p>{this_loan?.description}</p>
-        <button
-          onClick={handleIsFunding}
-          className=" bg-cyan-600 mt-4 text-white w-fit px-7 h-8 rounded-[6px]"
-        >
-          Fund This
-        </button>
-      </div>
+      <Snapshot
+        description={description}
+        handleIsFunding={handleIsFunding}
+        pcp={this_loan?.pcp ?? 0}
+        title={title}
+        key={this_loan?.loan_id}
+      />
     );
   }
 
