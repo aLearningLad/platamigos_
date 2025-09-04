@@ -21,10 +21,10 @@ const FundCard: React.FC<I_fund_card> = ({
         index % 2 === 0 ? "bg-purple-700 text-white" : "bg-slate-500/10"
       } min-h-[35vh] rounded-lg flex flex-col p-3 items-start justify-around m-2 `}
     >
-      <p className=" text-[10px]">
-        {months_arr[created_at.getMonth()].toUpperCase()}
+      <p className=" text-[10px]">{new Date(created_at).getDate()}</p>
+      <p className=" text-[16px] font-semibold">
+        {months_arr[new Date(created_at).getMonth()]}
       </p>
-      <p className=" text-[16px] font-semibold">{created_at.getDate()}</p>
       <div className=" text-[10px] font-semibold w-full min-h-[16vh] justify-center text-start items-center ">
         {description}
       </div>

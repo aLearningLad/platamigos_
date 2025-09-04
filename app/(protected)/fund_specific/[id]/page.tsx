@@ -1,8 +1,10 @@
 "use client";
 
+import Fetching from "@/app/components/fund_specific_ui/fetching";
 import { action_types, loan_statuses, loan_types } from "@/enums";
 import { Tcommunity_requests } from "@/models/types";
 import { createClient } from "@/utils/supabase/client";
+import Lottie from "lottie-react";
 import { useParams, useRouter } from "next/navigation";
 import { ChangeEvent, useEffect, useState } from "react";
 
@@ -19,11 +21,13 @@ const FundSpecificPage = () => {
   const [instalment, set_instalment] = useState<number>(0);
   const [is_loading, set_is_loading] = useState<boolean>(false);
   const [alias, set_alias] = useState<string>("");
+  const [is_fetching_loan, set_is_fetching_loan] = useState<boolean>(false);
 
   const router = useRouter();
 
   useEffect(() => {
     const fetchSingleLoan = async () => {
+      set_is_fetching_loan(true);
       const supabase = createClient();
       const { data: single_loan_data, error: single_loan_data_error } =
         await supabase.from("loans").select("*").eq("loan_id", id);
@@ -31,6 +35,7 @@ const FundSpecificPage = () => {
       if (single_loan_data && single_loan_data.length > 0) {
         const loan = single_loan_data[0];
         set_this_loan(loan);
+        set_is_fetching_loan(false);
       }
     };
 
@@ -129,7 +134,9 @@ const FundSpecificPage = () => {
   };
 
   {
-    return is_funding ? (
+    return is_fetching_loan ? (
+      <Fetching />
+    ) : is_funding ? (
       is_loading ? (
         <div className=" w-full min-h-screen flex justify-center items-center">
           just a minute...
@@ -227,6 +234,7 @@ const FundSpecificPage = () => {
           >
             Offer to Fund
           </button>
+          <button onClick={(e) => set_is_funding(false)}>Cancel</button>
         </div>
       )
     ) : (
@@ -243,6 +251,9 @@ const FundSpecificPage = () => {
         </button>
       </div>
     );
+  }
+
+  {
   }
 };
 
