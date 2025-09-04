@@ -68,7 +68,8 @@ const FundSpecificPage = () => {
     const calculate_due = () => {
       // total debt
       const due_amount =
-        this_loan?.pcp! + Math.floor(this_loan?.pcp! * (rate / 100) * term);
+        this_loan?.pcp! +
+        Math.floor((this_loan?.pcp! * (rate / 100) * term) / 12);
       set_due(due_amount);
 
       // instalments

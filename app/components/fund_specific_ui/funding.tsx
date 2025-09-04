@@ -17,100 +17,132 @@ const Funding: React.FC<I_funding> = ({
   term,
 }) => {
   return (
-    <div className=" w-full min-h-screen flex justify-center items-center flex-col gap-5 ">
-      {/* pcp */}
-      <div className=" w-full flex justify-center items-center flex-col ">
-        <h3>
-          {"You'd"} invest R{pcp}
-        </h3>
-      </div>
+    <div className=" w-full min-h-screen flex flex-col justify-center items-center px-1 md:px-3 lg:px-24 xl:px-32 py-2 ">
+      <header className=" w-full flex justify-center mb-3 ">
+        <p className=" text-[12px] ">Configure your {"offer's"} terms </p>
+      </header>
+      <div className=" w-full md:w-10/12 lg:w-7/12 items-center justify-center flex flex-col lg:flex-row h-[70vh] lg:h-[50vh] gap-2">
+        {/* left/top */}
+        <div className=" w-full h-1/2 lg:h-full flex flex-col justify-around gap-2 ">
+          {/* pcp */}
+          <div className=" w-full h-1/2 bg-slate-950 flex flex-col items-start p-2 rounded-lg ">
+            <p className=" text-white text-[8px]">Pinciple Investment</p>
+            <span className=" flex w-full justify-between items-center">
+              <p className=" text-[10px] text-white ">{"You'd"} invest</p>
 
-      {/* rate */}
-      <div className=" flex flex-col gap-2 items-center">
-        <label htmlFor="rate">Interest {"%"}</label>
-        <input
-          name="rate"
-          className=" border-2 border-black"
-          type="number"
-          min={0}
-          max={30}
-          step={2}
-          defaultValue={12}
-          value={rate}
-          onChange={(e: ChangeEvent<HTMLInputElement>) =>
-            set_rate(e.target.valueAsNumber)
-          }
-        />
-      </div>
+              <p className="text-3xl font-bold text-white">R{pcp}</p>
+            </span>
+          </div>
+          {/* rate */}
+          <div className="w-full h-1/2 bg-slate-950 flex flex-col items-start rounded-lg">
+            <p className="text-white text-[8px] p-2">Rate (%) of return</p>
+            <div className=" w-full h-full  rounded-[5px] flex gap-2 justify-between items-center p-2">
+              <p className="text-white text-[8px]">
+                At {rate}% simple interest
+              </p>
+              <div className=" flex flex-col justify-center items-center">
+                <input
+                  name="rate"
+                  className=" bg-neutral-500/30 text-white w-fit px-5 h-8 rounded-[4px] text-[10px]"
+                  type="number"
+                  min={0}
+                  max={30}
+                  step={2}
+                  defaultValue={12}
+                  value={rate}
+                  onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                    set_rate(e.target.valueAsNumber)
+                  }
+                />
+                <p className=" text-[6px] text-white ">Adjust this</p>
+              </div>
+            </div>
+          </div>
+        </div>
 
-      {/* term */}
-      <div className=" flex flex-col gap-2 items-center">
-        <label htmlFor="term">Term</label>
-        <input
-          name="term"
-          className=" border-2 border-black"
-          type="number"
-          min={1}
-          max={18}
-          step={1}
-          defaultValue={6}
-          value={term}
-          onChange={(e: ChangeEvent<HTMLInputElement>) =>
-            set_term(e.target.valueAsNumber)
-          }
-        />
-      </div>
+        {/* right/bottom */}
+        <div className=" w-full h-1/2 lg:h-full rounded-lg bg-slate-950 flex flex-col items-center justify-around p-2 ">
+          {/* term */}
+          <div className=" flex w-full justify-between gap-2 items-center text-white">
+            <label className=" text-[8px]" htmlFor="term">
+              Term
+            </label>
+            <input
+              name="term"
+              className=" bg-neutral-500/30 text-white w-fit px-5 h-8 rounded-[4px] text-[10px]"
+              type="number"
+              min={1}
+              max={18}
+              step={1}
+              defaultValue={6}
+              value={term}
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                set_term(e.target.valueAsNumber)
+              }
+            />
+          </div>
+          {/* due */}
+          <div className=" flex gap-2 items-center w-full text-white justify-between mb-2">
+            <label className=" text-[8px]" htmlFor="term">
+              Accrued income will be
+            </label>
+            <div className="text-3xl text-white font-bold">R{due}</div>
+          </div>
+          {/* instalment */}
+          <div className=" flex w-full bg-neutral-200/10 rounded-[6px] justify-between gap-2 items-center">
+            <div className=" text-[10px]  p-2 w-full h-fit overflow-auto text-start py-2 text-white ">
+              You would recieve <b>R{instalment}</b> per month, for {term}{" "}
+              {term >= 2 ? "months" : "month"}
+            </div>
+          </div>
 
-      {/* due */}
-      <div className=" flex flex-col gap-2 items-center">
-        <label htmlFor="term">Due</label>
-        <div>{due}</div>
-      </div>
+          {/* offer valid from */}
+          <div className=" w-full flex justify-between items-center ">
+            <label className=" text-[8px] text-white " htmlFor="due_from">
+              Offer valid from
+            </label>
+            <input
+              className="bg-neutral-500/30 text-white w-fit px-5 h-8 rounded-[4px] text-[10px]"
+              type="date"
+              value={due_from}
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                set_due_from(e.target.value)
+              }
+              name="due_from"
+              id="due_from"
+            />
+          </div>
 
-      {/* instalment */}
-      <div className=" flex flex-col gap-2 items-center">
-        <label htmlFor="term">
-          You would recieve <b>R{instalment}</b> per month, for {term}{" "}
-          {term >= 2 ? "months" : "month"}
-        </label>
+          {/* offer valid until */}
+          <div className=" w-full flex items-center justify-between mt-2 ">
+            <label className=" text-white text-[8px] " htmlFor="due_by">
+              Offer valid until
+            </label>
+            <input
+              className="bg-neutral-500/30 text-white w-fit px-5 h-8 rounded-[4px] text-[10px]"
+              type="date"
+              value={due_by}
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                set_due_by(e.target.value)
+              }
+              name="due_by"
+              id="due_by"
+            />
+          </div>
+        </div>
       </div>
-
-      {/* offer valid from */}
-      <div className=" w-full flex flex-col items-center justify-center ">
-        <label htmlFor="due_from">Offer valid from</label>
-        <input
-          type="date"
-          value={due_from}
-          onChange={(e: ChangeEvent<HTMLInputElement>) =>
-            set_due_from(e.target.value)
-          }
-          name="due_from"
-          id="due_from"
-        />
-      </div>
-
-      {/* offer valid until */}
-      <div className=" w-full flex flex-col items-center justify-center ">
-        <label htmlFor="due_by">Offer valid until</label>
-        <input
-          type="date"
-          value={due_by}
-          onChange={(e: ChangeEvent<HTMLInputElement>) =>
-            set_due_by(e.target.value)
-          }
-          name="due_by"
-          id="due_by"
-        />
-      </div>
-
-      <button
-        onClick={handleOfferToFund}
-        className=" w-fit px-8 h-8 bg-green-500 text-white rounded-lg"
-      >
-        Offer to Fund
-      </button>
-      <button onClick={(e) => set_is_funding(false)}>Cancel</button>
     </div>
+
+    // <div className=" w-full min-h-screen flex justify-center items-center flex-col gap-5 ">
+
+    //   <button
+    //     onClick={handleOfferToFund}
+    //     className=" w-fit px-8 h-8 bg-green-500 text-white rounded-lg"
+    //   >
+    //     Offer to Fund
+    //   </button>
+    //   <button onClick={(e) => set_is_funding(false)}>Cancel</button>
+    // </div>
   );
 };
 
