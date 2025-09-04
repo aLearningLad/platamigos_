@@ -25,13 +25,21 @@ const Funding: React.FC<I_funding> = ({
         {/* left/top */}
         <div className=" w-full h-1/2 lg:h-full flex flex-col justify-around gap-2 ">
           {/* pcp */}
-          <div className=" w-full h-1/2 bg-slate-950 flex flex-col items-start p-2 rounded-lg ">
+          <div className=" w-full relative h-1/2 bg-slate-950 flex flex-col items-start p-2 rounded-lg ">
             <p className=" text-white text-[8px]">Pinciple Investment</p>
             <span className=" flex w-full justify-between items-center">
               <p className=" text-[10px] text-white ">{"You'd"} invest</p>
 
               <p className="text-3xl font-bold text-white">R{pcp}</p>
             </span>
+
+            <button
+              onClick={handleOfferToFund}
+              className=" w-fit px-3 h-8 absolute hover:scale-95 transition-all duration-200 hover:bg-white hover:text-black cursor-pointer bg-green-600 bottom-3 right-2.5 text-[10px] text-white rounded-[6px]"
+            >
+              Submit Offer
+            </button>
+            <button onClick={(e) => set_is_funding(false)}>Cancel</button>
           </div>
           {/* rate */}
           <div className="w-full h-1/2 bg-slate-950 flex flex-col items-start rounded-lg">
@@ -54,7 +62,7 @@ const Funding: React.FC<I_funding> = ({
                     set_rate(e.target.valueAsNumber)
                   }
                 />
-                <p className=" text-[6px] text-white ">Adjust this</p>
+                <p className=" text-[6px] text-yellow-200 ">Adjust this</p>
               </div>
             </div>
           </div>
@@ -65,21 +73,24 @@ const Funding: React.FC<I_funding> = ({
           {/* term */}
           <div className=" flex w-full justify-between gap-2 items-center text-white">
             <label className=" text-[8px]" htmlFor="term">
-              Term
+              Term (in months)
             </label>
-            <input
-              name="term"
-              className=" bg-neutral-500/30 text-white w-fit px-5 h-8 rounded-[4px] text-[10px]"
-              type="number"
-              min={1}
-              max={18}
-              step={1}
-              defaultValue={6}
-              value={term}
-              onChange={(e: ChangeEvent<HTMLInputElement>) =>
-                set_term(e.target.valueAsNumber)
-              }
-            />
+            <div className=" flex flex-col items-center">
+              <input
+                name="term"
+                className=" bg-neutral-500/30 text-white w-fit px-5 h-8 rounded-[4px] text-[10px]"
+                type="number"
+                min={1}
+                max={18}
+                step={1}
+                defaultValue={6}
+                value={term}
+                onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                  set_term(e.target.valueAsNumber)
+                }
+              />
+              <p className=" text-[6px] text-yellow-200 ">Adjust this</p>
+            </div>
           </div>
           {/* due */}
           <div className=" flex gap-2 items-center w-full text-white justify-between mb-2">
@@ -131,18 +142,13 @@ const Funding: React.FC<I_funding> = ({
           </div>
         </div>
       </div>
+      <button
+        className=" mt-5 cursor-pointer border-2 border-black hover:scale-95 hover:text-black hover:bg-transparent transition-all duration-200 ease-in-out w-full sm:w-10/12 md:w-8/12 lg:w-4/12 xl:w-fit xl:px-5 h-10 bg-black text-white rounded-[6px]"
+        onClick={(e) => set_is_funding(false)}
+      >
+        Cancel
+      </button>
     </div>
-
-    // <div className=" w-full min-h-screen flex justify-center items-center flex-col gap-5 ">
-
-    //   <button
-    //     onClick={handleOfferToFund}
-    //     className=" w-fit px-8 h-8 bg-green-500 text-white rounded-lg"
-    //   >
-    //     Offer to Fund
-    //   </button>
-    //   <button onClick={(e) => set_is_funding(false)}>Cancel</button>
-    // </div>
   );
 };
 
