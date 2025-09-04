@@ -2,6 +2,7 @@
 
 import { loan_types } from "@/enums";
 import { dummies, months_arr } from "@/utils/utils";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { FaUser } from "react-icons/fa";
 
@@ -113,12 +114,12 @@ const FundALoan = () => {
         Fund a loan, earn interest and help an amigo
       </p>
 
-      <div className=" border-4 border-black flex overflow-auto flex-wrap justify-center items-center w-full h-[80vh] ">
+      <div className=" bg-neutral-400/10 flex overflow-auto flex-wrap justify-center items-center w-full h-[80vh] ">
         {dummies.map((fundable, index) => (
           <div
             key={fundable.loan_id}
             className={`min-w-[20vw] max-w-[20vw] ${
-              index % 2 === 0 ? "bg-purple-700 text-white" : "bg-neutral-500/20"
+              index % 2 === 0 ? "bg-purple-700 text-white" : "bg-slate-500/10"
             } min-h-[35vh] rounded-lg flex flex-col p-3 items-start justify-around m-2 `}
           >
             <p className=" text-[10px]">
@@ -128,12 +129,20 @@ const FundALoan = () => {
             <div className=" text-[12px] w-full min-h-[16vh] flex justify-center text-start ">
               {fundable.description}
             </div>
-            <span className=" w-full flex gap-1 justify-start items-center">
-              <div className=" w-fit h-fit rounded-full p-1 bg-black ">
-                <FaUser size={6} className="text-white" />
-              </div>
-              <p className=" text-[8px]">{fundable.alias}</p>
-            </span>
+            <div className=" w-full flex justify-between ">
+              <span className=" w-full flex gap-1 justify-start items-center">
+                <div className=" w-fit h-fit rounded-full p-1 bg-black ">
+                  <FaUser size={6} className="text-white" />
+                </div>
+                <p className=" text-[8px]">{fundable.alias}</p>
+              </span>
+              <Link
+                href={`/fund_specific/${fundable.loan_id}`}
+                className=" bg-cyan-600/30 hover:bg-green-500 transition duration-200 ease-in-out rounded-[5px] flex justify-center items-center lg:h-[4vh] px-5"
+              >
+                <p className=" text-[10px] text-white ">Fund</p>
+              </Link>
+            </div>
           </div>
         ))}
       </div>
