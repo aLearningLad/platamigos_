@@ -162,7 +162,9 @@ const FundSpecificPage = () => {
       )
     ) : (
       <Snapshot
-        description={description}
+        description={
+          this_loan?.description ?? "Debtor didn't provide further details"
+        }
         handleIsFunding={handleIsFunding}
         pcp={this_loan?.pcp ?? 0}
         title={title}
