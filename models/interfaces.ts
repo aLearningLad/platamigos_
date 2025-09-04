@@ -87,3 +87,19 @@ export interface I_fund_card {
   title: string;
   index: number;
 }
+
+export interface I_funding {
+  pcp: number;
+  rate: number;
+  set_rate: React.Dispatch<SetStateAction<number>>;
+  term: number;
+  set_term: React.Dispatch<SetStateAction<number>>;
+  due: number;
+  instalment: number;
+  due_from: string;
+  set_due_from: React.Dispatch<SetStateAction<string>>;
+  due_by: string;
+  set_due_by: React.Dispatch<SetStateAction<string>>;
+  handleOfferToFund: () => void;
+  set_is_funding: React.Dispatch<SetStateAction<boolean>>;
+}
