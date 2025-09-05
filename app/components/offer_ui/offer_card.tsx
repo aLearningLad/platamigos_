@@ -1,5 +1,6 @@
 import { I_offer_card } from "@/models/interfaces";
 import { FaUser } from "react-icons/fa";
+import { IoTrashBin } from "react-icons/io5";
 
 const OfferCard: React.FC<I_offer_card> = ({
   alias,
@@ -14,6 +15,8 @@ const OfferCard: React.FC<I_offer_card> = ({
   term,
   title,
   index,
+  handleAccept,
+  handleDecline,
 }) => {
   return (
     <div
@@ -27,7 +30,13 @@ const OfferCard: React.FC<I_offer_card> = ({
           <FaUser size={8} />
           {alias}
         </p>
-        <p className="text-[10px]">{new Date(created_at).toDateString()}</p>
+
+        <button
+          onClick={handleDecline}
+          className=" w-fit group h-fit p-1 cursor-pointer hover:scale-90 transition-all duration-200 ease-in-out bg-red-600 rounded-[4px]"
+        >
+          <IoTrashBin className=" text-white group-hover:text-black " />
+        </button>
       </span>
       <div className=" w-full flex flex-col">
         <section className=" w-full flex flex-col items-center ">
@@ -59,8 +68,16 @@ const OfferCard: React.FC<I_offer_card> = ({
           <p className="text-[10px]">Monthly (x{term})</p>
           <p className="text-[10px]">R{Math.floor(pcp / term)}</p>
         </span>
+        {/* offer date */}
+        <span className=" w-full flex justify-between">
+          <p className="text-[10px]">Posted on</p>
+          <p className="text-[10px]">{new Date(created_at).toDateString()}</p>
+        </span>
       </div>
-      <button className=" h-8 w-full cursor-pointer hover:bg-cyan-500 hover:scale-95 transition-all duration-200 bg-green-500 text-[10px] text-white rounded-[6px] ">
+      <button
+        onClick={handleAccept}
+        className=" h-8 w-full cursor-pointer hover:bg-cyan-500 hover:scale-95 transition-all duration-200 bg-green-500 text-[10px] text-white rounded-[6px] "
+      >
         Take this deal
       </button>
     </div>
