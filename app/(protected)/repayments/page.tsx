@@ -11,6 +11,8 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { Toffers, Tuser_info } from "@/models/types";
+import { FaUser } from "react-icons/fa";
 
 const RepaymentsPage = () => {
   const [debts, set_debts] = useState<Toffers[]>([]);
@@ -114,55 +116,123 @@ const RepaymentsPage = () => {
     ) : (
       <div className=" w-full min-h-screen flex flex-col items-center justify-center">
         {debts && debts.length > 0 ? (
-          <div className=" w-full h-full flex flex-col items-center justify-center space-y-3">
-            {debts.map((debt) => (
-              <div
-                key={debt.loan_id}
-                className=" flex flex-col space-y-2 items-center justify-center bg-neutral-300 p-5 rounded-lg"
-              >
-                <p>Funded by {debt.alias}</p>
-                <p>{debt.title}</p>
-                <p>You currently owe R{debt.due}</p>
+          // <div className=" w-full h-full flex flex-col items-center justify-center space-y-3">
+          //   {debts.map((debt) => (
+          //     <div
+          //       key={debt.loan_id}
+          //       className=" flex flex-col space-y-2 items-center justify-center bg-neutral-300 p-5 rounded-lg"
+          //     >
+          //       <p>Funded by {debt.alias}</p>
+          //       <p>{debt.title}</p>
+          //       <p>You currently owe R{debt.due}</p>
 
-                <div className=" w-full flex flex-col gap-3 mt-6">
-                  <button
-                    onClick={(e) => set_is_modal(true)}
-                    className=" w-full h-9 bg-green-500 text-white"
-                  >
-                    Make repayment
+          //       <div className=" w-full flex flex-col gap-3 mt-6">
+          //         <button
+          //           onClick={(e) => set_is_modal(true)}
+          //           className=" w-full h-9 bg-green-500 text-white"
+          //         >
+          //           Make repayment
+          //         </button>
+          //       </div>
+          //       <Dialog
+          //         open={is_model}
+          //         onOpenChange={(e) => set_is_modal(false)}
+          //       >
+          //         <DialogContent>
+          //           <DialogHeader>
+          //             <DialogTitle>{debt.title}</DialogTitle>
+          //             <DialogDescription>
+          //               This action cannot be undone. This will permanently
+          //               delete your account and remove your data from our
+          //               servers.
+          //             </DialogDescription>
+          //           </DialogHeader>
+          //           {/* <button onClick={(e) => set_is_modal(false)}>Close</button> */}
+          //           <div className=" w-full flex flex-col space-y-3 justify-center items-center ">
+          //             <button
+          //               onClick={() =>
+          //                 handleRepayment(debt.due, debt.term, debt.loan_id)
+          //               }
+          //               className=" w-1/2 h-8 bg-green-500 text-white rounded-lg text-[12px]"
+          //             >
+          //               Make Instalment of R{Math.floor(debt.due / debt.term)}
+          //             </button>
+          //             <button className=" w-6/12 h-8 bg-black text-white rounded-lg text-[12px]">
+          //               Borrow More
+          //             </button>
+          //           </div>
+          //         </DialogContent>
+          //       </Dialog>
+          //     </div>
+          //   ))}
+          // </div>
+
+          <div className="bg-neutral-400/10 rounded-lg flex overflow-auto flex-wrap justify-center items-center w-full h-[75vh]">
+            {debts.map(
+              (
+                {
+                  alias,
+                  created_at,
+                  creditor_id,
+                  description,
+                  due,
+                  due_by,
+                  due_from,
+                  loan_id,
+                  pcp,
+                  term,
+                  title,
+                },
+                index
+              ) => (
+                <div
+                  key={loan_id}
+                  className={`min-w-[20vw] max-w-[20vw] ${
+                    index % 2 === 0
+                      ? "bg-slate-950 text-white"
+                      : "bg-slate-500/20"
+                  } min-h-[55vh] rounded-lg flex flex-col p-3 items-center justify-around m-2 `}
+                >
+                  {/* details */}
+                  <div className=" w-full min-h-[10vh] flex flex-col items-center text-center ">
+                    <p className="text-[12px] text-ellipsis ">{title}</p>
+                    <p className="text-[8px] text-ellipsis ">{description}</p>
+                  </div>
+
+                  <div className=" w-full h-[2px] bg-white rounded-lg " />
+
+                  {/* creditor */}
+                  <span className=" w-full flex justify-between items-center">
+                    <p className="text-[10px]">Funded by</p>
+                    <p className="text-[10px] flex gap-1">
+                      <FaUser size={10} />
+                      {alias}
+                    </p>
+                  </span>
+
+                  {/* pcp */}
+                  <span className=" w-full flex justify-between items-center">
+                    <p className="text-[10px]">Amount funded</p>
+                    <p className="text-[10px] flex gap-1">R{pcp}</p>
+                  </span>
+
+                  {/* owing */}
+                  <span className=" w-full flex justify-between items-center">
+                    <p className="text-[10px]">Remaining debt</p>
+                    <p className="text-2xl flex gap-1">R{due - pcp}</p>
+                  </span>
+
+                  <button className=" w-full hover:scale-95 transition-all duration-200 ease-in-out cursor-pointer hover:bg-cyan-500 group h-8 rounded-[6px] bg-green-500 text-white text-[10px] flex justify-center items-center ">
+                    <p className=" flex group-hover:hidden">
+                      Pay R{Math.floor(due / term)}
+                    </p>
+                    <p className=" hidden group-hover:flex">
+                      Service this debt
+                    </p>
                   </button>
                 </div>
-                <Dialog
-                  open={is_model}
-                  onOpenChange={(e) => set_is_modal(false)}
-                >
-                  <DialogContent>
-                    <DialogHeader>
-                      <DialogTitle>{debt.title}</DialogTitle>
-                      <DialogDescription>
-                        This action cannot be undone. This will permanently
-                        delete your account and remove your data from our
-                        servers.
-                      </DialogDescription>
-                    </DialogHeader>
-                    {/* <button onClick={(e) => set_is_modal(false)}>Close</button> */}
-                    <div className=" w-full flex flex-col space-y-3 justify-center items-center ">
-                      <button
-                        onClick={() =>
-                          handleRepayment(debt.due, debt.term, debt.loan_id)
-                        }
-                        className=" w-1/2 h-8 bg-green-500 text-white rounded-lg text-[12px]"
-                      >
-                        Make Instalment of R{Math.floor(debt.due / debt.term)}
-                      </button>
-                      <button className=" w-6/12 h-8 bg-black text-white rounded-lg text-[12px]">
-                        Borrow More
-                      </button>
-                    </div>
-                  </DialogContent>
-                </Dialog>
-              </div>
-            ))}
+              )
+            )}
           </div>
         ) : (
           <div className=" w-full h-full flex flex-col">

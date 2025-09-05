@@ -214,9 +214,10 @@ const OffersPage = () => {
         ) : (
           <div className=" w-full px-1 sm:px-2 md:px-5 lg:px-28 xl:px-32   h-full flex flex-col items-center justify-center ">
             <header className=" text-[14px]">Funding Offers</header>
-            <p className=" text-[10px]">
-              Compare funding offers from potential amigos. Choose the best deal
-              for you.
+            <p className=" text-[10px] text-center mb-3">
+              Compare funding offers from potential amigos. <br />
+              Choose the best deal for you, or accept multiple offers where
+              possible
             </p>
             <div className="bg-neutral-400/10 rounded-lg flex overflow-auto flex-wrap justify-center items-center w-full h-[75vh]">
               {offers.map(

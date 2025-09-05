@@ -55,7 +55,7 @@ const Dash = () => {
             </section>
             <div className=" w-full lg:px-28 h-full flex flex-col gap-3 ">
               {/* top */}
-              <div className=" w-full h-[20vh] lg:h-1/2 flex gap-3 ">
+              <div className=" w-full min-h-[20vh] lg:h-1/2 flex gap-3 ">
                 {toptabs.map(
                   ({ animation, blurb, cta, tab_id, title, href }) => (
                     <Dashtab
