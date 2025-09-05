@@ -127,3 +127,14 @@ export interface I_offer_card {
   handleDecline: () => void;
   handleAccept: () => void;
 }
+
+export interface I_repayment_card {
+  loan_id: string;
+  pcp: number;
+  due: number;
+  term: number;
+  description: string;
+  title: string;
+  alias: string;
+  index: number;
+}
