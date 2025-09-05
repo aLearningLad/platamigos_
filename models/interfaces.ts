@@ -110,3 +110,20 @@ export interface I_snapshot {
   description: string;
   handleIsFunding: () => void;
 }
+
+export interface I_offer_card {
+  loan_id: string;
+  created_at: Date;
+  pcp: number;
+  due: number;
+  term: number;
+  due_from: Date;
+  due_by: Date;
+  creditor_id: string;
+  description: string;
+  title: string;
+  alias: string;
+  index: number;
+  handleDecline: () => void;
+  handleAccept: () => void;
+}

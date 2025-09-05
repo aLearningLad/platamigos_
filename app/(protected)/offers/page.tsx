@@ -1,11 +1,15 @@
 "use client";
 
 import { action_types, loan_statuses, loan_types } from "@/enums";
+import { Toffers } from "@/models/types";
 import { handleCreditScore } from "@/utils/misc_functions";
 import { createClient } from "@/utils/supabase/client";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import lottieLoader from "@/public/assets/lottieloading.json";
+import Lottie from "lottie-react";
+import OfferCard from "@/app/components/offer_ui/offer_card";
 
 const OffersPage = () => {
   const [offers, set_offers] = useState<Toffers[]>([]);
@@ -189,14 +193,17 @@ const OffersPage = () => {
 
   {
     return is_loading ? (
-      <div className=" w-full min-h-screen flex justify-center items-center">
+      <div className=" w-full min-h-screen flex justify-center items-center flex-col gap-4 text-neutral-700 text-[12px]">
         Just a minute...
+        <Lottie animationData={lottieLoader} className=" w-20 h-20" />
       </div>
     ) : (
       <div className=" w-full min-h-screen flex flex-col items-center justify-center">
         {offers == undefined || offers.length < 1 ? (
-          <div className=" w-full h-full flex justify-center items-center flex-col">
-            You {"don't"} have any loan offers yet
+          <div className=" w-full h-full flex justify-center items-center flex-col gap-5">
+            <p className=" text-[12px]">
+              You {"don't"} have any loan offers yet
+            </p>
             <Link
               className=" w-fit px-6 h-8 bg-cyan-500 text-white flex justify-center items-center text-[12px] rounded-[5px] "
               href={"/dash"}
@@ -205,46 +212,54 @@ const OffersPage = () => {
             </Link>
           </div>
         ) : (
-          <div className=" w-full h-full flex flex-col items-center justify-center">
-            {offers.map((offer) => (
-              <div
-                key={offer.loan_id}
-                className=" flex flex-col bg-neutral-400 rounded-lg items-center justify-center "
-              >
-                <p>{offer.title}</p>
-                <p>{offer.description}</p>
-                <p>{offer.pcp}</p>
-                <p>{offer.due}</p>
-                <div className=" flex flex-col items-center justify-center">
-                  <button
-                    className=" bg-green-500 text-white my-4 px-5 w-full py-3 rounded-lg text-[12px]"
-                    onClick={() =>
-                      handleAccept(
-                        offer.loan_id,
-                        offer.creditor_id,
-                        offer.pcp,
-                        offer.due
-                      )
+          <div className=" w-full px-1 sm:px-2 md:px-5 lg:px-28 xl:px-32   h-full flex flex-col items-center justify-center ">
+            <header className=" text-[14px]">Funding Offers</header>
+            <p className=" text-[10px]">
+              Compare funding offers from potential amigos. Choose the best deal
+              for you.
+            </p>
+            <div className="bg-neutral-400/10 rounded-lg flex overflow-auto flex-wrap justify-center items-center w-full h-[75vh]">
+              {offers.map(
+                (
+                  {
+                    alias,
+                    created_at,
+                    creditor_id,
+                    description,
+                    due,
+                    due_by,
+                    due_from,
+                    loan_id,
+                    pcp,
+                    term,
+                    title,
+                  },
+                  index
+                ) => (
+                  <OfferCard
+                    alias={alias}
+                    created_at={created_at}
+                    creditor_id={creditor_id}
+                    description={description}
+                    due={due}
+                    due_by={due_by}
+                    due_from={due_from}
+                    handleAccept={() =>
+                      handleAccept(loan_id, creditor_id, pcp, due)
                     }
-                  >
-                    Accept Funding
-                  </button>
-                  <button
-                    onClick={() =>
-                      handleDecline(
-                        offer.loan_id,
-                        offer.creditor_id,
-                        offer.pcp,
-                        offer.due
-                      )
+                    handleDecline={() =>
+                      handleDecline(loan_id, creditor_id, pcp, due)
                     }
-                    className=" bg-red-500 text-white my-4 px-5 w-full py-3 rounded-lg text-[12px]"
-                  >
-                    Decline Funding
-                  </button>
-                </div>
-              </div>
-            ))}
+                    index={index}
+                    loan_id={loan_id}
+                    pcp={pcp}
+                    term={term}
+                    title={title}
+                    key={loan_id}
+                  />
+                )
+              )}
+            </div>
           </div>
         )}
       </div>

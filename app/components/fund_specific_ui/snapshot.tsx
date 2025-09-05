@@ -46,7 +46,7 @@ const Snapshot: React.FC<I_snapshot> = ({
         onClick={handleIsFunding}
         className=" text-[12px] w-full cursor-pointer sm:w-10/12 md:w-8/12 lg:w-2/12 hover:bg-black hover:scale-95 transition-all duration-200 ease-in-out bg-purple-950/40 text-white h-10 flex justify-center items-center mt-5 rounded-[5px] "
       >
-        Fund this
+        Structure Deal
       </button>
 
       <button
