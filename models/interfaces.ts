@@ -137,4 +137,12 @@ export interface I_repayment_card {
   title: string;
   alias: string;
   index: number;
+  handleRepayment: () => void;
+}
+
+export interface I_input_comp {
+  label: string;
+  placeholder: string;
+  value: string;
+  onChange: React.Dispatch<SetStateAction<string>>;
 }

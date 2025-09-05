@@ -14,6 +14,7 @@ import {
 import { Toffers, Tuser_info } from "@/models/types";
 import { FaUser } from "react-icons/fa";
 import RepaymentCard from "@/app/components/repayments_ui/repayment_card";
+import { useRouter } from "next/navigation";
 
 const RepaymentsPage = () => {
   const [debts, set_debts] = useState<Toffers[]>([]);
@@ -21,6 +22,8 @@ const RepaymentsPage = () => {
   const [is_fetching_single, set_is_fetching_single] = useState<boolean>(false);
   const [is_model, set_is_modal] = useState<boolean>(false);
   const [user_info, set_user_info] = useState<Tuser_info>();
+
+  const router = useRouter();
 
   const fetchDebts = async () => {
     try {
@@ -64,45 +67,90 @@ const RepaymentsPage = () => {
     fetchUserDetails();
   }, []);
 
+  // const handleRepayment = async (
+  //   due: number,
+  //   term: number,
+  //   loan_id: string
+  // ) => {
+  //   const instalment = Math.floor(due / term);
+  //   try {
+  //     // balance is less than instalment amount
+  //     if (user_info!.balance < instalment) {
+  //       alert("You don't have enough funds to. Try borrowing more?");
+  //       return;
+  //     }
+
+  //     const new_balance = user_info!.balance - instalment;
+  //     const updated_creditors = user_info!.total_creditors - instalment;
+  //     const supabase = createClient();
+  //     const user_id = (await supabase.auth.getUser()).data.user?.id;
+
+  //     // debt balance in credit scores
+  //     const { error: balance_update_error } = await supabase
+  //       .from("credit_scores")
+  //       .update({
+  //         balance: new_balance,
+  //         total_creditors: updated_creditors,
+  //       })
+  //       .eq("user_id", user_id);
+
+  //     if (balance_update_error) throw new Error(balance_update_error.message);
+
+  //     // main balance in loans
+  //     const { error: loan_update_error } = await supabase
+  //       .from("loans")
+  //       .update({
+  //         due: new_balance,
+  //       })
+  //       .eq("loan_id", loan_id);
+
+  //     alert(`R${instalment} paid to service debt`);
+  //     set_is_modal(false);
+  //     router.refresh();
+  //     await fetchDebts();
+  //   } catch (error) {
+  //     console.log("Unable to make repayment: ", error);
+  //   }
+  // };
+
   const handleRepayment = async (
     due: number,
     term: number,
     loan_id: string
   ) => {
     const instalment = Math.floor(due / term);
+
     try {
-      // balance is less than instalment amount
       if (user_info!.balance < instalment) {
-        alert("You don't have enough funds to. Try borrowing more?");
+        alert("You don't have enough funds to make this repayment.");
         return;
       }
 
-      const new_balance = user_info!.balance - instalment;
-      const updated_creditors = user_info!.total_creditors - instalment;
       const supabase = createClient();
       const user_id = (await supabase.auth.getUser()).data.user?.id;
+      if (!user_id) throw new Error("User not found");
 
-      // debt balance in credit scores
+      // update wallet balance (subtract instalment)
+      const new_balance = user_info!.balance - instalment;
       const { error: balance_update_error } = await supabase
         .from("credit_scores")
-        .update({
-          balance: new_balance,
-          total_creditors: updated_creditors,
-        })
+        .update({ balance: new_balance })
         .eq("user_id", user_id);
 
       if (balance_update_error) throw new Error(balance_update_error.message);
 
-      // main balance in loans
+      // update loan due (subtract instalment from loan, not balance)
+      const new_due = due - instalment;
       const { error: loan_update_error } = await supabase
         .from("loans")
-        .update({
-          due: new_balance,
-        })
+        .update({ due: new_due })
         .eq("loan_id", loan_id);
 
-      alert(`R${instalment} paid to service debt`);
+      if (loan_update_error) throw new Error(loan_update_error.message);
+
+      alert(`R${instalment} paid toward your loan.`);
       set_is_modal(false);
+      router.refresh();
       await fetchDebts();
     } catch (error) {
       console.log("Unable to make repayment: ", error);
@@ -196,6 +244,7 @@ const RepaymentsPage = () => {
                   term={term}
                   title={title}
                   key={loan_id}
+                  handleRepayment={() => handleRepayment(due, term, loan_id)}
                 />
               )
             )}

@@ -11,6 +11,7 @@ const RepaymentCard: React.FC<I_repayment_card> = ({
   term,
   title,
   index,
+  handleRepayment,
 }) => {
   return (
     <div
@@ -48,7 +49,10 @@ const RepaymentCard: React.FC<I_repayment_card> = ({
         <p className="text-2xl flex gap-1">R{due - pcp}</p>
       </span>
 
-      <button className=" w-full hover:scale-95 transition-all duration-200 ease-in-out cursor-pointer hover:bg-cyan-500 group h-8 rounded-[6px] bg-green-500 text-white text-[10px] flex justify-center items-center ">
+      <button
+        onClick={handleRepayment}
+        className=" w-full hover:scale-95 transition-all duration-200 ease-in-out cursor-pointer hover:bg-cyan-500 group h-8 rounded-[6px] bg-green-500 text-white text-[10px] flex justify-center items-center "
+      >
         <p className=" flex group-hover:hidden">
           Pay R{Math.floor(due / term)}
         </p>

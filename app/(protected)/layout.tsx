@@ -5,11 +5,9 @@ export default function SignedInLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <body>
-      <div className=" w-full min-h-screen flex flex-col lg:flex-row">
-        <SideBar />
-        {children}
-      </div>
-    </body>
+    <div className=" w-full min-h-screen flex flex-col lg:flex-row">
+      <SideBar />
+      {children}
+    </div>
   );
 }
