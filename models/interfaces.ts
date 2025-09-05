@@ -1,5 +1,5 @@
 import { LottieComponentProps } from "lottie-react";
-import { SetStateAction } from "react";
+import { ChangeEvent, SetStateAction } from "react";
 import { NextRouter } from "./types";
 
 export interface Isignupform {
@@ -144,5 +144,5 @@ export interface I_input_comp {
   label: string;
   placeholder: string;
   value: string;
-  onChange: React.Dispatch<SetStateAction<string>>;
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
 }
