@@ -11,11 +11,37 @@ import dashLottie from "@/public/assets/lottie1.json";
 import Dashtab from "@/app/components/dash_comps/dash_options/dashtab";
 import { dash_tab_info } from "@/dev_data/dash_tab_info";
 import DashSettingsBtn from "@/app/components/dash_comps/dash_options/dashsettingsbtn";
+import useSWR from "swr";
+import { createClient } from "@/utils/supabase/client";
 
 const Dash = () => {
   const router = useRouter();
   const [is_loading, set_is_loading] = useState<boolean>(false);
   const [comm_loans, set_comm_loans] = useState<any[]>([]);
+
+  // fetch current details ===> refactor to fetch from cache
+  const fetchDetails = async () => {
+    const supabase = createClient();
+    const user_id = (await supabase.auth.getUser()).data.user?.id;
+    try {
+      const { data: user_data, error: fetchError } = await supabase
+        .from("all_users")
+        .select("name, surname, alias")
+        .eq("user_id", user_id);
+
+      console.log("alias from db: ", user_data![0].alias);
+
+      return user_data;
+    } catch (error) {
+      console.log("Unable to fetch user's details: ", error);
+    }
+  };
+
+  const {
+    data: user_data,
+    error: user_data_error,
+    isLoading,
+  } = useSWR("user-details", fetchDetails);
 
   useEffect(() => {
     const fetchLoans = async () => {
@@ -46,7 +72,7 @@ const Dash = () => {
                 className=" w-16 h-16 rounded-full border-4 border-neutral-400/10 "
               />
               <p className=" text-[10px] text-neutral-500 font-semibold ">
-                Welcome, Thato
+                Welcome, {user_data![0].alias}
               </p>
               <p className=" text-[12px] font-bold text-center ">
                 To get started, try making a loan <br /> request. Or opt to fund

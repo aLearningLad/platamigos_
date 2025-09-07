@@ -56,3 +56,9 @@ declare type T_req_trackers_info = {
   pending_icon: React.ReactElement;
   dependent_state: boolean;
 };
+
+declare type T_settings_info = {
+  name: string;
+  surname: string;
+  alias: string;
+};
