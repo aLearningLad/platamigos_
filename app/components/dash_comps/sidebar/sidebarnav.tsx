@@ -16,7 +16,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import InputComp from "../../settings_comps/input_comp";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 
 const SidebarNav = () => {
   const pathname = usePathname();
@@ -24,6 +24,21 @@ const SidebarNav = () => {
   const [updated_first_name, set_updated_first_name] = useState<string>("");
   const [updated_alias, set_updated_alias] = useState<string>("");
   const [updated_surname, set_updated_surname] = useState<string>("");
+  const [profile_details, set_profile_details] = useState();
+
+  const handleChanges = () => {};
+
+  // fetch current details ===> refactor to fetch from cache
+  useEffect(() => {
+    const fetchDetails = async () => {
+      try {
+      } catch (error) {
+        console.log("Unable to fetch user's details: ", error);
+      }
+    };
+
+    fetchDetails();
+  }, []);
 
   return (
     <div className=" w-full h-[60%] flex flex-col ">
@@ -105,13 +120,26 @@ const SidebarNav = () => {
               value={updated_surname}
             />
 
+            {/* save changes */}
+            <button className=" w-full peer sm:w-10/12 md:w-8/12 lg:w-6/12 xl:w-4/12 h-10 hover:scale-90 bg-green-500 hover:bg-cyan-500 cursor-pointer rounded-[5px] transition-all duration-200 ease-in-out text-white text-[10px] flex justify-center items-center ">
+              Save Changes
+            </button>
+
             {/* request account deletion */}
             <div className=" w-full flex flex-col items-center justify-center space-y-1">
               <div className=" w-full flex justify-center flex-col items-center">
-                <button className=" w-full peer sm:w-10/12 md:w-8/12 lg:w-6/12 xl:w-4/12 h-10 hover:scale-90 bg-black hover:bg-red-600 rounded-[5px] transition-all duration-200 ease-in-out text-white text-[10px] flex justify-center items-center ">
+                <button className=" w-full cursor-pointer peer sm:w-10/12 md:w-8/12 lg:w-6/12 xl:w-4/12 h-10 hover:scale-90 bg-black hover:bg-red-600 rounded-[5px] transition-all duration-200 ease-in-out text-white text-[10px] flex justify-center items-center ">
                   Delete my Account
                 </button>
-                <div className=" flex text-transparent peer-hover:text-red-600 text-[10px] "></div>
+                <div className=" flex text-transparent peer-hover:text-red-600 flex-col items-center  ">
+                  <p className="text-[12px] underline mb-1 font-semibold text-center">
+                    WARNING
+                  </p>
+                  <p className=" text-[10px] text-center">
+                    This will permanently delete your account. You will have
+                    seven (7) days to revoke your decision
+                  </p>
+                </div>
               </div>
             </div>
           </DialogContent>
