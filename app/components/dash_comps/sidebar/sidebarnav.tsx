@@ -21,7 +21,9 @@ import { ChangeEvent, useState } from "react";
 const SidebarNav = () => {
   const pathname = usePathname();
   const current = pathname.slice(1);
-  const [name, set_name] = useState<string>("");
+  const [updated_first_name, set_updated_first_name] = useState<string>("");
+  const [updated_alias, set_updated_alias] = useState<string>("");
+  const [updated_surname, set_updated_surname] = useState<string>("");
 
   return (
     <div className=" w-full h-[60%] flex flex-col ">
@@ -74,20 +76,44 @@ const SidebarNav = () => {
 
             {/* alias */}
             <InputComp
-              label=""
+              label="updated_alias"
               onChange={(e: ChangeEvent<HTMLInputElement>) =>
-                set_name(e.target.value)
+                set_updated_alias(e.target.value)
               }
-              placeholder={"prev name here"}
-              value={name}
+              placeholder={"Eg. JohnnyBones_97"}
+              value={updated_alias}
               key={1}
             />
 
-            {/* name */}
+            {/* updated_name */}
+            <InputComp
+              label="updated_first_name"
+              placeholder="Eg. John Isaac"
+              value={updated_first_name}
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                set_updated_first_name(e.target.value)
+              }
+            />
 
-            {/* surname */}
+            {/* updated_surname */}
+            <InputComp
+              label="updated_surname"
+              placeholder="Eg Reed-Milton"
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                set_updated_surname(e.target.value)
+              }
+              value={updated_surname}
+            />
 
             {/* request account deletion */}
+            <div className=" w-full flex flex-col items-center justify-center space-y-1">
+              <div className=" w-full flex justify-center flex-col items-center">
+                <button className=" w-full peer sm:w-10/12 md:w-8/12 lg:w-6/12 xl:w-4/12 h-10 hover:scale-90 bg-black hover:bg-red-600 rounded-[5px] transition-all duration-200 ease-in-out text-white text-[10px] flex justify-center items-center ">
+                  Delete my Account
+                </button>
+                <div className=" flex text-transparent peer-hover:text-red-600 text-[10px] "></div>
+              </div>
+            </div>
           </DialogContent>
         </Dialog>
       </ul>
