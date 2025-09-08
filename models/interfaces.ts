@@ -145,4 +145,7 @@ export interface I_input_comp {
   placeholder: string;
   value: string;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  checker: boolean;
+  warning_text: string;
+  passing_text: string;
 }

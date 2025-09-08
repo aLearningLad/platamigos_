@@ -8,12 +8,12 @@ import lottie6 from "@/public/assets/lottie6.json";
 export const dash_tab_info: Idash_tab[] = [
   {
     tab_id: 2812792812,
-    title: "Dashboard",
+    title: "HQ",
     blurb:
       "Your home base. Plan out your next move. Secure funding or seed an amigo's dream",
     animation: dashLottie,
     cta: "Export Data",
-    href: "/dash",
+    href: "/hq",
   },
   {
     tab_id: 362792947,

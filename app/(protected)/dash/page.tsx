@@ -43,6 +43,7 @@ const Dash = () => {
     isLoading,
   } = useSWR("user-details", fetchDetails);
 
+  // convert this to SWR
   useEffect(() => {
     const fetchLoans = async () => {
       const res = await fetch("/api/community_loans");
@@ -72,7 +73,7 @@ const Dash = () => {
                 className=" w-16 h-16 rounded-full border-4 border-neutral-400/10 "
               />
               <p className=" text-[10px] text-neutral-500 font-semibold ">
-                Welcome, {user_data![0].alias}
+                Welcome, {user_data?.[0].alias ?? "User"}
               </p>
               <p className=" text-[12px] font-bold text-center ">
                 To get started, try making a loan <br /> request. Or opt to fund

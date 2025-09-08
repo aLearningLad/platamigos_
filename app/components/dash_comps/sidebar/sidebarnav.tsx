@@ -30,6 +30,8 @@ const SidebarNav = () => {
   const [updated_surname, set_updated_surname] = useState<string>("");
   const [profile_details, set_profile_details] = useState<T_settings_info>();
   const [is_different, set_is_different] = useState<boolean>(false);
+  const [is_updating, set_is_updating] = useState<boolean>(false);
+  const [is_dialog_open, set_is_dialog_open] = useState<boolean>(false);
 
   const fetchDetails = async () => {
     const supabase = createClient();
@@ -45,6 +47,46 @@ const SidebarNav = () => {
       return user_data;
     } catch (error) {
       console.log("Unable to fetch user's details: ", error);
+    }
+  };
+
+  const handleProfileUpdate = async () => {
+    set_is_updating(true);
+    const { alias, name, surname } = user_data![0];
+    const new_alias =
+      updated_alias.length > 2 ? updated_alias : user_data![0].alias;
+    const new_name =
+      updated_first_name.length > 2 ? updated_first_name : user_data![0].name;
+    const new_surname =
+      updated_surname.length > 2 ? updated_surname : user_data![0].surname;
+
+    // check surname
+    if (updated_surname.length < 3) {
+      set_updated_surname(surname);
+    }
+
+    // update table
+    const supabase = createClient();
+    const user_id = (await supabase.auth.getUser()).data.user?.id;
+    try {
+      const { error: update_error } = await supabase
+        .from("all_users")
+        .update({
+          name: new_name,
+          alias: new_alias,
+          surname: new_surname,
+        })
+        .eq("user_id", user_id);
+
+      if (update_error) throw new Error(update_error.details);
+      set_is_updating(false);
+      alert("Details successfully updated");
+      set_is_dialog_open(false);
+    } catch (error) {
+      set_is_updating(false);
+      alert("Unable to update your details. Please try again later");
+      set_is_dialog_open(false);
+      console.error("Unable to update user details: ", error);
     }
   };
 
@@ -103,96 +145,114 @@ const SidebarNav = () => {
             </Link>
           ))}
 
-          <Dialog>
+          <Dialog
+            open={is_dialog_open}
+            onOpenChange={() => set_is_dialog_open((prev) => !prev)}
+          >
             <DialogTrigger>
               <button className="w-full hover:translate-x-1 hover:font-bold transition duration-300 ease-in-out cursor-pointer flex items-center justify-start px-2 py-1 gap-1 h-8 rounded-lg">
                 <IoSettingsOutline size={12} className="text-neutral-500" />
                 <p className=" text-[10px] ">Settings</p>
               </button>
             </DialogTrigger>
-            <DialogContent className=" flex flex-col items-center justify-between py-2 ">
-              <DialogHeader>
-                <DialogTitle className=" w-full flex justify-center items-center text-center ">
-                  <p className=" text-[10px] text-neutral-800 ">
-                    Update your profile
-                  </p>
-                </DialogTitle>
-                <DialogDescription className=" w-full flex justify-center items-center text-center ">
-                  <p className=" text-[12px] text-neutral-700">
-                    Tweak your details or request to have your account
-                    permanently deleted, a week from your opt-in
-                  </p>
-                </DialogDescription>
-              </DialogHeader>
-
-              {/* alias */}
-              <InputComp
-                label="updated_alias"
-                onChange={(e: ChangeEvent<HTMLInputElement>) =>
-                  set_updated_alias(e.target.value)
-                }
-                placeholder={`Currently "${user_data[0].alias}"`}
-                value={updated_alias}
-                key={1}
-              />
-
-              {/* updated_name */}
-              <InputComp
-                label="updated_first_name"
-                placeholder={`Currently ${user_data[0].name}`}
-                value={updated_first_name}
-                onChange={(e: ChangeEvent<HTMLInputElement>) =>
-                  set_updated_first_name(e.target.value)
-                }
-              />
-              {user_data[0].name}
-
-              {/* updated_surname */}
-              <InputComp
-                label="updated_surname"
-                placeholder={`Currently ${user_data[0].surname}`}
-                onChange={(e: ChangeEvent<HTMLInputElement>) =>
-                  set_updated_surname(e.target.value)
-                }
-                value={updated_surname}
-              />
-
-              {/* save changes */}
-              <button
-                disabled={
-                  updated_first_name.length < 2 ||
-                  updated_alias.length < 2 ||
-                  updated_surname.length < 3
-                }
-                className={`w-full peer sm:w-10/12 md:w-8/12 lg:w-6/12 xl:w-4/12 h-10 hover:scale-90 ${
-                  updated_first_name.length > 2 ||
-                  updated_alias.length > 2 ||
-                  updated_surname.length > 3
-                    ? "bg-green-500 hover:bg-cyan-500"
-                    : " brightness-[60%] bg-green-500 text-white"
-                }  cursor-pointer rounded-[5px] transition-all duration-200 ease-in-out text-white text-[10px] flex justify-center items-center`}
-              >
-                Save Changes
-              </button>
-
-              {/* request account deletion */}
-              <div className=" w-full flex flex-col items-center justify-center space-y-1">
-                <div className=" w-full flex justify-center flex-col items-center">
-                  <button className=" w-full cursor-pointer peer sm:w-10/12 md:w-8/12 lg:w-6/12 xl:w-4/12 h-10 hover:scale-90 bg-black hover:bg-red-600 rounded-[5px] transition-all duration-200 ease-in-out text-white text-[10px] flex justify-center items-center ">
-                    Delete my Account
-                  </button>
-                  <div className=" flex text-transparent peer-hover:text-red-600 flex-col items-center  ">
-                    <p className="text-[12px] underline mb-1 font-semibold text-center">
-                      WARNING
+            {is_updating ? (
+              <>bruv</>
+            ) : (
+              <DialogContent className=" flex flex-col items-center justify-between py-2 h-screen lg:h-[90vh] ">
+                <DialogHeader>
+                  <DialogTitle className=" w-full flex justify-center items-center text-center ">
+                    <p className=" text-[10px] text-neutral-800 ">
+                      Update your profile
                     </p>
-                    <p className=" text-[10px] text-center">
-                      This will permanently delete your account. You will have
-                      seven (7) days to revoke your decision
+                  </DialogTitle>
+                  <DialogDescription className=" w-full flex justify-center items-center text-center ">
+                    <p className=" text-[12px] text-neutral-700">
+                      Tweak your details or request to have your account
+                      permanently deleted, a week from your opt-in
                     </p>
+                  </DialogDescription>
+                </DialogHeader>
+
+                <div className=" w-full flex flex-col items-center justify-center gap-1">
+                  {/* alias */}
+                  <InputComp
+                    label="Update your alias"
+                    onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                      set_updated_alias(e.target.value)
+                    }
+                    placeholder={`Currently "${user_data[0].alias}"`}
+                    value={updated_alias}
+                    key={1}
+                    checker={updated_alias.length > 3}
+                    warning_text="This needs to be at least 4 characters long, or your current alias will persist"
+                    passing_text="Looks great"
+                  />
+                </div>
+
+                {/* updated_name */}
+                <InputComp
+                  label="Update your name"
+                  placeholder={`Currently "${user_data[0].name}"`}
+                  value={updated_first_name}
+                  onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                    set_updated_first_name(e.target.value)
+                  }
+                  checker={updated_first_name.length > 3}
+                  warning_text="This needs to be at least 4 characters long, or your current name will persist"
+                  passing_text="Looks great"
+                />
+
+                {/* updated_surname */}
+                <InputComp
+                  label="updated_surname"
+                  placeholder={`Currently "${user_data[0].surname}"`}
+                  onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                    set_updated_surname(e.target.value)
+                  }
+                  value={updated_surname}
+                  warning_text="This needs to be at least 4 characters long, or your current surname will persist"
+                  passing_text="Looks great"
+                  checker={updated_surname.length > 3}
+                />
+
+                {/* save changes */}
+                <button
+                  onClick={handleProfileUpdate}
+                  disabled={
+                    updated_first_name.length < 3 &&
+                    updated_alias.length < 3 &&
+                    updated_surname.length < 3
+                  }
+                  className={`w-full peer sm:w-10/12 md:w-8/12 lg:w-6/12 xl:w-4/12 h-10 hover:scale-90 ${
+                    updated_first_name.length > 2 ||
+                    updated_alias.length > 2 ||
+                    updated_surname.length > 3
+                      ? "bg-green-500 hover:bg-cyan-500"
+                      : " brightness-[60%] bg-green-500 text-white"
+                  }  cursor-pointer rounded-[5px] transition-all h-10 duration-200 ease-in-out text-white text-[10px] flex justify-center items-center`}
+                >
+                  Save Changes
+                </button>
+
+                {/* request account deletion */}
+                <div className=" w-full flex flex-col items-center justify-center space-y-1">
+                  <div className=" w-full flex justify-center flex-col items-center">
+                    <button className=" w-full cursor-pointer peer sm:w-10/12 md:w-8/12 lg:w-6/12 xl:w-4/12 h-10 hover:scale-90 bg-black hover:bg-red-600 rounded-[5px] transition-all duration-200 ease-in-out text-white text-[10px] flex justify-center items-center ">
+                      Delete my Account
+                    </button>
+                    <div className=" flex text-transparent peer-hover:text-red-600 flex-col items-center  ">
+                      <p className="text-[12px] underline mb-1 font-semibold text-center">
+                        WARNING
+                      </p>
+                      <p className=" text-[10px] text-center">
+                        This will permanently delete your account. You will have
+                        seven (7) days to revoke your decision
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </DialogContent>
+              </DialogContent>
+            )}
           </Dialog>
         </ul>
         <button className=" w-full mt-3 cursor-pointer hover:bg-black hover:text-white transition ease-in duration-300 h-6 font-bold bg-neutral-500/10 text-black rounded-[3px] text-[10px] ">

@@ -9,8 +9,8 @@ export const sidebarinfo: Tsidebar_info[] = [
   {
     id: 37712,
     icon: <IoHomeOutline size={12} className=" text-neutral-500" />,
-    title: "Dashboard",
-    href: "/dash",
+    title: "HQ",
+    href: "/hq",
   },
   {
     id: 8676711,
