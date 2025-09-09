@@ -1,7 +1,21 @@
+import HQHeader from "@/app/components/hq_ui/hq_header";
+import HQLeft from "@/app/components/hq_ui/hq_left";
+import HQRight from "@/app/components/hq_ui/hq_right";
 import React from "react";
 
 const HQ = () => {
-  return <div className=" min-h-screen w-full bg-black">HQ</div>;
+  return (
+    <div className=" min-h-screen w-full flex flex-col">
+      <HQHeader />
+      <section className=" w-full h-full flex flex-col lg:flex-row bg-neutral-300/20 py-2 md:py-5 ">
+        {/* left side */}
+        <HQLeft />
+
+        {/* right side */}
+        <HQRight />
+      </section>
+    </div>
+  );
 };
 
 export default HQ;
