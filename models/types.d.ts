@@ -66,11 +66,18 @@ declare type T_settings_info = {
 
 declare type T_top_tab = {
   id: number;
-  animation: LottieComponentProps;
+  animation: any;
   title: string;
   blurb: string;
-  stat1: string;
+  stat1: number;
   text1: string;
-  stat2: string;
+  stat2: number;
   text2: string;
+};
+
+declare type T_middle_tab = {
+  id: number;
+  tab_value: string;
+  tab_text: string;
+  animation: any;
 };

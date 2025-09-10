@@ -155,8 +155,15 @@ export interface I_top_tab {
   animation: any;
   title: string;
   blurb: string;
-  stat1: string;
+  stat1: number;
   text1: string;
-  stat2: string;
+  stat2: number;
   text2: string;
+}
+
+export interface I_middle_tab {
+  id: number;
+  tab_value: string;
+  tab_text: string;
+  animation: any;
 }
