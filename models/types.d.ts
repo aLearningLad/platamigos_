@@ -81,3 +81,23 @@ declare type T_middle_tab = {
   tab_text: string;
   animation: any;
 };
+
+declare type T_logs_data = {
+  alias: string;
+  created_at: Date;
+  creditor_id?: string;
+  debtor_id?: string;
+  description: string;
+  due: number;
+
+  loan_id: string;
+  pcp: number;
+  rate?: number;
+  status: string;
+  target_loan_id: null;
+  term?: number;
+  title: string;
+  type: string;
+  updated_at?: Date;
+  user_id: string;
+};

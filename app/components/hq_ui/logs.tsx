@@ -1,38 +1,96 @@
 "use client";
 
+import { createClient } from "@/utils/supabase/client";
+import Lottie from "lottie-react";
+import useSWR from "swr";
+import lottieLoading from "@/public/assets/lottieloading.json";
+import { T_logs_data } from "@/models/types";
+
 const Logs = () => {
-  return (
+  const fetchLog = async () => {
+    const supabase = createClient();
+    const user_id = (await supabase.auth.getUser()).data.user?.id;
+    try {
+      const { data, error: logs_error } = await supabase
+        .from("loans")
+        .select("*")
+        .eq("user_id", user_id);
+
+      if (logs_error) throw new Error(logs_error.details);
+      console.log("logs data here: ", logs_data);
+      return data;
+    } catch (error) {
+      console.log("Unable to retrieve user's transactions: ", error);
+    }
+  };
+
+  const { data: logs_data, isLoading, error } = useSWR("logs-data", fetchLog);
+
+  if (isLoading) {
     <div className=" w-full h-[40%] flex flex-col items-start p-2 lg:p-4">
-      <span className=" w-full flex justify-between items-center">
-        <p className=" text-[10px] font-semibold ">Recent Activity</p>
+      <Lottie animationData={lottieLoading} className=" w-20 h-20 " />
+      <p className=" text-[10px] text-neutral-600 ">Just a moment...</p>
+    </div>;
+  }
 
-        <div className=" w-fit px-3 flex items-center text-[8px] gap-2 border-[2px] border-neutral-500/20 bg-neutral-300/10 rounded-[12px] py-1">
-          <button className=" text-neutral-500 cursor-pointer ">Offers</button>
-          <button className=" text-neutral-500 cursor-pointer">Requests</button>
-          <button className=" text-neutral-500 cursor-pointer">Funded</button>
-        </div>
-      </span>
+  if (logs_data) {
+    return (
+      <div className=" w-full h-[40%] bg-white rounded-xl flex flex-col items-start p-2 lg:p-4">
+        <span className=" w-full flex justify-between items-center">
+          <p className=" text-[10px] font-semibold ">Recent Activity</p>
 
-      <table className=" w-full mt-3">
-        <thead>
-          <tr className=" border-x-[1px] border-neutral-300">
-            <th className=" text-[10px] text-neutral-500 font-normal ">
-              Title
-            </th>
-            <th className=" text-[10px] text-neutral-500 font-normal">Desc</th>
-            <th className=" text-[10px] text-neutral-500 font-normal">
-              Amount
-            </th>
-            <th className=" text-[10px] text-neutral-500 font-normal">Type</th>
-            <th className=" text-[10px] text-neutral-500 font-normal">
-              Status
-            </th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
-    </div>
-  );
+          <div className=" w-fit px-3 flex items-center text-[8px] gap-2 border-[2px] border-neutral-500/20 bg-neutral-300/10 rounded-[12px] py-1">
+            <button className=" text-neutral-500 cursor-pointer ">
+              Offers
+            </button>
+            <button className=" text-neutral-500 cursor-pointer">
+              Requests
+            </button>
+            <button className=" text-neutral-500 cursor-pointer">Funded</button>
+          </div>
+        </span>
+
+        <table className=" w-full mt-3">
+          <thead>
+            <tr className=" border-x-[1px] border-neutral-300">
+              <th className=" text-[8px] text-neutral-500 font-normal ">
+                Title
+              </th>
+              <th className=" text-[8px] text-neutral-500 font-normal">Desc</th>
+              <th className=" text-[8px] text-neutral-500 font-normal">
+                Amount
+              </th>
+              <th className=" text-[8px] text-neutral-500 font-normal">Type</th>
+              <th className=" text-[8px] text-neutral-500 font-normal">
+                Status
+              </th>
+            </tr>
+          </thead>
+          <tbody className=" mt-3">
+            {logs_data.map((row: T_logs_data) => (
+              <tr className=" h-fit border-b-2 pb-2 hover:bg-neutral-500/20 border-neutral-300/30 w-full">
+                <td className=" w-3/12">
+                  <p className=" text-[8px] ">{row.title}</p>
+                </td>
+                <td className=" w-4/12">
+                  <p className=" text-[8px] ">{row.description}</p>
+                </td>
+                <td className=" w-2/12">
+                  <p className=" text-[8px] ">R{row.pcp}</p>
+                </td>
+                <td className=" w-2/12">
+                  <p className=" text-[8px] ">{row.type}</p>
+                </td>
+                <td className=" w-2/12">
+                  <p className=" text-[8px] ">{row.status}</p>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    );
+  }
 };
 
 export default Logs;

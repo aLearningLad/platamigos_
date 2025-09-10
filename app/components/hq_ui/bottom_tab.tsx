@@ -1,8 +1,42 @@
-import React from "react";
+import Link from "next/link";
+import { FaGithub } from "react-icons/fa";
 
 const BottomTab = () => {
   return (
-    <div className=" h-full w-full border-2 border-red-600">BottomTab</div>
+    <div className=" h-full w-full bg-white rounded-xl flex flex-col p-2 justify-around ">
+      <span className=" w-full flex justify-between items-center h-[15%]">
+        <p className=" italic text-[10px] font-semibold">plata.migos</p>
+        <div className=" w-fit flex gap-2 items-center justify-end">
+          <p className=" w-fit px-3 rounded-lg bg-purple-600/20 text-purple-700 text-[7px] py-1 ">
+            finance
+          </p>
+          <p className=" w-fit px-3 rounded-lg bg-orange-600/20 text-orange-700 text-[7px] py-1 ">
+            credit
+          </p>
+        </div>
+      </span>
+      <div className=" w-full text-start">
+        <p className=" text-[8px] text-neutral-600 w-8/12">
+          This project was written in Typescript. It uses Zustand for state
+          management, serverside caching is via redis, and client side caching
+          is handle by React's SWR hook. User data and transactions are stored
+          across postgreSQL tables. The SQL used to construct these tables is
+          include with this {"app's"} source code.
+        </p>
+      </div>
+      <div className=" w-full flex justify-start items-center">
+        <Link
+          href={"https://github.com/aLearningLad/platamigos_"}
+          target="_blank"
+          className=" w-fit px-5 rounded-[8px] h-9 group hover:bg-black hover:scale-90 transition-all duration-200 ease-in-out bg-neutral-500/10 flex justify-center items-center gap-1"
+        >
+          <FaGithub size={14} className=" text-black group-hover:text-white" />
+          <p className=" text-[8px] text-neutral-700 group-hover:text-white ">
+            See The Code
+          </p>
+        </Link>
+      </div>
+    </div>
   );
 };
 
