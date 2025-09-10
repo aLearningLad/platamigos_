@@ -2,14 +2,14 @@
 
 const Logs = () => {
   return (
-    <div className=" w-full h-[40%] border-2 border-black flex flex-col items-start p-2 lg:p-4">
+    <div className=" w-full h-[40%] flex flex-col items-start p-2 lg:p-4">
       <span className=" w-full flex justify-between items-center">
         <p className=" text-[10px] font-semibold ">Recent Activity</p>
 
-        <div className=" w-fit px-3 flex items-center text-[10px] gap-2 border-[2px] border-neutral-500/20 bg-neutral-300/10 rounded-[10px] py-1">
-          <button className=" text-neutral-500">Offers</button>
-          <button className=" text-neutral-500">Requests</button>
-          <button className=" text-neutral-500">Funded</button>
+        <div className=" w-fit px-3 flex items-center text-[8px] gap-2 border-[2px] border-neutral-500/20 bg-neutral-300/10 rounded-[12px] py-1">
+          <button className=" text-neutral-500 cursor-pointer ">Offers</button>
+          <button className=" text-neutral-500 cursor-pointer">Requests</button>
+          <button className=" text-neutral-500 cursor-pointer">Funded</button>
         </div>
       </span>
 

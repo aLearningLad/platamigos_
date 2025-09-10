@@ -1,3 +1,4 @@
+import { LottieComponentProps } from "lottie-react";
 import { ReactElement } from "react";
 
 declare type NextRouter = ReturnType<typeof useRouter>;
@@ -61,4 +62,15 @@ declare type T_settings_info = {
   name: string;
   surname: string;
   alias: string;
+};
+
+declare type T_top_tab = {
+  id: number;
+  animation: LottieComponentProps;
+  title: string;
+  blurb: string;
+  stat1: string;
+  text1: string;
+  stat2: string;
+  text2: string;
 };

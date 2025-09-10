@@ -149,3 +149,14 @@ export interface I_input_comp {
   warning_text: string;
   passing_text: string;
 }
+
+export interface I_top_tab {
+  id: number;
+  animation: any;
+  title: string;
+  blurb: string;
+  stat1: string;
+  text1: string;
+  stat2: string;
+  text2: string;
+}
