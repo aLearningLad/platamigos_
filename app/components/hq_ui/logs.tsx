@@ -50,38 +50,43 @@ const Logs = () => {
           </div>
         </span>
 
-        <table className=" w-full mt-3">
-          <thead>
-            <tr className=" border-x-[1px] border-neutral-300">
-              <th className=" text-[8px] text-neutral-500 font-normal ">
+        <table className=" w-full">
+          <thead className=" h-5 border-2 border-neutral-400/20">
+            <tr className="">
+              <th className=" text-[8px] text-neutral-500 font-normal border-l-[1px] border-neutral-400/40">
                 Title
               </th>
-              <th className=" text-[8px] text-neutral-500 font-normal">Desc</th>
-              <th className=" text-[8px] text-neutral-500 font-normal">
+              <th className=" text-[8px] text-neutral-500 font-normal border-l-[1px] border-neutral-400/40">
+                Desc
+              </th>
+              <th className=" text-[8px] text-neutral-500 font-normal border-l-[1px] border-neutral-400/40">
                 Amount
               </th>
-              <th className=" text-[8px] text-neutral-500 font-normal">Type</th>
-              <th className=" text-[8px] text-neutral-500 font-normal">
+              <th className=" text-[8px] text-neutral-500 font-normal border-l-[1px] border-neutral-400/40">
+                Type
+              </th>
+              <th className=" text-[8px] text-neutral-500 font-normal border-l-[1px] border-neutral-400/40">
                 Status
               </th>
             </tr>
           </thead>
+
           <tbody className=" mt-3">
             {logs_data.map((row: T_logs_data) => (
-              <tr className=" h-fit border-b-2 pb-2 hover:bg-neutral-500/20 border-neutral-300/30 w-full">
-                <td className=" w-3/12">
+              <tr className=" h-fit border-2 pb-2 hover:bg-neutral-300/10 border-neutral-300/30 w-full">
+                <td className=" w-3/12 border-l-[1px] border-neutral-400/40 ">
                   <p className=" text-[8px] ">{row.title}</p>
                 </td>
-                <td className=" w-4/12">
+                <td className=" w-4/12 border-l-[1px] border-neutral-400/40">
                   <p className=" text-[8px] ">{row.description}</p>
                 </td>
-                <td className=" w-2/12">
+                <td className=" w-2/12 border-l-[1px] border-neutral-400/40">
                   <p className=" text-[8px] ">R{row.pcp}</p>
                 </td>
-                <td className=" w-2/12">
+                <td className=" w-2/12 border-l-[1px] border-neutral-400/40">
                   <p className=" text-[8px] ">{row.type}</p>
                 </td>
-                <td className=" w-2/12">
+                <td className=" w-2/12 border-l-[1px] border-neutral-400/40">
                   <p className=" text-[8px] ">{row.status}</p>
                 </td>
               </tr>

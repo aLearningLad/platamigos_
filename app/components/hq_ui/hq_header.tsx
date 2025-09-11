@@ -18,8 +18,8 @@ const HQHeader = () => {
           <IoMdNotifications size={14} />
         </div>
         <Link
-          className=" flex gap-1 w-fit px-3 items-center justify-center text-white  bg-blue-600 rounded-xl "
-          href={""}
+          className=" flex hover:scale-90 transition-all duration-200 ease-in-out hover:bg-cyan-500 gap-1 w-fit px-3 items-center justify-center text-white  bg-blue-600 rounded-xl "
+          href={"/request"}
         >
           <div className=" text-[10px]">+</div>
           <p className=" text-[10px]">Create a loan request</p>

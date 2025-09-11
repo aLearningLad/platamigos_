@@ -167,3 +167,11 @@ export interface I_middle_tab {
   tab_text: string;
   animation: any;
 }
+
+export interface I_s3_tab {
+  id: number;
+  count: number;
+  icon: React.ReactElement;
+  text: string;
+  index: number;
+}

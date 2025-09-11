@@ -101,3 +101,10 @@ declare type T_logs_data = {
   updated_at?: Date;
   user_id: string;
 };
+
+declare type T_section_three_info = {
+  id: number;
+  count: number;
+  icon: React.ReactElement;
+  text: string;
+};

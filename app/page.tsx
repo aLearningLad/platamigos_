@@ -1,5 +1,7 @@
 import LandingNav from "./components/landing_comps/landing_nav";
+import SectionFour from "./components/landing_comps/section_four/section_four";
 import SectionOne from "./components/landing_comps/section_one/section_one";
+import SectionThree from "./components/landing_comps/section_three/section_three";
 import SectionTwo from "./components/landing_comps/section_two/section_two";
 
 export default function Home() {
@@ -8,8 +10,8 @@ export default function Home() {
       <LandingNav />
       <SectionOne />
       <SectionTwo />
-      <div className=" h-[100vh] w-full  border-2 border-green-500" />
-      <div className=" h-[100vh] w-full  border-2 border-cyan-500" />
+      <SectionThree />
+      <SectionFour />
     </div>
   );
 }
