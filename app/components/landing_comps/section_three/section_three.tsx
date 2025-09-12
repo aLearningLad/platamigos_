@@ -22,7 +22,7 @@ const SectionThree = () => {
         <div className=" w-full lg:w-1/2 h-full">
           <Lottie animationData={bizLottie} className=" w-full h-full" />
         </div>
-        <div className="w-full lg:w-1/2 h-full lg:h-1/2 flex flex-col items-start  justify-center space-y-3">
+        <div className="w-full lg:w-1/2 h-full lg:h-1/2 flex flex-col items-start  justify-center space-y-12">
           {section_three_info.map(({ count, icon, id, text }, index) => (
             <S3Tab
               count={count}

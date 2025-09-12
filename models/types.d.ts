@@ -108,3 +108,10 @@ declare type T_section_three_info = {
   icon: React.ReactElement;
   text: string;
 };
+
+declare type T_s4_info = {
+  id: number;
+  icon: React.ReactElement;
+  title: string;
+  text: string;
+};

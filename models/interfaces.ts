@@ -175,3 +175,11 @@ export interface I_s3_tab {
   text: string;
   index: number;
 }
+
+export interface I_s4 {
+  id: number;
+  icon: React.ReactElement;
+  title: string;
+  text: string;
+  index: number;
+}

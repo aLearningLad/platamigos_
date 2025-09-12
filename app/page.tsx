@@ -1,4 +1,5 @@
 import LandingNav from "./components/landing_comps/landing_nav";
+import SectionFive from "./components/landing_comps/section_five/section_five";
 import SectionFour from "./components/landing_comps/section_four/section_four";
 import SectionOne from "./components/landing_comps/section_one/section_one";
 import SectionThree from "./components/landing_comps/section_three/section_three";
@@ -12,6 +13,7 @@ export default function Home() {
       <SectionTwo />
       <SectionThree />
       <SectionFour />
+      <SectionFive />
     </div>
   );
 }
