@@ -4,6 +4,7 @@ import SectionFour from "./components/landing_comps/section_four/section_four";
 import SectionOne from "./components/landing_comps/section_one/section_one";
 import SectionThree from "./components/landing_comps/section_three/section_three";
 import SectionTwo from "./components/landing_comps/section_two/section_two";
+import SectionSix from "./components/landing_comps/section_six/section_six";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <SectionThree />
       <SectionFour />
       <SectionFive />
+      <SectionSix />
     </div>
   );
 }
