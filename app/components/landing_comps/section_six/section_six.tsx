@@ -2,6 +2,7 @@ import React from "react";
 import FooterAddress from "./footer_address";
 import FooterPages from "./footer_pages";
 import FooterSupport from "./footer_support";
+import FooterContact from "./footer_contact";
 
 const SectionSix = () => {
   return (
@@ -24,10 +25,11 @@ const SectionSix = () => {
         </div>
       </div>
       <footer className=" w-full h-[65vh] bg-slate-700/80 flex items-end">
-        <section className=" border-2 h-[35vh] border-white w-full px-3 py-2 lg:px-36 lg:py-3 flex justify-center gap-5 ">
+        <section className=" h-[35vh] w-full px-3 py-2 lg:px-20 lg:py-3 flex justify-center items-start gap-12">
           <FooterAddress />
           <FooterPages />
           <FooterSupport />
+          <FooterContact />
         </section>
       </footer>
     </div>
