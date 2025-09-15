@@ -1,4 +1,6 @@
 import { GiStarProminences } from "react-icons/gi";
+import UpgradeCard from "./upgrade_card";
+import { upgrade_card_info } from "@/dev_data/upgrade_card_info";
 
 const SectionFive = () => {
   return (
@@ -24,47 +26,22 @@ const SectionFive = () => {
           />
         </div>
       </section>
-      <section className=" h-[60%] gap-4 lg:gap-7 w-full flex flex-col lg:flex-row justify-center items-center border-2 border-black">
-        <div className=" w-full lg:w-1/3 h-[95%] bg-orange-600/10 rounded-3xl flex flex-col items-center"></div>
-        <div className=" w-full lg:w-1/3 h-full bg-black text-white rounded-3xl flex flex-col items-start p-3">
-          <p className=" text-[12px] italic">Comprehensive</p>
-          <div className=" w-full flex ">
-            <span>
-              <p className=" text-[18px]">R99</p>
-            </span>
-            <span className=" flex flex-col items-start justify-center pl-2">
-              <p className=" text-[8px] ">Per month</p>
-              <p className=" text-[6px] ">discounts available</p>
-            </span>
-          </div>
-          <div className=" w-[20px] h-[2px] border-b-2 border-white rounded-full mt-6 " />
-          <div className=" w-full h-full flex flex-col items-start justify-around py-2">
-            <span className=" flex w-full gap-1 justify-start items-center ">
-              <GiStarProminences size={18} />
-              <p className=" text-[8px]">Everything in basic</p>
-            </span>
-            <span className=" flex w-full gap-1 justify-start items-center h-fit ">
-              <GiStarProminences size={18} />
-              <p className=" text-[8px]">
-                Priority access to upcoming features. Receive notifications and
-                obtain free tokens
-              </p>
-            </span>
-            <span className=" flex w-full gap-1 justify-start items-center ">
-              <GiStarProminences size={18} />
-              <p className=" text-[8px]">
-                Tokenized transactions and preferential loan listings
-              </p>
-            </span>
-            <span className=" flex w-full gap-1 justify-start items-center ">
-              <GiStarProminences size={18} />
-              <p className=" text-[8px]">
-                Enterprise features. Seats for up to 25 team members
-              </p>
-            </span>
-          </div>
-        </div>
-        <div className=" w-full lg:w-1/3 h-[95%] bg-teal-600/10 rounded-3xl flex flex-col items-center"></div>
+      <section
+        className={`h-[60%] gap-4 lg:gap-7 w-full flex flex-col lg:flex-row justify-center items-center`}
+      >
+        {upgrade_card_info.map(
+          ({ features, icon, id, price, title }, index) => (
+            <UpgradeCard
+              features={features}
+              icon={icon}
+              id={id}
+              index={index}
+              price={price}
+              title={title}
+              key={id}
+            />
+          )
+        )}
       </section>
     </div>
   );

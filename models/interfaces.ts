@@ -183,3 +183,12 @@ export interface I_s4 {
   text: string;
   index: number;
 }
+
+export interface I_upgrade_card {
+  id: number;
+  title: string;
+  price: number;
+  icon: React.ReactElement;
+  features: string[];
+  index: number;
+}

@@ -115,3 +115,11 @@ declare type T_s4_info = {
   title: string;
   text: string;
 };
+
+declare type T_upgrade_card = {
+  id: number;
+  title: string;
+  price: number;
+  icon: React.ReactElement;
+  features: string[];
+};
