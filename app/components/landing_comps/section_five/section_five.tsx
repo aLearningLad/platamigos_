@@ -4,9 +4,9 @@ import { upgrade_card_info } from "@/dev_data/upgrade_card_info";
 
 const SectionFive = () => {
   return (
-    <div className="w-full h-[100vh] py-6 px-3 lg:px-72 flex flex-col justify-center items-center">
+    <div className="w-full lg:h-[100vh] py-6 px-3 lg:px-72 flex flex-col justify-center items-center">
       <section className=" flex flex-col w-full items-center">
-        <h1 className=" text-2xl font-semibold">
+        <h1 className=" text-2xl font-semibold text-center">
           Subscribe for bespoke upcoming features
         </h1>
         <p className=" w-full sm:w-10/12 md:w-8/12 lg:w-7/12 text-[10px] text-center text-neutral-600">

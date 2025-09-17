@@ -136,3 +136,10 @@
 .animate-marquee {
   animation: marquee 10s linear infinite;
 }
+
+/* styles/globals.css or component CSS module */
+@media (max-width: 375px) {
+  .hide-on-se {
+    display: none;
+  }
+}

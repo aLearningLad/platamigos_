@@ -14,8 +14,11 @@ const UpgradeCard: React.FC<I_upgrade_card> = ({
     <div
       className={`w-full lg:w-1/3 ${
         index === 1 && "bg-black h-full text-white"
-      } ${index == 0 && "h-[95%] bg-orange-600/10 text-black"} ${
-        index === 2 && "h-[95%] bg-teal-600/10 text-black"
+      } ${
+        index == 0 &&
+        "h-[95%] bg-orange-600/70 lg:bg-orange-600/10 text-white lg:text-black"
+      } ${
+        index === 2 && "h-[95%] bg-white lg:bg-teal-600/10 text-black"
       } rounded-3xl hover:scale-95 transition-all duration-200 ease-in-out flex flex-col items-start p-3`}
     >
       <p className=" text-[12px] italic">{title}</p>

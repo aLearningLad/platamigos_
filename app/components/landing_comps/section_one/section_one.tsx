@@ -6,7 +6,7 @@ import Image from "next/image";
 
 const SectionOne = () => {
   return (
-    <section className=" w-full lg:h-[calc(100vh-3.5rem)] pt-9 lg:pt-14 flex flex-col">
+    <section className=" w-full h-fit lg:h-[calc(100vh-3.5rem)] pt-9 lg:gap-0 lg:pt-14 flex flex-col">
       <div className=" w-full h-fit flex flex-col lg:flex-row ">
         {/* Left Side */}
         <LeftSide />
@@ -16,7 +16,7 @@ const SectionOne = () => {
         <RightSide />
         {/* Right Side */}
       </div>
-      <div className="overflow-hidden whitespace-nowrap w-full mt-12">
+      <div className="overflow-hidden whitespace-nowrap w-full mt-7 hidden sm:flex ">
         <div className="flex animate-marquee">
           {[...SlideTabs, ...SlideTabs, ...SlideTabs].map((item, i) => (
             <div

@@ -4,23 +4,27 @@ import { GiJusticeStar } from "react-icons/gi";
 
 const SectionTwo = () => {
   return (
-    <div className=" h-[100vh] w-full py-6 lg:py-2 px-3 lg:px-40 xl:px-52 flex flex-col items-center ">
-      <p className=" text-[10px] font-bold  ">Easy Funding</p>
+    <div className=" h-[60vh] lg:h-[100vh] w-full pt-12 lg:py-2 px-3 lg:px-40 xl:px-52 flex flex-col items-center ">
+      <p className=" text-[10px] font-bold hide-on-se mb-2  ">Easy Funding</p>
       <h1 className=" text-3xl font-bold ">Real time loan updates</h1>
-      <p className=" text-[12px] lg:text-[10px] lg:w-6/12 mt-2 lg:mt-3 mb-3 text-center ">
+      <p className=" flex sm:hidden text-[18px] text-center ">
+        Request new loans and secure funding for ideas, projects and commitments
+        most important to you.
+      </p>
+      <p className="text-[18px] lg:text-[10px] lg:w-6/12 mt-2 lg:mt-3 mb-3 text-center hidden md:flex ">
         Request new loans and secure funding for ideas, projects and commitments
         most important to you. Compare offers and pick the best one. Interest
         rates, payment term and monthly instalments, all under your control
       </p>
 
       {/* tabs in grid section */}
-      <section className=" w-full h-[60vh] lg:h-[55%] flex flex-col">
+      <section className=" w-full pb-12 lg:pt-0 h-[50vh] lg:h-[55%] hidden lg:flex flex-col">
         <S1TOP />
         <S1BOTTOM />
       </section>
 
       {/* lower info bits */}
-      <div className=" w-full h-[30vh] lg:h-[35%] flex flex-col lg:flex-row gap-4 lg:gap-8 ">
+      <div className=" w-full mt-12 h-[30vh] lg:h-[35%] flex flex-col lg:flex-row gap-8 lg:gap-8 ">
         {/* left side */}
         <div className=" w-full lg:w-1/2 h-1/2 lg:h-full flex justify-start ">
           <div className=" w-fit px-1 flex h-full items-start  ">
@@ -30,7 +34,7 @@ const SectionTwo = () => {
             <h3 className=" text-[14px] font-bold ">
               Secure funding & scale, pay off <br /> debt or restructure
             </h3>
-            <p className=" text-[10px] font-bold text-neutral-500 w-full lg:w-7/12 ">
+            <p className=" text-[14px] lg:text-[10px] font-bold text-neutral-600 w-full lg:w-7/12 ">
               CHoose where your new money goes. Vet fees, groceries, utilities,
               car trouble, or even just a vacation budget, you decide what,
               where, and how your money is spent
@@ -45,7 +49,7 @@ const SectionTwo = () => {
           </div>
           <div className=" w-full flex flex-col justify-start items-start pl-1">
             <h3 className=" text-[14px] font-bold ">Allocate capital</h3>
-            <p className=" text-[10px] font-bold text-neutral-500 w-full lg:w-7/12">
+            <p className=" text-[14px] lg:text-[10px] font-bold text-neutral-600 w-full lg:w-7/12">
               Easily request a loan, compare funding offers and decide how and
               when to pay back your loan. Simplified and made for amigos
             </p>

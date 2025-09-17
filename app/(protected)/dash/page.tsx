@@ -67,22 +67,22 @@ const Dash = () => {
       ) : (
         <div className=" w-full h-full flex flex-col px-1 md:px-3 lg:px-20 xl:px-28 ">
           <div className=" w-full h-full pb-2 flex flex-col items-center">
-            <section className=" w-full flex flex-col items-center py-4 lg:py-7 ">
+            <section className=" w-full flex flex-col items-center py-4 ">
               <Lottie
                 animationData={restingLottie}
                 className=" w-16 h-16 rounded-full border-4 border-neutral-400/10 "
               />
-              <p className=" text-[10px] text-neutral-500 font-semibold ">
+              <p className=" text-[18px] lg:text-[10px] text-neutral-500 font-semibold text-center ">
                 Welcome, {user_data?.[0].alias ?? "User"}
               </p>
-              <p className=" text-[12px] font-bold text-center ">
+              <p className=" text-[15px] lg:text-[12px] font-bold text-center ">
                 To get started, try making a loan <br /> request. Or opt to fund
                 somebody {"else's"}.
               </p>
             </section>
             <div className=" w-full lg:px-28 h-full flex flex-col gap-3 ">
               {/* top */}
-              <div className=" w-full min-h-[20vh] lg:h-1/2 flex gap-3 ">
+              <div className=" w-full min-h-[20vh] lg:h-1/2 lg:flex-row flex-col flex gap-3 ">
                 {toptabs.map(
                   ({ animation, blurb, cta, tab_id, title, href }) => (
                     <Dashtab
@@ -99,7 +99,24 @@ const Dash = () => {
               </div>
 
               {/* bottom  */}
-              <div className=" w-full h-[20vh] lg:h-1/2 flex gap-3 ">
+              <div className=" w-full min-h-[20vh] lg:h-1/2 lg:flex-row flex-col flex gap-3 ">
+                {bottomtabs.map(
+                  ({ animation, blurb, cta, tab_id, title, href }) => (
+                    <Dashtab
+                      href={href}
+                      key={tab_id}
+                      animation={animation}
+                      blurb={blurb}
+                      cta={cta}
+                      tab_id={tab_id}
+                      title={title}
+                    />
+                  )
+                )}
+                <DashSettingsBtn />
+              </div>
+
+              {/* <div className=" w-full h-[20vh] lg:h-1/2 flex-col lg:flex-row flex gap-3 ">
                 {bottomtabs.map(
                   ({ animation, blurb, cta, tab_id, title, href }) => (
                     <Dashtab
@@ -115,9 +132,11 @@ const Dash = () => {
                 )}
 
                 <DashSettingsBtn />
-              </div>
+                </div> */}
             </div>
           </div>
+
+          {/* maybe user later on */}
           {/* {comm_loans.map((loan: Tcommunity_requests) => (
             <Link
               className=" flex flex-col items-center justify-center space-y-2 bg-neutral-200 rounded-lg p-4 "

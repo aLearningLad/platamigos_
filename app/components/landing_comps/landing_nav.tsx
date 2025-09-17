@@ -6,11 +6,11 @@ import { IoMdSearch } from "react-icons/io";
 
 const LandingNav = () => {
   return (
-    <nav className=" w-full h-20 lg:h-14 justify-between items-center absolute bottom-0 lg:relative lg:flex ">
+    <nav className=" w-full h-20 lg:h-14 justify-between items-center top-[100%] lg:relative lg:flex ">
       {/* desktop */}
       <div className=" w-full h-full hidden lg:flex justify-center items-center ">
         {/* logo */}
-        <div className=" w-[10%] h-full flex justify-center items-center border-4 border-white gap-1 ">
+        <div className=" w-[10%] h-full flex justify-center items-center gap-1 ">
           <Image
             src={"/assets/applogo.png"}
             alt="App Logo"
@@ -37,10 +37,13 @@ const LandingNav = () => {
         </div>
 
         {/* search */}
-        <div className=" w-[10%] h-full flex justify-center items-center border-2 border-white gap-1">
+        <button
+          onClick={() => alert("Sign in to access search")}
+          className=" w-[10%] h-full flex justify-center hover:bg-black/40 rounded-lg hover:text-white hover:scale-90 transition-all duration-200 items-center gap-1 cursor-pointer"
+        >
           <IoMdSearch size={16} />
           <p className="nav_titles">Search</p>
-        </div>
+        </button>
       </div>
 
       {/* mobile */}

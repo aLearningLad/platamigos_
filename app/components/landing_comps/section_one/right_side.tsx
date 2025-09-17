@@ -13,7 +13,7 @@ const RightSide = () => {
   const options = {};
 
   return (
-    <div className=" w-full lg:w-5/12 lg:pl-6 pt-5 items-center flex relative h-[40vh] lg:h-[55vh] ">
+    <div className=" w-full lg:w-5/12 lg:pl-6 pt-5 items-center hidden lg:flex relative h-[40vh] lg:h-[55vh] ">
       {/* top block jutting in */}
       <div className=" absolute bottom-[60%] left-[27%] rounded-lg h-[50%] w-3/12 ">
         {/* inner block */}
