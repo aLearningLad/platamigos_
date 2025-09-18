@@ -23,7 +23,7 @@ const WindmillBottom = () => {
         </section> */}
       <section className=" w-fit gap-5 flex justify-between items-center">
         <div className=" w-fit px-5 py-1 bg-neutral-600/10 text-white rounded-[8px]">
-          <p className=" text-[14px] text-white">21 Aug 2025</p>
+          <p className=" text-[20px] lg:text-[14px] text-white">21 Aug 2025</p>
         </div>
       </section>
     </div>

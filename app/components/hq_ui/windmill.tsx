@@ -7,7 +7,7 @@ import WindmillBottom from "./windmill_bottom";
 
 const Windmill = () => {
   return (
-    <div className=" w-full h-[60%] bg-gradient-to-br from-purple-700/20 via-pink-300/30 to-rose-600/20 rounded-3xl relative flex flex-col p-2 lg:p-4">
+    <div className=" w-full h-[60%] bg-gradient-to-br from-purple-700/20 via-pink-300/30 to-rose-600/20 rounded-3xl relative hidden lg:flex flex-col p-2 lg:p-4">
       <WindmillTop />
 
       {/* middle */}

@@ -12,11 +12,16 @@ const MiddleTab: React.FC<I_middle_tab> = ({
   return (
     <div
       key={id}
-      className=" w-full lg:w-1/2 h-full bg-white flex flex-col items-center justify-center rounded-2xl "
+      className=" w-full lg:w-1/2 h-fit lg:h-full p-4 bg-neutral-600/10 lg:bg-white flex flex-col items-center justify-center rounded-2xl "
     >
-      <Lottie animationData={animation} className=" w-16 h-16" />
-      <h3 className=" text-[17px] font-semibold ">{tab_value}</h3>
-      <p className=" text-[8px] text-neutral-600 ">{tab_text}</p>
+      <Lottie
+        animationData={animation}
+        className=" w-32 h-32 lg:w-16 lg:h-16"
+      />
+      <h3 className=" text-[32px] lg:text-[17px] font-semibold ">
+        {tab_value}
+      </h3>
+      <p className=" text-[18px] lg:text-[8px] text-neutral-600 ">{tab_text}</p>
     </div>
   );
 };

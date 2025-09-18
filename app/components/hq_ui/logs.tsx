@@ -33,10 +33,11 @@ const Logs = () => {
     </div>;
   }
 
+  // large screens table
   if (logs_data) {
     return (
-      <div className=" w-full h-[40%] bg-white rounded-xl flex flex-col items-start p-2 lg:p-4">
-        <span className=" w-full flex justify-between items-center">
+      <div className=" w-full h-fit lg:h-[40%] bg-white rounded-xl flex flex-col items-start p-2 lg:p-4">
+        <span className=" w-full hidden lg:flex justify-between items-center">
           <p className=" text-[10px] font-semibold ">Recent Activity</p>
 
           <div className=" w-fit px-3 flex items-center text-[8px] gap-2 border-[2px] border-neutral-500/20 bg-neutral-300/10 rounded-[12px] py-1">
@@ -50,7 +51,7 @@ const Logs = () => {
           </div>
         </span>
 
-        <table className=" w-full">
+        <table className=" w-full hidden lg:block">
           <thead className=" h-5 border-2 border-neutral-400/20">
             <tr className="">
               <th className=" text-[8px] text-neutral-500 font-normal border-l-[1px] border-neutral-400/40">

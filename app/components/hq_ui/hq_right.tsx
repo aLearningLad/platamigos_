@@ -50,10 +50,10 @@ const HQRight = () => {
 
   if (credit_data) {
     return (
-      <div className=" w-full space-y-6 lg:w-1/2 h-[60vh] lg:h-full flex flex-col px-1 md:px-3 lg:px-8">
+      <div className=" w-full space-y-6 lg:w-1/2 h-[100vh] lg:h-full flex flex-col px-1 md:px-3 lg:px-8">
         {/* first two tabs */}
 
-        <div className=" w-full flex min-h-[25vh] justify-center lg:gap-6 ">
+        <div className=" w-full lg:flex-row flex-col h-fit p-4 lg:p-0 flex lg:min-h-[25vh] gap-4 justify-center lg:gap-6 ">
           {hq_top_tab_info.map(
             (
               { animation, blurb, id, stat1, stat2, text1, text2, title },
@@ -75,7 +75,7 @@ const HQRight = () => {
         </div>
 
         {/* second two tabs */}
-        <div className=" w-full flex min-h-[25vh] justify-center lg:gap-6 ">
+        <div className=" w-full flex lg:flex-row p-4 lg:p-0 flex-col min-h-[45vh] lg:min-h-[25vh] mt-5 lg:mt-0 gap-4 justify-center lg:gap-6 ">
           {hq_middle_tab_info.map(
             ({ animation, id, tab_text, tab_value }, index) => (
               <MiddleTab
