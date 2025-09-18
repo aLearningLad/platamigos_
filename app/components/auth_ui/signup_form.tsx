@@ -35,7 +35,7 @@ const SignUpForm: React.FC<Isignupform> = ({ set_is_new }) => {
         width={120}
         height={120}
       />
-      <p className=" text-[12px] text-neutral-700 ">
+      <p className=" lg:text-[12px] text-neutral-700 text-2xl">
         {"Let's"} get your account registered
       </p>
       <form

@@ -42,15 +42,17 @@ const AuthPage = () => {
         <p>{"We're"} setting everything up</p>
       </div>
     ) : (
-      <div className=" w-full h-screen flex-col flex items-center justify-center ">
+      <div className=" w-full h-screen flex-col flex items-center justify-center p-3 lg:p-0 ">
         <Image
           src={"/assets/applogo.png"}
           alt="app logo"
           width={130}
           height={130}
         />
-        <h1 className=" text-[14px] font-bold ">Welcome to Plata.Migos</h1>
-        <p className=" text-[12px] ">
+        <h1 className=" text-2xl lg:text-[14px] font-bold ">
+          Welcome to Plata.Migos
+        </h1>
+        <p className=" text-xl lg:text-[12px] text-center mb-5 lg:mb-0">
           We'll get you signed in, or setup your account if you're new
         </p>
 
@@ -64,8 +66,8 @@ const AuthPage = () => {
             } w-full lg:w-1/2 cursor-pointer h-1/2 lg:h-full p-3 lg:p-7 border-4 flex flex-col justify-around items-center rounded-lg`}
           >
             <Lottie animationData={loginLottie} className=" w-20 h-20" />
-            <p className=" text-[14px] font-bold ">Login</p>
-            <p className=" text-[10px] text-neutral-400 font-semibold ">
+            <p className=" text-2xl lg:text-[14px] font-bold ">Login</p>
+            <p className=" text-lg lg:text-[10px] text-neutral-400 font-semibold ">
               You already have an account. Dive right in
             </p>
           </button>
@@ -78,15 +80,15 @@ const AuthPage = () => {
             } w-full lg:w-1/2 cursor-pointer h-1/2 lg:h-full p-3 lg:p-7 border-4 flex flex-col justify-around items-center rounded-lg `}
           >
             <Lottie animationData={signupLottie} className=" w-20 h-20" />
-            <p className=" text-[14px] font-bold ">Signup</p>
-            <p className=" text-[10px] text-neutral-400 font-semibold ">
+            <p className=" text-2xl lg:text-[14px] font-bold ">Signup</p>
+            <p className=" text-lg lg:text-[10px] text-neutral-400 font-semibold ">
               Create an account & start moving plata
             </p>
           </button>
         </section>
         <button
           onClick={(e) => set_is_auth(true)}
-          className=" w-full lg:w-3/12 cursor-pointer lg:text-[12px] bg-cyan-500 text-white mt-5 rounded-[4px] h-20 lg:h-8 "
+          className=" w-full lg:w-3/12 cursor-pointer text-2xl lg:text-[12px] bg-cyan-500 text-white mt-5 rounded-[4px] h-20 lg:h-8 "
         >
           Continue
         </button>

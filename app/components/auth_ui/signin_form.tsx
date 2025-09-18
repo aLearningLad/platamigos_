@@ -12,14 +12,14 @@ const SignInForm: React.FC<Isigninform> = ({ set_is_new }) => {
   const router = useRouter();
 
   return (
-    <div className="w-full min-h-screen flex flex-col items-center justify-center">
+    <div className="w-full min-h-screen flex flex-col items-center justify-center p-3">
       <Image
         src={"/assets/applogo.png"}
         alt="app logo"
         width={120}
         height={120}
       />
-      <p className=" text-[12px] text-neutral-700 ">
+      <p className=" text-2xl lg:text-[12px] text-neutral-700 ">
         Signing in is so effortless. Go ahead!
       </p>
       <form
@@ -34,10 +34,10 @@ const SignInForm: React.FC<Isigninform> = ({ set_is_new }) => {
           onChange={(e: ChangeEvent<HTMLInputElement>) =>
             setEmail(e.target.value)
           }
-          className=" bg-white border-2 focus:bg-orange-600/10 focus:scale-95 transition duration-300 ease-in py-1 border-neutral-500/20 px-3 text-[14px] focus:outline-none rounded-[6px]"
+          className=" w-full sm:w-10/12 md:w-8/12 bg-white border-2 focus:bg-orange-600/10 focus:scale-95 transition duration-300 lg:h-12 h-20 ease-in py-1 border-neutral-500/20 px-3 text-lg lg:text-[14px] focus:outline-none rounded-[6px]"
         />
         <input
-          className=" bg-white border-2 focus:bg-orange-500/10 focus:scale-95 transition duration-300 ease-in py-1 border-neutral-500/20 px-3 text-[14px] focus:outline-none rounded-[6px]"
+          className="lg:h-12 h-20 bg-white w-full sm:w-10/12 md:w-8/12 border-2 focus:bg-orange-500/10 focus:scale-95 transition duration-300 ease-in py-1 border-neutral-500/20 px-3 text-[14px] focus:outline-none rounded-[6px]"
           placeholder="Password"
           type="password"
           name="password"
@@ -49,7 +49,7 @@ const SignInForm: React.FC<Isigninform> = ({ set_is_new }) => {
         <button
           className={`${
             password.length < 7 || email.length < 7 || !email.includes("@")
-              ? " bg-gray-500 w-full lg:w-5/12 lg:text-[12px] text-white mt-5 rounded-[4px] h-20 lg:h-8 brightness-[40%]"
+              ? " bg-gray-500 w-full lg:w-5/12 lg:text-[12px] text-white mt-5 rounded-[4px] h-20 lg:h-8 brightness-[70%]"
               : "w-full lg:w-5/12 lg:text-[12px] cursor-pointer bg-cyan-500 text-white mt-5 rounded-[4px] h-20 lg:h-8"
           }`}
           formAction="submit"
@@ -59,7 +59,7 @@ const SignInForm: React.FC<Isigninform> = ({ set_is_new }) => {
         </button>
       </form>
       <span className=" w-full flex justify-center items-center gap-1">
-        <p className=" text-neutral-500 text-[12px] ">
+        <p className=" text-neutral-500 text-xl text-center lg:text-[12px] ">
           I {"don't"} have an account yet
         </p>
         <button
