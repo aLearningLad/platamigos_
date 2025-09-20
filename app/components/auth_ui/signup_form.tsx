@@ -21,7 +21,9 @@ const SignUpForm: React.FC<Isignupform> = ({ set_is_new }) => {
   if (is_loading) {
     return (
       <div className="w-full min-h-screen flex flex-col items-center justify-center ">
-        <p className="text-[12px] text-neutral-700">Just a moment...</p>
+        <p className=" text-2xl text-center lg:text-[12px] text-neutral-700">
+          Just a moment...
+        </p>
         <Lottie animationData={loadingLottie} className=" w-20 h-20" />
       </div>
     );
@@ -83,7 +85,7 @@ const SignUpForm: React.FC<Isignupform> = ({ set_is_new }) => {
         </p>
         <button
           onClick={(e) => set_is_new(false)}
-          className=" text-cyan-700 text-[18px] lg:text-[12px] underline cursor-pointer "
+          className=" text-cyan-700 text-lg lg:text-[12px] underline cursor-pointer "
         >
           Login
         </button>

@@ -17,7 +17,7 @@ const FundCard: React.FC<I_fund_card> = ({
   return (
     <div
       key={loan_id}
-      className={`min-w-[20vw] max-w-[20vw] ${
+      className={` w-full p-3 lg:p-0 lg:min-w-[20vw] lg:-w-[20vw] ${
         index % 2 === 0 ? "bg-purple-700 text-white" : "bg-slate-500/10"
       } min-h-[35vh] rounded-lg flex flex-col p-3 items-start justify-around m-2 `}
     >

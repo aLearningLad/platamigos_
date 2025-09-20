@@ -49,7 +49,7 @@ const FundALoan = () => {
         Fund a loan, earn interest and help an amigo
       </p>
 
-      <div className=" bg-neutral-400/10 flex overflow-auto flex-wrap justify-center items-center w-full h-[75vh] ">
+      <div className=" bg-neutral-400/10 flex overflow-auto flex-col lg:flex-wrap justify-center items-center w-full h-[75vh] ">
         {comm_loans.map(
           (
             { alias, created_at, description, loan_id, pcp, title, user_id },

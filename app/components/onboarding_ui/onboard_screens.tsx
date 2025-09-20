@@ -83,12 +83,12 @@ const OnboardingScreens: React.FC<Ionboarding_screens> = ({
   };
 
   return (
-    <div className="w-full min-h-screen flex justify-center items-center space-y-3 flex-col">
-      <p className=" text-[12px] text-neutral-500 ">
+    <div className="w-full min-h-screen flex justify-center items-center space-y-3 flex-col p-3">
+      <p className=" text-2xl lg:text-[12px] text-neutral-500 ">
         Add a few details to your profile
       </p>
       <input
-        className=" bg-white border-2 focus:bg-orange-500/10 focus:scale-95 transition duration-300 ease-in py-1 border-neutral-500/20 px-3 text-[14px] focus:outline-none rounded-[6px]"
+        className="lg:h-12 h-20 bg-white w-full sm:w-10/12 md:w-8/12 border-2 focus:bg-orange-500/10 focus:scale-95 transition duration-300 ease-in py-1 border-neutral-500/20 px-3 text-[14px] focus:outline-none rounded-[6px]"
         type="text"
         name="first_name"
         id="first_name"
@@ -98,7 +98,7 @@ const OnboardingScreens: React.FC<Ionboarding_screens> = ({
         }
       />
       <input
-        className=" bg-white border-2 focus:bg-orange-500/10 focus:scale-95 transition duration-300 ease-in py-1 border-neutral-500/20 px-3 text-[14px] focus:outline-none rounded-[6px]"
+        className="lg:h-12 h-20 bg-white w-full sm:w-10/12 md:w-8/12 border-2 focus:bg-orange-500/10 focus:scale-95 transition duration-300 ease-in py-1 border-neutral-500/20 px-3 text-[14px] focus:outline-none rounded-[6px]"
         type="text"
         name="surname"
         id="surname"
@@ -108,7 +108,7 @@ const OnboardingScreens: React.FC<Ionboarding_screens> = ({
         }
       />
       <input
-        className=" bg-white border-2 focus:bg-orange-500/10 focus:scale-95 transition duration-300 ease-in py-1 border-neutral-500/20 px-3 text-[14px] focus:outline-none rounded-[6px]"
+        className="lg:h-12 h-20 bg-white w-full sm:w-10/12 md:w-8/12 border-2 focus:bg-orange-500/10 focus:scale-95 transition duration-300 ease-in py-1 border-neutral-500/20 px-3 text-[14px] focus:outline-none rounded-[6px]"
         type="text"
         name="alias"
         id="alias"
@@ -124,7 +124,7 @@ const OnboardingScreens: React.FC<Ionboarding_screens> = ({
         }
         className={`  text-white px-7 h-8 ${
           first_name.length < 3 || surname.length < 1 || alias.length < 3
-            ? " bg-gray-500 w-full lg:w-3/12 lg:text-[12px] text-white mt-5 rounded-[4px] h-20 lg:h-8 brightness-[40%]"
+            ? " bg-gray-500 w-full lg:w-3/12 lg:text-[12px] text-white mt-5 rounded-[4px] h-20 lg:h-8 brightness-[80%]"
             : "w-full cursor-pointer lg:w-3/12 lg:text-[12px] bg-cyan-500 text-white mt-5 rounded-[4px] h-20 lg:h-8"
         }`}
         onClick={() =>

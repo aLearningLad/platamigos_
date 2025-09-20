@@ -58,7 +58,7 @@ const SignInForm: React.FC<Isigninform> = ({ set_is_new }) => {
           Submit
         </button>
       </form>
-      <span className=" w-full flex justify-center items-center gap-1">
+      <span className=" w-full flex flex-col lg:flex-row justify-center items-center gap-1">
         <p className=" text-neutral-500 text-xl text-center lg:text-[12px] ">
           I {"don't"} have an account yet
         </p>
