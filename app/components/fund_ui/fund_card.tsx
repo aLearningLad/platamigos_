@@ -17,29 +17,31 @@ const FundCard: React.FC<I_fund_card> = ({
   return (
     <div
       key={loan_id}
-      className={` w-full p-3 lg:p-0 lg:min-w-[20vw] lg:-w-[20vw] ${
+      className={` min-w-full lg:min-w-[20vw] lg:max-w-[20vw] ${
         index % 2 === 0 ? "bg-purple-700 text-white" : "bg-slate-500/10"
-      } min-h-[35vh] rounded-lg flex flex-col p-3 items-start justify-around m-2 `}
+      } min-h-[45vh] rounded-lg flex flex-col p-3 items-start justify-around m-2 `}
     >
-      <p className=" text-[10px]">{new Date(created_at).getDate()}</p>
-      <p className=" text-[16px] font-semibold">
+      <p className=" text-xl lg:text-[10px]">
+        {new Date(created_at).getDate()}
+      </p>
+      <p className=" text-2xl lg:text-[16px] font-semibold">
         {months_arr[new Date(created_at).getMonth()]}
       </p>
-      <div className=" text-[10px] font-semibold w-full min-h-[16vh] justify-center text-start items-center ">
+      <div className=" text-2xl overflow-auto lg:text-[10px] font-semibold w-full min-h-[16vh] justify-center text-start items-center ">
         {description}
       </div>
       <div className=" w-full flex justify-between ">
-        <span className=" w-full flex gap-1 justify-start items-center">
+        <span className=" lg:w-full flex gap-1 justify-start items-center">
           <div className=" w-fit h-fit rounded-full p-1 bg-black ">
-            <FaUser size={6} className="text-white" />
+            <FaUser className="text-white lg:w-3 lg:h-3 h-6 w-6 " />
           </div>
-          <p className=" text-[8px]">{alias}</p>
+          <p className=" text-2xl lg:text-[8px]">{alias}</p>
         </span>
         <Link
           href={`/fund_specific/${loan_id}`}
-          className=" bg-cyan-600/30 hover:bg-green-500 transition duration-200 ease-in-out rounded-[5px] flex justify-center items-center lg:h-[4vh] px-5"
+          className=" bg-cyan-600/70 lg:w-8 h-12 hover:bg-green-500 transition duration-200 ease-in-out rounded-[5px] flex justify-center items-center lg:h-[4vh] px-5"
         >
-          <p className=" text-[10px] text-white ">Fund</p>
+          <p className=" text-lg lg:text-[10px] text-white ">Fund</p>
         </Link>
       </div>
     </div>
