@@ -97,7 +97,7 @@ const RequestALoanPage = () => {
       </div>
     ) : (
       <div className=" w-full min-h-screen flex flex-col items-center justify-center space-y-1 lg:space-y-5">
-        <header className=" w-full flex flex-row border-4 border-red-400 justify-center items-center gap-3">
+        <header className=" w-full flex flex-row mb-7 sm:mb-5 lg:mb-0 justify-center items-center gap-3">
           {req_trackers_info.map(
             ({ blurb, id, pending_icon, title, dependent_state }) => (
               <ProgressCircle
