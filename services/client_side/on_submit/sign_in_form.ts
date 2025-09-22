@@ -1,3 +1,4 @@
+import { NextRouter } from "@/models/types";
 import { handleSignIn } from "@/services/server_side/sign_in";
 import { createClient } from "@/utils/supabase/client";
 import { useRouter } from "next/navigation";

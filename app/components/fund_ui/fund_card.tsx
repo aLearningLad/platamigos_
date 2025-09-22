@@ -33,7 +33,7 @@ const FundCard: React.FC<I_fund_card> = ({
       <div className=" w-full flex justify-between ">
         <span className=" lg:w-full flex gap-1 justify-start items-center">
           <div className=" w-fit h-fit rounded-full p-1 bg-black ">
-            <FaUser className="text-white lg:w-3 lg:h-3 h-6 w-6 " />
+            <FaUser className="text-white lg:w-3 lg:h-3 h-4 w-4 " />
           </div>
           <p className=" text-2xl lg:text-[8px]">{alias}</p>
         </span>

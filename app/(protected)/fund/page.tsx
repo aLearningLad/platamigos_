@@ -7,6 +7,7 @@ import { dummies, months_arr } from "@/utils/utils";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { FaUser } from "react-icons/fa";
+import { MdHome } from "react-icons/md";
 
 const FundALoan = () => {
   const [loan_type, set_loan_type] = useState<string>(loan_types.OFR);
@@ -69,6 +70,12 @@ const FundALoan = () => {
           )
         )}
       </div>
+      <Link
+        className=" lg:hidden mt-5 rounded-[6px] flex w-full sm:w-10/12 md:w-8/12 bg-black justify-center items-center h-16 "
+        href={"/dash"}
+      >
+        <MdHome size={30} color="white" />
+      </Link>
     </div>
   );
 };

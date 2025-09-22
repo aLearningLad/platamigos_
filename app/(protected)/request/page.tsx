@@ -96,8 +96,8 @@ const RequestALoanPage = () => {
         <Lottie animationData={loadingLottie} className=" w-40 h-40 " />
       </div>
     ) : (
-      <div className=" w-full min-h-screen flex flex-col items-center justify-center space-y-5">
-        <header className=" w-full lg:flex justify-center items-center gap-3">
+      <div className=" w-full min-h-screen flex flex-col items-center justify-center space-y-1 lg:space-y-5">
+        <header className=" w-full flex flex-row border-4 border-red-400 justify-center items-center gap-3">
           {req_trackers_info.map(
             ({ blurb, id, pending_icon, title, dependent_state }) => (
               <ProgressCircle
@@ -112,7 +112,7 @@ const RequestALoanPage = () => {
           )}
         </header>
         {/* conditional rendering below */}
-        <div className=" w-full px-2 md:px-5 lg:px-32 flex justify-center items-center h-[70vh] lg:h-[50%]">
+        <div className=" w-full px-2 md:px-5 lg:px-32 flex justify-center itemst lg:items-center h-fit lg:h-[50%]">
           {/* pcp */}
           {part === 0 && (
             <PCP
