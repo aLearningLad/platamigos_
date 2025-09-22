@@ -75,7 +75,7 @@ const HQRight = () => {
         </div>
 
         {/* second two tabs */}
-        <div className=" w-full flex lg:flex-row p-4 lg:p-0 flex-col min-h-[45vh] lg:min-h-[25vh] mt-5 lg:mt-0 gap-4 justify-center lg:gap-6 ">
+        <div className=" w-full flex lg:flex-row p-4 lg:p-0 flex-col min-h-[65vh] lg:min-h-[25vh] mt-5 lg:mt-0 gap-4 justify-center lg:gap-6 ">
           {hq_middle_tab_info.map(
             ({ animation, id, tab_text, tab_value }, index) => (
               <MiddleTab

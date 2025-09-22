@@ -5,7 +5,7 @@ import React from "react";
 
 const HQ = () => {
   return (
-    <div className=" max-h-fit lg:min-h-screen w-full flex flex-col relative border-4 border-black">
+    <div className=" max-h-fit lg:min-h-screen w-full flex flex-col relative ">
       <HQHeader />
       <section className=" w-full h-full flex flex-col lg:flex-row bg-neutral-300/20 py-2 md:py-5 ">
         {/* left side */}

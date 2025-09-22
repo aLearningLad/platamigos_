@@ -24,11 +24,11 @@ const BottomTab = () => {
           include with this {"app's"} source code.
         </p>
       </div>
-      <div className=" w-full flex lg:flex-row flex-col lg:justify-start items-center px-1 lg:px-0">
+      <div className=" w-full gap-6 flex lg:flex-row flex-col lg:justify-start items-center px-1 lg:px-0">
         <Link
           href={"https://github.com/aLearningLad/platamigos_"}
           target="_blank"
-          className=" w-full lg:w-fit px-5 rounded-[8px] min-h-24 lg:min-h-9 group hover:bg-black hover:scale-90 transition-all duration-200 ease-in-out bg-neutral-500/10 flex justify-center items-center gap-1"
+          className=" w-full lg:w-fit px-5 mt-4 lg:mt-0 rounded-[8px] min-h-24 lg:min-h-9 group hover:bg-black hover:scale-90 transition-all duration-200 ease-in-out bg-neutral-500/10 flex justify-center items-center gap-1"
         >
           <FaGithub
             size={14}
@@ -41,6 +41,12 @@ const BottomTab = () => {
           <p className=" text-[18px] lg:text-[8px] text-neutral-700 group-hover:text-white ">
             See The Code
           </p>
+        </Link>
+        <Link
+          href={"/dash"}
+          className=" w-full lg:hidden px-5 rounded-[8px] min-h-24 bg-black hover:scale-90 transition-all duration-200 ease-in-out flex justify-center items-center gap-1"
+        >
+          <p className=" text-[18px] text-white ">Return</p>
         </Link>
       </div>
     </div>

@@ -17,9 +17,11 @@ const Funding: React.FC<I_funding> = ({
   term,
 }) => {
   return (
-    <div className=" w-full min-h-screen flex flex-col justify-center items-center px-1 md:px-3 lg:px-24 xl:px-32 py-2 ">
+    <div className=" w-full min-h-screen py-3 flex flex-col justify-center items-center px-3 lg:px-24 xl:px-32 ">
       <header className=" w-full flex justify-center mb-3 ">
-        <p className=" text-[12px] ">Configure your {"offer's"} terms </p>
+        <p className=" text-xl lg:text-[12px] ">
+          Configure your {"offer's"} terms{" "}
+        </p>
       </header>
       <div className=" w-full md:w-10/12 lg:w-7/12 items-center justify-center flex flex-col lg:flex-row h-[70vh] lg:h-[50vh] gap-2">
         {/* left/top */}

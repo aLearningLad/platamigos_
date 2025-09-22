@@ -1,7 +1,7 @@
 const FundingLoading = () => {
   return (
-    <div className=" w-full min-h-screen flex justify-center items-center">
-      just a minute...
+    <div className=" w-full min-h-screen flex justify-center items-center text-center">
+      <p className=" text-xl ">just a minute...</p>
     </div>
   );
 };

@@ -193,19 +193,19 @@ const OffersPage = () => {
 
   {
     return is_loading ? (
-      <div className=" w-full min-h-screen flex justify-center items-center flex-col gap-4 text-neutral-700 text-[12px]">
+      <div className=" w-full min-h-screen flex justify-center text-center items-center flex-col gap-4 text-neutral-700 text-xl lg:text-[12px]">
         Just a minute...
         <Lottie animationData={lottieLoader} className=" w-20 h-20" />
       </div>
     ) : (
       <div className=" w-full min-h-screen flex flex-col items-center justify-center">
         {offers == undefined || offers.length < 1 ? (
-          <div className=" w-full h-full flex justify-center items-center flex-col gap-5">
-            <p className=" text-[12px]">
+          <div className=" w-full h-screen lg:h-full flex justify-center text-center items-center flex-col gap-5 p-3">
+            <p className=" text-2xl lg:text-[12px]">
               You {"don't"} have any loan offers yet
             </p>
             <Link
-              className=" w-fit px-6 h-8 bg-cyan-500 text-white flex justify-center items-center text-[12px] rounded-[5px] "
+              className=" w-full sm:w-8/12 md:w-6/12 lg:w-fit h-20 px-6 lg:h-8 bg-cyan-600 text-white flex justify-center items-center text-xl lg:text-[12px] rounded-[5px] "
               href={"/dash"}
             >
               Return to dash
