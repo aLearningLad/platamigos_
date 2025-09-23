@@ -17,12 +17,14 @@ const ReqTitle: React.FC<I_req_title> = ({
 
   return (
     <div className=" flex flex-col items-center justify-center w-full">
-      <label htmlFor="title">Title</label>
+      <label className=" lg:text-[14px] text-xl" htmlFor="title">
+        Title
+      </label>
       <input
         type="text"
         name="title"
         placeholder="Eg. Need deposit for Porsche"
-        className="w-full md:w-10/12 lg:w-6/12 h-12 lg:h-8 focus:border-none focus:scale-95 transition ease-in-out duration-300 bg-neutral-500/10 text-black text-[12px] rounded-[6px] px-2 py-1 "
+        className="w-full md:w-10/12 lg:w-6/12 h-20 lg:h-8 focus:border-none focus:scale-95 transition ease-in-out duration-300 bg-neutral-500/10 text-black text-xl lg:text-[12px] rounded-[6px] px-2 py-1 "
         value={title}
         onChange={(e: ChangeEvent<HTMLInputElement>) =>
           set_title(e.target.value)

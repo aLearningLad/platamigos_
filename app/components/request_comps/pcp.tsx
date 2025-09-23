@@ -10,8 +10,11 @@ const PCP: React.FC<I_pcp> = ({ pcp, set_pcp, set_part, disabler }) => {
 
   return (
     <div className=" w-full flex flex-col gap-2 items-center">
-      <label className=" text-2xl lg:text-[14px] font-semibold" htmlFor="pcp">
-        {"I'm"} asking for
+      <label className=" flex flex-col items-center text-center" htmlFor="pcp">
+        <p className="text-2xl lg:text-[14px] font-semibold">
+          {"I'm"} asking for
+        </p>
+        <p className=" text-xl lg:text-lg italic">R{pcp}</p>
       </label>
 
       {/* desktop input */}
@@ -38,10 +41,14 @@ const PCP: React.FC<I_pcp> = ({ pcp, set_pcp, set_part, disabler }) => {
           min={0}
           max={49500}
           step={1500}
+          value={pcp}
+          onChange={(e: ChangeEvent<HTMLInputElement>) =>
+            set_pcp(Number(e.target.value))
+          }
         />
         <p className=" text-[20px] italic mx-2">R{"49,500"}</p>
       </div>
-      <p className=" text-xl lg:text-[10px] text-neutral-500 mb-12">
+      <p className=" text-xl lg:text-[10px] text-neutral-500 mb-20 lg:mb-12">
         You can request up to R49,500
       </p>
 

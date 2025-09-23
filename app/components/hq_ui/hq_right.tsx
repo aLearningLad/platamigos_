@@ -41,9 +41,14 @@ const HQRight = () => {
 
   if (isLoading) {
     return (
-      <div className="w-full space-y-6 lg:w-1/2 h-[60vh] lg:h-full flex flex-col justify-center items-center ">
-        <Lottie animationData={lottieLoading} className=" w-20 h-20 " />
-        <p className=" text-[10px] text-neutral-600 ">Just a moment...</p>
+      <div className="w-full min-h-screen space-y-6 lg:w-1/2 lg:h-full flex flex-col justify-center items-center ">
+        <Lottie
+          animationData={lottieLoading}
+          className=" w-32 h-32 lg:w-20 lg:h-20 "
+        />
+        <p className=" text-xl text-center lg:text-[10px] text-neutral-600 ">
+          Just a moment...
+        </p>
       </div>
     );
   }
