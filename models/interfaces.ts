@@ -198,3 +198,13 @@ export interface I_signoutbtn {
   is_loading: boolean;
   set_is_loading: React.Dispatch<React.SetStateAction<boolean>>;
 }
+
+export interface I_upgrade {
+  set_is_upgrade: React.Dispatch<SetStateAction<boolean>>;
+  is_upgrade: boolean;
+}
+
+export interface I_feedback {
+  set_is_feedback: React.Dispatch<SetStateAction<boolean>>;
+  is_feedback: boolean;
+}
