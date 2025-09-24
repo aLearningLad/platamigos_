@@ -2,16 +2,27 @@
 
 import { Isigninform } from "@/models/interfaces";
 import { signInSubmit } from "@/services/client_side/on_submit/sign_in_form";
+import Lottie from "lottie-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, MouseEventHandler, useState } from "react";
+import lottieLoading from "@/public/assets/lottieloading.json";
 
 const SignInForm: React.FC<Isigninform> = ({ set_is_new }) => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const router = useRouter();
+  const [is_loading, set_is_loading] = useState<boolean>(false);
 
-  return (
+  return is_loading ? (
+    <div className=" min-h-screen w-full flex justify-center items-center text-center p-3 flex-col">
+      <span className=" flex flex-col items-center justify-center gap-2 md:gap-3 text-center">
+        <p className=" text-2xl lg:text-lg">Just a moment</p>
+        <p className=" text-lg lg:text-[12px] ">Sigining you in...</p>
+      </span>
+      <Lottie animationData={lottieLoading} className=" w-32 h-32 mt-5" />
+    </div>
+  ) : (
     <div className="w-full min-h-screen flex flex-col items-center justify-center p-3">
       <Image
         src={"/assets/applogo.png"}
@@ -23,7 +34,11 @@ const SignInForm: React.FC<Isigninform> = ({ set_is_new }) => {
         Signing in is so effortless. Go ahead!
       </p>
       <form
-        onSubmit={(e: FormEvent) => signInSubmit(e, email, password, router)}
+        onSubmit={(e: FormEvent) => {
+          e.preventDefault();
+          set_is_loading(true);
+          signInSubmit(e, email, password, router);
+        }}
         className=" w-full h-fit py-5 lg:py-7 lg:w-4/12 flex flex-col items-center space-y-5 "
       >
         <input
@@ -37,7 +52,7 @@ const SignInForm: React.FC<Isigninform> = ({ set_is_new }) => {
           className=" w-full sm:w-10/12 md:w-8/12 bg-white border-2 focus:bg-orange-600/10 focus:scale-95 transition duration-300 lg:h-12 h-20 ease-in py-1 border-neutral-500/20 px-3 text-lg lg:text-[14px] focus:outline-none rounded-[6px]"
         />
         <input
-          className="lg:h-12 h-20 bg-white w-full sm:w-10/12 md:w-8/12 border-2 focus:bg-orange-500/10 focus:scale-95 transition duration-300 ease-in py-1 border-neutral-500/20 px-3 text-[14px] focus:outline-none rounded-[6px]"
+          className="lg:h-12 h-20 bg-white w-full sm:w-10/12 md:w-8/12 border-2 focus:bg-orange-500/10 focus:scale-95 transition duration-300 ease-in py-1 border-neutral-500/20 px-3 text-lg lg:text-[14px] focus:outline-none rounded-[6px]"
           placeholder="Password"
           type="password"
           name="password"

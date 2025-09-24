@@ -192,3 +192,9 @@ export interface I_upgrade_card {
   features: string[];
   index: number;
 }
+
+export interface I_signoutbtn {
+  router: NextRouter;
+  is_loading: boolean;
+  set_is_loading: React.Dispatch<React.SetStateAction<boolean>>;
+}

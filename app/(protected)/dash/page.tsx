@@ -13,6 +13,7 @@ import { dash_tab_info } from "@/dev_data/dash_tab_info";
 import DashSettingsBtn from "@/app/components/dash_comps/dash_options/dashsettingsbtn";
 import useSWR from "swr";
 import { createClient } from "@/utils/supabase/client";
+import SignOutBtn from "@/app/components/misc_ui/signoutbtn";
 
 const Dash = () => {
   const router = useRouter();
@@ -61,8 +62,9 @@ const Dash = () => {
   return (
     <div className=" w-full min-h-screen flex flex-col items-center justify-center">
       {is_loading ? (
-        <div className=" w-full min-h-screen flex justify-center items-center text-[12px] ">
-          Just a second...
+        <div className=" w-full flex-col text-center min-h-screen flex justify-center items-center text-xl lg:text-[12px] ">
+          <p className=" text-2xl lg:text-[14px]">Just a moment</p>
+          <p className=" text-lg text-[10px] ">{"We're"} signing you out</p>
         </div>
       ) : (
         <div className=" w-full h-full flex flex-col px-1 md:px-3 lg:px-20 xl:px-28 ">
@@ -160,6 +162,14 @@ const Dash = () => {
           </button> */}
         </div>
       )}
+
+      <div className=" flex lg:hidden w-full h-40 p-4 items-start justify-center">
+        <SignOutBtn
+          is_loading={is_loading}
+          router={router}
+          set_is_loading={set_is_loading}
+        />
+      </div>
     </div>
   );
 };

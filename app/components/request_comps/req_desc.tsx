@@ -19,7 +19,7 @@ const ReqDesc: React.FC<I_req_desc> = ({
         Description
       </label>
       <textarea
-        className=" w-full md:w-10/12 lg:w-6/12 min-h-[25vh] max-h-[40vh] overflow-auto p-4 lg:p-5 focus:border-none focus:scale-95 transition ease-in-out duration-300 bg-neutral-500/10 text-black text-[12px] rounded-[6px] px-2 py-1"
+        className=" w-full md:w-10/12 lg:w-6/12 min-h-[25vh] max-h-[40vh] overflow-auto p-4 lg:p-5 focus:border-none focus:scale-95 transition ease-in-out duration-300 bg-neutral-500/10 text-black text-xl lg:text-[12px] rounded-[6px]"
         name="description"
         id="description"
         placeholder="Add details relevent to your loan request..."

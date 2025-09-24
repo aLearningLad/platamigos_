@@ -47,9 +47,9 @@ const LandingNav = () => {
       </div>
 
       {/* mobile */}
-      <div className=" flex lg:hidden w-full h-full justify-center items-center ">
+      {/* <div className=" flex lg:hidden w-full h-full justify-center items-center ">
         Menu here
-      </div>
+      </div> */}
     </nav>
   );
 };
