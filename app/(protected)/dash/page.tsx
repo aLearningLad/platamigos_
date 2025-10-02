@@ -64,7 +64,7 @@ const Dash = () => {
       {is_loading ? (
         <div className=" w-full flex-col text-center min-h-screen flex justify-center items-center text-xl lg:text-[12px] ">
           <p className=" text-2xl lg:text-[14px]">Just a moment</p>
-          <p className=" text-lg text-[10px] ">{"We're"} signing you out</p>
+          <p className=" text-xl lg:text-[10px] ">{"We're"} signing you out</p>
         </div>
       ) : (
         <div className=" w-full h-full flex flex-col px-1 md:px-3 lg:px-20 xl:px-28 ">

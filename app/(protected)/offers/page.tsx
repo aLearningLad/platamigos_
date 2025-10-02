@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 import lottieLoader from "@/public/assets/lottieloading.json";
 import Lottie from "lottie-react";
 import OfferCard from "@/app/components/offer_ui/offer_card";
+import { IoReturnUpBackOutline } from "react-icons/io5";
 
 const OffersPage = () => {
   const [offers, set_offers] = useState<Toffers[]>([]);
@@ -193,7 +194,7 @@ const OffersPage = () => {
 
   {
     return is_loading ? (
-      <div className=" w-full min-h-screen flex justify-center text-center items-center flex-col gap-4 text-neutral-700 text-xl lg:text-[12px]">
+      <div className=" w-full min-h-screen flex justify-center text-center items-center flex-col gap-4 text-neutral-700 text-2xl lg:text-[14px]">
         Just a minute...
         <Lottie animationData={lottieLoader} className=" w-20 h-20" />
       </div>
@@ -212,14 +213,22 @@ const OffersPage = () => {
             </Link>
           </div>
         ) : (
-          <div className=" w-full px-1 sm:px-2 md:px-5 lg:px-28 xl:px-32   h-full flex flex-col items-center justify-center ">
-            <header className=" text-[14px]">Funding Offers</header>
-            <p className=" text-[10px] text-center mb-3">
+          <div className=" w-full px-1 sm:px-2 md:px-5 lg:px-28 xl:px-32 min-h-screen lg:h-full flex flex-col items-center justify-center ">
+            <header className=" text-2xl lg:text-[14px] relative mb-4 lg:mb-3 w-full flex justify-center items-center">
+              <Link
+                href={"/dash"}
+                className=" absolute left-2 text-black lg:hidden block"
+              >
+                <IoReturnUpBackOutline size={32} />
+              </Link>
+              Funding Offers
+            </header>
+            <p className=" text-lg lg:text-[10px] text-center mb-3">
               Compare funding offers from potential amigos. <br />
               Choose the best deal for you, or accept multiple offers where
               possible
             </p>
-            <div className="bg-neutral-400/10 rounded-lg flex overflow-auto flex-wrap justify-center items-center w-full h-[75vh]">
+            <div className="bg-neutral-400/10 rounded-lg flex overflow-auto flex-wrap justify-center items-center w-full">
               {offers.map(
                 (
                   {

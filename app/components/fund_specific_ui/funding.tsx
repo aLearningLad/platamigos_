@@ -23,7 +23,7 @@ const Funding: React.FC<I_funding> = ({
           Configure your {"offer's"} terms{" "}
         </p>
       </header>
-      <div className=" w-full md:w-10/12 lg:w-7/12 items-center justify-center flex flex-col lg:flex-row h-[70vh] lg:h-[50vh] gap-2">
+      <div className=" w-full md:w-10/12 lg:w-7/12 items-center justify-center flex flex-col lg:flex-row h-fit lg:h-[50vh] gap-2">
         {/* left/top */}
         <div className=" w-full h-1/2 lg:h-full flex flex-col justify-around gap-2 ">
           {/* pcp */}

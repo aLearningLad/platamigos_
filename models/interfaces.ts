@@ -1,4 +1,3 @@
-import { LottieComponentProps } from "lottie-react";
 import { ChangeEvent, SetStateAction } from "react";
 import { NextRouter } from "./types";
 

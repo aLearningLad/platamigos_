@@ -21,62 +21,64 @@ const OfferCard: React.FC<I_offer_card> = ({
   return (
     <div
       key={loan_id}
-      className={`min-w-[20vw] max-w-[20vw] ${
+      className={` w-full lg:min-w-[20vw] lg:max-w-[20vw] ${
         index % 2 === 0 ? "bg-slate-950 text-white" : "bg-slate-500/20"
-      } min-h-[55vh] rounded-lg flex flex-col p-3 items-center justify-around m-2 `}
+      } lg:min-h-[55vh] lg:max-h-fit min-h-[70vh] rounded-lg flex flex-col p-3 items-center justify-around m-2 `}
     >
       <span className=" w-full flex justify-between items-center">
-        <p className=" text-[10px] flex items-center gap-1 ">
-          <FaUser size={8} />
-          {alias}
-        </p>
+        <span className="  flex items-center gap-1 mb-4 ">
+          <FaUser className=" w-8 h-8 lg:w-2 lg:h-2" />
+          <p className=" text-xl lg:text-[10px]">{alias}</p>
+        </span>
 
         <button
           onClick={handleDecline}
           className=" w-fit group h-fit p-1 cursor-pointer hover:scale-90 transition-all duration-200 ease-in-out bg-red-600 rounded-[4px]"
         >
-          <IoTrashBin className=" text-white group-hover:text-black " />
+          <IoTrashBin className=" text-white group-hover:text-black h-6 w-6 lg:w-3 lg:h-3 " />
         </button>
       </span>
       <div className=" w-full flex flex-col">
-        <section className=" w-full flex flex-col items-center ">
-          <p className=" text-[8px]">Your loan details</p>
-          <p className=" text-[10px] ">{title}</p>
-          <p className=" text-[10px] ">{description}</p>
+        <section className=" w-full flex flex-col items-center mb-5 ">
+          <p className=" text-2xl lg:text-[8px] mb-1">Your loan details</p>
+          <p className=" text-xl lg:text-[10px] ">{title}</p>
+          <p className=" text-lg text-center lg:text-[10px] ">{description}</p>
         </section>
       </div>
       <div className=" flex-col w-full flex justify-center items-center ">
-        <p className=" text-[8px] ">Offer details</p>
+        <p className=" text-lg lg:text-[8px] ">Offer details</p>
 
         {/* principle */}
         <span className=" w-full flex justify-between">
-          <p className="text-[10px]">Loan amount</p>
-          <p className="text-[10px]">R{pcp}</p>
+          <p className=" text-lg lg:text-[10px]">Loan amount</p>
+          <p className=" text-2xl lg:text-[10px]">R{pcp}</p>
         </span>
         {/* interest */}
         <span className=" w-full flex justify-between">
-          <p className="text-[10px]">Interest</p>
-          <p className="text-[10px]">R{due - pcp}</p>
+          <p className="text-lg lg:text-[10px]">Interest</p>
+          <p className=" text-2xl lg:text-[10px]">R{due - pcp}</p>
         </span>
         {/* due */}
         <span className=" w-full flex justify-between">
-          <p className="text-[10px]">Total due</p>
-          <p className="text-[10px]">R{due}</p>
+          <p className="text-lg lg:text-[10px]">Total due</p>
+          <p className=" text-2xl lg:text-[10px]">R{due}</p>
         </span>
         {/* instalments */}
         <span className=" w-full flex justify-between">
-          <p className="text-[10px]">Monthly (x{term})</p>
-          <p className="text-[10px]">R{Math.floor(pcp / term)}</p>
+          <p className=" text-lg lg:text-[10px]">Monthly (x{term})</p>
+          <p className=" text-2xl lg:text-[10px]">R{Math.floor(pcp / term)}</p>
         </span>
         {/* offer date */}
         <span className=" w-full flex justify-between">
-          <p className="text-[10px]">Posted on</p>
-          <p className="text-[10px]">{new Date(created_at).toDateString()}</p>
+          <p className=" text-lg lg:text-[10px]">Posted on</p>
+          <p className="text-lg lg:text-[10px]">
+            {new Date(created_at).toDateString()}
+          </p>
         </span>
       </div>
       <button
         onClick={handleAccept}
-        className=" h-8 w-full cursor-pointer hover:bg-cyan-500 hover:scale-95 transition-all duration-200 bg-green-500 text-[10px] text-white rounded-[6px] "
+        className=" h-20 lg:h-8 w-full cursor-pointer hover:bg-cyan-500 hover:scale-95 transition-all duration-200 bg-green-500 text-xl lg:text-[10px] text-white rounded-[6px] "
       >
         Take this deal
       </button>
