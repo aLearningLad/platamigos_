@@ -26,7 +26,7 @@ const SectionTwo = () => {
       },
       opacity: 0,
       y: 50,
-      duration: 0.4,
+      duration: 0.7,
     });
   });
 

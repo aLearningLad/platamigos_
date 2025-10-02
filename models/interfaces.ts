@@ -207,3 +207,7 @@ export interface I_feedback {
   set_is_feedback: React.Dispatch<SetStateAction<boolean>>;
   is_feedback: boolean;
 }
+
+export interface I_s1_top {
+  childRef?: React.RefObject<HTMLDivElement | null>;
+}
