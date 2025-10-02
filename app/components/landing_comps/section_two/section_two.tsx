@@ -13,7 +13,7 @@ const SectionTwo = () => {
 
   const contRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLDivElement>(null);
-  const subheadingRef = useRef<HTMLDivElement>(null);
+  const s1ChildRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
     // titleRef animation
@@ -28,6 +28,8 @@ const SectionTwo = () => {
       y: 50,
       duration: 0.7,
     });
+
+    // s1 top
   });
 
   return (
@@ -51,7 +53,7 @@ const SectionTwo = () => {
 
       {/* tabs in grid section */}
       <section className=" w-full pb-12 lg:pt-0 h-[50vh] lg:h-[55%] hidden lg:flex flex-col">
-        <S1TOP />
+        <S1TOP childRef={s1ChildRef} />
         <S1BOTTOM />
       </section>
 
