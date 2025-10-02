@@ -12,22 +12,22 @@ const MainCTABtns = () => {
   const authLinkRef = useRef<HTMLAnchorElement>(null);
   const howBtnRef = useRef<HTMLButtonElement>(null);
 
-  useGSAP(() => {
-    // how to use
-    gsap.from(howBtnRef.current, {
-      x: 400,
-      opacity: 0,
-      duration: 0.9,
-    });
+  //   useGSAP(() => {
+  //     // how to use
+  //     gsap.from(howBtnRef.current, {
+  //       opacity: 0,
+  //       scale: 0,
+  //       duration: 0.7,
+  //     });
 
-    // auth
-    gsap.from(authLinkRef.current, {
-      x: 600,
-      opacity: 0,
-      duration: 0.9,
-      delay: 0.4,
-    });
-  });
+  //     // auth
+  //     gsap.from(authLinkRef.current, {
+  //       opacity: 0,
+  //       duration: 0.9,
+  //       delay: 0.4,
+  //       scale: 0,
+  //     });
+  //   });
 
   return (
     <span className=" w-full flex items-center justify-center lg:justify-start lg:flex-row flex-col gap-4 mt-8">
