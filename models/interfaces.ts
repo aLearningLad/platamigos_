@@ -173,6 +173,7 @@ export interface I_s3_tab {
   icon: React.ReactElement;
   text: string;
   index: number;
+  tabRef: React.RefObject<HTMLDivElement | null>;
 }
 
 export interface I_s4 {

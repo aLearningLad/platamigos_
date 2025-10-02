@@ -12,10 +12,13 @@ const SectionThree = () => {
   gsap.registerPlugin(useGSAP);
 
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const tabRef = useRef<HTMLDivElement | null>(null);
+  const tab1Ref = useRef<HTMLDivElement | null>(null);
+  const tab2Ref = useRef<HTMLDivElement | null>(null);
+  const tab3Ref = useRef<HTMLDivElement | null>(null);
   const titleRef = useRef<HTMLDivElement | null>(null);
   const blurbRef = useRef<HTMLDivElement | null>(null);
   const lottieRef = useRef<HTMLDivElement | null>(null);
+  const tabRefArr = [tab1Ref, tab2Ref, tab3Ref];
 
   useGSAP(() => {
     // title ref
@@ -84,6 +87,7 @@ const SectionThree = () => {
         <div className="w-full lg:w-1/2 h-full lg:h-1/2 flex flex-row lg:flex-col items-start pt-4  justify-center space-y-12">
           {section_three_info.map(({ count, icon, id, text }, index) => (
             <S3Tab
+              tabRef={tabRefArr[index]}
               count={count}
               icon={icon}
               id={id}
