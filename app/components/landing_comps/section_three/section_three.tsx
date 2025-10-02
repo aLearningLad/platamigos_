@@ -4,8 +4,15 @@ import Lottie from "lottie-react";
 import bizLottie from "@/public/assets/bizLottie.json";
 import { section_three_info } from "@/dev_data/section_three_info";
 import S3Tab from "./s3_tab";
+import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
+import { useRef } from "react";
 
 const SectionThree = () => {
+  gsap.registerPlugin(useGSAP);
+
+  const tabRef = useRef<HTMLDivElement | null>(null);
+
   return (
     <div className="h-[80vh] lg:pt-20 w-full py-2 lg:py-2 px-3 lg:px-72 flex flex-col justify-start items-center ">
       <section className=" w-full flex lg:flex-row flex-col items-center justify-center gap-2 lg:gap-12 lg:items-end">

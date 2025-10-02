@@ -16,6 +16,9 @@ const SectionTwo = () => {
   const div1Ref = useRef<HTMLDivElement | null>(null);
   const div2Ref = useRef<HTMLDivElement | null>(null);
   const div3Ref = useRef<HTMLDivElement | null>(null);
+  const bdiv1Ref = useRef<HTMLDivElement | null>(null);
+  const bdiv2Ref = useRef<HTMLDivElement | null>(null);
+  const bdiv3Ref = useRef<HTMLDivElement | null>(null);
 
   useGSAP(() => {
     // titleRef animation
@@ -47,25 +50,25 @@ const SectionTwo = () => {
     // div1
     gsap.from(div1Ref.current, {
       scale: 0,
-      delay: 1.2,
+      delay: 1.5,
       duration: 1.2,
       scrollTrigger: {
         trigger: contRef.current,
         start: "top 80%",
         end: "top 50%",
-        toggleActions: "play none none reverse",
+        toggleActions: "play none restart reverse",
       },
     });
 
     // div2
     gsap.from(div2Ref.current, {
       scale: 0,
-      duration: 0.9,
+      duration: 1,
       scrollTrigger: {
         trigger: contRef.current,
         start: "top 80%",
         end: "top 50%",
-        toggleActions: "play none none reverse",
+        toggleActions: "play none restart reverse",
       },
       ease: "bounce.out",
     });
@@ -73,14 +76,55 @@ const SectionTwo = () => {
     // div3
     gsap.from(div3Ref.current, {
       scale: 0,
-      duration: 0.7,
+      duration: 0.9,
       delay: 1.3,
       scrollTrigger: {
         trigger: contRef.current,
         start: "top 80%",
         end: "top 50%",
-        toggleActions: "play none none reverse",
+        toggleActions: "play none restart reverse",
       },
+    });
+
+    // bdiv1
+    gsap.from(bdiv1Ref.current, {
+      x: -150,
+      opacity: 0,
+      delay: 1.5,
+      duration: 0.9,
+      scrollTrigger: {
+        trigger: contRef.current,
+        start: "top 80%",
+        end: "top 50%",
+        toggleActions: "play none restart reverse",
+      },
+    });
+
+    // bdiv2
+    gsap.from(bdiv2Ref.current, {
+      x: -400,
+      opacity: 0,
+      delay: 1.2,
+      duration: 1,
+      scrollTrigger: {
+        trigger: contRef.current,
+        start: "top 80%",
+        end: "top 50%",
+        toggleActions: "play none restart reverse",
+      },
+    });
+
+    // bdiv3
+    gsap.from(bdiv3Ref.current, {
+      x: -550,
+      duration: 1.2,
+      scrollTrigger: {
+        trigger: contRef.current,
+        start: "top 80%",
+        end: "top 50%",
+        toggleActions: "play none restart reverse",
+      },
+      ease: "bounce.out",
     });
   });
 
@@ -106,7 +150,7 @@ const SectionTwo = () => {
       {/* tabs in grid section */}
       <section className=" w-full pb-12 lg:pt-0 h-[50vh] lg:h-[55%] hidden lg:flex flex-col">
         <S1TOP div1Ref={div1Ref} div2Ref={div2Ref} div3Ref={div3Ref} />
-        <S1BOTTOM />
+        <S1BOTTOM bdiv1Ref={bdiv1Ref} bdiv2Ref={bdiv2Ref} bdiv3Ref={bdiv3Ref} />
       </section>
 
       {/* lower info bits */}

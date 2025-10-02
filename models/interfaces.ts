@@ -209,7 +209,12 @@ export interface I_feedback {
 }
 
 export interface I_s1_top {
-  div1Ref: React.RefObject<HTMLDivElement | null>;
+  div1Ref: React.RefObject<HTMLDivElement | null> | null;
   div2Ref: React.RefObject<HTMLDivElement | null> | null;
   div3Ref: React.RefObject<HTMLDivElement | null> | null;
+}
+export interface I_s1_bottom {
+  bdiv1Ref: React.RefObject<HTMLDivElement | null> | null;
+  bdiv2Ref: React.RefObject<HTMLDivElement | null> | null;
+  bdiv3Ref: React.RefObject<HTMLDivElement | null> | null;
 }
