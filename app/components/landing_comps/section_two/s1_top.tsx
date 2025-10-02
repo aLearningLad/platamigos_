@@ -6,13 +6,10 @@ import graphAnimation from "@/public/assets/graphLottie.json";
 import { MdArrowUpward } from "react-icons/md";
 import { I_s1_top } from "@/models/interfaces";
 
-const S1TOP: React.FC<I_s1_top> = ({ childRef }) => {
+const S1TOP: React.FC<I_s1_top> = ({ div1Ref, div2Ref, div3Ref }) => {
   return (
     <div className=" w-full h-1/2 gap-2 p-1 flex flex-row lg:p-3 ">
-      <div
-        ref={childRef}
-        className=" h-full flex-1/4 bg-white rounded-lg flex flex-col items-center justify-center p-2 lg:p-3 "
-      >
+      <div className=" h-full flex-1/4 bg-white rounded-lg flex flex-col items-center justify-center p-2 lg:p-3 ">
         <div className=" w-fit h-fit border-4 border-cyan-300 rounded-full ">
           <Lottie animationData={interestAnimation} className=" w-14 h-14" />
         </div>
@@ -21,10 +18,7 @@ const S1TOP: React.FC<I_s1_top> = ({ childRef }) => {
           Maximum interest rate
         </p>
       </div>
-      <div
-        ref={childRef}
-        className=" h-full flex-1/2 bg-white flex flex-row rounded-lg items-center p-2 lg:p-3 justify-center "
-      >
+      <div className=" h-full flex-1/2 bg-white flex flex-row rounded-lg items-center p-2 lg:p-3 justify-center ">
         <div className=" h-full w-[20%] flex flex-col items-end justify-end">
           <p className="text-[12px] font-bold ">R250,000</p>
           <p className="text-[8px] text-neutral-400 font-semibold ">
@@ -46,10 +40,7 @@ const S1TOP: React.FC<I_s1_top> = ({ childRef }) => {
           </p>
         </div>
       </div>
-      <div
-        ref={childRef}
-        className=" h-full flex-1/4 bg-white rounded-lg p-2 lg:p-3 justify-center flex-col items-center flex"
-      >
+      <div className=" h-full flex-1/4 bg-white rounded-lg p-2 lg:p-3 justify-center flex-col items-center flex">
         <p className=" text-[8px] font-bold ">Flexible terms</p>
         <div className=" flex flex-col items-center justify-center ">
           <p className=" text-[14px] font-bold ">24</p>

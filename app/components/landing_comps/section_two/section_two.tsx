@@ -13,7 +13,9 @@ const SectionTwo = () => {
 
   const contRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLDivElement>(null);
-  const s1ChildRef = useRef<HTMLDivElement>(null);
+  const div1Ref = useRef<HTMLDivElement | null>(null);
+  const div2Ref = useRef<HTMLDivElement | null>(null);
+  const div3Ref = useRef<HTMLDivElement | null>(null);
 
   useGSAP(() => {
     // titleRef animation
@@ -30,6 +32,53 @@ const SectionTwo = () => {
     });
 
     // s1 top
+    gsap.from(".s1Ref", {
+      stagger: 0.7,
+      scale: 0,
+      duration: 0.9,
+      scrollTrigger: {
+        trigger: contRef.current,
+        start: "top 80%",
+        end: "top 50%",
+        toggleActions: "play none none reverse",
+      },
+    });
+
+    // div1
+    gsap.from(div1Ref.current, {
+      scale: 0,
+      duration: 0.9,
+      scrollTrigger: {
+        trigger: contRef.current,
+        start: "top 80%",
+        end: "top 50%",
+        toggleActions: "play none none reverse",
+      },
+    });
+
+    // div2
+    gsap.from(div2Ref.current, {
+      scale: 0,
+      duration: 0.6,
+      scrollTrigger: {
+        trigger: contRef.current,
+        start: "top 80%",
+        end: "top 50%",
+        toggleActions: "play none none reverse",
+      },
+    });
+
+    // div3
+    gsap.from(div3Ref.current, {
+      scale: 0,
+      duration: 0.4,
+      scrollTrigger: {
+        trigger: contRef.current,
+        start: "top 80%",
+        end: "top 50%",
+        toggleActions: "play none none reverse",
+      },
+    });
   });
 
   return (
@@ -53,7 +102,7 @@ const SectionTwo = () => {
 
       {/* tabs in grid section */}
       <section className=" w-full pb-12 lg:pt-0 h-[50vh] lg:h-[55%] hidden lg:flex flex-col">
-        <S1TOP childRef={s1ChildRef} />
+        <S1TOP div1Ref={div1Ref} div2Ref={div2Ref} div3Ref={div3Ref} />
         <S1BOTTOM />
       </section>
 
