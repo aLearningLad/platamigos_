@@ -1,11 +1,43 @@
+"use client";
+
 import S1TOP from "./s1_top";
 import S1BOTTOM from "./s1_bottom";
 import { GiJusticeStar } from "react-icons/gi";
+import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
+import { useRef } from "react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const SectionTwo = () => {
+  gsap.registerPlugin(ScrollTrigger);
+
+  const contRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLDivElement>(null);
+  const subheadingRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(() => {
+    // titleRef animation
+    gsap.from(titleRef.current, {
+      scrollTrigger: {
+        trigger: contRef.current,
+        start: "top 80%", // tweak as needed
+        end: "top 50%",
+        toggleActions: "play none none reverse",
+      },
+      opacity: 0,
+      y: 50,
+      duration: 0.4,
+    });
+  });
+
   return (
-    <div className=" h-[60vh] lg:h-[100vh] w-full pt-12 lg:py-2 px-3 lg:px-40 xl:px-52 flex flex-col items-center ">
-      <p className=" text-[10px] font-bold hide-on-se mb-2  ">Easy Funding</p>
+    <div
+      ref={contRef}
+      className=" h-[60vh] lg:h-[100vh] w-full pt-12 lg:py-2 px-3 lg:px-40 xl:px-52 flex flex-col items-center "
+    >
+      <p ref={titleRef} className=" text-[10px] font-bold hide-on-se mb-2  ">
+        Easy Funding
+      </p>
       <h1 className=" text-3xl font-bold ">Real time loan updates</h1>
       <p className=" flex sm:hidden text-[18px] text-center ">
         Request new loans and secure funding for ideas, projects and commitments
