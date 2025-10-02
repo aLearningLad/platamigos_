@@ -47,7 +47,8 @@ const SectionTwo = () => {
     // div1
     gsap.from(div1Ref.current, {
       scale: 0,
-      duration: 0.9,
+      delay: 1.2,
+      duration: 1.2,
       scrollTrigger: {
         trigger: contRef.current,
         start: "top 80%",
@@ -59,19 +60,21 @@ const SectionTwo = () => {
     // div2
     gsap.from(div2Ref.current, {
       scale: 0,
-      duration: 0.6,
+      duration: 0.9,
       scrollTrigger: {
         trigger: contRef.current,
         start: "top 80%",
         end: "top 50%",
         toggleActions: "play none none reverse",
       },
+      ease: "bounce.out",
     });
 
     // div3
     gsap.from(div3Ref.current, {
       scale: 0,
-      duration: 0.4,
+      duration: 0.7,
+      delay: 1.3,
       scrollTrigger: {
         trigger: contRef.current,
         start: "top 80%",
