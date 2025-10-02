@@ -2,8 +2,27 @@
 
 import Link from "next/link";
 import { FaPlayCircle } from "react-icons/fa";
+import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
+import { useRef } from "react";
 
 const MainCTABtns = () => {
+  gsap.registerPlugin(useGSAP);
+
+  const authBtnRef = useRef<HTMLDivElement>(null);
+  const howBtnRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(() => {
+    // auth
+    gsap.from(authBtnRef.current, {
+      x: 400,
+      opacity: 0,
+      duration: 0.9,
+    });
+
+    // how to use
+  });
+
   return (
     <span className=" w-full flex items-center justify-center lg:justify-start lg:flex-row flex-col gap-4 mt-8">
       <Link
