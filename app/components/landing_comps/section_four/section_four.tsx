@@ -42,6 +42,20 @@ const SectionFour = () => {
       duration: 0.9,
       opacity: 0,
     });
+
+    // lottie
+    gsap.from(lottieRef.current, {
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: "top 80%",
+        end: "top 50%",
+        toggleActions: "play none restart reverse",
+      },
+      scale: 0,
+      duration: 0.9,
+      delay: 0.6,
+      opacity: 0,
+    });
   });
 
   return (
@@ -53,7 +67,10 @@ const SectionFour = () => {
         <h2 ref={titleRef} className=" text-2xl font-semibold text-center">
           Easy setup, simple compliance
         </h2>
-        <p className=" lg:text-[10px] text-[14px] pb-6 lg:pb-1 text-neutral-600 text-center w-full md:w-8/12 lg:w-7/12">
+        <p
+          ref={subheadingRef}
+          className=" lg:text-[10px] text-[14px] pb-6 lg:pb-1 text-neutral-600 text-center w-full md:w-8/12 lg:w-7/12"
+        >
           Simplified KYC and onboarding to make getting funded easy. Dive right
           in and engage with the community, funding or requesting loans
         </p>
@@ -72,7 +89,10 @@ const SectionFour = () => {
             />
           ))}
         </div>
-        <div className=" w-full lg:w-1/2 h-full flex items-center justify-center ">
+        <div
+          ref={lottieRef}
+          className=" w-full lg:w-1/2 h-full flex items-center justify-center "
+        >
           <Lottie animationData={teamLottie} className=" w-full h-full" />
         </div>
       </div>

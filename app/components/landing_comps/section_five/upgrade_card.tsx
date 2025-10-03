@@ -21,14 +21,14 @@ const UpgradeCard: React.FC<I_upgrade_card> = ({
         index === 2 && "h-[95%] bg-white lg:bg-teal-600/10 text-black"
       } rounded-3xl hover:scale-95 transition-all duration-200 ease-in-out flex flex-col items-start p-3`}
     >
-      <p className=" text-[12px] italic">{title}</p>
+      <p className=" text-[18px] lg:text-[12px] italic">{title}</p>
       <div className=" w-full flex ">
         <span>
-          <p className=" text-[18px]">R{price}</p>
+          <p className=" text-4xl lg:text-[18px]">R{price}</p>
         </span>
         <span className=" flex flex-col items-start justify-center pl-2">
-          <p className=" text-[8px] ">Per month</p>
-          <p className=" text-[6px] ">discounts available</p>
+          <p className=" text-[16px] lg:text-[8px] ">Per month</p>
+          <p className=" text-[14px] lg:text-[6px] ">discounts available</p>
         </span>
       </div>
       <div className=" w-[20px] h-[2px] border-b-2 border-white rounded-full mt-6 " />

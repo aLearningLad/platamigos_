@@ -9,13 +9,13 @@ const SectionFive = () => {
         <h1 className=" text-2xl font-semibold text-center">
           Subscribe for bespoke upcoming features
         </h1>
-        <p className=" w-full sm:w-10/12 md:w-8/12 lg:w-7/12 text-[10px] text-center text-neutral-600">
+        <p className=" w-full sm:w-10/12 md:w-8/12 lg:w-7/12 text-[14px] lg:text-[10px] text-center text-neutral-600">
           Audit log exports, Stripe integration, Paypal webhooks for developers,
           and a host of comprehensive features designed to drastically enhance
           your experience
         </p>
 
-        <div className=" w-full h-20 lg:w-8/12 flex justify-center items-center ">
+        <div className=" w-full h-20 lg:w-8/12 hidden lg:flex justify-center items-center ">
           <input
             type="range"
             name=""
