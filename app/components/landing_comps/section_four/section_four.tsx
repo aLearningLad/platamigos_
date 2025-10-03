@@ -14,17 +14,31 @@ const SectionFour = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const titleRef = useRef<HTMLDivElement | null>(null);
   const subheadingRef = useRef<HTMLDivElement | null>(null);
+  const lottieRef = useRef<HTMLDivElement | null>(null);
 
   useGSAP(() => {
     // title
     gsap.from(titleRef.current, {
       scrollTrigger: {
-        trigger: titleRef.current,
+        trigger: containerRef.current,
         start: "top 80%",
         end: "top 50%",
         toggleActions: "play none restart reverse",
       },
       y: -100,
+      duration: 0.9,
+      opacity: 0,
+    });
+
+    // subheading
+    gsap.from(subheadingRef.current, {
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: "top 80%",
+        end: "top 50%",
+        toggleActions: "play none restart reverse",
+      },
+      y: 100,
       duration: 0.9,
       opacity: 0,
     });
