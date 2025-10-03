@@ -19,12 +19,12 @@ const SectionSix = () => {
               amigos
             </p>
           </section>
-          <button className=" w-fit px-6 text-xl lg:text-[10px] mt-5 lg:mt-0 py-2 h-fit flex justify-center items-center bg-slate-800 rounded-lg text-white ">
+          <button className=" w-fit px-6 text-lg lg:text-[10px] mt-5 lg:mt-0 py-2 h-fit flex justify-center items-center bg-slate-800 rounded-lg text-white ">
             Subscribe
           </button>
         </div>
       </div>
-      <footer className=" w-full h-[65vh] bg-slate-700/80 flex items-end">
+      <footer className=" w-full h-[65vh] bg-slate-700/80 flex items-end rounded-xl">
         <section className=" h-[35vh] w-full px-3 py-2 lg:px-20 lg:py-3 flex flex-row justify-center items-start gap-12">
           <FooterAddress />
           <FooterPages />

@@ -5,7 +5,7 @@ import { upgrade_card_info } from "@/dev_data/upgrade_card_info";
 const SectionFive = () => {
   return (
     <div className="w-full lg:h-[100vh] py-6 px-3 lg:px-72 flex flex-col justify-center items-center">
-      <section className=" flex flex-col w-full items-center">
+      <section className=" flex flex-col w-full items-center ">
         <h1 className=" text-2xl font-semibold text-center">
           Subscribe for bespoke upcoming features
         </h1>
@@ -27,7 +27,7 @@ const SectionFive = () => {
         </div>
       </section>
       <section
-        className={`h-[60%] gap-4 lg:gap-7 w-full flex flex-col lg:flex-row justify-center items-center`}
+        className={`lg:h-[60%] h-fit my-5 lg:my-0 gap-4 lg:gap-7 w-full flex flex-col lg:flex-row justify-center items-center`}
       >
         {upgrade_card_info.map(
           ({ features, icon, id, price, title }, index) => (

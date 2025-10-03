@@ -36,7 +36,7 @@ const UpgradeCard: React.FC<I_upgrade_card> = ({
         {features.map((feature) => (
           <div className=" w-full h-fit py-2 flex items-center">
             {icon}
-            <p className=" text-[8px] ">{feature}</p>
+            <p className=" text-[16px] lg:text-[8px] ">{feature}</p>
           </div>
         ))}
       </div>
