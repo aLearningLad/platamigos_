@@ -60,6 +60,48 @@ const SectionThree = () => {
       scale: 0,
       duration: 1.5,
     });
+
+    // tab 1
+    gsap.from(tab1Ref.current, {
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: "top 80%",
+        end: "top 50%",
+        toggleActions: "play none restart reverse",
+      },
+      opacity: 0,
+      x: 100,
+      duration: 1.2,
+      delay: 1.2,
+    });
+
+    // tab 2
+    gsap.from(tab2Ref.current, {
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: "top 80%",
+        end: "top 50%",
+        toggleActions: "play none restart reverse",
+      },
+      opacity: 0,
+      x: 200,
+      duration: 1.2,
+      delay: 1.5,
+    });
+
+    // tab 3
+    gsap.from(tab3Ref.current, {
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: "top 80%",
+        end: "top 50%",
+        toggleActions: "play none restart reverse",
+      },
+      opacity: 0,
+      x: 300,
+      duration: 1.2,
+      delay: 1.7,
+    });
   });
 
   return (

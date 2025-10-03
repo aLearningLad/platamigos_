@@ -1,9 +1,16 @@
 import { I_s3_tab } from "@/models/interfaces";
 import React from "react";
 
-const S3Tab: React.FC<I_s3_tab> = ({ count, icon, id, text, index }) => {
+const S3Tab: React.FC<I_s3_tab> = ({
+  count,
+  icon,
+  id,
+  text,
+  index,
+  tabRef,
+}) => {
   return (
-    <div key={id} className=" w-full h-16 flex ">
+    <div ref={tabRef} key={id} className=" w-full h-16 flex ">
       <div className=" h-full flex justify-center items-center px-2">
         <div
           className={`w-fit h-fit rounded-full 
