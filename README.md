@@ -9,10 +9,18 @@ User and transaction data is held within a PostgreSQL database hosted on Supabas
 | **Layer**          | **Technology**             |
 |---------------------|----------------------------|
 | Frontend Framework    | Next.js via Client and Server Components      |
-| APIs    | Server Actions, Supabase Javascript Client      |
+| APIs    | Server Actions, Supabase JS Client      |
 | Caching   | Redis      |
 | Storage    | PostgreSQL      |
-| Auth    | Supabase Javascript Client Auth & Middleware     |
+| Auth    | Supabase Auth    |
+| Middleware   | Supabase    |
 | Styling    | Tailwind CSS, ShadCN UI, CSS    |
 | Testing    | Jest    |
 
+## 🚀 Getting Started
+### :one: Clone and install
+```
+git clone https://github.com/aLearningLad/platamigos.git
+cd eventstream
+npm install
+```
