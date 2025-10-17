@@ -40,6 +40,27 @@ UPSTASH_REDIS_REST_URL=
 UPSTASH_REDIS_REST_TOKEN=
 ```
 
+### :three: Run Locally
+```
+npm run dev
+```
+💡 *Make sure your PostgreSQL, MongoDB and Kafka services are running locally or accessible remotely*
+
+## 🧪Testing
+### Run all tests using:
+```
+npm run test
+```
+
+### Tests Cover:  
+* 🔐 Authentication (sign up, login, protected routes)
+* Requesting funding
+* Accepting a funding offer
+* Denying a funding offer
+* Making an instalment
+
+  ## ☁️ Deployment
+Deployed on Vercel, with postgreSQL tables hosted on Supabase
 
 
 
