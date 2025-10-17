@@ -9,6 +9,7 @@ User and transaction data is held within a PostgreSQL database hosted on Supabas
 | **Layer**          | **Technology**             |
 |---------------------|----------------------------|
 | Frontend Framework    | Next.js via Client and Server Components      |
+| State Management    | Zustand, React Usestate      |
 | APIs    | Server Actions, Supabase JS Client      |
 | Caching   | Redis      |
 | Storage    | PostgreSQL      |
