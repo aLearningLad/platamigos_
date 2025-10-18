@@ -45,7 +45,7 @@ UPSTASH_REDIS_REST_TOKEN=
 ```
 npm run dev
 ```
-💡 *Make sure your PostgreSQL, MongoDB and Kafka services are running locally or accessible remotely*
+💡 *Make sure your PostgreSQL and Redis services are running locally or accessible remotely*
 
 ## 🧪Testing
 ### Run all tests using:
