@@ -14,7 +14,7 @@ User and transaction data is held within a PostgreSQL database hosted on Supabas
 | Caching   | Redis      |
 | Storage    | PostgreSQL      |
 | Auth    | Supabase Auth    |
-| Middleware   | Supabase    |
+| Middleware   | Supabase Client & Server Middlewares   |
 | Styling    | Tailwind CSS, ShadCN UI, CSS    |
 | Testing    | Jest    |
 
