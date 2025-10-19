@@ -1,7 +1,7 @@
+import { loginResponse } from "@/models/classes/login_response";
 import { NextRouter } from "@/models/types";
 import { handleSignIn } from "@/services/server_side/sign_in";
 import { createClient } from "@/utils/supabase/client";
-import { useRouter } from "next/navigation";
 import { FormEvent } from "react";
 
 export const signInSubmit = async (
@@ -39,6 +39,7 @@ export const signInSubmit = async (
     if (data && data.length > 0) {
       const is_onboarded = data[0]["is_onboarded"];
       router.push("/dash");
+      return new loginResponse(200, "User signed in");
     } else {
       router.push("/onboarding");
     }
