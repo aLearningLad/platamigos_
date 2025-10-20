@@ -1,17 +1,10 @@
 "use client";
 
 import { loan_types } from "@/enums";
-import { handleRequestLoan } from "@/pm_functions/request_loan";
 import { createClient } from "@/utils/supabase/client";
 import Lottie from "lottie-react";
 import { useRouter } from "next/navigation";
-import {
-  ChangeEvent,
-  ChangeEventHandler,
-  TextareaHTMLAttributes,
-  useEffect,
-  useState,
-} from "react";
+import { useEffect, useState } from "react";
 import loadingLottie from "@/public/assets/lottieloading.json";
 import PCP from "@/app/components/request_comps/pcp";
 import ReqTitle from "@/app/components/request_comps/req_title";
