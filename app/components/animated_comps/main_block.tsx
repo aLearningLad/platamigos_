@@ -51,4 +51,6 @@ const MainBlock = forwardRef<HTMLDivElement>((props, childRef) => (
   </div>
 ));
 
+MainBlock.displayName = "MainBlock";
+
 export default MainBlock;

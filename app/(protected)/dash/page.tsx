@@ -1,13 +1,9 @@
 "use client";
 
-import SideBar from "@/app/components/dash_comps/sidebar/sidebar";
-import { handleSignOut } from "@/services/client_side/ubiquitous/logout";
 import Lottie from "lottie-react";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import restingLottie from "@/public/assets/lottieresting.json";
-import dashLottie from "@/public/assets/lottie1.json";
 import Dashtab from "@/app/components/dash_comps/dash_options/dashtab";
 import { dash_tab_info } from "@/dev_data/dash_tab_info";
 import DashSettingsBtn from "@/app/components/dash_comps/dash_options/dashsettingsbtn";
@@ -18,7 +14,7 @@ import SignOutBtn from "@/app/components/misc_ui/signoutbtn";
 const Dash = () => {
   const router = useRouter();
   const [is_loading, set_is_loading] = useState<boolean>(false);
-  const [comm_loans, set_comm_loans] = useState<any[]>([]);
+  const [comm_loans, set_comm_loans] = useState<[]>([]);
 
   // fetch current details ===> refactor to fetch from cache
   const fetchDetails = async () => {
@@ -38,11 +34,10 @@ const Dash = () => {
     }
   };
 
-  const {
-    data: user_data,
-    error: user_data_error,
-    isLoading,
-  } = useSWR("user-details", fetchDetails);
+  const { data: user_data, error: user_data_error } = useSWR(
+    "user-details",
+    fetchDetails
+  );
 
   // convert this to SWR
   useEffect(() => {

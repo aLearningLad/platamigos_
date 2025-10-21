@@ -31,7 +31,7 @@ const SignInForm: React.FC<Isigninform> = ({ set_is_new }) => {
         height={120}
       />
       <p className=" text-2xl lg:text-[12px] text-neutral-700 text-center">
-        Signing in is so effortless. Go ahead!
+        Signing in is effortless. Go ahead!
       </p>
       <form
         onSubmit={(e: FormEvent) => {

@@ -11,6 +11,7 @@ import lottieLoader from "@/public/assets/lottieloading.json";
 import Lottie from "lottie-react";
 import OfferCard from "@/app/components/offer_ui/offer_card";
 import { IoReturnUpBackOutline } from "react-icons/io5";
+import toast from "react-hot-toast";
 
 const OffersPage = () => {
   const [offers, set_offers] = useState<Toffers[]>([]);
@@ -109,7 +110,7 @@ const OffersPage = () => {
     } catch (error) {
       console.log("Something went wrong: ", error);
       set_is_loading(false);
-      alert("Unable to accept loan funding. Please try again");
+      toast.error("Unable to accept loan funding. Please try again");
       router.refresh();
     }
   };
@@ -156,7 +157,7 @@ const OffersPage = () => {
     } catch (error) {
       console.log("Something went wrong: ", error);
       set_is_loading(false);
-      alert("Unable to decline loan funding. Please try again");
+      toast.error("Unable to decline loan funding. Please try again");
       router.refresh();
     }
   };
@@ -184,7 +185,7 @@ const OffersPage = () => {
         set_debts_settled(credit_data[0]["debts_settled"]);
       } catch (error) {
         console.log("Unable to fetch credit details", error);
-        alert("Unable to fetch credit details. Please try again");
+        toast.error("Unable to fetch credit details. Please try again");
       }
     };
 

@@ -1,4 +1,4 @@
-import { ChangeEvent, SetStateAction } from "react";
+import { ChangeEvent, Ref, SetStateAction } from "react";
 import { NextRouter } from "./types";
 
 export interface Isignupform {
@@ -16,7 +16,7 @@ export interface Idash_tab {
   title: string;
   blurb: string;
   cta: string;
-  animation: any;
+  animation: object;
   href: string;
 }
 
@@ -151,7 +151,7 @@ export interface I_input_comp {
 
 export interface I_top_tab {
   id: number;
-  animation: any;
+  animation: object;
   title: string;
   blurb: string;
   stat1: number;
@@ -164,7 +164,7 @@ export interface I_middle_tab {
   id: number;
   tab_value: string;
   tab_text: string;
-  animation: any;
+  animation: object;
 }
 
 export interface I_s3_tab {

@@ -10,6 +10,7 @@ import { createClient } from "@/utils/supabase/client";
 import { useParams, useRouter } from "next/navigation";
 import { title } from "process";
 import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 
 const FundSpecificPage = () => {
   const { id } = useParams();
@@ -20,7 +21,6 @@ const FundSpecificPage = () => {
   const [due_by, set_due_by] = useState<string>(String(new Date()));
   const [rate, set_rate] = useState<number>(4);
   const [due, set_due] = useState<number>(0); // total owed
-  const [description, set_description] = useState<string>("");
   const [instalment, set_instalment] = useState<number>(0);
   const [is_loading, set_is_loading] = useState<boolean>(false);
   const [alias, set_alias] = useState<string>("");
@@ -32,8 +32,10 @@ const FundSpecificPage = () => {
     const fetchSingleLoan = async () => {
       set_is_fetching_loan(true);
       const supabase = createClient();
-      const { data: single_loan_data, error: single_loan_data_error } =
-        await supabase.from("loans").select("*").eq("loan_id", id);
+      const { data: single_loan_data } = await supabase
+        .from("loans")
+        .select("*")
+        .eq("loan_id", id);
 
       if (single_loan_data && single_loan_data.length > 0) {
         const loan = single_loan_data[0];
@@ -54,22 +56,22 @@ const FundSpecificPage = () => {
         if (alias_data_error) throw new Error(alias_data_error.message);
         set_alias(alias_data[0].alias);
       } catch (error) {
-        alert("Unable to fetch alias");
+        toast.error("Unable to fetch alias");
         console.log("Unable to fetch alias: ", error);
       }
     };
 
     fetchAlias();
     fetchSingleLoan();
-  }, []);
+  }, [id]);
 
   // adjust total debt in real time
   useEffect(() => {
     const calculate_due = () => {
       // total debt
       const due_amount =
-        this_loan?.pcp! +
-        Math.floor((this_loan?.pcp! * (rate / 100) * term) / 12);
+        this_loan!.pcp! +
+        Math.floor((this_loan!.pcp! * (rate / 100) * term) / 12);
       set_due(due_amount);
 
       // instalments
@@ -128,12 +130,12 @@ const FundSpecificPage = () => {
       if (transactions_log_error)
         throw new Error(transactions_log_error.message);
 
-      alert("Funding offer submitted");
+      toast.success("Funding offer submitted");
       router.push("/dash");
     } catch (error) {
       console.log("Unable to submit funding offer: ", error);
       set_is_loading(false);
-      alert("Something went wrong!");
+      toast.error("Something went wrong!");
     }
   };
 

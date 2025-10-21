@@ -4,6 +4,7 @@ import { loan_statuses } from "@/enums";
 import { createClient } from "@/utils/supabase/client";
 import { useRouter } from "next/navigation";
 import { SetStateAction } from "react";
+import toast from "react-hot-toast";
 
 type NextRouter = ReturnType<typeof useRouter>;
 
@@ -17,7 +18,7 @@ export const handleRequestLoan = async (
   alias: string
 ) => {
   if (!title || !description || !pcp) {
-    alert("Values are missing!");
+    toast.error("Values are missing!");
     return;
   }
   try {
@@ -36,10 +37,10 @@ export const handleRequestLoan = async (
 
     if (loan_request_error) throw new Error(loan_request_error.message);
 
-    alert("Loan request submitted!");
+    toast.success("Loan request submitted!");
     router.push("/dash");
   } catch (error) {
-    alert("Something went wrong");
+    toast.error("Something went wrong");
     console.log("Unable to request loan: ", error);
     set_is_loading(false);
   }

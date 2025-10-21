@@ -2,7 +2,16 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import toast from "react-hot-toast";
 import { IoMdSearch } from "react-icons/io";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
 const LandingNav = () => {
   return (
@@ -25,10 +34,34 @@ const LandingNav = () => {
           <Link className="nav_titles" href={"/"}>
             Home
           </Link>
-          <Link className="nav_titles" href={"/"}>
-            About
-          </Link>
-          <Link className="nav_titles" href={"/"}>
+
+          <Dialog>
+            <DialogTrigger className="nav_titles cursor-pointer">
+              About
+            </DialogTrigger>
+            <DialogContent>
+              <DialogHeader>
+                <DialogTitle>About this project</DialogTitle>
+              </DialogHeader>
+              <div className=" w-full h-full gap-12 flex flex-col items-center text-center text-black">
+                <p className=" text-[12px]">
+                  Platamigos is a demo peer-lending platform. It integrates
+                  PostgreSQL for user & transaction data, Redis for caching and
+                  Zustand for global state managment.
+                </p>
+
+                <p className=" text-[12px]">
+                  It is written in Typescript and has custom components styled
+                  with Tailwind CSS classes.
+                </p>
+              </div>
+            </DialogContent>
+          </Dialog>
+          <Link
+            className="nav_titles"
+            target="_blank"
+            href={"https://github.com/aLearningLad/platamigos_"}
+          >
             GitHub
           </Link>
           <Link className="nav_titles" href={"/"}>
@@ -38,7 +71,7 @@ const LandingNav = () => {
 
         {/* search */}
         <button
-          onClick={() => alert("Sign in to access search")}
+          onClick={() => toast.success("Sign in to access search")}
           className=" w-[10%] h-full flex justify-center hover:bg-black/40 rounded-lg hover:text-white hover:scale-90 transition-all duration-200 items-center gap-1 cursor-pointer"
         >
           <IoMdSearch size={16} />

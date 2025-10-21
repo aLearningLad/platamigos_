@@ -2,6 +2,7 @@
 
 import { createClient } from "@/utils/supabase/client";
 import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
 type NextRouter = ReturnType<typeof useRouter>;
 export const handleSignOut = async (
@@ -28,11 +29,11 @@ export const handleSignOut = async (
       body: JSON.stringify({ cache_key }),
     });
 
-    alert("Signing out...");
+    toast.success("Signing out...");
     router.refresh();
     router.push("/");
   } catch (error) {
-    alert("Unable to sign out. Please try again");
+    toast.error("Unable to sign out. Please try again");
     console.log(error);
   }
 };

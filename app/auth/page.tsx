@@ -6,13 +6,19 @@ import { handleSignIn } from "@/services/server_side/sign_in";
 import Lottie from "lottie-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useRef, useState } from "react";
 import loginLottie from "@/public/assets/login.json";
 import signupLottie from "@/public/assets/signupLottie.json";
 import SignUpForm from "../components/auth_ui/signup_form";
 import SignInForm from "../components/auth_ui/signin_form";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 const AuthPage = () => {
+  const loginRef = useRef<HTMLButtonElement | null>(null);
+  const signupRef = useRef<HTMLButtonElement | null>(null);
+  const continueRef = useRef<HTMLButtonElement | null>(null);
+
   const [is_loading, set_is_loading] = useState<boolean>(false);
   const [is_new, set_is_new] = useState<boolean>(false);
   const [is_selected, set_is_selected] = useState<number>(0);
@@ -22,6 +28,23 @@ const AuthPage = () => {
     set_is_new(is_new);
     set_is_selected(is_selected);
   };
+  gsap.registerPlugin(useGSAP);
+
+  useGSAP(() => {
+    // for login
+    gsap.from(loginRef.current, {
+      scale: 0,
+      duration: 0.6,
+      ease: "bounce.out",
+    });
+
+    // for signup
+    gsap.from(signupRef.current, {
+      scale: 0,
+      duration: 0.8,
+      ease: "bounce.out",
+    });
+  });
 
   if (is_auth) {
     return (
@@ -53,11 +76,12 @@ const AuthPage = () => {
           Welcome to Plata.Migos
         </h1>
         <p className=" text-xl lg:text-[12px] text-center mb-5 lg:mb-0">
-          We'll get you signed in, or setup your account if you're new
+          {"We'll"} get you signed in, or setup your account if {"you're"} new
         </p>
 
         <section className=" w-full h-[60vh] lg:h-[40%] flex flex-col lg:flex-row lg:w-4/12 p-2 md:p-3 lg:p-5 gap-5 ">
           <button
+            ref={loginRef}
             onClick={(e) => handleAuthType(false, 0)}
             className={` ${
               is_selected == 0
@@ -72,6 +96,7 @@ const AuthPage = () => {
             </p>
           </button>
           <button
+            ref={signupRef}
             onClick={(e) => handleAuthType(true, 1)}
             className={` ${
               is_selected === 1

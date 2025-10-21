@@ -15,9 +15,9 @@ const WindmillMiddle = () => {
         </p>
       </span>
       <p className=" text-[22px] lg:text-[10px] text-neutral-700 w-full lg:w-8/12 mt-2">
-        Secure funding for your startup's seed round, pay off tuition, settle
-        gambling debt. Whatever your needs, a friend on Platamigos will likely
-        help
+        Secure funding for your {"startup's"} seed round, pay off tuition,
+        settle gambling debt. Whatever your needs, a friend on Platamigos will
+        likely help
       </p>
     </div>
   );

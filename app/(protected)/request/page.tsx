@@ -16,6 +16,7 @@ import { req_trackers_info } from "@/dev_data/req_trackers_info";
 import ProgressCircle from "@/app/components/request_comps/progress_circle";
 import { T_req_trackers_info } from "@/models/types";
 import { TiTick } from "react-icons/ti";
+import toast from "react-hot-toast";
 
 const RequestALoanPage = () => {
   const [pcp, set_pcp] = useState<number>(1500);
@@ -39,7 +40,7 @@ const RequestALoanPage = () => {
         if (alias_data_error) throw new Error(alias_data_error.message);
         set_alias(alias_data[0].alias);
       } catch (error) {
-        alert("Unable to fetch your alias");
+        toast.error("Unable to fetch your alias");
         console.log("Unable to fetch user's alias");
       }
     };

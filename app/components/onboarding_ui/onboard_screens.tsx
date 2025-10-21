@@ -6,6 +6,7 @@ import { createClient } from "@/utils/supabase/client";
 import { showTime } from "@/utils/utils";
 import { useRouter } from "next/navigation";
 import { ChangeEvent, SetStateAction, useState } from "react";
+import toast from "react-hot-toast";
 
 const OnboardingScreens: React.FC<Ionboarding_screens> = ({
   set_is_loading,
@@ -76,7 +77,7 @@ const OnboardingScreens: React.FC<Ionboarding_screens> = ({
       router.push("/dash");
     } catch (e) {
       set_is_loading(false);
-      alert("Onboarding failed. Please try again");
+      toast.error("Onboarding failed. Please try again");
       console.log("Onboarding has failed. Here's why: ", e);
       return;
     }

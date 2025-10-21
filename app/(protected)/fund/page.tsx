@@ -1,19 +1,13 @@
 "use client";
 
 import FundCard from "@/app/components/fund_ui/fund_card";
-import { loan_types } from "@/enums";
 import { Tcommunity_requests } from "@/models/types";
-import { dummies, months_arr } from "@/utils/utils";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { FaUser } from "react-icons/fa";
 import { MdHome } from "react-icons/md";
 
 const FundALoan = () => {
-  const [loan_type, set_loan_type] = useState<string>(loan_types.OFR);
-  const [pcp, set_pcp] = useState<number>(1500); // priciple amount
   const [comm_loans, set_comm_loans] = useState<Tcommunity_requests[]>([]);
-  const [is_loading, set_is_loading] = useState<boolean>(false);
 
   // adjust total debt in real time
   // useEffect(() => {

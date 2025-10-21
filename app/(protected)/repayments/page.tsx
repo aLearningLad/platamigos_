@@ -16,6 +16,7 @@ import { FaUser } from "react-icons/fa";
 import RepaymentCard from "@/app/components/repayments_ui/repayment_card";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import toast from "react-hot-toast";
 
 const RepaymentsPage = () => {
   const [debts, set_debts] = useState<Toffers[]>([]);
@@ -123,7 +124,7 @@ const RepaymentsPage = () => {
 
     try {
       if (user_info!.balance < instalment) {
-        alert("You don't have enough funds to make this repayment.");
+        toast.error("You don't have enough funds to make this repayment.");
         return;
       }
 
@@ -149,7 +150,7 @@ const RepaymentsPage = () => {
 
       if (loan_update_error) throw new Error(loan_update_error.message);
 
-      alert(`R${instalment} paid toward your loan.`);
+      toast.error(`R${instalment} paid toward your loan.`);
       set_is_modal(false);
       router.refresh();
       await fetchDebts();
@@ -161,7 +162,7 @@ const RepaymentsPage = () => {
   {
     return is_loading ? (
       <div className=" w-full min-h-screen flex justify-center items-center flex-col text-center p-3">
-        Sit tight, we're fetching your debt information...
+        Sit tight, {"we're"} fetching your debt information...
       </div>
     ) : (
       <div className=" w-full min-h-screen flex flex-col items-center justify-center">
@@ -252,7 +253,7 @@ const RepaymentsPage = () => {
           </div>
         ) : (
           <div className=" h-screen items-center justify-center text-center p-3 text-xl lg:h-full flex flex-col w-full">
-            <p>You don't have any outstanding debts right now</p>
+            <p>You {"don't"} have any outstanding debts right now</p>
             <Link
               href={"/dash"}
               className=" mt-4 w-full lg:h-8 h-20 sm:w-8/12 md:w-6/12 lg:w-fit px-6 text-xl bg-black lg:text-[12px] flex justify-center items-center "

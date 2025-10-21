@@ -10,9 +10,9 @@ const LeftSide = () => {
       <div className=" w-full lg:w-7/12 flex flex-col justify-start">
         <MainHeading />
         <p className=" w-full text-[18px]  lg:text-[12px] mt-5 text-center lg:text-start">
-          Secure funding for your startup's seed round, pay off tuition, settle
-          gambling debt. Whatever your needs, a friend on Platamigos will likely
-          help
+          Secure funding for your {"startup's"} seed round, pay off tuition,
+          settle gambling debt. Whatever your needs, a friend on Platamigos will
+          likely help
         </p>
         <MainCTABtns />
       </div>

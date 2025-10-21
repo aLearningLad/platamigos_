@@ -21,6 +21,7 @@ import { T_settings_info } from "@/models/types";
 import { createClient } from "@/utils/supabase/client";
 import useSWR from "swr";
 import lottieLoader from "@/public/assets/loaderballs.json";
+import toast from "react-hot-toast";
 
 const SidebarNav = () => {
   const pathname = usePathname();
@@ -80,11 +81,11 @@ const SidebarNav = () => {
 
       if (update_error) throw new Error(update_error.details);
       set_is_updating(false);
-      alert("Details successfully updated");
+      toast.success("Details successfully updated");
       set_is_dialog_open(false);
     } catch (error) {
       set_is_updating(false);
-      alert("Unable to update your details. Please try again later");
+      toast.error("Unable to update your details. Please try again later");
       set_is_dialog_open(false);
       console.error("Unable to update user details: ", error);
     }

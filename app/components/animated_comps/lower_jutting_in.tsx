@@ -16,4 +16,6 @@ const LowerJuttingIn = forwardRef<HTMLDivElement>((props, childRef) => (
   </div>
 ));
 
+LowerJuttingIn.displayName = "LowerJuttingIn";
+
 export default LowerJuttingIn;

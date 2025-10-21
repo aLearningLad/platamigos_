@@ -74,7 +74,10 @@ const Logs = () => {
 
           <tbody className=" mt-3">
             {logs_data.map((row: T_logs_data) => (
-              <tr className=" h-fit border-2 pb-2 hover:bg-neutral-300/10 border-neutral-300/30 w-full">
+              <tr
+                key={row.loan_id}
+                className=" h-fit border-2 pb-2 hover:bg-neutral-300/10 border-neutral-300/30 w-full"
+              >
                 <td className=" w-3/12 border-l-[1px] border-neutral-400/40 ">
                   <p className=" text-[8px] ">{row.title}</p>
                 </td>

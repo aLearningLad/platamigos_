@@ -11,6 +11,7 @@ import lottieLoading from "@/public/assets/liquidloader.json";
 import Lottie from "lottie-react";
 import { hq_middle_tab_new_user_info } from "@/dev_data/hq_middle_tab_new_user_info";
 import NewUserEmpty from "./new_user";
+import toast from "react-hot-toast";
 
 const HQRight = () => {
   const fetchCredit = async () => {
@@ -28,7 +29,7 @@ const HQRight = () => {
 
       return data;
     } catch (error) {
-      alert("Unable to fetch credit data");
+      toast.error("Unable to fetch credit data");
       console.log("Unable to fetch credit data: ", error);
     }
   };

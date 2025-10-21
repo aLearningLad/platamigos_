@@ -40,4 +40,5 @@ const TopJuttingIn = forwardRef<HTMLDivElement>((props, childRef) => (
   </div>
 ));
 
+TopJuttingIn.displayName = "TopJuttingIn";
 export default TopJuttingIn;

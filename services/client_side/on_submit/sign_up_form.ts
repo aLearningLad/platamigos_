@@ -1,6 +1,7 @@
 import { handleSignUp } from "@/services/server_side/sign_up";
 import { useRouter } from "next/navigation";
 import { FormEvent, SetStateAction } from "react";
+import toast from "react-hot-toast";
 
 type NextRouter = ReturnType<typeof useRouter>;
 
@@ -35,7 +36,7 @@ export const signUpSubmit = async (
     }
   } catch (error) {
     set_is_loading(false);
-    alert("Something went wrong. Please try again");
+    toast.error("Something went wrong. Please try again");
     console.log("Error while signing in: ", e);
   }
 };

@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/dialog";
 import { I_feedback } from "@/models/interfaces";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 const Feedback: React.FC<I_feedback> = ({ is_feedback, set_is_feedback }) => {
   const [is_email, set_is_email] = useState<boolean>(false);
@@ -55,7 +56,7 @@ const Feedback: React.FC<I_feedback> = ({ is_feedback, set_is_feedback }) => {
               onClick={() => {
                 set_is_feedback(false);
                 set_is_email(false),
-                  alert("You're subscribed to feedback mail list!");
+                  toast.success("You're subscribed to feedback mail list!");
               }}
               className=" w-full cursor-pointer rounded-[6px] text-lg lg:text-[14px] sm:w-10/12 md:w-8/12 lg:w-6/12 h-20 bg-black text-white lg:h-8 "
             >
