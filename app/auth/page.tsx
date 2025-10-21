@@ -44,6 +44,15 @@ const AuthPage = () => {
       duration: 0.8,
       ease: "bounce.out",
     });
+
+    // for continue btn
+    gsap.from(continueRef.current, {
+      y: 100,
+      scale: 0.4,
+      duration: 0.8,
+      delay: 0.6,
+      ease: "bounce.out",
+    });
   });
 
   if (is_auth) {
@@ -112,6 +121,7 @@ const AuthPage = () => {
           </button>
         </section>
         <button
+          ref={continueRef}
           onClick={(e) => set_is_auth(true)}
           className=" w-full lg:w-3/12 cursor-pointer text-2xl lg:text-[12px] bg-cyan-500 text-white mt-5 rounded-[4px] h-20 lg:h-8 "
         >

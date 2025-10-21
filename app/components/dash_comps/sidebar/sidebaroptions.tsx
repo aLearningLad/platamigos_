@@ -1,11 +1,12 @@
 "use client";
 
 import { optionsInfo } from "@/dev_data/optionsinfo";
-import { sidebarinfo } from "@/dev_data/sidebarinfo";
 import React, { useState } from "react";
 import Upgrade from "../sidebar_modals/upgrade";
 import Feedback from "../sidebar_modals/feedback";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
+import { FaGithub } from "react-icons/fa";
 
 const SidebarOptions = () => {
   const [is_upgrade, set_is_upgrade] = useState<boolean>(false);
@@ -45,6 +46,14 @@ const SidebarOptions = () => {
           </p>
         </button>
       ))}
+      <Link
+        target="_blank"
+        href={"https://github.com/aLearningLad/platamigos_"}
+        className="px-2 cursor-pointer py-1 gap-1 h-8 w-full flex hover:translate-x-1 hover:font-bold transition duration-300 ease-in-out"
+      >
+        <FaGithub size={12} />
+        <p className="text-[10px]">FAQ</p>
+      </Link>
     </div>
   );
 };

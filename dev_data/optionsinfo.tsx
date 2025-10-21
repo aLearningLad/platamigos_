@@ -14,9 +14,4 @@ export const optionsInfo: Toptions_info[] = [
     icon: <VscFeedback size={12} />,
     title: "Feedback",
   },
-  {
-    id: 7461198371,
-    icon: <FaGithub size={12} />,
-    title: "FAQ",
-  },
 ];
