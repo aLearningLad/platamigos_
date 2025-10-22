@@ -44,7 +44,30 @@ UPSTASH_REDIS_REST_URL=
 UPSTASH_REDIS_REST_TOKEN=
 ```
 
-### :three: Run Locally
+### 3️⃣: Setup PostgreSQL Database
+
+The Users table 
+```
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+
+CREATE TYPE possible_roles AS ENUM ('borrower/lender', 'admin');
+
+CREATE TABLE all_users (
+  user_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  name VARCHAR NOT NULL,
+  surname VARCHAR NOT NULL,
+  email VARCHAR UNIQUE,
+  created_at TIMESTAMP DEFAULT NOW(),
+  is_active BOOLEAN DEFAULT TRUE,
+  last_login_at TIMESTAMP DEFAULT NOW(),
+  role possible_roles NOT NULL
+);
+
+```
+
+
+
+### 4️⃣: Run Locally
 ```
 npm run dev
 ```
