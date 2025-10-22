@@ -12,6 +12,7 @@ import Lottie from "lottie-react";
 import { hq_middle_tab_new_user_info } from "@/dev_data/hq_middle_tab_new_user_info";
 import NewUserEmpty from "./new_user";
 import toast from "react-hot-toast";
+import { zar_currency } from "@/utils/utils";
 
 const HQRight = () => {
   const fetchCredit = async () => {
@@ -91,7 +92,7 @@ const HQRight = () => {
                 tab_value={
                   id === 3
                     ? credit_data[0].loans_funded
-                    : `R${credit_data[0].balance}`
+                    : `${zar_currency.format(credit_data[0].balance)}`
                 }
                 key={id}
               />

@@ -66,7 +66,7 @@ declare type T_settings_info = {
 
 declare type T_top_tab = {
   id: number;
-  animation: any;
+  animation: object;
   title: string;
   blurb: string;
   stat1: number;
@@ -77,9 +77,9 @@ declare type T_top_tab = {
 
 declare type T_middle_tab = {
   id: number;
-  tab_value: string;
+  tab_value: string | number;
   tab_text: string;
-  animation: any;
+  animation: object;
 };
 
 declare type T_logs_data = {

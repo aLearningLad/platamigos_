@@ -20,6 +20,13 @@ export function randomPastDate() {
   return new Date(now - randomAgo);
 }
 
+// display money values neatly --> use the .format() method
+export const zar_currency = new Intl.NumberFormat("en-ZA", {
+  style: "currency",
+  currency: "ZAR",
+  minimumFractionDigits: 2,
+});
+
 // my fake data to develop fundable tabs
 export const dummies: Tcommunity_requests[] = [
   {
