@@ -3,7 +3,7 @@
 ## A demo peer-lending platform  
 This project is written in Typescript and has custom components styled with Tailwind CSS classes.
 In places it utilizes ShadCN UI components, while making use of a Redis instance hosted on Upstash to persist frequently queried data on the server.
-User and transaction data is held within a PostgreSQL database hosted on Supabase.
+User and transaction data are held within multiple relational tables linked with neat primary/foreign key linking for easy joins, across a PostgreSQL database hosted on Supabase.
 
  ## ⚙️ Tech Stack
 | **Layer**          | **Technology**             |
