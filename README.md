@@ -2,7 +2,7 @@
 
 ## A demo peer-lending platform  
 This project is written in Typescript and has custom components styled with Tailwind CSS classes.
-In places it utilizes ShadCN UI components, while making use of a Redis instance hosted on Upstash to persist frequently queried data.
+In places it utilizes ShadCN UI components, while making use of a Redis instance hosted on Upstash to persist frequently queried data on the server.
 User and transaction data is held within a PostgreSQL database hosted on Supabase.
 
  ## ⚙️ Tech Stack
@@ -11,7 +11,9 @@ User and transaction data is held within a PostgreSQL database hosted on Supabas
 | Frontend Framework    | Next.js via Client and Server Components      |
 | State Management    | Zustand, React Usestate      |
 | APIs    | Server Actions, Supabase JS Client      |
-| Caching   | Redis      |
+
+| Client-side Caching   | React SWR     |
+| Server-side Caching   | Redis     |
 | Storage    | PostgreSQL      |
 | Auth    | Supabase Auth    |
 | Middleware   | Supabase Client & Server Middlewares   |
