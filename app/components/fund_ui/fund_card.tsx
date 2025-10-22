@@ -1,5 +1,5 @@
 import { I_fund_card } from "@/models/interfaces";
-import { months_arr } from "@/utils/utils";
+import { months_arr, zar_currency } from "@/utils/utils";
 import Link from "next/link";
 import React from "react";
 import { FaUser } from "react-icons/fa";
@@ -29,6 +29,11 @@ const FundCard: React.FC<I_fund_card> = ({
       </p>
       <div className=" text-2xl overflow-auto lg:text-[10px] font-semibold w-full min-h-[16vh] justify-center text-start items-center ">
         {description}
+      </div>
+      <div className=" w-full flex justify-center items-center flex-col text-center py-2 rounded-lg bg-slate-800/40 text-white">
+        <p className=" text-[14px] lg:text-[10px]  ">I am asking for</p>
+
+        <p className=" text-[14px]">{zar_currency.format(pcp)}</p>
       </div>
       <div className=" w-full flex justify-between ">
         <span className=" lg:w-full flex gap-1 justify-start items-center">

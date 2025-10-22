@@ -14,10 +14,10 @@ export async function GET() {
     //  check cache first
     const cached_loans = await redis.get(cache_key);
 
-    // if (cached_loans) {
-    //   // console.log("This is from the cache, bruv: ", cached_loans);
-    //   return NextResponse.json({ loans: cached_loans });
-    // }
+    if (cached_loans) {
+      console.log("This is from the cache, bruv: ", cached_loans);
+      return NextResponse.json({ loans: cached_loans });
+    }
 
     // get community loan data from db
     const { data: loan_data, error: loan_data_error } = await supabase
