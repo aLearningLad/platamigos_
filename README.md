@@ -18,6 +18,8 @@ User and transaction data are held within multiple relational tables linked with
 | Middleware   | Supabase Client & Server Middlewares   |
 | Styling    | Tailwind CSS, ShadCN UI, CSS    |
 | Testing    | Jest    |
+| Animations    | GSAP    |
+| Animated Media    | Lottie Files (json)    |
 
 ## 🚀 Getting Started
 ### :one: Clone and install
