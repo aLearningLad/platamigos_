@@ -46,7 +46,7 @@ UPSTASH_REDIS_REST_TOKEN=
 
 ### 3️⃣: Setup PostgreSQL Database
 
-The Users table 
+The *USERS* table 
 ```
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
@@ -65,6 +65,73 @@ CREATE TABLE all_users (
 
 ```
 
+The *lOANS* table
+```
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp"; -- allows me to use that uuid generating function
+
+CREATE TYPE loan_type AS ENUM('request', 'offer');
+
+CREATE TYPE statuses AS ENUM('pending', 'funded', 'repaid', 'defaulted');
+
+CREATE TABLE loans (
+  loan_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(), 
+  user_id UUID REFERENCES all_users(user_id) ON DELETE CASCADE,
+  type loan_type NOT NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT NOW(),
+  pcp INTEGER NOT NULL, --principle amount
+  due NUMERIC(12,2) NOT NULL, --repayable. This will be adjusted with each repayment, or added to w/ interest if so agreed
+  term INTEGER NOT NULL, --how many months given to repay
+  due_from DATE NOT NULL, 
+  due_by DATE NOT NULL,
+  updated_at TIMESTAMP NOT NULL DEFAULT NOW(),
+  rate NUMERIC(5,2) NOT NULL,
+  description TEXT NOT NULL,
+  status statuses NOT NULL DEFAULT 'pending'
+);
+
+-- Indexes for performance
+CREATE INDEX idx_loans_user_id ON loans(user_id);
+CREATE INDEX idx_loans_status ON loans(status);
+
+
+```
+
+The *TRANSACTIONS LOG* table
+```
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp"; -- allows me to use that uuid generating function
+
+CREATE TYPE tr_type AS ENUM('signup', 'login', 'loan_request_created', 'offer', 'instalment_paid', 'settlement', 'default_on_loan', 'denied_offer', 'loan_funded', 'profile_updated', 'other', 'blacklisted');
+
+CREATE TABLE transactions_log (
+  tr_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  debtor_id UUID REFERENCES all_users(user_id) ON DELETE CASCADE DEFAULT NULL,
+  creditor_id UUID REFERENCES all_users(user_id) ON DELETE CASCADE DEFAULT NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT NOW(),
+  amount NUMERIC(12,2) DEFAULT NULL,
+  details TEXT NOT NULL,
+  action_type tr_type NOT NULL
+);
+
+-- Indexes for performance
+CREATE INDEX idx_transactions_created_at ON transactions_log(created_at);
+CREATE INDEX idx_transactions_action ON transactions_log(action_type);
+```
+
+The *CREDIT SCORES* table 
+```
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp"; -- allows me to use that uuid generating function
+
+CREATE TABLE credit_scores (
+  cs_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  user_id UUID REFERENCES all_users(user_id) ON DELETE CASCADE,
+  score INTEGER NOT NULL DEFAULT 0,
+  balance NUMERIC(12,2) NOT NULL DEFAULT 5000 CHECK (balance >= 0),
+  loans_funded INTEGER NOT NULL DEFAULT 0,
+  debts_settled INTEGER NOT NULL DEFAULT 0,
+  total_creditors NUMERIC(12,2) NOT NULL DEFAULT 0 CHECK (total_creditors >= 0),
+  total_debtors NUMERIC(12,2) NOT NULL DEFAULT 0 CHECK (total_debtors >= 0)
+);
+```
 
 
 ### 4️⃣: Run Locally
