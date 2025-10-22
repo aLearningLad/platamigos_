@@ -1,15 +1,14 @@
 "use client";
 
-import Lottie from "lottie-react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import restingLottie from "@/public/assets/lottieresting.json";
 import Dashtab from "@/app/components/dash_comps/dash_options/dashtab";
 import { dash_tab_info } from "@/dev_data/dash_tab_info";
 import DashSettingsBtn from "@/app/components/dash_comps/dash_options/dashsettingsbtn";
 import useSWR from "swr";
 import { createClient } from "@/utils/supabase/client";
 import SignOutBtn from "@/app/components/misc_ui/signoutbtn";
+import DashSignOut from "@/app/components/dash_comps/dash_sign_out";
 
 const Dash = () => {
   const router = useRouter();
@@ -65,10 +64,7 @@ const Dash = () => {
         <div className=" w-full h-full flex flex-col px-1 md:px-3 lg:px-20 xl:px-28 ">
           <div className=" w-full h-full pb-2 flex flex-col items-center">
             <section className=" w-full flex flex-col items-center py-4 ">
-              <Lottie
-                animationData={restingLottie}
-                className=" w-16 h-16 rounded-full border-4 border-neutral-400/10 "
-              />
+              <DashSignOut />
               <p className=" text-[18px] lg:text-[10px] text-neutral-500 font-semibold text-center ">
                 Welcome, {user_data?.[0].alias ?? "User"}
               </p>
