@@ -46,7 +46,7 @@ UPSTASH_REDIS_REST_TOKEN=
 
 ### 3️⃣: Setup PostgreSQL Database
 
-➡️ The *all_uers* Table 
+➡️ The *all_users* Table 
 ```
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
