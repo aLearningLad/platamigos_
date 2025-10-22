@@ -46,7 +46,7 @@ UPSTASH_REDIS_REST_TOKEN=
 
 ### 3️⃣: Setup PostgreSQL Database
 
-The *USERS* table 
+The *all_uers* Table 
 ```
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
@@ -65,7 +65,7 @@ CREATE TABLE all_users (
 
 ```
 
-The *lOANS* table
+The *loans* Table
 ```
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp"; -- allows me to use that uuid generating function
 
@@ -96,7 +96,7 @@ CREATE INDEX idx_loans_status ON loans(status);
 
 ```
 
-The *TRANSACTIONS LOG* table
+The *transactions_log* Table
 ```
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp"; -- allows me to use that uuid generating function
 
@@ -117,7 +117,7 @@ CREATE INDEX idx_transactions_created_at ON transactions_log(created_at);
 CREATE INDEX idx_transactions_action ON transactions_log(action_type);
 ```
 
-The *CREDIT SCORES* table 
+The *credit_scores* Table 
 ```
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp"; -- allows me to use that uuid generating function
 
