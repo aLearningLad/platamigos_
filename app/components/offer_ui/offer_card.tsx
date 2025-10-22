@@ -1,4 +1,5 @@
 import { I_offer_card } from "@/models/interfaces";
+import { zar_currency } from "@/utils/utils";
 import { FaUser } from "react-icons/fa";
 import { IoTrashBin } from "react-icons/io5";
 
@@ -51,22 +52,26 @@ const OfferCard: React.FC<I_offer_card> = ({
         {/* principle */}
         <span className=" w-full flex justify-between">
           <p className=" text-lg lg:text-[10px]">Loan amount</p>
-          <p className=" text-2xl lg:text-[10px]">R{pcp}</p>
+          <p className=" text-2xl lg:text-[10px]">{zar_currency.format(pcp)}</p>
         </span>
         {/* interest */}
         <span className=" w-full flex justify-between">
           <p className="text-lg lg:text-[10px]">Interest</p>
-          <p className=" text-2xl lg:text-[10px]">R{due - pcp}</p>
+          <p className=" text-2xl lg:text-[10px]">
+            {zar_currency.format(due - pcp)}
+          </p>
         </span>
         {/* due */}
         <span className=" w-full flex justify-between">
           <p className="text-lg lg:text-[10px]">Total due</p>
-          <p className=" text-2xl lg:text-[10px]">R{due}</p>
+          <p className=" text-2xl lg:text-[10px]">{zar_currency.format(due)}</p>
         </span>
         {/* instalments */}
         <span className=" w-full flex justify-between">
           <p className=" text-lg lg:text-[10px]">Monthly (x{term})</p>
-          <p className=" text-2xl lg:text-[10px]">R{Math.floor(pcp / term)}</p>
+          <p className=" text-2xl lg:text-[10px]">
+            {zar_currency.format(Math.floor(pcp / term))}
+          </p>
         </span>
         {/* offer date */}
         <span className=" w-full flex justify-between">

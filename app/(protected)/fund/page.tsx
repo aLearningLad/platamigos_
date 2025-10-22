@@ -8,6 +8,7 @@ import { MdHome } from "react-icons/md";
 
 const FundALoan = () => {
   const [comm_loans, set_comm_loans] = useState<Tcommunity_requests[]>([]);
+  const [is_loading, set_is_loading] = useState<boolean>(false);
 
   // adjust total debt in real time
   // useEffect(() => {
@@ -25,12 +26,14 @@ const FundALoan = () => {
   // }, [pcp, rate, term]);
 
   useEffect(() => {
+    set_is_loading(true);
     const fetchComm = async () => {
       const res = await fetch("/api/community_loans");
 
       if (res.ok) {
         const data = await res.json();
         set_comm_loans(data.loans);
+        set_is_loading(false);
       }
     };
 
@@ -44,26 +47,36 @@ const FundALoan = () => {
         Fund a loan, earn interest and help an amigo
       </p>
 
-      <div className=" bg-neutral-400/10 flex overflow-auto flex-wrap justify-center items-center w-full h-[80vh] lg:h-[75vh] ">
-        {comm_loans.map(
-          (
-            { alias, created_at, description, loan_id, pcp, title, user_id },
-            index
-          ) => (
-            <FundCard
-              alias={alias}
-              created_at={created_at}
-              description={description}
-              index={index}
-              loan_id={loan_id}
-              pcp={pcp}
-              title={title}
-              user_id={user_id}
-              key={index}
-            />
-          )
-        )}
-      </div>
+      {is_loading ? (
+        <div className=" bg-neutral-400/10 flex text-center flex-col justify-center items-center w-full h-[80vh] lg:h-[75vh] ">
+          <p className=" text-[12px]">Just a second . . .</p>
+
+          <p className=" text-[10px]">
+            {"We're"} fetching community request data
+          </p>
+        </div>
+      ) : (
+        <div className=" bg-neutral-400/10 flex overflow-auto flex-wrap justify-center items-center w-full h-[80vh] lg:h-[75vh] ">
+          {comm_loans.map(
+            (
+              { alias, created_at, description, loan_id, pcp, title, user_id },
+              index
+            ) => (
+              <FundCard
+                alias={alias}
+                created_at={created_at}
+                description={description}
+                index={index}
+                loan_id={loan_id}
+                pcp={pcp}
+                title={title}
+                user_id={user_id}
+                key={index}
+              />
+            )
+          )}
+        </div>
+      )}
       <Link
         className=" lg:hidden mt-5 rounded-[6px] flex w-full sm:w-10/12 md:w-8/12 bg-black justify-center items-center h-16 "
         href={"/dash"}

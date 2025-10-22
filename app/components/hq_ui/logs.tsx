@@ -5,6 +5,7 @@ import Lottie from "lottie-react";
 import useSWR from "swr";
 import lottieLoading from "@/public/assets/lottieloading.json";
 import { T_logs_data } from "@/models/types";
+import { zar_currency } from "@/utils/utils";
 
 const Logs = () => {
   const fetchLog = async () => {
@@ -40,7 +41,7 @@ const Logs = () => {
         <span className=" w-full hidden lg:flex justify-between items-center">
           <p className=" text-[10px] font-semibold ">Recent Activity</p>
 
-          <div className=" w-fit px-3 flex items-center text-[8px] gap-2 border-[2px] border-neutral-500/20 bg-neutral-300/10 rounded-[12px] py-1">
+          {/* <div className=" w-fit px-3 flex items-center text-[8px] gap-2 border-[2px] border-neutral-500/20 bg-neutral-300/10 rounded-[12px] py-1">
             <button className=" text-neutral-500 cursor-pointer ">
               Offers
             </button>
@@ -48,7 +49,7 @@ const Logs = () => {
               Requests
             </button>
             <button className=" text-neutral-500 cursor-pointer">Funded</button>
-          </div>
+          </div> */}
         </span>
 
         <table className=" w-full hidden lg:block">
@@ -85,7 +86,7 @@ const Logs = () => {
                   <p className=" text-[8px] ">{row.description}</p>
                 </td>
                 <td className=" w-2/12 border-l-[1px] border-neutral-400/40">
-                  <p className=" text-[8px] ">R{row.pcp}</p>
+                  <p className=" text-[8px] ">{zar_currency.format(row.pcp)}</p>
                 </td>
                 <td className=" w-2/12 border-l-[1px] border-neutral-400/40">
                   <p className=" text-[8px] ">{row.type}</p>
