@@ -9,7 +9,7 @@ User and transaction data are held within multiple relational tables linked with
 | **Layer**          | **Technology**             |
 |---------------------|----------------------------|
 | Frontend Framework    | Next.js via Client and Server Components      |
-| State Management    | Zustand, React Usestate      |
+| State Management    | Zustand, React useState      |
 | APIs    | Server Actions, Supabase JS Client      |
 | Client-side Caching   | React SWR     |
 | Server-side Caching   | Redis     |
