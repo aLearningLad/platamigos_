@@ -14,12 +14,13 @@ export async function GET() {
     //  check cache first
     const cached_loans = await redis.get(cache_key);
 
+    // cache has my data, so use it
     if (cached_loans) {
       console.log("This is from the cache, bruv: ", cached_loans);
       return NextResponse.json({ loans: cached_loans });
     }
 
-    // get community loan data from db
+    // cache is empty, or I'm visiting this page for the 1st time ==> get community loan data from db
     const { data: loan_data, error: loan_data_error } = await supabase
       .from("loans")
       .select("*")
@@ -35,7 +36,7 @@ export async function GET() {
 
     return NextResponse.json({ loans: loan_data });
   } catch (error) {
-    console.log("Error while fetching community loans for dash: ", error);
+    console.error("Error while fetching community loans for dash: ", error);
     return NextResponse.json({
       message: `This error occured while fetching loans: ${error}`,
     });

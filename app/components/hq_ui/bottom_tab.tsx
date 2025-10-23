@@ -21,7 +21,7 @@ const BottomTab = () => {
           management, serverside caching is via redis, and client side caching
           is handle by {"React's"} SWR hook. User data and transactions are
           stored across postgreSQL tables. The SQL used to construct these
-          tables is include with this {"app's"} source code.
+          tables is included with this {"app's"} source code.
         </p>
       </div>
       <div className=" w-full gap-6 flex lg:flex-row flex-col lg:justify-start items-center px-1 lg:px-0">
