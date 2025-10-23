@@ -4,11 +4,18 @@ import { GiMoneyStack } from "react-icons/gi";
 import { FaHandHoldingUsd } from "react-icons/fa";
 import { RiSecurePaymentLine } from "react-icons/ri";
 import { VscGitPullRequestCreate } from "react-icons/vsc";
+import { GiTwirlCenter } from "react-icons/gi";
 
 export const sidebarinfo: Tsidebar_info[] = [
   {
-    id: 37712,
+    id: 6211093781,
     icon: <IoHomeOutline size={12} className=" text-neutral-500" />,
+    title: "Dashboard",
+    href: "/dash",
+  },
+  {
+    id: 37712,
+    icon: <GiTwirlCenter size={12} className=" text-neutral-500" />,
     title: "HQ",
     href: "/hq",
   },

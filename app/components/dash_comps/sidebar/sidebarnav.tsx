@@ -116,7 +116,7 @@ const SidebarNav = () => {
 
   if (user_data != null) {
     return (
-      <div className=" w-full h-[60%] flex flex-col ">
+      <div className=" w-full h-[65%] flex flex-col ">
         <div className=" w-full h-[15%] flex justify-between items-center pr-3 border-b-[2px] rounded-full mb-3 border-neutral-500/20">
           <div className=" flex items-center">
             <Lottie
