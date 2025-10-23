@@ -13,12 +13,10 @@ const Dashtab: React.FC<Idash_tab> = ({
   href,
 }) => {
   return (
-    <Link
-      className=" w-full space-y-1 group hover:bg-orange-500/30 hover:border-none hover:scale-95 transition duration-150 ease-in lg:w-1/3 h-full rounded-lg border-2 border-neutral-400/20 p-3 flex flex-col items-center lg:items-start justify-around"
-      href={href}
-    >
-      <div
-        className={`flex justify-center items-center w-8/12 h-[25vh] lg:w-fit lg:h-fit
+    <div className=" w-full group space-y-1 group hover:bg-orange-500/30 hover:border-none hover:scale-95 transition duration-150 ease-in lg:w-1/3 h-full rounded-lg border-2 border-neutral-400/20 p-3 flex flex-col items-center lg:items-start justify-around">
+      <Link
+        href={href}
+        className={`flex justify-center group-hover:justify-between items-center w-8/12 h-[25vh] lg:w-fit lg:h-fit
       ${
         tab_id === 2812792812 &&
         "bg-gradient-to-b from-yellow-600/50 via-yellow-400/30 to-neutral-50/30 "
@@ -44,17 +42,23 @@ const Dashtab: React.FC<Idash_tab> = ({
       >
         <Lottie
           animationData={animation}
-          className=" lg:w-20 lg:h-20 w-32 h-32 rounded-full"
+          className=" lg:w-20 lg:h-20 w-32 h-32 rounded-full group-hover:w-16 group-hover:h-16 transition-all duration-300 ease-in-out"
         />
-      </div>
-      <p className=" text-[16px] text-center lg:text-start lg:text-[10px] font-bold ">
+        <p className=" hidden italic text-white group-hover:flex text-[10px] ">
+          Navigate to {title}
+        </p>
+      </Link>
+      <p className=" hidden italic group-hover:flex text-xl font-semibold transition-all duration-300 ease-in-out ">
+        OR
+      </p>
+      <p className=" text-[16px] group-hover:hidden flex text-center lg:text-start lg:text-[10px] font-bold ">
         {title}
       </p>
-      <p className=" text-[14px] text-center lg:text-start lg:text-[10px] pb-5 lg:pb-1 ">
+      <p className=" text-[14px] group-hover:hidden flex text-center lg:text-start lg:text-[10px] pb-5 lg:pb-1 ">
         {blurb}
       </p>
       <ExportBtn cta={cta} />
-    </Link>
+    </div>
   );
 };
 
