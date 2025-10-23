@@ -4,16 +4,35 @@ import Lottie from "lottie-react";
 import { SetStateAction, useState } from "react";
 import toast from "react-hot-toast";
 import lottieLoading from "../../../public/assets/lottieloading.json";
+import { createClient } from "@/utils/supabase/client";
 
 const ExportDynamic = (set_is_modal: {
   set_is_modal: React.Dispatch<SetStateAction<boolean>>;
 }) => {
   const [is_loading, set_is_loading] = useState<boolean>(false);
-  const handleExport = () => {
+  const handleExport = async () => {
     set_is_loading(true);
-
+    const supabase = createClient();
     try {
-      toast.success("Done!");
+      const user_id = (await supabase.auth.getUser()).data.user?.id;
+      const { data: collected_data, error: collected_data_error } =
+        await supabase
+          .from("all_users")
+          .select(
+            `
+            loans(*),
+            transactions_log(*),
+            credit_scores(*)
+            `
+          )
+          .eq("user_id", user_id);
+
+      if (collected_data_error) throw new Error(collected_data_error.details);
+
+      if (collected_data) {
+        toast.success("Done!");
+        console.log("Collected data here: ", collected_data);
+      }
     } catch (error) {
       toast.error("Unable to compile your data. Please try again later");
       console.error("Unable to fetch user data: ", error);
