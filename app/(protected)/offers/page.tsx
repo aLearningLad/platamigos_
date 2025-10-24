@@ -195,12 +195,12 @@ const OffersPage = () => {
 
   {
     return is_loading ? (
-      <div className=" w-full min-h-screen flex justify-center text-center items-center flex-col gap-4 text-neutral-700 text-2xl lg:text-[14px]">
+      <div className=" w-full min-h-screen flex justify-center text-center items-center flex-col gap-4 text-neutral-700 text-2xl lg:text-[14px] bg-gradient-to-tr from-pink-400/10 via-cyan-500/10 to-orange-600/10">
         Just a minute...
         <Lottie animationData={lottieLoader} className=" w-20 h-20" />
       </div>
     ) : (
-      <div className=" w-full min-h-screen flex flex-col items-center justify-center">
+      <div className=" w-full min-h-screen flex flex-col items-center justify-center bg-gradient-to-tr from-pink-400/10 via-cyan-500/10 to-orange-600/10">
         {offers == undefined || offers.length < 1 ? (
           <div className=" w-full h-screen lg:h-full flex justify-center text-center items-center flex-col gap-5 p-3">
             <p className=" text-2xl lg:text-[12px]">

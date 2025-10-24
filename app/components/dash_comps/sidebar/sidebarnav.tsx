@@ -22,6 +22,7 @@ import { createClient } from "@/utils/supabase/client";
 import useSWR from "swr";
 import lottieLoader from "@/public/assets/loaderballs.json";
 import toast from "react-hot-toast";
+import ExportBtn from "../../misc_ui/export_btn";
 
 const SidebarNav = () => {
   const pathname = usePathname();
@@ -256,9 +257,10 @@ const SidebarNav = () => {
             )}
           </Dialog>
         </ul>
-        <button className=" w-full mt-3 cursor-pointer hover:bg-black hover:text-white transition ease-in duration-300 h-6 font-bold bg-neutral-500/10 text-black rounded-[3px] text-[10px] ">
+        {/* <button className=" w-full mt-3 cursor-pointer hover:bg-black hover:text-white transition ease-in duration-300 h-6 font-bold bg-neutral-500/10 text-black rounded-[3px] text-[10px] ">
           Export Data
-        </button>
+        </button> */}
+        <ExportBtn cta="Export Data" />
       </div>
     );
   }

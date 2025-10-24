@@ -54,7 +54,7 @@ const Dash = () => {
   const bottomtabs = dash_tab_info.slice(3);
 
   return (
-    <div className=" w-full min-h-screen flex flex-col items-center justify-center">
+    <div className=" w-full min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-pink-400/10 via-cyan-500/10 to-orange-600/30">
       {is_loading ? (
         <div className=" w-full flex-col text-center min-h-screen flex justify-center items-center text-xl lg:text-[12px] ">
           <p className=" text-2xl lg:text-[14px]">Just a moment</p>

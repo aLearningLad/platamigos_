@@ -1,12 +1,8 @@
 "use client";
 
-import { signInSubmit } from "@/services/client_side/on_submit/sign_in_form";
-import { signUpSubmit } from "@/services/client_side/on_submit/sign_up_form";
-import { handleSignIn } from "@/services/server_side/sign_in";
 import Lottie from "lottie-react";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
-import { ChangeEvent, FormEvent, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import loginLottie from "@/public/assets/login.json";
 import signupLottie from "@/public/assets/signupLottie.json";
 import SignUpForm from "../components/auth_ui/signup_form";

@@ -41,7 +41,7 @@ const FundALoan = () => {
   }, []);
 
   return (
-    <div className=" py-2 lg:py-5 w-full min-h-screen flex flex-col items-center sm:px-2 md:px-5 lg:px-32 p-3 ">
+    <div className=" py-2 lg:py-5 w-full min-h-screen flex flex-col items-center sm:px-2 md:px-5 lg:px-32 p-3 bg-gradient-to-br from-pink-400/10 via-cyan-500/10 to-orange-600/30">
       <h1 className=" text-2xl lg:text-xl font-semibold">Community Loans</h1>
       <p className=" text-lg lg:text-[12px] text-neutral-700 mb-5 text-center">
         Fund a loan, earn interest and help an amigo

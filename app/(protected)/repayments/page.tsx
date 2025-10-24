@@ -161,63 +161,12 @@ const RepaymentsPage = () => {
 
   {
     return is_loading ? (
-      <div className=" w-full min-h-screen flex justify-center items-center flex-col text-center p-3">
+      <div className=" w-full min-h-screen flex justify-center items-center flex-col text-center p-3 bg-gradient-to-tr from-pink-400/10 via-cyan-500/10 to-orange-600/10">
         Sit tight, {"we're"} fetching your debt information...
       </div>
     ) : (
-      <div className=" w-full min-h-screen flex flex-col items-center justify-center">
+      <div className=" w-full min-h-screen flex flex-col items-center justify-center bg-gradient-to-tr from-pink-400/10 via-cyan-500/10 to-orange-600/10">
         {debts && debts.length > 0 ? (
-          // <div className=" w-full h-full flex flex-col items-center justify-center space-y-3">
-          //   {debts.map((debt) => (
-          //     <div
-          //       key={debt.loan_id}
-          //       className=" flex flex-col space-y-2 items-center justify-center bg-neutral-300 p-5 rounded-lg"
-          //     >
-          //       <p>Funded by {debt.alias}</p>
-          //       <p>{debt.title}</p>
-          //       <p>You currently owe R{debt.due}</p>
-
-          //       <div className=" w-full flex flex-col gap-3 mt-6">
-          //         <button
-          //           onClick={(e) => set_is_modal(true)}
-          //           className=" w-full h-9 bg-green-500 text-white"
-          //         >
-          //           Make repayment
-          //         </button>
-          //       </div>
-          //       <Dialog
-          //         open={is_model}
-          //         onOpenChange={(e) => set_is_modal(false)}
-          //       >
-          //         <DialogContent>
-          //           <DialogHeader>
-          //             <DialogTitle>{debt.title}</DialogTitle>
-          //             <DialogDescription>
-          //               This action cannot be undone. This will permanently
-          //               delete your account and remove your data from our
-          //               servers.
-          //             </DialogDescription>
-          //           </DialogHeader>
-          //           {/* <button onClick={(e) => set_is_modal(false)}>Close</button> */}
-          //           <div className=" w-full flex flex-col space-y-3 justify-center items-center ">
-          //             <button
-          //               onClick={() =>
-          //                 handleRepayment(debt.due, debt.term, debt.loan_id)
-          //               }
-          //               className=" w-1/2 h-8 bg-green-500 text-white rounded-lg text-[12px]"
-          //             >
-          //               Make Instalment of R{Math.floor(debt.due / debt.term)}
-          //             </button>
-          //             <button className=" w-6/12 h-8 bg-black text-white rounded-lg text-[12px]">
-          //               Borrow More
-          //             </button>
-          //           </div>
-          //         </DialogContent>
-          //       </Dialog>
-          //     </div>
-          //   ))}
-          // </div>
-
           <div className="bg-neutral-400/10 rounded-lg flex overflow-auto flex-wrap justify-center items-center w-full h-[75vh]">
             {debts.map(
               (

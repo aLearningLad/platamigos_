@@ -81,7 +81,7 @@ const RequestALoanPage = () => {
 
   {
     return is_loading ? (
-      <div className=" w-full min-h-screen flex flex-col justify-center items-center">
+      <div className=" w-full min-h-screen flex flex-col justify-center items-center bg-gradient-to-bl from-pink-400/10 via-cyan-500/10 to-orange-600/10">
         <p className=" text-2xl lg:text-[14px]">Just a minute...</p>
 
         <p className=" text-xl lg:text-[12px] ">
@@ -90,7 +90,7 @@ const RequestALoanPage = () => {
         <Lottie animationData={loadingLottie} className=" w-40 h-40 " />
       </div>
     ) : (
-      <div className=" w-full min-h-screen flex flex-col items-center justify-center space-y-1 lg:space-y-5">
+      <div className=" w-full min-h-screen flex flex-col items-center justify-center space-y-1 lg:space-y-5 bg-gradient-to-bl from-pink-400/10 via-cyan-500/10 to-orange-600/10">
         <header className=" w-full flex flex-row mb-7 sm:mb-5 lg:mb-0 justify-center items-center gap-3">
           {req_trackers_info.map(
             ({ blurb, id, pending_icon, title, dependent_state }) => (
