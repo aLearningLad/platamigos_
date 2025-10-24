@@ -37,7 +37,7 @@ const Logs = () => {
   // large screens table
   if (logs_data) {
     return (
-      <div className=" w-full h-fit lg:h-[40%] bg-white rounded-xl flex flex-col items-start p-2 lg:p-4">
+      <div className=" w-full h-fit lg:h-[40%] bg-slate-600/10 text-black rounded-xl flex flex-col items-start p-2 lg:p-4">
         <span className=" w-full hidden lg:flex justify-between items-center">
           <p className=" text-[10px] font-semibold ">Recent Activity</p>
 
@@ -52,22 +52,22 @@ const Logs = () => {
           </div> */}
         </span>
 
-        <table className=" w-full hidden lg:block">
-          <thead className=" h-5 border-2 border-neutral-400/20">
+        <table className=" w-full hidden lg:block text-black">
+          <thead className=" h-5 border-2 border-neutral-600">
             <tr className="">
-              <th className=" text-[8px] text-neutral-500 font-normal border-l-[1px] border-neutral-400/40">
+              <th className=" text-[8px] text-black italic font-normal border-l-[1px] border-neutral-400/40">
                 Title
               </th>
-              <th className=" text-[8px] text-neutral-500 font-normal border-l-[1px] border-neutral-400/40">
+              <th className=" text-[8px] text-black italic font-normal border-l-[1px] border-neutral-400/40">
                 Desc
               </th>
-              <th className=" text-[8px] text-neutral-500 font-normal border-l-[1px] border-neutral-400/40">
+              <th className=" text-[8px] text-black italic font-normal border-l-[1px] border-neutral-400/40">
                 Amount
               </th>
-              <th className=" text-[8px] text-neutral-500 font-normal border-l-[1px] border-neutral-400/40">
+              <th className=" text-[8px] text-black italic font-normal border-l-[1px] border-neutral-400/40">
                 Type
               </th>
-              <th className=" text-[8px] text-neutral-500 font-normal border-l-[1px] border-neutral-400/40">
+              <th className=" text-[8px] text-black italic font-normal border-l-[1px] border-neutral-400/40">
                 Status
               </th>
             </tr>
@@ -77,21 +77,21 @@ const Logs = () => {
             {logs_data.map((row: T_logs_data) => (
               <tr
                 key={row.loan_id}
-                className=" h-fit border-2 pb-2 hover:bg-neutral-300/10 border-neutral-300/30 w-full"
+                className=" h-fit border-2 border-neutral-600 pb-2 px-1 hover:bg-black hover:text-white w-full"
               >
-                <td className=" w-3/12 border-l-[1px] border-neutral-400/40 ">
+                <td className=" w-3/12 border-l-[1px] border-neutral-400/40 px-1 ">
                   <p className=" text-[8px] ">{row.title}</p>
                 </td>
-                <td className=" w-4/12 border-l-[1px] border-neutral-400/40">
+                <td className=" w-4/12 border-l-[1px] border-neutral-400/40 px-1">
                   <p className=" text-[8px] ">{row.description}</p>
                 </td>
-                <td className=" w-2/12 border-l-[1px] border-neutral-400/40">
+                <td className=" w-2/12 border-l-[1px] border-neutral-400/40 px-1">
                   <p className=" text-[8px] ">{zar_currency.format(row.pcp)}</p>
                 </td>
-                <td className=" w-2/12 border-l-[1px] border-neutral-400/40">
+                <td className=" w-2/12 border-l-[1px] border-neutral-400/40 px-1">
                   <p className=" text-[8px] ">{row.type}</p>
                 </td>
-                <td className=" w-2/12 border-l-[1px] border-neutral-400/40">
+                <td className=" w-2/12 border-l-[1px] border-neutral-400/40 px-1">
                   <p className=" text-[8px] ">{row.status}</p>
                 </td>
               </tr>

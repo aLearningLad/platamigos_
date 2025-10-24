@@ -21,7 +21,18 @@ const MiddleTab: React.FC<I_middle_tab> = ({
     // tab3
     gsap.from(tab3Ref.current, {
       scale: 0.3,
-      duration: 1.2,
+      duration: 0.7,
+      opacity: 0,
+      delay: 1.2,
+      ease: "bounce.out",
+    });
+
+    // tab3
+    gsap.from(tab4Ref.current, {
+      scale: 0.4,
+      duration: 0.8,
+      opacity: 0,
+      delay: 1.4,
       ease: "bounce.out",
     });
   });
