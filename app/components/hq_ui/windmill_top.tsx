@@ -31,7 +31,7 @@ const WindmillTop = () => {
   return (
     <span className=" w-full items-center flex h-[15%] justify-between py-3 lg:py-0 ">
       <p className=" text-[18px] lg:text-[12px] italic text-neutral-700">
-        {user_data![0].alias}
+        {user_data ? user_data[0].alias : "user"}
       </p>
       <div className=" w-fit px-2 h-fit bg-neutral-700/10 rounded-[12px] ">
         <select

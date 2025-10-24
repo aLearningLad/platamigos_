@@ -13,6 +13,8 @@ import { hq_middle_tab_new_user_info } from "@/dev_data/hq_middle_tab_new_user_i
 import NewUserEmpty from "./new_user";
 import toast from "react-hot-toast";
 import { zar_currency } from "@/utils/utils";
+import { useLayoutEffect, useRef } from "react";
+import { gsap } from "gsap";
 
 const HQRight = () => {
   const fetchCredit = async () => {
