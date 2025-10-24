@@ -1,10 +1,71 @@
+"use client";
+
 import { GiStarProminences } from "react-icons/gi";
 import UpgradeCard from "./upgrade_card";
 import { upgrade_card_info } from "@/dev_data/upgrade_card_info";
+import { useRef } from "react";
+import { useGSAP } from "@gsap/react";
+import { gsap } from "gsap";
 
 const SectionFive = () => {
+  gsap.registerPlugin(useGSAP);
+
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const card11Ref = useRef<HTMLDivElement | null>(null);
+  const card22Ref = useRef<HTMLDivElement | null>(null);
+  const card33Ref = useRef<HTMLDivElement | null>(null);
+
+  useGSAP(() => {
+    // card11
+    gsap.from(card11Ref.current, {
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: "top 80%",
+        end: "top 50%",
+        toggleActions: "play none restart reverse",
+      },
+      opacity: 0,
+      y: 120,
+      duration: 0.6,
+
+      ease: "bounce.out",
+    });
+    // card22
+    gsap.from(card22Ref.current, {
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: "top 80%",
+        end: "top 50%",
+        toggleActions: "play none restart reverse",
+      },
+      opacity: 0,
+      y: 180,
+      delay: 0.8,
+      duration: 0.6,
+
+      ease: "bounce.out",
+    });
+    // card33
+    gsap.from(card33Ref.current, {
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: "top 80%",
+        end: "top 50%",
+        toggleActions: "play none restart reverse",
+      },
+      opacity: 0,
+      y: 180,
+      delay: 1.1,
+      duration: 0.4,
+      ease: "bounce.in",
+    });
+  });
+
   return (
-    <div className="w-full lg:h-[100vh] py-6 px-3 lg:px-72 flex flex-col justify-center items-center">
+    <div
+      ref={containerRef}
+      className="w-full lg:h-[100vh] py-6 px-3 lg:px-72 flex flex-col justify-center items-center"
+    >
       <section className=" flex flex-col w-full items-center ">
         <h1 className=" text-2xl font-semibold text-center">
           Subscribe for bespoke upcoming features
@@ -16,6 +77,7 @@ const SectionFive = () => {
         </p>
 
         <div className=" w-full h-20 lg:w-8/12 hidden lg:flex justify-center items-center ">
+          <i className=" text-[7px]">Rookie</i>
           <input
             type="range"
             name=""
@@ -24,6 +86,7 @@ const SectionFive = () => {
             max={250000}
             className=" w-full h-[2px] "
           />
+          <i className=" text-[7px]">Savant</i>
         </div>
       </section>
       <section
@@ -32,6 +95,11 @@ const SectionFive = () => {
         {upgrade_card_info.map(
           ({ features, icon, id, price, title }, index) => (
             <UpgradeCard
+              ref={
+                (id === 11 && card11Ref) ||
+                (id === 22 && card22Ref) ||
+                card33Ref
+              }
               features={features}
               icon={icon}
               id={id}

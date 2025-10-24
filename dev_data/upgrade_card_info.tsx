@@ -4,7 +4,7 @@ import { GiStarProminences } from "react-icons/gi";
 export const upgrade_card_info: T_upgrade_card[] = [
   {
     id: 11,
-    title: "Comprehensive",
+    title: "Explorer",
     price: 29.99,
     features: [
       "KYC & assisted onboarding",

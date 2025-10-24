@@ -1,4 +1,4 @@
-import { ChangeEvent, Ref, SetStateAction } from "react";
+import { ChangeEvent, Ref, RefObject, SetStateAction } from "react";
 import { NextRouter } from "./types";
 
 export interface Isignupform {
@@ -191,6 +191,7 @@ export interface I_upgrade_card {
   icon: React.ReactElement;
   features: string[];
   index: number;
+  ref: React.RefObject<HTMLDivElement | null> | null;
 }
 
 export interface I_signoutbtn {

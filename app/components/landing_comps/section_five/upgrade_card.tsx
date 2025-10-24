@@ -1,6 +1,10 @@
+"use client";
+
 import { I_upgrade_card } from "@/models/interfaces";
-import React from "react";
+import { useGSAP } from "@gsap/react";
+import React, { useRef } from "react";
 import { GiStarProminences } from "react-icons/gi";
+import { gsap } from "gsap";
 
 const UpgradeCard: React.FC<I_upgrade_card> = ({
   features,
@@ -9,9 +13,11 @@ const UpgradeCard: React.FC<I_upgrade_card> = ({
   index,
   price,
   title,
+  ref,
 }) => {
   return (
     <div
+      ref={ref}
       className={`w-full lg:w-1/3 ${
         index === 1 && "bg-black h-full text-white"
       } ${

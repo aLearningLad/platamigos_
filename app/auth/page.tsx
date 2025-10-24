@@ -9,6 +9,7 @@ import SignUpForm from "../components/auth_ui/signup_form";
 import SignInForm from "../components/auth_ui/signin_form";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import Link from "next/link";
 
 const AuthPage = () => {
   const loginRef = useRef<HTMLButtonElement | null>(null);
@@ -71,12 +72,14 @@ const AuthPage = () => {
       </div>
     ) : (
       <div className=" w-full h-screen flex-col flex items-center justify-center p-3 lg:p-0 ">
-        <Image
-          src={"/assets/applogo.png"}
-          alt="app logo"
-          width={130}
-          height={130}
-        />
+        <Link href={"/"}>
+          <Image
+            src={"/assets/applogo.png"}
+            alt="app logo"
+            width={130}
+            height={130}
+          />
+        </Link>
         <h1 className=" text-2xl lg:text-[14px] font-bold ">
           Welcome to Plata.Migos
         </h1>
