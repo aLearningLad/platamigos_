@@ -17,7 +17,8 @@ import { Toaster } from "react-hot-toast";
 const openSans = Open_Sans({
   subsets: ["latin"],
   variable: "--font-open-sans",
-  weight: ["400"],
+  weight: ["400", "400", "500", "600", "700", "800"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
