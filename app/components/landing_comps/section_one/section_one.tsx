@@ -6,7 +6,7 @@ import Image from "next/image";
 
 const SectionOne = () => {
   return (
-    <section className=" w-full h-fit lg:h-[calc(100vh-3.5rem)] pt-9 lg:gap-0 lg:pt-14 flex flex-col">
+    <section className=" w-full h-fit lg:min-h-[calc(100vh-3.5rem)] pt-9 lg:gap-0 lg:pt-14 flex flex-col">
       <div className=" w-full h-fit flex flex-col lg:flex-row ">
         {/* Left Side */}
         <LeftSide />

@@ -8,9 +8,8 @@ import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+gsap.registerPlugin(ScrollTrigger);
 const SectionTwo = () => {
-  gsap.registerPlugin(ScrollTrigger);
-
   const contRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLDivElement>(null);
   const div1Ref = useRef<HTMLDivElement | null>(null);
@@ -35,17 +34,17 @@ const SectionTwo = () => {
     });
 
     // s1 top
-    gsap.from(".s1Ref", {
-      stagger: 0.7,
-      scale: 0,
-      duration: 0.9,
-      scrollTrigger: {
-        trigger: contRef.current,
-        start: "top 80%",
-        end: "top 50%",
-        toggleActions: "play none none reverse",
-      },
-    });
+    // gsap.from(".s1Ref", {
+    //   stagger: 0.7,
+    //   scale: 0,
+    //   duration: 0.9,
+    //   scrollTrigger: {
+    //     trigger: contRef.current,
+    //     start: "top 80%",
+    //     end: "top 50%",
+    //     toggleActions: "play none none reverse",
+    //   },
+    // });
 
     // div1
     gsap.from(div1Ref.current, {
@@ -131,7 +130,7 @@ const SectionTwo = () => {
   return (
     <div
       ref={contRef}
-      className=" h-[60vh] lg:h-[100vh] w-full pt-12 lg:py-2 px-3 lg:px-40 xl:px-52 flex flex-col items-center "
+      className=" h-[60vh] snap-start lg:min-h-[100vh] w-full pt-12 lg:py-2 px-3 lg:px-40 xl:px-52 flex flex-col items-center "
     >
       <p ref={titleRef} className=" text-[10px] font-bold hide-on-se mb-2  ">
         Easy Funding

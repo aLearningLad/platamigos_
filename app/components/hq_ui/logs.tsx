@@ -53,7 +53,7 @@ const Logs = () => {
         </span>
 
         <table className=" w-full hidden lg:block text-black">
-          <thead className=" h-5 border-2 border-neutral-600">
+          <thead className=" h-5 ">
             <tr className="">
               <th className=" text-[8px] text-black italic font-normal border-l-[1px] border-neutral-400/40">
                 Title
@@ -77,7 +77,7 @@ const Logs = () => {
             {logs_data.map((row: T_logs_data) => (
               <tr
                 key={row.loan_id}
-                className=" h-fit border-2 border-neutral-600 pb-2 px-1 hover:bg-black hover:text-white w-full"
+                className=" h-fit pb-2 px-1 hover:bg-black hover:text-white w-full"
               >
                 <td className=" w-3/12 border-l-[1px] border-neutral-400/40 px-1 ">
                   <p className=" text-[8px] ">{row.title}</p>

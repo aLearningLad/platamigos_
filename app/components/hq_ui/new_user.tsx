@@ -39,7 +39,7 @@ const NewUserEmpty = () => {
               animation={animation}
               id={id}
               tab_text={tab_text}
-              tab_value={tab_value}
+              tab_value={tab_value as string}
               key={id}
             />
           )

@@ -15,7 +15,7 @@ import {
 
 const LandingNav = () => {
   return (
-    <nav className=" w-full h-20 lg:h-14 justify-between items-center top-[100%] lg:relative lg:flex ">
+    <nav className=" w-full h-14 lg:min-h-10 justify-between items-center lg:flex">
       {/* desktop */}
       <div className=" w-full h-full hidden lg:flex justify-center items-center ">
         {/* logo */}

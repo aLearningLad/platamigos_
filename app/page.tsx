@@ -8,7 +8,7 @@ import SectionSix from "./components/landing_comps/section_six/section_six";
 
 export default function Home() {
   return (
-    <div className=" w-full relative h-full flex flex-col bg-gradient-to-br from-pink-400/30 via-cyan-500/30 to-orange-600/30 ">
+    <div className=" w-full h-full relative bg-gradient-to-br from-pink-400/30 via-cyan-500/20 to-orange-600/30 overflow-y-scroll">
       <LandingNav />
       <SectionOne />
       <SectionTwo />
