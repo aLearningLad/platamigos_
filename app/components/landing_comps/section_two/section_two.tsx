@@ -166,8 +166,8 @@ const SectionTwo = () => {
             <h3 className=" text-[14px] font-bold ">
               Secure funding & scale, pay off <br /> debt or restructure
             </h3>
-            <p className=" text-[14px] lg:text-[10px] font-bold text-neutral-600 w-full lg:w-7/12 ">
-              CHoose where your new money goes. Vet fees, groceries, utilities,
+            <p className=" text-[14px] lg:text-[12px] font-semibold text-neutral-600 w-full lg:w-7/12 ">
+              Choose where your new money goes. Vet fees, groceries, utilities,
               car trouble, or even just a vacation budget, you decide what,
               where, and how your money is spent
             </p>
@@ -181,7 +181,7 @@ const SectionTwo = () => {
           </div>
           <div className=" w-full flex flex-col justify-start items-start pl-1">
             <h3 className=" text-[14px] font-bold ">Allocate capital</h3>
-            <p className=" text-[14px] lg:text-[10px] font-bold text-neutral-600 w-full lg:w-7/12">
+            <p className=" text-[14px] lg:text-[12px] font-semibold text-neutral-600 w-full lg:w-7/12">
               Easily request a loan, compare funding offers and decide how and
               when to pay back your loan. Simplified and made for amigos
             </p>
