@@ -37,7 +37,7 @@ export default function RootLayout({
         <Toaster
           position="top-right"
           toastOptions={{
-            style: { fontSize: 11 },
+            style: { fontSize: 14 },
             success: {
               duration: 3000,
 

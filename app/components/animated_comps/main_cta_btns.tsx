@@ -7,41 +7,15 @@ import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
 
 const MainCTABtns = () => {
-  gsap.registerPlugin(useGSAP);
-
-  const authLinkRef = useRef<HTMLAnchorElement>(null);
-  const howBtnRef = useRef<HTMLButtonElement>(null);
-
-  //   useGSAP(() => {
-  //     // how to use
-  //     gsap.from(howBtnRef.current, {
-  //       opacity: 0,
-  //       scale: 0,
-  //       duration: 0.7,
-  //     });
-
-  //     // auth
-  //     gsap.from(authLinkRef.current, {
-  //       opacity: 0,
-  //       duration: 0.9,
-  //       delay: 0.4,
-  //       scale: 0,
-  //     });
-  //   });
-
   return (
     <span className=" w-full flex items-center justify-center lg:justify-start lg:flex-row flex-col gap-4 mt-8">
       <Link
-        ref={authLinkRef}
         href={"/auth"}
-        className=" lg:h-9 h-16 w-full md:w-6/12 text-xl lg:w-4/12 flex justify-center items-center hover:bg-transparent hover:text-orange-400 hover:border-2 hover:border-orange-500 transition-all duration-300 ease-in cursor-pointer bg-orange-500 lg:text-[10px] text-white rounded-[18px] "
+        className=" lg:h-14 h-16 w-full md:w-6/12 text-xl lg:w-4/12 flex justify-center items-center hover:bg-transparent hover:text-orange-400 hover:border-2 hover:border-orange-500 transition-all duration-300 ease-in cursor-pointer bg-orange-500 lg:text-[14px] text-white rounded-[18px] "
       >
         Get Started
       </Link>
-      <button
-        ref={howBtnRef}
-        className=" flex md:w-1/2 items-center lg:text-black text-white hover:text-white rounded-[18px] bg-cyan-600 lg:bg-transparent cursor-pointer justify-center gap-1 group h-16 lg:h-9 hover:bg-black w-full lg:w-5/12 transition-all duration-300 ease-in text-xl lg:text-[10px] "
-      >
+      <button className=" flex md:w-1/2 items-center lg:text-black text-white hover:text-white rounded-[18px] bg-cyan-600 lg:bg-transparent cursor-pointer justify-center gap-1 group h-16 lg:h-14 hover:bg-black w-full lg:w-5/12 transition-all duration-300 ease-in text-xl lg:text-[14px] ">
         <FaPlayCircle size={28} />
         How to use
       </button>

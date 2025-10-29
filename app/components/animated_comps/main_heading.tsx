@@ -38,16 +38,16 @@ const MainHeading = () => {
 
   return (
     <span className="  font-bold text-center lg:text-start">
-      <h1 ref={topTextRef} className="text-4xl">
+      <h1 ref={topTextRef} className=" text-5xl">
         Send plata
       </h1>
 
-      <h1 ref={middleTextRef} className="text-4xl">
+      <h1 ref={middleTextRef} className="text-5xl">
         between amigos,
       </h1>
 
-      <h1 ref={bottomTextRef} className="text-4xl">
-        quick & easy
+      <h1 ref={bottomTextRef} className="text-5xl">
+        quickly & simply
       </h1>
 
       <br />

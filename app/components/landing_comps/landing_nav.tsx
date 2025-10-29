@@ -23,11 +23,11 @@ const LandingNav = () => {
           <Image
             src={"/assets/applogo.png"}
             alt="App Logo"
-            width={40}
-            height={40}
+            width={50}
+            height={50}
             className=" rounded-full "
           />
-          <p className=" italic text-[10px]">Plata.Migos</p>
+          <p className=" italic text-[12px]">Plata.Migos</p>
         </div>
         {/* middle */}
         <div className=" w-[80%] h-full flex justify-center items-center gap-8 ">
