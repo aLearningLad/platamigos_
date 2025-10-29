@@ -67,17 +67,17 @@ const SectionFive = () => {
       className="w-full lg:h-[100vh] py-6 px-3 lg:px-72 flex flex-col justify-center items-center"
     >
       <section className=" flex flex-col w-full items-center ">
-        <h1 className=" text-2xl font-semibold text-center">
+        <h1 className=" text-4xl font-semibold text-center">
           Subscribe for bespoke upcoming features
         </h1>
-        <p className=" w-full sm:w-10/12 md:w-8/12 lg:w-7/12 text-[14px] lg:text-[10px] text-center text-neutral-600">
+        <p className=" w-full sm:w-10/12 md:w-8/12 lg:w-7/12 text-[14px] text-center text-neutral-700">
           Audit log exports, Stripe integration, Paypal webhooks for developers,
           and a host of comprehensive features designed to drastically enhance
           your experience
         </p>
 
-        <div className=" w-full h-20 lg:w-8/12 hidden lg:flex justify-center items-center ">
-          <i className=" text-[7px]">Rookie</i>
+        <div className=" w-full h-20 lg:w-8/12 hidden lg:flex justify-center items-center gap-1 ">
+          <i className=" text-[12px]">Rookie</i>
           <input
             type="range"
             name=""
@@ -86,7 +86,7 @@ const SectionFive = () => {
             max={250000}
             className=" w-full h-[2px] "
           />
-          <i className=" text-[7px]">Savant</i>
+          <i className=" text-[12px]">Savant</i>
         </div>
       </section>
       <section
