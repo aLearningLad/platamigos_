@@ -116,7 +116,7 @@ const SectionThree = () => {
 
         <p
           ref={blurbRef}
-          className="text-[18px] lg:text-[10px] flex w-11/12 lg:w-4/12 text-center lg:text-start "
+          className="text-[18px] lg:text-[14px] flex w-11/12 lg:w-7/12 text-center lg:text-start "
         >
           Simplify loan applications and let the community decide how best to
           help you. <br /> No more hassle. <br /> No more paperwork.

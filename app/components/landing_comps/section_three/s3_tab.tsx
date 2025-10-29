@@ -26,7 +26,7 @@ const S3Tab: React.FC<I_s3_tab> = ({
 
       <div className=" flex flex-col items-start justify-center h-full">
         <p className=" text-[20px] font-bold ">{count}</p>
-        <p className=" text-[9px] text-neutral-600">{text}</p>
+        <p className=" text-[12px] text-neutral-700">{text}</p>
       </div>
     </div>
   );

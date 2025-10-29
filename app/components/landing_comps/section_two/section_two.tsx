@@ -138,7 +138,7 @@ const SectionTwo = () => {
       >
         Easy Funding
       </p>
-      <h1 className=" text-4xl font-bold ">Real time loan updates</h1>
+      <h1 className=" text-4xl font-semibold ">Real time loan updates</h1>
       <p className=" flex sm:hidden text-[18px] text-center ">
         Request new loans and secure funding for ideas, projects and commitments
         most important to you.

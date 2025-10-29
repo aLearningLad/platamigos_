@@ -12,8 +12,8 @@ export default function Home() {
       <LandingNav />
       <SectionOne />
       <SectionTwo />
-      {/* <SectionThree /> */}
-      {/* <SectionFour /> */}
+      <SectionThree />
+      <SectionFour />
       {/* <SectionFive /> */}
       {/* <SectionSix /> */}
     </div>

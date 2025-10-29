@@ -64,12 +64,12 @@ const SectionFour = () => {
       className=" w-full h-[100vh] lg:h-[90vh] py-6 px-3 lg:px-72 flex flex-col justify-start lg:justify-center items-center "
     >
       <div className=" w-full flex flex-col items-center gap-2">
-        <h2 ref={titleRef} className=" text-2xl font-semibold text-center">
+        <h2 ref={titleRef} className=" text-4xl font-semibold text-center">
           Easy setup, simple compliance
         </h2>
         <p
           ref={subheadingRef}
-          className=" lg:text-[10px] text-[14px] pb-6 lg:pb-1 text-neutral-600 text-center w-full md:w-8/12 lg:w-7/12"
+          className=" text-[14px] pb-6 lg:pb-1 text-neutral-700 text-center w-full md:w-8/12 lg:w-7/12"
         >
           Simplified KYC and onboarding to make getting funded easy. Dive right
           in and engage with the community, funding or requesting loans
