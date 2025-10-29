@@ -11,7 +11,7 @@ export default function Home() {
     <div className=" w-full h-full relative bg-gradient-to-br from-pink-400/30 via-cyan-500/20 to-orange-600/30 overflow-y-scroll">
       <LandingNav />
       <SectionOne />
-      {/* <SectionTwo /> */}
+      <SectionTwo />
       {/* <SectionThree /> */}
       {/* <SectionFour /> */}
       {/* <SectionFive /> */}

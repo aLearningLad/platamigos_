@@ -21,7 +21,7 @@ const SectionOne = () => {
           {[...SlideTabs, ...SlideTabs, ...SlideTabs].map((item, i) => (
             <div
               key={i}
-              className="mx-4 p-4 bg-gray-200/30 rounded-lg overflow-hidden relative min-w-2/12 h-14 "
+              className="mx-4 p-4 bg-gray-200/30 rounded-lg overflow-hidden relative min-w-3/12 h-16 "
             >
               <Image alt="logo" fill className=" object-contain" src={item} />
             </div>

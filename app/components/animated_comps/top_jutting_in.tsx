@@ -24,15 +24,15 @@ const TopJuttingIn = forwardRef<HTMLDivElement>((props, childRef) => (
       </div>
 
       <div className=" bg-white w-full h-[70%] rounded-lg flex flex-col justify-end items-center p-2">
-        <h3 className=" text-[10px] font-bold ">Megan Khumalo</h3>
-        <p className=" text-[8px] text-neutral-700 italic ">Lender</p>
+        <h3 className=" text-[12px] font-bold ">Megan Khumalo</h3>
+        <p className=" text-[10px] text-neutral-700 italic ">Lender</p>
         <div className=" w-full bg-neutral-600/30 my-1 h-[2px] rounded-full " />
         <span className=" w-full flex justify-around   items-center">
-          <FaFacebookF size={8} />
+          <FaFacebookF size={10} />
           <div className=" w-fit h-fit p-2 rounded-full bg-cyan-400/10 ">
-            <RiTwitterXLine size={8} className=" text-cyan-700" />
+            <RiTwitterXLine size={10} className=" text-cyan-700" />
           </div>
-          <RiInstagramFill size={8} />
+          <RiInstagramFill size={10} />
         </span>
       </div>
     </div>

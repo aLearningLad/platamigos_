@@ -132,15 +132,18 @@ const SectionTwo = () => {
       ref={contRef}
       className=" h-[60vh] snap-start lg:min-h-[100vh] w-full pt-12 lg:py-2 px-3 lg:px-40 xl:px-52 flex flex-col items-center "
     >
-      <p ref={titleRef} className=" text-[10px] font-bold hide-on-se mb-2  ">
+      <p
+        ref={titleRef}
+        className=" text-[14px] font-semibold hide-on-se mb-2  "
+      >
         Easy Funding
       </p>
-      <h1 className=" text-3xl font-bold ">Real time loan updates</h1>
+      <h1 className=" text-4xl font-bold ">Real time loan updates</h1>
       <p className=" flex sm:hidden text-[18px] text-center ">
         Request new loans and secure funding for ideas, projects and commitments
         most important to you.
       </p>
-      <p className="text-[18px] lg:text-[10px] lg:w-6/12 mt-2 lg:mt-3 mb-3 text-center hidden md:flex ">
+      <p className="text-[18px] lg:text-[14px] lg:w-6/12 mt-2 lg:mt-3 mb-3 text-center hidden md:flex ">
         Request new loans and secure funding for ideas, projects and commitments
         most important to you. Compare offers and pick the best one. Interest
         rates, payment term and monthly instalments, all under your control
