@@ -63,7 +63,7 @@ const Dash = () => {
       ) : (
         <div className=" w-full h-full flex flex-col px-1 md:px-3 lg:px-20 xl:px-28 ">
           <div className=" w-full h-full pb-2 flex flex-col items-center">
-            <section className=" w-full flex flex-col items-center py-4 ">
+            <section className=" w-full flex flex-col items-center py-2">
               <DashSignOut />
               <p className=" text-[18px] lg:text-3xl text-neutral-600 font-semibold text-center ">
                 Welcome, {user_data?.[0].alias ?? "User"}

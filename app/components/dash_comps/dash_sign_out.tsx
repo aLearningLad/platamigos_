@@ -38,7 +38,7 @@ const DashSignOut = () => {
       <DialogTrigger>
         <Lottie
           animationData={restingLottie}
-          className=" cursor-pointer w-28 h-28 rounded-full border-4 border-neutral-400/10 "
+          className=" cursor-pointer w-20 h-20 rounded-full border-4 border-neutral-400/10 "
         />
       </DialogTrigger>
       <DialogContent className=" h-[70%] flex justify-center items-center">
