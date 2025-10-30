@@ -17,8 +17,8 @@ const SignInForm: React.FC<Isigninform> = ({ set_is_new }) => {
   return is_loading ? (
     <div className=" min-h-screen w-full flex justify-center items-center text-center p-3 flex-col">
       <span className=" flex flex-col items-center justify-center gap-2 md:gap-3 text-center">
-        <p className=" text-2xl lg:text-lg">Just a moment</p>
-        <p className=" text-lg lg:text-[12px] ">Sigining you in...</p>
+        <p className=" text-2xl lg:text-3xl">Just a moment</p>
+        <p className=" text-lg lg:text-[14px] ">Sigining you in...</p>
       </span>
       <Lottie animationData={lottieLoading} className=" w-32 h-32 mt-5" />
     </div>
@@ -30,7 +30,7 @@ const SignInForm: React.FC<Isigninform> = ({ set_is_new }) => {
         width={120}
         height={120}
       />
-      <p className=" text-2xl lg:text-[12px] text-neutral-700 text-center">
+      <p className=" text-2xl lg:text-[14px] text-neutral-700 text-center">
         Signing in is effortless. Go ahead!
       </p>
       <form
@@ -64,8 +64,8 @@ const SignInForm: React.FC<Isigninform> = ({ set_is_new }) => {
         <button
           className={`${
             password.length < 7 || email.length < 7 || !email.includes("@")
-              ? " bg-gray-500 w-full lg:w-5/12 lg:text-[12px] text-white mt-5 rounded-[4px] h-20 lg:h-8 brightness-[70%]"
-              : "w-full lg:w-5/12 lg:text-[12px] cursor-pointer bg-cyan-500 text-white mt-5 rounded-[4px] h-20 lg:h-8"
+              ? " bg-gray-500 w-full lg:w-5/12 lg:text-[14px] text-white mt-5 rounded-[4px] h-20 lg:h-12 brightness-[70%]"
+              : "w-full lg:w-5/12 lg:text-[12px] cursor-pointer bg-cyan-500 text-white mt-5 rounded-[4px] h-20 lg:h-12"
           }`}
           formAction="submit"
           type="submit"
@@ -74,12 +74,12 @@ const SignInForm: React.FC<Isigninform> = ({ set_is_new }) => {
         </button>
       </form>
       <span className=" w-full flex flex-col lg:flex-row justify-center items-center gap-1">
-        <p className=" text-neutral-500 text-xl text-center lg:text-[12px] ">
+        <p className=" text-neutral-500 text-xl text-center lg:text-[14px] ">
           I {"don't"} have an account yet
         </p>
         <button
           onClick={(e) => set_is_new(true)}
-          className=" text-cyan-700 text-lg lg:text-[12px] underline cursor-pointer "
+          className=" text-cyan-700 text-lg lg:text-[14px] underline cursor-pointer "
         >
           Sign Up
         </button>

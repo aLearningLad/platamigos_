@@ -38,22 +38,22 @@ const DashSignOut = () => {
       <DialogTrigger>
         <Lottie
           animationData={restingLottie}
-          className=" cursor-pointer w-16 h-16 rounded-full border-4 border-neutral-400/10 "
+          className=" cursor-pointer w-28 h-28 rounded-full border-4 border-neutral-400/10 "
         />
       </DialogTrigger>
-      <DialogContent>
+      <DialogContent className=" h-[70%] flex justify-center items-center">
         <div className=" w-full flex flex-col items-center text-center ">
-          <p className=" mb-12 ">{"You're"} about to sign out</p>
+          <p className=" mb-12 text-2xl ">{"You're"} about to sign out</p>
 
           <button
             onClick={handleSignOut}
-            className=" cursor-pointer w-full mb-3 sm:w-10/12 md:w-8/12 lg:w-6/12 h-10 rounded-lg bg-cyan-500 text-white text-[14px] lg:text-[11px]"
+            className=" cursor-pointer w-full mb-3 sm:w-10/12 md:w-8/12 lg:w-6/12 h-10 rounded-lg bg-cyan-500 text-white text-[14px]"
           >
             Sign Out
           </button>
           <button
             onClick={() => set_is_modal((prev) => !prev)}
-            className=" cursor-pointer w-full sm:w-10/12 md:w-8/12 lg:w-6/12 h-10 rounded-lg bg-black text-white text-[14px] lg:text-[11px] "
+            className=" cursor-pointer w-full sm:w-10/12 md:w-8/12 lg:w-6/12 h-10 rounded-lg bg-black text-white text-[14px]"
           >
             Close
           </button>

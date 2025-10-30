@@ -107,7 +107,7 @@ const SectionThree = () => {
   return (
     <div
       ref={containerRef}
-      className="h-[80vh] lg:pt-20 w-full py-2 lg:py-2 px-3 lg:px-72 flex flex-col justify-start items-center "
+      className="h-[80vh] lg:pt-20 w-full py-2 lg:py-2 px-3 lg:px-60 flex flex-col justify-start items-center "
     >
       <section className=" w-full flex lg:flex-row flex-col items-center justify-center gap-2 lg:gap-12 lg:items-end">
         <h2 ref={titleRef} className=" text-3xl font-semibold text-center ">

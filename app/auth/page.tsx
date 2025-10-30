@@ -80,10 +80,10 @@ const AuthPage = () => {
             height={130}
           />
         </Link>
-        <h1 className=" text-2xl lg:text-[14px] font-bold ">
+        <h1 className=" text-2xl lg:text-3xl font-semibold ">
           Welcome to Plata.Migos
         </h1>
-        <p className=" text-xl lg:text-[12px] text-center mb-5 lg:mb-0">
+        <p className=" text-xl lg:text-[14px] text-center mb-5 lg:mb-0">
           {"We'll"} get you signed in, or setup your account if {"you're"} new
         </p>
 
@@ -98,8 +98,8 @@ const AuthPage = () => {
             } w-full lg:w-1/2 cursor-pointer h-1/2 lg:h-full p-3 lg:p-7 border-4 flex flex-col justify-around items-center rounded-lg`}
           >
             <Lottie animationData={loginLottie} className=" w-20 h-20" />
-            <p className=" text-2xl lg:text-[14px] font-bold ">Login</p>
-            <p className=" text-lg lg:text-[10px] text-neutral-400 font-semibold ">
+            <p className=" text-2xl lg:text-2xl font-semibold ">Login</p>
+            <p className=" text-lg lg:text-[14px] text-neutral-500 font-semibold ">
               You already have an account. Dive right in
             </p>
           </button>
@@ -113,8 +113,8 @@ const AuthPage = () => {
             } w-full lg:w-1/2 cursor-pointer h-1/2 lg:h-full p-3 lg:p-7 border-4 flex flex-col justify-around items-center rounded-lg `}
           >
             <Lottie animationData={signupLottie} className=" w-20 h-20" />
-            <p className=" text-2xl lg:text-[14px] font-bold ">Signup</p>
-            <p className=" text-lg lg:text-[10px] text-neutral-400 font-semibold ">
+            <p className=" text-2xl lg:text-2xl font-semibold ">Signup</p>
+            <p className=" text-lg lg:text-[14px] text-neutral-500 font-semibold ">
               Create an account & start moving plata
             </p>
           </button>
@@ -122,85 +122,12 @@ const AuthPage = () => {
         <button
           ref={continueRef}
           onClick={(e) => set_is_auth(true)}
-          className=" w-full lg:w-3/12 cursor-pointer text-2xl lg:text-[12px] bg-cyan-500 text-white mt-5 rounded-[4px] h-20 lg:h-8 "
+          className=" w-full lg:w-3/12 hover:scale-95 transition-all duration-300 ease-in-out cursor-pointer text-2xl lg:text-[18px] bg-cyan-500 hover:bg-pink-500 text-white mt-5 rounded-[4px] sm:rounded-[6px] lg:rounded-[12px] h-20 lg:h-12 "
         >
           Continue
         </button>
       </div>
     );
-
-    //   : is_new ? (
-    //   <div className=" w-full min-h-screen bg-black flex flex-col items-center text-white justify-center">
-    //     <h1>Sign Up</h1>
-    //     <form
-    //       onSubmit={(e: FormEvent) =>
-    //         signUpSubmit(e, email, password, router, set_is_loading)
-    //       }
-    //       className=" flex flex-col space-y-5 "
-    //     >
-    //       <input
-    //         type="email"
-    //         name="email"
-    //         value={email}
-    //         onChange={(e: ChangeEvent<HTMLInputElement>) =>
-    //           setEmail(e.target.value)
-    //         }
-    //         className="bg-white text-black "
-    //       />
-    //       <input
-    //         className="bg-white text-black"
-    //         type="password"
-    //         name="password"
-    //         value={password}
-    //         onChange={handlePwdChange}
-    //       />
-    //       <button
-    //         disabled={password.length < 7}
-    //         className={`${
-    //           password.length < 7
-    //             ? " bg-gray-500 brightness-[40%]"
-    //             : " bg-green-400"
-    //         }`}
-    //         formAction="submit"
-    //         type="submit"
-    //       >
-    //         Sign Up
-    //       </button>
-    //       </form>
-    //       <button></button>
-    //   </div>
-    // ) : (
-    //   <div className=" w-full min-h-screen bg-black flex flex-col items-center text-white justify-center">
-    //     <h1>Login</h1>
-    //     <form
-    //       onSubmit={(e: FormEvent) => signInSubmit(e, email, password, router)}
-    //       className=" flex flex-col space-y-5 "
-    //     >
-    //       <input
-    //         type="email"
-    //         name="email"
-    //         value={email}
-    //         onChange={(e: ChangeEvent<HTMLInputElement>) =>
-    //           setEmail(e.target.value)
-    //         }
-    //         className="bg-white text-black "
-    //       />
-    //       <input
-    //         className="bg-white text-black"
-    //         type="password"
-    //         name="password"
-    //         value={password}
-    //         onChange={(e: ChangeEvent<HTMLInputElement>) =>
-    //           setPassword(e.target.value)
-    //         }
-    //       />
-    //       <button formAction="submit" type="submit">
-    //         Submit
-    //       </button>
-    //     </form>
-    //     <button onClick={(e) => set_is_new(true)}>I'm new here</button>
-    //   </div>
-    // );
   }
 };
 

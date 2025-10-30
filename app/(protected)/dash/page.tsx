@@ -57,18 +57,18 @@ const Dash = () => {
     <div className=" w-full min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-pink-400/10 via-cyan-500/10 to-orange-600/30">
       {is_loading ? (
         <div className=" w-full flex-col text-center min-h-screen flex justify-center items-center text-xl lg:text-[12px] ">
-          <p className=" text-2xl lg:text-[14px]">Just a moment</p>
-          <p className=" text-xl lg:text-[10px] ">{"We're"} signing you out</p>
+          <p className=" text-2xl lg:text-3xl">Just a moment</p>
+          <p className=" text-xl lg:text-[14px] ">{"We're"} signing you out</p>
         </div>
       ) : (
         <div className=" w-full h-full flex flex-col px-1 md:px-3 lg:px-20 xl:px-28 ">
           <div className=" w-full h-full pb-2 flex flex-col items-center">
             <section className=" w-full flex flex-col items-center py-4 ">
               <DashSignOut />
-              <p className=" text-[18px] lg:text-[10px] text-neutral-500 font-semibold text-center ">
+              <p className=" text-[18px] lg:text-3xl text-neutral-600 font-semibold text-center ">
                 Welcome, {user_data?.[0].alias ?? "User"}
               </p>
-              <p className=" text-[15px] lg:text-[12px] font-bold text-center ">
+              <p className=" text-[15px] lg:text-[14px] font-semibold text-center ">
                 To get started, try making a loan <br /> request. Or opt to fund
                 somebody {"else's"}.
               </p>

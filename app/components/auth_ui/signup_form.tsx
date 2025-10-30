@@ -37,7 +37,7 @@ const SignUpForm: React.FC<Isignupform> = ({ set_is_new }) => {
         width={120}
         height={120}
       />
-      <p className="lg:text-[12px] text-neutral-700 text-2xl">
+      <p className="lg:text-[14px] text-neutral-700 text-2xl">
         {"Let's"} get your account registered
       </p>
       <form
@@ -70,8 +70,8 @@ const SignUpForm: React.FC<Isignupform> = ({ set_is_new }) => {
           }
           className={`${
             password.length < 7 || email.length < 7 || !email.includes("@")
-              ? " bg-gray-500 w-full lg:w-5/12 lg:text-[12px] text-white mt-5 rounded-[4px] h-20 lg:h-8 brightness-[40%]"
-              : "w-full lg:w-5/12 lg:text-[12px] bg-cyan-500 cursor-pointer text-white mt-5 rounded-[4px] h-20 lg:h-8"
+              ? " bg-gray-500 w-full lg:w-5/12 lg:text-[12px] text-white mt-5 rounded-[4px] h-20 lg:h-12 brightness-[70%]"
+              : "w-full lg:w-5/12 lg:text-[12px] bg-cyan-500 cursor-pointer text-white mt-5 rounded-[4px] h-20 lg:h-12"
           }`}
           formAction="submit"
           type="submit"
@@ -80,12 +80,12 @@ const SignUpForm: React.FC<Isignupform> = ({ set_is_new }) => {
         </button>
       </form>
       <span className=" w-full flex lg:flex-row flex-col justify-center items-center gap-1 text-center">
-        <p className=" text-neutral-500 text-xl text-center lg:text-[12px] ">
+        <p className=" text-neutral-500 text-xl text-center lg:text-[14px] ">
           Hang on, I actually have an account!
         </p>
         <button
           onClick={(e) => set_is_new(false)}
-          className=" text-cyan-700 text-lg lg:text-[12px] underline cursor-pointer "
+          className=" text-cyan-700 text-lg lg:text-[14px] underline cursor-pointer "
         >
           Login
         </button>

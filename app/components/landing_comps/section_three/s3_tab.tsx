@@ -11,7 +11,7 @@ const S3Tab: React.FC<I_s3_tab> = ({
 }) => {
   return (
     <div ref={tabRef} key={id} className=" w-full h-16 flex ">
-      <div className=" h-full flex justify-center items-center px-2">
+      <div className=" h-full w-fit flex justify-center items-center px-2">
         <div
           className={`w-fit h-fit rounded-full 
             ${index === 0 && " bg-teal-600"} 
