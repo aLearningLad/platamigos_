@@ -2,7 +2,7 @@
 
 import Lottie from "lottie-react";
 import restingLottie from "@/public/assets/lottieresting.json";
-import { IoNotificationsOutline } from "react-icons/io5";
+import { IoNotificationsOutline, IoSettingsSharp } from "react-icons/io5";
 import { sidebarinfo } from "@/dev_data/sidebarinfo";
 import { usePathname } from "next/navigation";
 import { IoSettingsOutline } from "react-icons/io5";
@@ -117,7 +117,7 @@ const SidebarNav = () => {
 
   if (user_data != null) {
     return (
-      <div className=" w-full h-[65%] flex flex-col ">
+      <div className=" w-full h-[70%] flex flex-col ">
         <div className=" w-full h-[15%] flex justify-between items-center pr-3 border-b-[2px] rounded-full mb-3 border-neutral-500/20">
           <div className=" flex items-center">
             <Lottie
@@ -131,14 +131,14 @@ const SidebarNav = () => {
           <IoNotificationsOutline size={14} className=" text-neutral-600" />
         </div>
         {/* nav tabs */}
-        <ul className=" space-y-3">
+        <ul className=" space-y-2">
           {sidebarinfo.map(({ href, icon, id, title }) => (
             <Link
               href={href}
               key={id}
               className={`w-full flex ${
                 current === href.slice(1)
-                  ? "bg-neutral-400/20"
+                  ? " bg-cyan-600/30"
                   : "hover:translate-x-1 hover:font-bold transition duration-300 ease-in-out"
               } items-center justify-start px-2 py-1 gap-1 h-12 rounded-[6px]`}
             >
@@ -152,8 +152,8 @@ const SidebarNav = () => {
             onOpenChange={() => set_is_dialog_open((prev) => !prev)}
           >
             <DialogTrigger>
-              <button className="w-full hover:translate-x-1 hover:font-bold transition duration-300 ease-in-out cursor-pointer flex items-center justify-start px-2 py-1 gap-1 h-8 rounded-lg">
-                <IoSettingsOutline size={20} className="text-neutral-500" />
+              <button className="w-full hover:translate-x-1 hover:font-bold transition duration-300 ease-in-out cursor-pointer flex items-center justify-start px-2 py-1 gap-1 h-12 rounded-lg">
+                <IoSettingsSharp size={20} className="text-black" />
                 <p className=" text-[14px] ">Settings</p>
               </button>
             </DialogTrigger>

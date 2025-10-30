@@ -24,7 +24,7 @@ const SidebarOptions = () => {
   }
 
   return (
-    <div className=" w-full h-[35%] flex flex-col items-start justify-end">
+    <div className=" w-full h-[30%] flex flex-col items-start justify-end">
       {optionsInfo.map(({ icon, id, title }) => (
         <button
           onClick={() => {
@@ -51,8 +51,8 @@ const SidebarOptions = () => {
         href={"https://github.com/aLearningLad/platamigos_"}
         className="px-2 cursor-pointer py-1 gap-1 h-8 w-full flex hover:translate-x-1 hover:font-bold transition duration-300 ease-in-out"
       >
-        <FaGithub size={12} />
-        <p className="text-[10px]">FAQ</p>
+        <FaGithub size={18} />
+        <p className="text-[14px]">FAQ</p>
       </Link>
     </div>
   );
