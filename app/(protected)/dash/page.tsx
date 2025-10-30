@@ -108,49 +108,8 @@ const Dash = () => {
                 )}
                 <DashSettingsBtn />
               </div>
-
-              {/* <div className=" w-full h-[20vh] lg:h-1/2 flex-col lg:flex-row flex gap-3 ">
-                {bottomtabs.map(
-                  ({ animation, blurb, cta, tab_id, title, href }) => (
-                    <Dashtab
-                      href={href}
-                      key={tab_id}
-                      animation={animation}
-                      blurb={blurb}
-                      cta={cta}
-                      tab_id={tab_id}
-                      title={title}
-                    />
-                  )
-                )}
-
-                <DashSettingsBtn />
-                </div> */}
             </div>
           </div>
-
-          {/* maybe user later on */}
-          {/* {comm_loans.map((loan: Tcommunity_requests) => (
-            <Link
-              className=" flex flex-col items-center justify-center space-y-2 bg-neutral-200 rounded-lg p-4 "
-              key={loan.loan_id}
-              href={`/fund_specific/${loan.loan_id}`}
-            >
-              <p>By: {loan.alias}</p>
-              <p>{loan.title}</p>
-              <p>{loan.description}</p>
-              <span className=" w-full flex gap-1 justify-center ">
-                <p>Asking for</p>
-                <p>R{loan.pcp}</p>
-              </span>
-            </Link>
-          ))}
-
-          <button
-            onClick={() => handleSignOut(router, is_loading, set_is_loading)}
-          >
-            Sign Out
-          </button> */}
         </div>
       )}
 

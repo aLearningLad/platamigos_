@@ -44,7 +44,6 @@ const DashSignOut = () => {
       <DialogContent className=" h-[70%] flex justify-center items-center">
         <div className=" w-full flex flex-col items-center text-center ">
           <p className=" mb-12 text-2xl ">{"You're"} about to sign out</p>
-
           <button
             onClick={handleSignOut}
             className=" cursor-pointer w-full mb-3 sm:w-10/12 md:w-8/12 lg:w-6/12 h-10 rounded-lg bg-cyan-500 text-white text-[14px]"
