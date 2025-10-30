@@ -125,25 +125,25 @@ const SidebarNav = () => {
               className=" w-8 h-8 rounded-full "
             />
 
-            <p className=" text-[10px] font-bold">{user_data[0].alias}</p>
+            <p className=" text-[12px] font-bold">{user_data[0].alias}</p>
           </div>
 
-          <IoNotificationsOutline size={14} className=" text-neutral-400" />
+          <IoNotificationsOutline size={14} className=" text-neutral-600" />
         </div>
         {/* nav tabs */}
-        <ul className=" space-y-1">
+        <ul className=" space-y-3">
           {sidebarinfo.map(({ href, icon, id, title }) => (
             <Link
               href={href}
               key={id}
               className={`w-full flex ${
                 current === href.slice(1)
-                  ? "bg-neutral-400/10"
+                  ? "bg-neutral-400/20"
                   : "hover:translate-x-1 hover:font-bold transition duration-300 ease-in-out"
-              } items-center  justify-start px-2 py-1 gap-1 h-8 rounded-[3px]`}
+              } items-center justify-start px-2 py-1 gap-1 h-12 rounded-[6px]`}
             >
               {icon}
-              <p className=" text-[10px] ">{title}</p>
+              <p className=" text-[14px] ">{title}</p>
             </Link>
           ))}
 
@@ -153,8 +153,8 @@ const SidebarNav = () => {
           >
             <DialogTrigger>
               <button className="w-full hover:translate-x-1 hover:font-bold transition duration-300 ease-in-out cursor-pointer flex items-center justify-start px-2 py-1 gap-1 h-8 rounded-lg">
-                <IoSettingsOutline size={12} className="text-neutral-500" />
-                <p className=" text-[10px] ">Settings</p>
+                <IoSettingsOutline size={20} className="text-neutral-500" />
+                <p className=" text-[14px] ">Settings</p>
               </button>
             </DialogTrigger>
             {is_updating ? (

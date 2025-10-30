@@ -63,17 +63,17 @@ const Dash = () => {
       ) : (
         <div className=" w-full h-full flex flex-col px-1 md:px-3 lg:px-12 xl:px-28 ">
           <div className=" w-full h-full pb-1 flex flex-col items-center">
-            <section className=" w-full h-fit flex flex-col items-center py-1 border-4 border-red-600">
+            <section className=" w-full h-fit flex flex-col items-center py-4 ">
               <DashSignOut />
               <p className=" text-[18px] lg:text-xl text-neutral-600 font-semibold text-center ">
                 Welcome, {user_data?.[0].alias ?? "User"}
               </p>
-              <p className=" text-[15px] lg:text-[12px] font-semibold text-center ">
+              <p className=" text-[15px] lg:text-[14px] text-center ">
                 To get started, try making a loan <br /> request. Or opt to fund
                 somebody {"else's"}.
               </p>
             </section>
-            <div className=" w-full lg:px-16 h-full flex flex-col gap-3 border-4 border-green-400 ">
+            <div className=" w-full lg:px-16 h-full flex flex-col gap-3 ">
               {/* top */}
               <div className=" w-full min-h-[20vh] lg:h-[45%] lg:flex-row flex-col flex gap-3 ">
                 {toptabs.map(

@@ -38,7 +38,7 @@ const SidebarOptions = () => {
         >
           {icon}
           <p
-            className={`text-[10px] ${
+            className={`text-[14px] ${
               id === 378713 && " text-purple-500 font-bold "
             } `}
           >

@@ -9,37 +9,37 @@ import { GiTwirlCenter } from "react-icons/gi";
 export const sidebarinfo: Tsidebar_info[] = [
   {
     id: 6211093781,
-    icon: <IoHomeOutline size={12} className=" text-neutral-500" />,
+    icon: <IoHomeOutline size={20} className=" text-neutral-500" />,
     title: "Dashboard",
     href: "/dash",
   },
   {
     id: 37712,
-    icon: <GiTwirlCenter size={12} className=" text-neutral-500" />,
+    icon: <GiTwirlCenter size={20} className=" text-neutral-500" />,
     title: "HQ",
     href: "/hq",
   },
   {
     id: 8676711,
-    icon: <GiMoneyStack size={12} className=" text-neutral-500" />,
+    icon: <GiMoneyStack size={20} className=" text-neutral-500" />,
     title: "Fund",
     href: "/fund",
   },
   {
     id: 8305524172,
-    icon: <FaHandHoldingUsd size={12} className=" text-neutral-500" />,
+    icon: <FaHandHoldingUsd size={20} className=" text-neutral-500" />,
     title: "Offers",
     href: "/offers",
   },
   {
     id: 24188271,
-    icon: <RiSecurePaymentLine size={12} className=" text-neutral-500" />,
+    icon: <RiSecurePaymentLine size={20} className=" text-neutral-500" />,
     title: "Repayments",
     href: "/repayments",
   },
   {
     id: 66372615,
-    icon: <VscGitPullRequestCreate size={12} className=" text-neutral-500" />,
+    icon: <VscGitPullRequestCreate size={20} className=" text-neutral-500" />,
     title: "Request",
     href: "/request",
   },

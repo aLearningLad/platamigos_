@@ -44,7 +44,7 @@ const SidebarSignOut = () => {
             height={40}
             alt="app logo"
           />
-          <p className=" italic text-[8px] ">Plata.Migos</p>
+          <p className=" italic text-[12px] ">Plata.Migos</p>
         </header>
       </DialogTrigger>
       <DialogContent>
