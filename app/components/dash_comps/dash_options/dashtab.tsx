@@ -13,7 +13,7 @@ const Dashtab: React.FC<Idash_tab> = ({
   href,
 }) => {
   return (
-    <div className=" w-full space-y-1 group hover:bg-orange-500/30 hover:border-transparent hover:scale-95 transition duration-150 ease-in lg:w-[30%] min-h-full rounded-lg border-2 border-neutral-400/20 p-3 flex flex-col items-center lg:items-start justify-around">
+    <div className=" w-full space-y-1 group hover:bg-orange-500/30 hover:scale-95 transition duration-150 ease-in lg:w-[30%] min-h-full rounded-lg border-2 border-neutral-400/20 p-3 flex flex-col items-center lg:items-start justify-around">
       <Link
         href={href}
         className={`flex justify-center group-hover:justify-between items-center w-8/12 h-[25vh] lg:w-fit lg:h-fit
@@ -49,7 +49,7 @@ const Dashtab: React.FC<Idash_tab> = ({
       <p className=" text-[16px] group-hover:hidden flex text-center lg:text-start lg:text-[18px] font-semibold ">
         {title}
       </p>
-      <p className=" text-[14px] flex text-center lg:text-start pb-5 lg:pb-1 ">
+      <p className=" text-[12px] flex text-center lg:text-start pb-5 lg:pb-1 ">
         {blurb}
       </p>
       <ExportBtn cta={cta} />

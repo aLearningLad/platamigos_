@@ -61,21 +61,21 @@ const Dash = () => {
           <p className=" text-xl lg:text-[14px] ">{"We're"} signing you out</p>
         </div>
       ) : (
-        <div className=" w-full h-full flex flex-col px-1 md:px-3 lg:px-20 xl:px-28 ">
-          <div className=" w-full h-full pb-2 flex flex-col items-center">
-            <section className=" w-full flex flex-col items-center py-2">
+        <div className=" w-full h-full flex flex-col px-1 md:px-3 lg:px-12 xl:px-28 ">
+          <div className=" w-full h-full pb-1 flex flex-col items-center">
+            <section className=" w-full h-fit flex flex-col items-center py-1 border-4 border-red-600">
               <DashSignOut />
-              <p className=" text-[18px] lg:text-3xl text-neutral-600 font-semibold text-center ">
+              <p className=" text-[18px] lg:text-xl text-neutral-600 font-semibold text-center ">
                 Welcome, {user_data?.[0].alias ?? "User"}
               </p>
-              <p className=" text-[15px] lg:text-[14px] font-semibold text-center ">
+              <p className=" text-[15px] lg:text-[12px] font-semibold text-center ">
                 To get started, try making a loan <br /> request. Or opt to fund
                 somebody {"else's"}.
               </p>
             </section>
-            <div className=" w-full lg:px-28 h-full flex flex-col gap-3 ">
+            <div className=" w-full lg:px-16 h-full flex flex-col gap-3 border-4 border-green-400 ">
               {/* top */}
-              <div className=" w-full min-h-[20vh] lg:h-1/2 lg:flex-row flex-col flex gap-3 ">
+              <div className=" w-full min-h-[20vh] lg:h-[45%] lg:flex-row flex-col flex gap-3 ">
                 {toptabs.map(
                   ({ animation, blurb, cta, tab_id, title, href }) => (
                     <Dashtab
@@ -92,7 +92,7 @@ const Dash = () => {
               </div>
 
               {/* bottom  */}
-              <div className=" w-full min-h-[20vh] lg:h-1/2 lg:flex-row flex-col flex gap-3 ">
+              <div className=" w-full min-h-[20vh] lg:h-[45%] lg:flex-row flex-col flex gap-3 ">
                 {bottomtabs.map(
                   ({ animation, blurb, cta, tab_id, title, href }) => (
                     <Dashtab
