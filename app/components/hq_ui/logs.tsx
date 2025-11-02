@@ -69,24 +69,24 @@ const Logs = () => {
             {logs_data.map((row: T_logs_data) => (
               <tr
                 key={row.loan_id}
-                className=" h-fit pb-2 px-1 hover:bg-black hover:text-white w-full"
+                className=" h-fit pb-2 px-1 rounded-lg w-full"
               >
-                <td className=" w-3/12 border-l-[1px] border-neutral-400/40 px-1 ">
-                  <p className=" text-[12px] ">{row.title}</p>
+                <td className=" w-3/12 border-b-[1px] border-neutral-400/40 px-1 ">
+                  <p className=" text-[10px]  ">{row.title}</p>
                 </td>
-                <td className=" w-4/12 border-l-[1px] border-neutral-400/40 px-1">
-                  <p className=" text-[12px] ">{row.description}</p>
+                <td className=" w-4/12 border-b-[1px] border-neutral-400/40 px-1">
+                  <p className=" text-[10px] ">{row.description}</p>
                 </td>
-                <td className=" w-2/12 border-l-[1px] border-neutral-400/40 px-1">
-                  <p className=" text-[12px] ">
+                <td className=" w-2/12 border-b-[1px] border-neutral-400/40 px-1">
+                  <p className=" text-[10px] ">
                     {zar_currency.format(row.pcp)}
                   </p>
                 </td>
-                <td className=" w-2/12 border-l-[1px] border-neutral-400/40 px-1">
+                <td className=" w-2/12 border-b-[1px] border-neutral-400/40 px-1">
                   <p className=" text-[12px] ">{row.type}</p>
                 </td>
-                <td className=" w-2/12 border-l-[1px] border-neutral-400/40 px-1">
-                  <p className=" text-[12px] ">{row.status}</p>
+                <td className=" w-2/12 border-b-[1px] border-neutral-400/40 px-1">
+                  <p className=" text-[10px] ">{row.status}</p>
                 </td>
               </tr>
             ))}
