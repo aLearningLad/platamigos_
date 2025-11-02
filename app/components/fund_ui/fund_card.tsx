@@ -35,18 +35,18 @@ const FundCard: React.FC<I_fund_card> = ({
 
         <p className=" text-[18px]">{zar_currency.format(pcp)}</p>
       </div>
-      <div className=" w-full flex justify-between ">
-        <span className=" lg:w-full flex gap-1 justify-start items-center">
+      <div className=" w-full flex justify-between mt-5 ">
+        <span className=" lg:w-fit flex gap-1 justify-start items-center">
           <div className=" w-fit h-fit rounded-full p-1 bg-black ">
-            <FaUser className="text-white lg:w-3 lg:h-3 h-4 w-4 " />
+            <FaUser className="text-white h-4 w-4 " />
           </div>
-          <p className=" text-2xl lg:text-[8px]">{alias}</p>
+          <p className=" text-2xl lg:text-[12px] italic ">{alias}</p>
         </span>
         <Link
           href={`/fund_specific/${loan_id}`}
-          className=" bg-cyan-600/70 lg:w-8 h-12 hover:bg-green-500 transition duration-200 ease-in-out rounded-[5px] flex justify-center items-center lg:h-[4vh] px-5"
+          className=" bg-cyan-600/70 lg:px-12 hover:scale-90 h-10 hover:bg-green-500 transition duration-200 ease-in-out rounded-[5px] hover:rounded-[7px] flex justify-center items-center lg:h-[5vh] px-5"
         >
-          <p className=" text-lg lg:text-[10px] text-white ">Fund</p>
+          <p className=" text-lg lg:text-[14px] text-white ">Fund</p>
         </Link>
       </div>
     </div>
