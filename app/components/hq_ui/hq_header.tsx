@@ -9,25 +9,25 @@ import Lottie from "lottie-react";
 const HQHeader = () => {
   return (
     <header className=" w-full h-[15vh] border-b-4 border-neutral-300/60  hidden lg:flex justify-between items-center px-1 md:px-4 lg:px-8">
-      <p className=" text-2xl font-bold">HQ</p>
+      <p className=" text-4xl font-bold">HQ</p>
       <div className=" flex w-fit gap-x-2 justify-end">
         <div className=" w-fit h-fit p-2 bg-neutral-600/10 rounded-lg text-black">
-          <CiSearch size={14} />
+          <CiSearch size={20} />
         </div>
         <div className=" w-fit h-fit p-2 bg-neutral-600/10 rounded-lg text-black">
-          <IoMdNotifications size={14} />
+          <IoMdNotifications size={20} />
         </div>
         <Link
           className=" flex hover:scale-90 transition-all duration-200 ease-in-out hover:bg-cyan-500 gap-1 w-fit px-3 items-center justify-center text-white  bg-blue-600 rounded-xl "
           href={"/request"}
         >
-          <div className=" text-[10px]">+</div>
-          <p className=" text-[10px]">Create a loan request</p>
+          <div className=" text-[14px]">+</div>
+          <p className=" text-[12px]">Create a loan request</p>
         </Link>
         <div>
           <Lottie
             animationData={restingLottie}
-            className=" w-7 h-7 rounded-full border-4 border-neutral-400/10 "
+            className=" w-12 h-12 rounded-full border-4 border-neutral-400/10 "
           />
         </div>
       </div>

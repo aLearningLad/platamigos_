@@ -44,8 +44,8 @@ const AuthPage = () => {
 
     // for continue btn
     gsap.from(continueRef.current, {
-      y: 100,
-      scale: 0.4,
+      y: 30,
+      scale: 0,
       duration: 0.8,
       delay: 0.6,
       ease: "bounce.out",
@@ -120,7 +120,7 @@ const AuthPage = () => {
           </button>
         </section>
         <button
-          ref={continueRef}
+          // ref={continueRef}
           onClick={(e) => set_is_auth(true)}
           className=" w-full lg:w-3/12 hover:scale-95 transition-all duration-300 ease-in-out cursor-pointer text-2xl lg:text-[18px] bg-cyan-500 hover:bg-pink-500 text-white mt-5 rounded-[4px] sm:rounded-[6px] lg:rounded-[12px] h-20 lg:h-12 "
         >
