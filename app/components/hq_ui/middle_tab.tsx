@@ -45,12 +45,14 @@ const MiddleTab: React.FC<I_middle_tab> = ({
     >
       <Lottie
         animationData={animation}
-        className=" w-32 h-32 lg:w-16 lg:h-16"
+        className=" w-32 h-32 lg:w-28 lg:h-28"
       />
-      <h3 className=" text-[32px] lg:text-[17px] font-semibold ">
+      <h3 className=" text-[32px] lg:text-[24px] font-semibold ">
         {tab_value}
       </h3>
-      <p className=" text-[18px] lg:text-[8px] text-neutral-600 ">{tab_text}</p>
+      <p className=" text-[18px] lg:text-[12px] text-neutral-600 ">
+        {tab_text}
+      </p>
     </div>
   );
 };
