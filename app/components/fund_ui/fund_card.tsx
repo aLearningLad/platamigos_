@@ -18,22 +18,22 @@ const FundCard: React.FC<I_fund_card> = ({
     <div
       key={loan_id}
       className={` min-w-full lg:min-w-[20vw] lg:max-w-[20vw] ${
-        index % 2 === 0 ? "bg-purple-700 text-white" : "bg-slate-500/10"
+        index % 2 === 0 ? " bg-slate-600/30 text-white" : "bg-slate-500/10"
       } min-h-[45vh] rounded-lg flex flex-col p-3 items-start justify-around m-2 `}
     >
-      <p className=" text-xl lg:text-[10px]">
+      <p className=" text-xl lg:text-[16px]">
         {new Date(created_at).getDate()}
       </p>
-      <p className=" text-2xl lg:text-[16px] font-semibold">
+      <p className=" text-2xl lg:text-[28px] font-semibold">
         {months_arr[new Date(created_at).getMonth()]}
       </p>
-      <div className=" text-2xl overflow-auto lg:text-[10px] font-semibold w-full min-h-[16vh] justify-center text-start items-center ">
+      <div className=" text-2xl overflow-auto lg:text-[14px] w-full min-h-[16vh] justify-center text-start items-center ">
         {description}
       </div>
       <div className=" w-full flex justify-center items-center flex-col text-center py-2 rounded-lg bg-slate-800/40 text-white">
-        <p className=" text-[14px] lg:text-[10px]  ">I am asking for</p>
+        <p className=" text-[14px] lg:text-[12px]  ">I am asking for</p>
 
-        <p className=" text-[14px]">{zar_currency.format(pcp)}</p>
+        <p className=" text-[18px]">{zar_currency.format(pcp)}</p>
       </div>
       <div className=" w-full flex justify-between ">
         <span className=" lg:w-full flex gap-1 justify-start items-center">

@@ -5,25 +5,12 @@ import { Tcommunity_requests } from "@/models/types";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { MdHome } from "react-icons/md";
+import lottieLoader from "@/public/assets/lottierushing.json";
+import Lottie from "lottie-react";
 
 const FundALoan = () => {
   const [comm_loans, set_comm_loans] = useState<Tcommunity_requests[]>([]);
   const [is_loading, set_is_loading] = useState<boolean>(false);
-
-  // adjust total debt in real time
-  // useEffect(() => {
-  //   const calculate_due = () => {
-  //     // total debt
-  //     const due_amount = pcp + Math.floor(pcp * (rate / 100) * term);
-  //     set_due(due_amount);
-
-  //     // instalments
-  //     const instmnt = Math.floor(due_amount / term);
-  //     set_instalment(instmnt);
-  //   };
-
-  //   calculate_due();
-  // }, [pcp, rate, term]);
 
   useEffect(() => {
     set_is_loading(true);
@@ -49,11 +36,12 @@ const FundALoan = () => {
 
       {is_loading ? (
         <div className=" bg-neutral-400/10 flex text-center flex-col justify-center items-center w-full h-[80vh] lg:h-[75vh] ">
-          <p className=" text-[12px]">Just a second . . .</p>
+          <p className=" text-[14px]">Just a second . . .</p>
 
-          <p className=" text-[10px]">
+          <p className=" text-[12px]">
             {"We're"} fetching community request data
           </p>
+          <Lottie animationData={lottieLoader} className=" w-32 h-32" />
         </div>
       ) : (
         <div className=" bg-neutral-400/10 flex overflow-auto flex-wrap justify-center items-center w-full h-[80vh] lg:h-[75vh] ">
