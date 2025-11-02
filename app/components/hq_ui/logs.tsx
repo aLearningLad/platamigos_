@@ -29,8 +29,8 @@ const Logs = () => {
 
   if (isLoading) {
     <div className=" w-full h-[40%] flex flex-col items-start p-2 lg:p-4">
-      <Lottie animationData={lottieLoading} className=" w-20 h-20 " />
-      <p className=" text-[10px] text-neutral-600 ">Just a moment...</p>
+      <Lottie animationData={lottieLoading} className=" w-32 h-32 " />
+      <p className=" text-[14px] text-neutral-600 ">Just a moment...</p>
     </div>;
   }
 
@@ -39,7 +39,7 @@ const Logs = () => {
     return (
       <div className=" w-full h-fit lg:h-[40%] bg-slate-600/10 text-black rounded-xl flex flex-col items-start p-2 lg:p-4">
         <span className=" w-full hidden lg:flex justify-between items-center">
-          <p className=" text-[10px] font-semibold ">Recent Activity</p>
+          <p className=" text-[14px] font-semibold ">Recent Activity</p>
 
           {/* <div className=" w-fit px-3 flex items-center text-[8px] gap-2 border-[2px] border-neutral-500/20 bg-neutral-300/10 rounded-[12px] py-1">
             <button className=" text-neutral-500 cursor-pointer ">
