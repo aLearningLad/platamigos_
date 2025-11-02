@@ -6,6 +6,7 @@ import useSWR from "swr";
 import lottieLoading from "@/public/assets/lottieloading.json";
 import { T_logs_data } from "@/models/types";
 import { zar_currency } from "@/utils/utils";
+import { GoClockFill } from "react-icons/go";
 
 const Logs = () => {
   const fetchLog = async () => {
@@ -37,37 +38,28 @@ const Logs = () => {
   // large screens table
   if (logs_data) {
     return (
-      <div className=" w-full h-fit lg:h-[40%] bg-slate-600/10 text-black rounded-xl flex flex-col items-start p-2 lg:p-4">
-        <span className=" w-full hidden lg:flex justify-between items-center">
-          <p className=" text-[14px] font-semibold ">Recent Activity</p>
-
-          {/* <div className=" w-fit px-3 flex items-center text-[8px] gap-2 border-[2px] border-neutral-500/20 bg-neutral-300/10 rounded-[12px] py-1">
-            <button className=" text-neutral-500 cursor-pointer ">
-              Offers
-            </button>
-            <button className=" text-neutral-500 cursor-pointer">
-              Requests
-            </button>
-            <button className=" text-neutral-500 cursor-pointer">Funded</button>
-          </div> */}
+      <div className=" w-full h-fit lg:h-[40%] bg-gradient-to-b from-pink-400/30 via-pink-300/30 to-transparent text-black rounded-xl flex flex-col items-start p-2 lg:p-4">
+        <span className=" w-full hidden lg:flex justify-start gap-1 items-center">
+          <p className=" text-[18px] font-semibold ">Recent Activity</p>
+          <GoClockFill size={18} className=" text-slate-500" />
         </span>
 
-        <table className=" w-full hidden lg:block text-black">
+        <table className=" w-full hidden lg:block text-black mt-5">
           <thead className=" h-5 ">
             <tr className="">
-              <th className=" text-[8px] text-black italic font-normal border-l-[1px] border-neutral-400/40">
+              <th className=" text-[14px] text-black italic font-normal border-b-[1px] border-neutral-400/40">
                 Title
               </th>
-              <th className=" text-[8px] text-black italic font-normal border-l-[1px] border-neutral-400/40">
+              <th className=" text-[14px] text-black italic font-normal border-b-[1px] border-neutral-400/40">
                 Desc
               </th>
-              <th className=" text-[8px] text-black italic font-normal border-l-[1px] border-neutral-400/40">
+              <th className=" text-[14px] text-black italic font-normal border-b-[1px] border-neutral-400/40">
                 Amount
               </th>
-              <th className=" text-[8px] text-black italic font-normal border-l-[1px] border-neutral-400/40">
+              <th className=" text-[14px] text-black italic font-normal border-b-[1px] border-neutral-400/40">
                 Type
               </th>
-              <th className=" text-[8px] text-black italic font-normal border-l-[1px] border-neutral-400/40">
+              <th className=" text-[14px] text-black italic font-normal border-b-[1px] border-neutral-400/40">
                 Status
               </th>
             </tr>
@@ -80,19 +72,21 @@ const Logs = () => {
                 className=" h-fit pb-2 px-1 hover:bg-black hover:text-white w-full"
               >
                 <td className=" w-3/12 border-l-[1px] border-neutral-400/40 px-1 ">
-                  <p className=" text-[8px] ">{row.title}</p>
+                  <p className=" text-[12px] ">{row.title}</p>
                 </td>
                 <td className=" w-4/12 border-l-[1px] border-neutral-400/40 px-1">
-                  <p className=" text-[8px] ">{row.description}</p>
+                  <p className=" text-[12px] ">{row.description}</p>
                 </td>
                 <td className=" w-2/12 border-l-[1px] border-neutral-400/40 px-1">
-                  <p className=" text-[8px] ">{zar_currency.format(row.pcp)}</p>
+                  <p className=" text-[12px] ">
+                    {zar_currency.format(row.pcp)}
+                  </p>
                 </td>
                 <td className=" w-2/12 border-l-[1px] border-neutral-400/40 px-1">
-                  <p className=" text-[8px] ">{row.type}</p>
+                  <p className=" text-[12px] ">{row.type}</p>
                 </td>
                 <td className=" w-2/12 border-l-[1px] border-neutral-400/40 px-1">
-                  <p className=" text-[8px] ">{row.status}</p>
+                  <p className=" text-[12px] ">{row.status}</p>
                 </td>
               </tr>
             ))}
