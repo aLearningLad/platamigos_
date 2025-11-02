@@ -48,23 +48,23 @@ const TopTab: React.FC<I_top_tab> = ({
       <span className=" w-full flex justify-center items-center lg:justify-end">
         <Lottie
           animationData={animation}
-          className=" w-32 h-32 lg:w-14 lg:h-14"
+          className=" w-32 h-32 lg:w-28 lg:h-28"
         />
       </span>
-      <h3 className=" text-[22px] lg:text-[10px] font-semibold ">{title}</h3>
-      <p className=" text-[14px] lg:text-[9px] text-neutral-700 lg:text-neutral-500 ">
+      <h3 className=" text-[22px] lg:text-[18px] font-semibold ">{title}</h3>
+      <p className=" text-[14px] lg:text-[12px] text-neutral-700 lg:text-neutral-500 ">
         {blurb}
       </p>
       <div className=" w-full h-full flex flex-col mt-2">
         <span className=" w-full flex justify-between">
-          <p className=" text-[34px] lg:text-[10px] font-semibold ">{stat1}</p>
-          <p className=" text-[34px] lg:text-[10px] font-semibold ">{stat2}</p>
+          <p className=" text-[34px] lg:text-[14px] font-semibold ">{stat1}</p>
+          <p className=" text-[34px] lg:text-[14px] font-semibold ">{stat2}</p>
         </span>
         <span className=" w-full flex justify-between">
-          <p className=" text-[14px] lg:text-[8px] text-neutral-600 ">
+          <p className=" text-[14px] lg:text-[10px] text-neutral-600 ">
             {text1}
           </p>
-          <p className=" text-[14px] lg:text-[8px] text-neutral-600 ">
+          <p className=" text-[14px] lg:text-[10px] text-neutral-600 ">
             {text2}
           </p>
         </span>

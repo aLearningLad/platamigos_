@@ -48,9 +48,9 @@ const HQRight = () => {
       <div className="w-full min-h-screen space-y-6 lg:w-1/2 lg:h-full flex flex-col justify-center items-center ">
         <Lottie
           animationData={lottieLoading}
-          className=" w-32 h-32 lg:w-20 lg:h-20 "
+          className=" w-32 h-32 lg:w-28 lg:h-28 "
         />
-        <p className=" text-xl text-center lg:text-[10px] text-neutral-600 ">
+        <p className=" text-xl text-center lg:text-[18px] text-neutral-600 ">
           Just a moment...
         </p>
       </div>
