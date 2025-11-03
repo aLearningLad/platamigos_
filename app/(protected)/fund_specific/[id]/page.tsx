@@ -78,8 +78,9 @@ const FundSpecificPage = () => {
       const instmnt = Math.floor(due_amount / term);
       set_instalment(instmnt);
     };
-
-    calculate_due();
+    if (this_loan?.pcp) {
+      calculate_due();
+    }
   }, [this_loan?.pcp, rate, term]);
 
   const handleIsFunding = () => {
