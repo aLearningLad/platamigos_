@@ -18,8 +18,8 @@ const Funding: React.FC<I_funding> = ({
 }) => {
   return (
     <div className=" w-full min-h-screen py-3 flex flex-col justify-center items-center px-3 lg:px-24 xl:px-32 ">
-      <header className=" w-full flex justify-center mb-3 ">
-        <p className=" text-xl lg:text-[12px] ">
+      <header className=" w-full flex justify-center mb-2 lg:mb-5 ">
+        <p className=" text-xl lg:text-[18px] ">
           Configure your {"offer's"} terms{" "}
         </p>
       </header>
@@ -27,12 +27,12 @@ const Funding: React.FC<I_funding> = ({
         {/* left/top */}
         <div className=" w-full h-1/2 lg:h-full flex flex-col justify-around gap-2 ">
           {/* pcp */}
-          <div className=" w-full relative min-h-[25vh] max-h-fit lg:h-1/2 bg-slate-950 flex flex-col items-start p-2 rounded-lg ">
-            <p className=" text-white text-xl lg:text-[8px]">
+          <div className=" w-full relative min-h-[25vh] max-h-fit lg:h-1/2 bg-slate-950 flex flex-col items-start p-2 rounded-lg px-2">
+            <p className=" text-white text-xl lg:text-[14px] border-b-[1px] border-white p-2">
               Pinciple Investment
             </p>
             <span className=" flex w-full justify-between items-center">
-              <p className=" text-lg lg:text-[10px] text-white ">
+              <p className=" text-lg lg:text-[12px] text-white ">
                 {"You'd"} invest
               </p>
 
@@ -41,30 +41,24 @@ const Funding: React.FC<I_funding> = ({
 
             <button
               onClick={handleOfferToFund}
-              className=" lg:w-fit px-3 h-14 w-5/12 lg:h-8 absolute hover:scale-95 transition-all duration-200 hover:bg-white hover:text-black cursor-pointer bg-green-600 bottom-3 right-2.5 text-[16px] lg:text-[10px] text-white rounded-[6px]"
+              className=" lg:w-fit px-3 h-14 w-5/12 lg:h-8 absolute hover:scale-95 transition-all duration-200 hover:bg-white hover:text-black cursor-pointer bg-green-600 bottom-3 right-2.5 text-[16px] lg:text-[14px] text-white rounded-[6px]"
             >
               Submit Offer
             </button>
-            {/* <button
-              className=" border-4 border-red-600"
-              onClick={(e) => set_is_funding(false)}
-            >
-              Cancel
-            </button> */}
           </div>
           {/* rate */}
-          <div className="w-full h-1/2 bg-slate-950 flex flex-col items-start rounded-lg">
-            <p className="text-white text-xl lg:text-[8px] p-2">
+          <div className="w-full h-1/2 bg-slate-950 flex flex-col items-start rounded-lg px-2">
+            <p className="text-white text-xl lg:text-[14px] p-2 border-b-[1px] border-white">
               Rate (%) of return
             </p>
             <div className=" w-full h-full  rounded-[5px] flex gap-2 lg:flex-row flex-col justify-between items-center p-2">
-              <p className="text-white text-lg lg:text-[8px]">
+              <p className="text-white text-lg lg:text-[12px] ">
                 At {rate}% simple interest
               </p>
               <div className=" flex flex-col justify-center lg:items-end items-center w-full">
                 <input
                   name="rate"
-                  className=" bg-neutral-500/30 text-white lg:flex hidden w-fit px-5 h-8 rounded-[4px] text-[10px]"
+                  className=" bg-neutral-500/30 text-white lg:flex hidden w-fit px-5 h-8 rounded-[4px] text-[14px]"
                   type="number"
                   min={0}
                   max={30}
@@ -76,6 +70,7 @@ const Funding: React.FC<I_funding> = ({
                   }
                 />
 
+                {/* mobile */}
                 <div className=" w-full flex flex-row lg:hidden items-center">
                   <p className=" text-[16px] text-white italic mx-2 ">0</p>
                   <input
@@ -93,7 +88,7 @@ const Funding: React.FC<I_funding> = ({
                   />
                   <p className=" text-[16px] text-white italic mx-2">30%</p>
                 </div>
-                <p className=" text-[12px] lg:text-[6px] text-yellow-200 ">
+                <p className=" text-[12px] lg:text-[10px] text-yellow-200 ">
                   Adjust this
                 </p>
               </div>
