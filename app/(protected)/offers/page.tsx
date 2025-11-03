@@ -196,7 +196,7 @@ const OffersPage = () => {
 
   {
     return is_loading ? (
-      <div className=" w-full min-h-screen flex justify-center text-center items-center flex-col gap-4 text-neutral-700 text-2xl lg:text-[14px] bg-gradient-to-tr from-pink-400/10 via-cyan-500/10 to-orange-600/10">
+      <div className=" w-full min-h-screen flex justify-center text-center items-center flex-col gap-4 text-neutral-700 text-2xl lg:text-[16px] bg-gradient-to-tr from-pink-400/10 via-cyan-500/10 to-orange-600/10">
         Just a minute...
         <Lottie animationData={lottieLoader} className=" w-20 h-20" />
       </div>
@@ -204,11 +204,11 @@ const OffersPage = () => {
       <div className=" w-full min-h-screen flex flex-col items-center justify-center bg-gradient-to-tr from-pink-400/10 via-cyan-500/10 to-orange-600/10">
         {offers == undefined || offers.length < 1 ? (
           <div className=" w-full h-screen lg:h-full flex justify-center text-center items-center flex-col gap-5 p-3">
-            <p className=" text-2xl lg:text-[12px]">
+            <p className=" text-2xl lg:text-[14px]">
               You {"don't"} have any loan offers yet
             </p>
             <Link
-              className=" w-full sm:w-8/12 md:w-6/12 lg:w-fit h-20 px-6 lg:h-12 bg-cyan-600 text-white flex justify-center items-center text-xl lg:text-[12px] rounded-[5px] "
+              className=" w-full sm:w-8/12 md:w-6/12 lg:w-fit hover:bg-pink-600 hover:scale-95 transition-all duration-300 ease-in-out h-20 px-12 lg:h-12 bg-cyan-600 text-white flex justify-center items-center text-xl lg:text-[14px] rounded-[7px] "
               href={"/dash"}
             >
               Return to dash
