@@ -100,7 +100,7 @@ const Funding: React.FC<I_funding> = ({
         <div className=" w-full h-1/2 lg:h-full rounded-lg bg-slate-950 flex flex-col items-center justify-around p-2 ">
           {/* term */}
           <div className=" flex w-full justify-between lg:flex-row flex-col gap-2 items-center text-white">
-            <label className=" text-lg lg:text-[8px]" htmlFor="term">
+            <label className=" text-lg lg:text-[12px]" htmlFor="term">
               Term (in months)
             </label>
             <div className=" hidden lg:flex flex-col items-center">
@@ -117,7 +117,7 @@ const Funding: React.FC<I_funding> = ({
                   set_term(e.target.valueAsNumber)
                 }
               />
-              <p className=" text-[6px] text-yellow-200 ">Adjust this</p>
+              <p className=" text-[10px] text-yellow-200 ">Adjust this</p>
             </div>
 
             {/* term for mobile */}
@@ -141,14 +141,14 @@ const Funding: React.FC<I_funding> = ({
           </div>
           {/* due */}
           <div className=" flex gap-2 items-center w-full text-white justify-between mb-2">
-            <label className=" text-[14px] lg:text-[8px]" htmlFor="term">
+            <label className=" text-[14px] lg:text-[12px]" htmlFor="term">
               Accrued income will be
             </label>
             <div className="text-3xl text-white font-bold">R{due}</div>
           </div>
           {/* instalment */}
           <div className=" flex w-full bg-neutral-200/10 rounded-[6px] justify-between gap-2 items-center">
-            <div className=" text-lg lg:text-[10px] text-center  p-2 w-full h-fit overflow-auto lg:text-start py-2 text-white ">
+            <div className=" text-lg lg:text-[12px]  p-2 w-full h-fit overflow-auto lg:text-start py-2 text-white ">
               You would recieve <b>R{instalment}</b> per month, for {term}{" "}
               {term >= 2 ? "months" : "month"}
             </div>
@@ -157,13 +157,13 @@ const Funding: React.FC<I_funding> = ({
           {/* offer valid from */}
           <div className=" w-full flex justify-between items-center ">
             <label
-              className=" text-[14px] lg:text-[8px] text-white "
+              className=" text-[14px] lg:text-[12px] text-white "
               htmlFor="due_from"
             >
               Offer valid from
             </label>
             <input
-              className="bg-neutral-500/30 text-white w-fit px-5 h-8 rounded-[4px] text-[20px] lg:text-[10px]"
+              className="bg-neutral-500/30 text-white w-fit px-5 h-8 rounded-[4px] text-[20px] lg:text-[14px]"
               type="date"
               value={due_from}
               onChange={(e: ChangeEvent<HTMLInputElement>) =>
@@ -177,13 +177,13 @@ const Funding: React.FC<I_funding> = ({
           {/* offer valid until */}
           <div className=" w-full flex items-center justify-between mt-2">
             <label
-              className=" text-[14px] text-white lg:text-[8px] "
+              className=" text-[14px] text-white lg:text-[12px] "
               htmlFor="due_by"
             >
               Offer valid until
             </label>
             <input
-              className="bg-neutral-500/30 text-white w-fit px-5 h-8 rounded-[4px] text-[20px] lg:text-[10px]"
+              className="bg-neutral-500/30 text-white w-fit px-5 h-8 rounded-[4px] text-[20px] lg:text-[14px]"
               type="date"
               value={due_by}
               onChange={(e: ChangeEvent<HTMLInputElement>) =>
@@ -196,7 +196,7 @@ const Funding: React.FC<I_funding> = ({
         </div>
       </div>
       <button
-        className=" mt-5 cursor-pointer border-2 border-black hover:scale-95 hover:text-black hover:bg-transparent transition-all duration-200 ease-in-out w-full sm:w-10/12 md:w-8/12 lg:w-4/12 xl:w-fit xl:px-5 h-20 lg:h-10 bg-black text-white rounded-[6px]"
+        className=" mt-5 cursor-pointer border-2 border-black hover:scale-95 hover:text-black hover:bg-transparent transition-all duration-200 ease-in-out w-full sm:w-10/12 md:w-8/12 lg:w-5/12 xl:w-fit xl:px-12 h-20 lg:h-12 bg-black text-white rounded-[6px]"
         onClick={(e) => set_is_funding(false)}
       >
         Cancel

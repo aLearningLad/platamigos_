@@ -47,13 +47,13 @@ const Snapshot: React.FC<I_snapshot> = ({
 
       <button
         onClick={handleIsFunding}
-        className=" text-[16px] lg:text-[12px] w-full cursor-pointer sm:w-10/12 md:w-8/12 lg:w-2/12 hover:bg-black hover:scale-95 transition-all duration-200 ease-in-out bg-purple-950/40 text-white h-16 lg:h-10 flex justify-center items-center mt-5 rounded-[5px] "
+        className=" text-[16px] lg:text-[12px] w-full cursor-pointer sm:w-10/12 md:w-8/12 lg:w-2/12 hover:bg-black hover:scale-95 transition-all duration-200 ease-in-out bg-purple-950/40 text-white h-16 lg:h-12 flex justify-center items-center mt-5 rounded-[5px] "
       >
         Structure Deal
       </button>
 
       <button
-        className=" text-[16px] lg:text-[12px] w-full cursor-pointer sm:w-10/12 md:w-8/12 lg:w-2/12 hover:bg-red-500 hover:scale-95 transition-all duration-200 ease-in-out bg-black text-white h-16 lg:h-10 flex justify-center items-center mt-5 rounded-[5px] "
+        className=" text-[16px] lg:text-[12px] w-full cursor-pointer sm:w-10/12 md:w-8/12 lg:w-2/12 hover:bg-red-500 hover:scale-95 transition-all duration-200 ease-in-out bg-black text-white h-16 lg:h-12 flex justify-center items-center mt-5 rounded-[5px] "
         onClick={() => router.push("/fund")}
       >
         Return
