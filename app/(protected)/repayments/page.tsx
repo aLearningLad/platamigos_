@@ -11,6 +11,8 @@ import Link from "next/link";
 import toast from "react-hot-toast";
 import Lottie from "lottie-react";
 import lottieLoading from "../../../public/assets/lottieloading.json";
+import { userInfo } from "os";
+import { zar_currency } from "@/utils/utils";
 
 const RepaymentsPage = () => {
   const [debts, set_debts] = useState<Toffers[]>([]);
@@ -98,7 +100,9 @@ const RepaymentsPage = () => {
 
       if (loan_update_error) throw new Error(loan_update_error.message);
 
-      toast.error(`R${instalment} paid toward your loan.`);
+      toast.success(
+        `${zar_currency.format(instalment)} paid toward your loan.`
+      );
       set_is_modal(false);
       router.refresh();
       await fetchDebts();
@@ -110,14 +114,23 @@ const RepaymentsPage = () => {
   {
     return is_loading ? (
       <div className=" w-full min-h-screen flex justify-center items-center flex-col text-center p-3 bg-gradient-to-tr from-pink-400/10 via-cyan-500/10 to-orange-600/10">
-        <p className=" text-[12px]">
+        <p className=" text-[16px]">
           Sit tight, {"we're"} fetching your debt information...
         </p>
 
         <Lottie animationData={lottieLoading} className=" w-20 h-20" />
       </div>
     ) : (
-      <div className=" w-full min-h-screen flex flex-col items-center justify-center bg-gradient-to-tr from-pink-400/10 via-cyan-500/10 to-orange-600/10">
+      <div className=" w-full px-2 lg:px-12 min-h-screen flex flex-col items-center justify-center bg-gradient-to-tr from-pink-400/10 via-cyan-500/10 to-orange-600/10">
+        <header className=" mb-5">
+          <h3>
+            You have{" "}
+            <i className=" text-3xl">
+              {zar_currency.format(Number(user_info?.balance))}
+            </i>{" "}
+            remaining
+          </h3>
+        </header>
         {debts && debts.length > 0 ? (
           <div className="bg-neutral-400/10 rounded-lg flex overflow-auto flex-wrap justify-center items-center w-full h-[75vh]">
             {debts.map(
@@ -157,7 +170,7 @@ const RepaymentsPage = () => {
             <p>You {"don't"} have any outstanding debts right now</p>
             <Link
               href={"/dash"}
-              className=" mt-4 w-full lg:h-8 h-20 sm:w-8/12 md:w-6/12 lg:w-fit px-6 text-xl bg-black lg:text-[12px] flex justify-center items-center "
+              className=" mt-4 w-full lg:h-8 h-20 sm:w-8/12 md:w-6/12 lg:w-fit px-12 rounded-[6px] text-xl bg-black lg:text-[12px] flex justify-center items-center "
             >
               <p className=" text-white ">Return</p>
             </Link>

@@ -23,41 +23,43 @@ const RepaymentCard: React.FC<I_repayment_card> = ({
     >
       {/* details */}
       <div className=" w-full min-h-[10vh] flex flex-col items-center text-center ">
-        <p className="text-[12px] text-ellipsis ">{title}</p>
-        <p className="text-[8px] text-ellipsis ">{description}</p>
+        <p className="text-[16px] text-ellipsis ">{title}</p>
+        <p className="text-[12px] text-ellipsis ">{description}</p>
       </div>
 
       <div className=" w-full h-[2px] bg-white rounded-lg " />
 
       {/* creditor */}
       <span className=" w-full flex justify-between items-center">
-        <p className="text-[10px]">Funded by</p>
-        <p className="text-[10px] flex gap-1">
-          <FaUser size={10} />
+        <p className="text-[12px]">Funded by</p>
+        <p className="text-[12px] flex gap-1">
+          <FaUser size={14} />
           {alias}
         </p>
       </span>
 
       {/* pcp */}
       <span className=" w-full flex justify-between items-center">
-        <p className="text-[10px]">Amount funded</p>
-        <p className="text-[10px] flex gap-1">{zar_currency.format(pcp)}</p>
+        <p className="text-[12px]">Amount funded</p>
+        <p className="text-[12px] flex gap-1">{zar_currency.format(pcp)}</p>
       </span>
 
       {/* owing */}
       <span className=" w-full flex justify-between items-center">
-        <p className="text-[10px]">Remaining debt</p>
+        <p className="text-[12px]">Remaining debt</p>
         <p className="text-2xl flex gap-1">{zar_currency.format(due - pcp)}</p>
       </span>
 
       <button
         onClick={handleRepayment}
-        className=" w-full hover:scale-95 transition-all duration-200 ease-in-out cursor-pointer hover:bg-cyan-500 group h-8 rounded-[6px] bg-green-500 text-white text-[10px] flex justify-center items-center "
+        className=" w-full hover:scale-95 transition-all duration-200 ease-in-out cursor-pointer hover:bg-cyan-500 group h-20 md:h-16 lg:h-12 rounded-[6px] bg-green-500 text-white text-[10px] flex justify-center items-center "
       >
-        <p className=" flex group-hover:hidden">
+        <p className=" flex group-hover:hidden text-[14px]">
           Pay {zar_currency.format(Math.floor(due / term))}
         </p>
-        <p className=" hidden group-hover:flex">Service this debt</p>
+        <p className=" hidden group-hover:flex text-[14px]">
+          Service this debt
+        </p>
       </button>
     </div>
   );
