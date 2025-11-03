@@ -104,6 +104,7 @@ const OffersPage = () => {
 
       if (credit_scores_error) throw new Error(credit_scores_error.message);
 
+      toast.success("Loan offer accepted");
       await fetchOffers();
       set_is_loading(false);
       router.refresh();
@@ -207,7 +208,7 @@ const OffersPage = () => {
               You {"don't"} have any loan offers yet
             </p>
             <Link
-              className=" w-full sm:w-8/12 md:w-6/12 lg:w-fit h-20 px-6 lg:h-8 bg-cyan-600 text-white flex justify-center items-center text-xl lg:text-[12px] rounded-[5px] "
+              className=" w-full sm:w-8/12 md:w-6/12 lg:w-fit h-20 px-6 lg:h-12 bg-cyan-600 text-white flex justify-center items-center text-xl lg:text-[12px] rounded-[5px] "
               href={"/dash"}
             >
               Return to dash
