@@ -87,8 +87,20 @@ const FundSpecificPage = () => {
     set_is_funding((prev) => !prev);
   };
 
+  const convertToYMD = (dateValue: Date) => {
+    const year = dateValue.getFullYear();
+    const month = dateValue.getMonth();
+    const day = String(dateValue.getDate()).padStart(2, "0");
+
+    return `${year}-${month}-${day}`;
+  };
+
   const handleOfferToFund = async () => {
     set_is_loading(true);
+
+    const formatted_start_date = convertToYMD(new Date(due_from));
+    const formatted_end_date = convertToYMD(new Date(due_by));
+
     try {
       const supabase = createClient();
       const user_id = (await supabase.auth.getUser()).data.user?.id;
@@ -103,8 +115,8 @@ const FundSpecificPage = () => {
           debtor_id: this_loan?.user_id,
           due,
           term,
-          due_by,
-          due_from: due_from,
+          due_by: formatted_end_date,
+          due_from: formatted_start_date,
           rate,
           description: this_loan?.description,
           title: this_loan?.title,
@@ -114,7 +126,7 @@ const FundSpecificPage = () => {
         });
 
       // catch error
-      if (funding_offer_error) throw new Error(funding_offer_error.details);
+      if (funding_offer_error) throw new Error(funding_offer_error.message);
 
       // record in transactions_log
       const { error: transactions_log_error } = await supabase
@@ -134,7 +146,7 @@ const FundSpecificPage = () => {
       toast.success("Funding offer submitted");
       router.push("/dash");
     } catch (error) {
-      console.log("Unable to submit funding offer: ", error);
+      console.error("Unable to submit funding offer: ", error);
       set_is_loading(false);
       toast.error("Something went wrong!");
     }
