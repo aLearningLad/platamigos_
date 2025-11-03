@@ -7,6 +7,7 @@ import Snapshot from "@/app/components/fund_specific_ui/snapshot";
 import { action_types, loan_statuses, loan_types } from "@/enums";
 import { Tcommunity_requests } from "@/models/types";
 import { createClient } from "@/utils/supabase/client";
+import { convertToYMD } from "@/utils/utils";
 import { useParams, useRouter } from "next/navigation";
 import { title } from "process";
 import { useEffect, useState } from "react";
@@ -85,14 +86,6 @@ const FundSpecificPage = () => {
 
   const handleIsFunding = () => {
     set_is_funding((prev) => !prev);
-  };
-
-  const convertToYMD = (dateValue: Date) => {
-    const year = dateValue.getFullYear();
-    const month = dateValue.getMonth();
-    const day = String(dateValue.getDate()).padStart(2, "0");
-
-    return `${year}-${month}-${day}`;
   };
 
   const handleOfferToFund = async () => {

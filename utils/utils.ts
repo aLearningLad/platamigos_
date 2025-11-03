@@ -146,3 +146,11 @@ export const months_arr = [
   "Nov",
   "Dec",
 ];
+
+export const convertToYMD = (dateValue: Date) => {
+  const year = dateValue.getFullYear();
+  const month = dateValue.getMonth();
+  const day = String(dateValue.getDate()).padStart(2, "0");
+
+  return `${year}-${month}-${day}`;
+};

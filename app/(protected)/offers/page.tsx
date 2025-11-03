@@ -215,7 +215,7 @@ const OffersPage = () => {
           </div>
         ) : (
           <div className=" w-full px-1 sm:px-2 md:px-5 lg:px-28 xl:px-32 min-h-screen lg:h-full flex flex-col items-center justify-center ">
-            <header className=" text-2xl lg:text-[14px] relative mb-4 lg:mb-3 w-full flex justify-center items-center">
+            <header className=" text-2xl lg:text-[18px] relative mb-4 lg:mb-3 w-full flex justify-center items-center">
               <Link
                 href={"/dash"}
                 className=" absolute left-2 text-black lg:hidden block"
@@ -224,7 +224,7 @@ const OffersPage = () => {
               </Link>
               Funding Offers
             </header>
-            <p className=" text-lg lg:text-[10px] text-center mb-3">
+            <p className=" text-lg lg:text-[14px] text-center mb-3">
               Compare funding offers from potential amigos. <br />
               Choose the best deal for you, or accept multiple offers where
               possible
