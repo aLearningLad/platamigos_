@@ -196,18 +196,24 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .pulse1 {
-  animation: pulse1 3s ease-in-out infinite;
+  animation: pulse1 7s ease-in-out infinite;
 }
 
 @keyframes pulse1 {
   0% {
-    /* transform: scale(1); */
+  }
+  25% {
+    transform: translate(80%, 160%);
   }
   50% {
-    /* transform: scale(1.2); */
-    transform: translateY(60%);
+    transform: translate(50%, 460%);
+  }
+  60% {
+    transform: translate(70%, 400%);
+  }
+  75% {
+    transform: translate(110%, 560%);
   }
   100% {
-    /* transform: scale(1); */
   }
 }
