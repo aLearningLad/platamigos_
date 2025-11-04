@@ -18,19 +18,19 @@ const InputComp: React.FC<I_input_comp> = ({
       <input
         placeholder={placeholder}
         type="text"
-        className=" w-full peer h-12 placeholder:text-neutral-800 focus:placeholder:text-white bg-white focus:bg-black focus:text-white transition-all duration-200 ease-in-out text-black rounded-lg px-2 text-[12px] "
+        className=" w-full focus:border-none outline-none focus:scale-95 peer h-12 placeholder:text-neutral-800 focus:placeholder:text-neutral-700 bg-white transition-all duration-200 ease-in-out text-black rounded-lg px-2 text-[12px] "
         onChange={onChange}
         value={value}
       />
       <p
-        className={` text-[8px] text-center ${
-          !checker ? "peer-focus:flex text-red-600 " : "hidden"
+        className={` text-[12px] text-center ${
+          !checker ? "peer-focus:flex text-yellow-400 " : "hidden"
         }  `}
       >
         {warning_text}
       </p>
       <p
-        className={` text-[8px] text-center ${
+        className={` text-[12px] text-center ${
           checker ? "text-green-600" : "hidden"
         }  `}
       >

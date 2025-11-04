@@ -160,7 +160,7 @@ const SidebarNav = () => {
             {is_updating ? (
               <>bruv</>
             ) : (
-              <DialogContent className=" flex flex-col items-center justify-between py-2 h-screen lg:h-[90vh] bg-slate-800/70 ">
+              <DialogContent className=" flex flex-col items-center justify-between py-2 h-screen lg:h-[90vh] bg-cyan-900/80 ">
                 <DialogHeader>
                   <DialogTitle className=" w-full flex justify-center items-center text-center pt-5">
                     <p className=" text-[18px] text-white ">
@@ -242,7 +242,7 @@ const SidebarNav = () => {
                     <button className=" w-full cursor-pointer peer sm:w-10/12 md:w-8/12 lg:w-6/12 h-12 hover:scale-90 bg-black hover:bg-red-600 rounded-[8px] transition-all duration-200 ease-in-out text-white text-[14px] flex justify-center items-center ">
                       Delete my Account
                     </button>
-                    <div className=" flex text-transparent peer-hover:text-red-600 flex-col items-center  ">
+                    <div className=" flex text-transparent peer-hover:text-red-500 flex-col items-center  ">
                       <p className="text-[14px] underline mb-1 font-semibold text-center">
                         WARNING
                       </p>

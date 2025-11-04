@@ -65,29 +65,29 @@ const ExportDynamic = (set_is_modal: {
     <>
       {is_loading ? (
         <div className=" w-full h-full flex flex-col items-center justify-center text-center gap-3 ">
-          <p className=" ">Just a moment</p>
-          <p className=" text-[12px]">
+          <p className=" text-[22px] text-white ">Just a moment</p>
+          <p className=" text-[16px] text-white">
             Hang tight while we gather your <i>Plata.Migos</i> data...
           </p>
           <Lottie animationData={lottieLoading} className=" w-32 h-32" />
         </div>
       ) : (
-        <div className=" w-full h-full flex flex-col items-center justify-center text-center">
-          <h3 className=" font-semibold">
+        <div className=" w-full h-full flex flex-col items-center justify-center text-center ">
+          <h3 className=" font-semibold text-[22px] text-white">
             {"You're"} about to download your data
           </h3>
-          <p className=" text-[12px]">
+          <p className=" text-[14px] text-white">
             It will be saved as a JSON file on your device
           </p>
 
           <button
             onClick={handleExport}
-            className=" w-full cursor-pointer mt-12 mb-4 sm:w-10/12 md:w-8/12 lg:w-6/12 h-10 text-[12px] lg:h-8 rounded-[8px] text-white bg-cyan-500 "
+            className=" w-full cursor-pointer mt-12 mb-4 sm:w-10/12 md:w-8/12 lg:w-6/12 h-16 text-[14px] lg:h-12 rounded-[8px] text-white bg-cyan-500 "
           >
             Continue
           </button>
           <button
-            className=" w-full cursor-pointer sm:w-10/12 text-[12px] md:w-8/12 lg:w-6/12 h-10 lg:h-8 rounded-[8px] text-white bg-black "
+            className=" w-full cursor-pointer sm:w-10/12 text-[14px] md:w-8/12 lg:w-6/12 h-16 lg:h-12 rounded-[8px] text-white bg-red-500 "
             onClick={() => set_is_modal.set_is_modal(false)}
           >
             Cancel
