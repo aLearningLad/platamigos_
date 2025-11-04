@@ -42,8 +42,7 @@ export const dash_tab_info: Idash_tab[] = [
   {
     tab_id: 12872736281,
     title: "Repayments",
-    blurb:
-      "Track loan repayments, make additional payments and clear your debt",
+    blurb: "Track loan repayments & debt clearance",
     animation: lottie6,
     cta: "Export Data",
     href: "/repayments",

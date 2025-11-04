@@ -161,3 +161,53 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   background-color: white;
   border-radius: 4px;
 }
+
+.pulse3 {
+  animation: pulse3 2.5s ease-in-out infinite;
+}
+
+@keyframes pulse3 {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.pulse2 {
+  animation: pulse3 3s ease-in-out infinite;
+}
+
+@keyframes pulse2 {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+    transform: translate(23%, 20%);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.pulse1 {
+  animation: pulse1 3s ease-in-out infinite;
+}
+
+@keyframes pulse1 {
+  0% {
+    /* transform: scale(1); */
+  }
+  50% {
+    /* transform: scale(1.2); */
+    transform: translateY(60%);
+  }
+  100% {
+    /* transform: scale(1); */
+  }
+}

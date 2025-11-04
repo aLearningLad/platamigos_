@@ -8,7 +8,7 @@ const DashSettingsBtn = () => {
       href={"https://github.com/aLearningLad/platamigos_"}
       target="_blank"
       key={3728}
-      className=" w-full space-y-1 group hover:bg-black hover:border-transparent hover:scale-95 transition duration-300 ease-in lg:w-[30%] min-h-[45%] rounded-lg border-2 border-neutral-400/20 p-3 flex flex-col items-start justify-around"
+      className=" w-full space-y-1 group hover:bg-black hover:border-transparent hover:scale-95 transition duration-300 ease-in lg:w-[30%] min-h-[95%] rounded-lg border-2 border-neutral-400/20 p-3 flex flex-col items-start justify-around"
     >
       <div className=" bg-gradient-to-b from-cyan-700 via-cyan-400/40 to-neutral-50/10 w-8/12 h-[25vh] lg:w-fit lg:h-fit rounded-lg p-1 flex justify-center items-center">
         <Lottie
