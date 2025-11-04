@@ -152,23 +152,23 @@ const SidebarNav = () => {
             onOpenChange={() => set_is_dialog_open((prev) => !prev)}
           >
             <DialogTrigger>
-              <button className="w-full hover:translate-x-1 hover:font-bold transition duration-300 ease-in-out cursor-pointer flex items-center justify-start px-2 py-1 gap-1 h-12 rounded-lg">
+              <div className="w-full hover:translate-x-1 hover:font-bold transition duration-300 ease-in-out cursor-pointer flex items-center justify-start px-2 py-1 gap-1 h-12 rounded-lg">
                 <IoSettingsSharp size={20} className="text-black" />
                 <p className=" text-[14px] ">Settings</p>
-              </button>
+              </div>
             </DialogTrigger>
             {is_updating ? (
               <>bruv</>
             ) : (
-              <DialogContent className=" flex flex-col items-center justify-between py-2 h-screen lg:h-[90vh] ">
+              <DialogContent className=" flex flex-col items-center justify-between py-2 h-screen lg:h-[90vh] bg-slate-800/70 ">
                 <DialogHeader>
-                  <DialogTitle className=" w-full flex justify-center items-center text-center ">
-                    <p className=" text-[10px] text-neutral-800 ">
+                  <DialogTitle className=" w-full flex justify-center items-center text-center pt-5">
+                    <p className=" text-[18px] text-white ">
                       Update your profile
                     </p>
                   </DialogTitle>
                   <DialogDescription className=" w-full flex justify-center items-center text-center ">
-                    <p className=" text-[12px] text-neutral-700">
+                    <p className=" text-[14px] text-white">
                       Tweak your details or request to have your account
                       permanently deleted, a week from your opt-in
                     </p>
@@ -206,7 +206,7 @@ const SidebarNav = () => {
 
                 {/* updated_surname */}
                 <InputComp
-                  label="updated_surname"
+                  label="Update your surname"
                   placeholder={`Currently "${user_data[0].surname}"`}
                   onChange={(e: ChangeEvent<HTMLInputElement>) =>
                     set_updated_surname(e.target.value)
@@ -225,13 +225,13 @@ const SidebarNav = () => {
                     updated_alias.length < 3 &&
                     updated_surname.length < 3
                   }
-                  className={`w-full peer sm:w-10/12 md:w-8/12 lg:w-6/12 xl:w-4/12 h-10 hover:scale-90 ${
+                  className={`w-full peer sm:w-10/12 md:w-8/12 lg:w-6/12 h-12 hover:scale-90 ${
                     updated_first_name.length > 2 ||
                     updated_alias.length > 2 ||
                     updated_surname.length > 3
                       ? "bg-green-500 hover:bg-cyan-500"
                       : " brightness-[60%] bg-green-500 text-white"
-                  }  cursor-pointer rounded-[5px] transition-all h-10 duration-200 ease-in-out text-white text-[10px] flex justify-center items-center`}
+                  }  cursor-pointer rounded-[5px] transition-all h-12 duration-200 ease-in-out text-white text-[14px] flex justify-center items-center`}
                 >
                   Save Changes
                 </button>
@@ -239,14 +239,14 @@ const SidebarNav = () => {
                 {/* request account deletion */}
                 <div className=" w-full flex flex-col items-center justify-center space-y-1">
                   <div className=" w-full flex justify-center flex-col items-center">
-                    <button className=" w-full cursor-pointer peer sm:w-10/12 md:w-8/12 lg:w-6/12 xl:w-4/12 h-10 hover:scale-90 bg-black hover:bg-red-600 rounded-[5px] transition-all duration-200 ease-in-out text-white text-[10px] flex justify-center items-center ">
+                    <button className=" w-full cursor-pointer peer sm:w-10/12 md:w-8/12 lg:w-6/12 h-12 hover:scale-90 bg-black hover:bg-red-600 rounded-[8px] transition-all duration-200 ease-in-out text-white text-[14px] flex justify-center items-center ">
                       Delete my Account
                     </button>
                     <div className=" flex text-transparent peer-hover:text-red-600 flex-col items-center  ">
-                      <p className="text-[12px] underline mb-1 font-semibold text-center">
+                      <p className="text-[14px] underline mb-1 font-semibold text-center">
                         WARNING
                       </p>
-                      <p className=" text-[10px] text-center">
+                      <p className=" text-[12px] text-center">
                         This will permanently delete your account. You will have
                         seven (7) days to revoke your decision
                       </p>
