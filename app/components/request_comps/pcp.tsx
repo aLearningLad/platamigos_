@@ -11,16 +11,16 @@ const PCP: React.FC<I_pcp> = ({ pcp, set_pcp, set_part, disabler }) => {
   return (
     <div className=" w-full flex flex-col gap-2 items-center">
       <label className=" flex flex-col items-center text-center" htmlFor="pcp">
-        <p className="text-2xl lg:text-[14px] font-semibold">
+        <p className="text-2xl lg:text-[18px] font-semibold mt-1 mb-2">
           {"I'm"} asking for
         </p>
-        <p className=" text-xl lg:text-lg italic">R{pcp}</p>
+        <p className=" text-xl lg:text-[20px] italic">R{pcp}</p>
       </label>
 
       {/* desktop input */}
       <input
         name="pcp"
-        className="w-full hidden lg:flex md:w-10/12 lg:w-6/12 h-20 lg:h-8 focus:border-none focus:scale-95 transition ease-in-out duration-300 bg-neutral-500/10 text-black text-[12px] rounded-[6px] px-2 py-1 "
+        className="w-full hidden lg:flex md:w-10/12 lg:w-6/12 h-20 lg:h-12 focus:border-none focus:scale-95 transition ease-in-out duration-300 bg-neutral-500/10 text-black text-[12px] rounded-[6px] px-2 py-1 "
         type="number"
         min={0}
         max={50000}
@@ -48,7 +48,7 @@ const PCP: React.FC<I_pcp> = ({ pcp, set_pcp, set_part, disabler }) => {
         />
         <p className=" text-[20px] italic mx-2">R{"49,500"}</p>
       </div>
-      <p className=" text-xl lg:text-[10px] text-neutral-500 mb-20 lg:mb-12">
+      <p className=" text-xl lg:text-[14px] text-neutral-500 mb-20 lg:mb-12">
         You can request up to R49,500
       </p>
 

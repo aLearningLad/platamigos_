@@ -12,7 +12,7 @@ const NextBtn: React.FC<I_nextbtn> = ({
       disabled={disabler}
       className={`bg-cyan-600 ${
         disabler && "brightness-[80%]"
-      } cursor-pointer text-white lg:h-8 rounded-[6px] h-20 w-full md:w-8/12 lg:w-3/12 flex justify-center items-center py-2 text-xl  `}
+      } cursor-pointer text-white lg:h-12 rounded-[6px] h-20 w-full md:w-8/12 lg:w-3/12 flex justify-center items-center py-2 text-xl  `}
       onClick={(e) => {
         set_part((prev) => prev + 1);
         handleFxn();
@@ -21,7 +21,7 @@ const NextBtn: React.FC<I_nextbtn> = ({
       {disabler ? (
         <BiSolidNoEntry className=" text-3xl lg:text-lg text-white" />
       ) : (
-        <p className="md:text-[14px] lg:text-[12px] text-xl">Next</p>
+        <p className="md:text-[14px] text-xl">Next</p>
       )}
     </button>
   );

@@ -5,7 +5,7 @@ import { createClient } from "@/utils/supabase/client";
 import Lottie from "lottie-react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import loadingLottie from "@/public/assets/lottieloading.json";
+import loadingLottie from "@/public/assets/lottierushing.json";
 import PCP from "@/app/components/request_comps/pcp";
 import ReqTitle from "@/app/components/request_comps/req_title";
 import ReqDesc from "@/app/components/request_comps/req_desc";
@@ -82,16 +82,16 @@ const RequestALoanPage = () => {
   {
     return is_loading ? (
       <div className=" w-full min-h-screen flex flex-col justify-center items-center bg-gradient-to-bl from-pink-400/10 via-cyan-500/10 to-orange-600/10">
-        <p className=" text-2xl lg:text-[14px]">Just a minute...</p>
+        <p className=" text-2xl lg:text-[16px]">Just a minute...</p>
 
-        <p className=" text-xl lg:text-[12px] ">
+        <p className=" text-xl lg:text-[14px] ">
           {"We're"} submitting your loan request
         </p>
         <Lottie animationData={loadingLottie} className=" w-40 h-40 " />
       </div>
     ) : (
       <div className=" w-full min-h-screen flex flex-col items-center justify-center space-y-1 lg:space-y-5 bg-gradient-to-bl from-pink-400/10 via-cyan-500/10 to-orange-600/10">
-        <header className=" w-full flex flex-row mb-7 sm:mb-5 lg:mb-0 justify-center items-center gap-3">
+        <header className=" w-full flex flex-row mb-7 sm:mb-5 lg:mb-12 justify-center items-center gap-3">
           {req_trackers_info.map(
             ({ blurb, id, pending_icon, title, dependent_state }) => (
               <ProgressCircle
@@ -113,7 +113,7 @@ const RequestALoanPage = () => {
               pcp={pcp}
               set_pcp={set_pcp}
               set_part={set_part}
-              disabler={pcp < 0}
+              disabler={pcp < 0 || pcp > 49500}
             />
           )}
           {/* title */}

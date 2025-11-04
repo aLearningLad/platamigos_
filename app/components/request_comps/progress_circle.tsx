@@ -48,7 +48,7 @@ const ProgressCircle: React.FC<I_progress_circle> = ({
   return (
     <div
       ref={(id === 1 && circle1Ref) || (id === 2 && circle2Ref) || circle3Ref}
-      className=" w-20 h-20 bg-neutral-500/10 flex justify-center items-center flex-col mx-5 rounded-lg"
+      className=" w-40 h-40  bg-neutral-500/10 flex justify-center items-center flex-col mx-5 rounded-lg"
     >
       <div
         className={` rounded-full h-[50%] w-[50%] ${

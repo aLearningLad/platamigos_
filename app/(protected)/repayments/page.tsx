@@ -105,9 +105,11 @@ const RepaymentsPage = () => {
       );
       set_is_modal(false);
       router.refresh();
+      await fetchUserDetails();
       await fetchDebts();
     } catch (error) {
-      console.log("Unable to make repayment: ", error);
+      toast.error("Unable to make this repayment. Somethingwhen wrong");
+      console.error("Unable to make repayment: ", error);
     }
   };
 
