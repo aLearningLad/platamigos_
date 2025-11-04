@@ -100,7 +100,7 @@ const SidebarNav = () => {
 
   if (isLoading) {
     return (
-      <div className=" w-full h-[60%] flex justify-center items-center ">
+      <div className=" w-full h-full flex justify-center items-center ">
         <Lottie animationData={lottieLoader} className=" w-20 h-20 " />
       </div>
     );
