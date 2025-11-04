@@ -61,7 +61,7 @@ const ProgressCircle: React.FC<I_progress_circle> = ({
           <p className=" text-[12px] text-neutral-600">{id}</p>
         )}
       </div>
-      <p className=" text-[8px] mt-1 ">{title}</p>
+      <p className=" text-[12px] mt-1 ">{title}</p>
     </div>
   );
 };

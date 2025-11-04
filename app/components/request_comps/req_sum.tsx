@@ -39,7 +39,7 @@ const ReqSum: React.FC<I_req_sum> = ({
           set_title_is_done();
           set_pcp_is_done();
         }}
-        className=" text-white cursor-pointer bg-green-500 h-20 lg:h-8 rounded-[6px] w-full md:w-8/12 lg:w-3/12 px-12 flex justify-center items-center py-2 text-xl lg:text-[12px]"
+        className=" text-white cursor-pointer bg-green-500 h-20 lg:h-12 rounded-[6px] w-full md:w-8/12 lg:w-3/12 px-12 flex justify-center items-center py-2 text-xl lg:text-[14px]"
       >
         Publish Request
       </button>

@@ -15,7 +15,7 @@ const ReqDesc: React.FC<I_req_desc> = ({
 
   return (
     <div className=" flex flex-col items-center justify-center w-full">
-      <label className=" text-xl lg:text-[14px] " htmlFor="description">
+      <label className=" text-xl lg:text-[18px] " htmlFor="description">
         Description
       </label>
       <textarea
