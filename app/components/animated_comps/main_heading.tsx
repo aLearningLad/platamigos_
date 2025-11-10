@@ -12,8 +12,13 @@ const MainHeading = () => {
   const bottomTextRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
+    gsap.set(topTextRef.current, { autoAlpha: 1 });
+    gsap.set(middleTextRef.current, { autoAlpha: 1 });
+    gsap.set(bottomTextRef.current, { autoAlpha: 1 });
+
     // top text
     gsap.from(topTextRef.current, {
+      autoAlpha: 1,
       y: 500,
       opacity: 0,
       duration: 0.8,
@@ -21,6 +26,7 @@ const MainHeading = () => {
 
     // middle text
     gsap.from(middleTextRef.current, {
+      autoAlpha: 1,
       y: 600,
       delay: 0.9,
       opacity: 0,
@@ -29,6 +35,7 @@ const MainHeading = () => {
 
     // middle text
     gsap.from(bottomTextRef.current, {
+      autoAlpha: 1,
       y: 700,
       delay: 1.2,
       opacity: 0,
@@ -38,15 +45,15 @@ const MainHeading = () => {
 
   return (
     <span className="  font-bold text-center lg:text-start">
-      <h1 ref={topTextRef} className=" text-5xl">
+      <h1 ref={topTextRef} className=" text-5xl tohide">
         Send plata
       </h1>
 
-      <h1 ref={middleTextRef} className="text-5xl">
+      <h1 ref={middleTextRef} className="text-5xl tohide">
         between amigos,
       </h1>
 
-      <h1 ref={bottomTextRef} className="text-5xl">
+      <h1 ref={bottomTextRef} className="text-5xl tohide">
         quickly & simply
       </h1>
 

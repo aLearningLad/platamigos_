@@ -8,7 +8,7 @@ import { forwardRef } from "react";
 const TopJuttingIn = forwardRef<HTMLDivElement>((props, childRef) => (
   <div
     ref={childRef}
-    className=" absolute bottom-[60%] left-[27%] rounded-lg h-[50%] w-3/12 juttingcontainer z-10 "
+    className=" absolute bottom-[60%] left-[27%] rounded-lg h-[50%] w-3/12 juttingcontainer z-10  tohide"
   >
     {/* inner block */}
     <div className=" w-full h-full relative flex items-end ">

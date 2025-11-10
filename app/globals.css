@@ -217,3 +217,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   100% {
   }
 }
+
+.tohide {
+  visibility: hidden;
+}

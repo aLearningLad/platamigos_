@@ -5,7 +5,7 @@ import { forwardRef } from "react";
 const MainBlock = forwardRef<HTMLDivElement>((props, childRef) => (
   <div
     ref={childRef}
-    className=" w-full lg:w-[55%] h-[70%] bg-neutral-50/70 rounded-lg flex flex-col overflow-clip "
+    className=" w-full lg:w-[55%] h-[70%] bg-neutral-50/70 rounded-lg flex flex-col overflow-clip  tohide"
   >
     <div className=" h-20 w-full flex flex-row items-center justify-start px-4 ">
       <div className=" relative w-8 h-8 rounded-full overflow-hidden ">

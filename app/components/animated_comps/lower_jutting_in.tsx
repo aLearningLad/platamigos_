@@ -6,7 +6,7 @@ import { forwardRef } from "react";
 const LowerJuttingIn = forwardRef<HTMLDivElement>((props, childRef) => (
   <div
     ref={childRef}
-    className=" w-3/12 h-[40%] absolute bottom-0 bg-white left-1 rounded-lg flex flex-col items-center justify-around p-2 "
+    className=" w-3/12 h-[40%] absolute bottom-0 bg-white left-1 rounded-lg flex flex-col items-center justify-around p-2  tohide"
   >
     <Lottie animationData={moneyLottie} loop={true} className=" w-12 h-12 " />
     <p className=" text-[8px] font-bold ">Request Funding</p>

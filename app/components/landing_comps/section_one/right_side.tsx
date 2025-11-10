@@ -16,8 +16,13 @@ const RightSide = () => {
 
   useGSAP(
     () => {
+      gsap.set(topJuttingRef.current, { autoAlpha: 1 });
+      gsap.set(lowerJuttingRef.current, { autoAlpha: 1 });
+      gsap.set(mainBlockRef.current, { autoAlpha: 1 });
+
       // for topjutting
       gsap.from(topJuttingRef.current, {
+        autoAlpha: 1,
         x: 600,
         delay: 1,
         duration: 2.2,
@@ -27,6 +32,7 @@ const RightSide = () => {
 
       // for lowerjutting
       gsap.from(lowerJuttingRef.current, {
+        autoAlpha: 1,
         scale: 0,
         duration: 1.2,
         ease: "bounce.out",
@@ -34,6 +40,7 @@ const RightSide = () => {
 
       // for main block
       gsap.from(mainBlockRef.current, {
+        autoAlpha: 1,
         scale: 0,
         delay: 0.8,
         duration: 1.7,
